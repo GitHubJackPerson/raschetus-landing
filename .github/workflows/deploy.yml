@@ -1,0 +1,45 @@
+name: Deploy to prod-VPS
+
+# Публикует статику лендинга на прод-VPS (raschetus.ru → /var/www/raschetus.ru)
+# по SSH под непривилегированным пользователем deploy-rasch (пишет только в
+# каталог сайта; root и reload nginx не нужны — статика отдаётся как есть).
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'index.html'
+      - 'favicon.svg'
+      - 'robots.txt'
+      - 'sitemap.xml'
+      - 'assets/**'
+      - '.github/workflows/deploy.yml'
+  workflow_dispatch:
+
+concurrency:
+  group: deploy-prod
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup SSH
+        run: |
+          mkdir -p ~/.ssh
+          printf '%s\n' "${{ secrets.DEPLOY_SSH_KEY }}" > ~/.ssh/id_ed25519
+          chmod 600 ~/.ssh/id_ed25519
+          ssh-keyscan -H 72.56.247.99 >> ~/.ssh/known_hosts 2>/dev/null
+
+      - name: Stage site
+        run: |
+          mkdir -p _site
+          cp -r index.html favicon.svg robots.txt sitemap.xml assets _site/
+
+      - name: Deploy (rsync mirror)
+        run: |
+          rsync -az --delete \
+            -e "ssh -i ~/.ssh/id_ed25519 -o StrictHostKeyChecking=yes -o UserKnownHostsFile=$HOME/.ssh/known_hosts" \
+            _site/ deploy-rasch@72.56.247.99:/var/www/raschetus.ru/

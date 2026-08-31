@@ -58,42 +58,43 @@ python -m http.server 8080
 
 Захостен на прод-VPS **72.56.247.99** (тот же nginx, что `app-stpulse.ru`).
 
-- **Live:** https://raschetus.ru — HTTPS (Let's Encrypt, авто-продление certbot)
+- **Live:** https://raschetus.ru (и `www.raschetus.ru` → 301 на apex)
+- **HTTPS:** Let's Encrypt, SAN `raschetus.ru` + `www.raschetus.ru`, авто-продление certbot
 - **Репозиторий:** `GitHubJackPerson/raschetus-landing`
-- **Файлы на сервере:** `/var/www/raschetus.ru/`
+- **Файлы на сервере:** `/var/www/raschetus.ru/` (владелец `deploy-rasch`)
 - **nginx vhost:** `deploy/server/nginx/raschetus.ru.conf` (источник правды в репо;
   на сервере — `/etc/nginx/sites-available/raschetus.ru`)
-- **DNS:** `A raschetus.ru → 72.56.247.99`
+- **DNS:** `A raschetus.ru → 72.56.247.99`, `A www → 72.56.247.99`
 
 Другие домены на этом IP (`app-stpulse.ru`, `docs.app-stpulse.ru`) не затронуты —
 nginx разводит их по `server_name`.
 
-### Обновить контент
+### Обновить контент — штатно через CI
+
+Push в `main` (с изменением `index.html` / `assets/**` / и т.п.) →
+`.github/workflows/deploy.yml` по SSH синкает статику в `/var/www/raschetus.ru`
+под непривилегированным пользователем **`deploy-rasch`** (пишет только в каталог
+сайта; root и reload nginx не нужны — статика отдаётся как есть).
+
+Секрет: `DEPLOY_SSH_KEY` (приватный ключ deploy-rasch) — уже задан в репо.
+
+### Ручной фолбэк (если CI недоступен)
 
 ```bash
-./scripts/deploy.sh                        # tar+ssh синк статики + reload nginx
-RASCHETUS_DEPLOY_HOST=prod-kz ./scripts/deploy.sh   # через SSH-alias
+RASCHETUS_DEPLOY_HOST=prod-kz ./scripts/deploy.sh   # tar+ssh, требует root на хосте
 ```
-
-По правилам STPulse прод штатно катится через CI/CD. Автоматический выкат
-(GitHub Actions → scp на сервер) можно повесить отдельно — нужен deploy-ключ на
-сервере + секрет в репо (как `DEPLOY_SSH_KEY` в основных репозиториях). Пока
-обновление — скриптом.
 
 ### Первичная раскатка (если сервер пересоздаётся)
 
-1. `./scripts/deploy.sh` — залить файлы в `/var/www/raschetus.ru`.
+1. Создать пользователя `deploy-rasch`, положить его публичный ключ в
+   `~deploy-rasch/.ssh/authorized_keys`, отдать ему `/var/www/raschetus.ru`.
 2. Скопировать `deploy/server/nginx/raschetus.ru.conf` →
    `/etc/nginx/sites-available/raschetus.ru`, симлинк в `sites-enabled/`.
-3. `certbot --nginx -d raschetus.ru` — сертификат + редирект 80→443.
-4. `nginx -t && systemctl reload nginx`.
+3. `certbot certonly --nginx -d raschetus.ru -d www.raschetus.ru --expand`.
+4. `nginx -t && systemctl reload nginx`, затем `./scripts/deploy.sh` (контент).
 
 ## Открытые вопросы
 
-- **CI-деплой** — повесить GitHub Actions (push → scp), если нужен авто-выкат
-  вместо `scripts/deploy.sh`.
-- **www.raschetus.ru** — если нужен: `A www → 72.56.247.99` +
-  `certbot --nginx -d raschetus.ru -d www.raschetus.ru`.
 - **CTA «Подключить магазин»** — все три кнопки ведут на `https://app-stpulse.ru/`
   (регистрация в приложении может быть закрыта, `NUXT_PUBLIC_REGISTRATION_ENABLED=false`);
   кнопки помечены `data-cta="connect"`.

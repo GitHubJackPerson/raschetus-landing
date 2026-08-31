@@ -1,14 +1,13 @@
 #!/usr/bin/env bash
-# Деплой лендинга на прод-VPS (raschetus.ru → /var/www/raschetus.ru).
-# Требует только tar + ssh (rsync не нужен). Синкает статику и перезагружает nginx.
+# Ручной деплой лендинга на прод-VPS (raschetus.ru → /var/www/raschetus.ru).
+# Требует только tar + ssh (rsync не нужен). Статика — reload nginx не нужен.
 #
 # Использование:
-#   ./scripts/deploy.sh                       # хост из RASCHETUS_DEPLOY_HOST или дефолт
-#   RASCHETUS_DEPLOY_HOST=prod-kz ./scripts/deploy.sh
+#   RASCHETUS_DEPLOY_HOST=prod-kz ./scripts/deploy.sh   # root-хост для chown
 #
-# ВНИМАНИЕ: по правилам STPulse прод деплоится через CI/CD. Этот скрипт — для
-# первичной раскатки/хотфиксов; штатно контент лучше катить через GitHub Actions
-# (см. README, раздел «Деплой»).
+# ШТАТНЫЙ путь — GitHub Actions (push в main → .github/workflows/deploy.yml).
+# Этот скрипт — фолбэк для хотфиксов, когда CI недоступен. Требует root на хосте
+# (для chown в deploy-rasch); поэтому дефолтный HOST — root@…, а не deploy-rasch.
 
 set -euo pipefail
 
@@ -23,10 +22,8 @@ tar -cf - index.html favicon.svg robots.txt sitemap.xml assets \
   | ssh "$HOST" "set -e
       mkdir -p '${DEST}'
       tar -C '${DEST}' -xf -
-      chown -R root:root '${DEST}'
+      chown -R deploy-rasch:deploy-rasch '${DEST}'
       find '${DEST}' -type d -exec chmod 755 {} +
-      find '${DEST}' -type f -exec chmod 644 {} +
-      nginx -t
-      systemctl reload nginx"
+      find '${DEST}' -type f -exec chmod 644 {} +"
 
 echo "✓ Готово: https://raschetus.ru"
