@@ -6,8 +6,14 @@
   <title>Расчётус — аналитика прибыли для селлеров Ozon</title>
   <meta name="description" content="Расчётус отвечает цифрами: здоровье магазина, юнит-экономика по SKU, маржинальность в акциях, подсорт по кластерам и карта логистики. Каждый час дня — свой вопрос и готовый ответ.">
   <meta name="theme-color" content="#0e1110">
+  <meta name="color-scheme" content="dark light">
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+  <meta name="keywords" content="аналитика Ozon, юнит-экономика, прибыль селлера, отчёты Ozon, P&amp;L, себестоимость, планирование поставок, подсорт, акции Ozon, маржинальность, карта логистики, аналитика маркетплейс">
+  <meta name="author" content="Расчётус">
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="assets/img/badge.svg">
   <link rel="canonical" href="https://raschetus.ru/">
+  <link rel="preconnect" href="https://mc.yandex.ru" crossorigin>
 
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Расчётус">
@@ -15,7 +21,17 @@
   <meta property="og:description" content="Каждый час дня — свой вопрос селлера и готовый ответ в цифрах. Посчитано. Сходится. Точка.">
   <meta property="og:url" content="https://raschetus.ru/">
   <meta property="og:locale" content="ru_RU">
+  <meta property="og:image" content="https://raschetus.ru/assets/img/og.png">
+  <meta property="og:image:secure_url" content="https://raschetus.ru/assets/img/og.png">
+  <meta property="og:image:type" content="image/png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Расчётус — аналитика прибыли для селлеров Ozon">
   <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Расчётус — аналитика прибыли для селлеров Ozon">
+  <meta name="twitter:description" content="Каждый час дня — свой вопрос селлера и готовый ответ в цифрах. Посчитано. Сходится. Точка.">
+  <meta name="twitter:image" content="https://raschetus.ru/assets/img/og.png">
+  <meta name="twitter:image:alt" content="Расчётус — аналитика прибыли для селлеров Ozon">
 
   <script>
     (function () {
@@ -32,6 +48,86 @@
   <link rel="preload" href="assets/fonts/geist-cyrillic.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="assets/fonts/geist-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="assets/styles.css">
+
+  <!-- Structured data (Schema.org) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "https://raschetus.ru/#org",
+        "name": "Расчётус",
+        "alternateName": "STPulse",
+        "url": "https://raschetus.ru/",
+        "logo": "https://raschetus.ru/assets/img/og.png",
+        "description": "Аналитический сервис прибыли и юнит-экономики для селлеров маркетплейса Ozon.",
+        "areaServed": "RU",
+        "founder": { "@type": "Person", "name": "Ким Алина" }
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://raschetus.ru/#website",
+        "url": "https://raschetus.ru/",
+        "name": "Расчётус",
+        "inLanguage": "ru-RU",
+        "publisher": { "@id": "https://raschetus.ru/#org" }
+      },
+      {
+        "@type": "SoftwareApplication",
+        "name": "Расчётус",
+        "operatingSystem": "Web",
+        "applicationCategory": "BusinessApplication",
+        "url": "https://app-stpulse.ru/",
+        "description": "Аналитика прибыли для селлеров Ozon: дашборд «Пульс», юнит-экономика по SKU, маржинальность в акциях с автосценариями, подсорт по всем кластерам и FBS, карта логистики, план и прогноз прибыли.",
+        "inLanguage": "ru-RU",
+        "publisher": { "@id": "https://raschetus.ru/#org" },
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "RUB",
+          "description": "5 дней тестового периода без привязки карты"
+        }
+      },
+      {
+        "@type": "FAQPage",
+        "@id": "https://raschetus.ru/#faq",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Что происходит с магазином?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Дашборд «Пульс» — здоровье магазина за пять секунд. Один экран вместо двадцати отчётов Ozon: оценка от 0 до 100, что тянет прибыль вверх и вниз, топ-5 товаров и главные утечки по важности, и подсказка, за что взяться первым." }
+          },
+          {
+            "@type": "Question",
+            "name": "Какая прибыль с артикула?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Юнит-экономика до копейки на SKU: настоящая прибыль по каждому товару со всеми удержаниями Ozon и рекламой, разнесёнными до штуки. Видно, что из 1 290 ₽ остаётся 46 и почему, а не общей суммой в конце месяца." }
+          },
+          {
+            "@type": "Question",
+            "name": "Идти в акцию или нет?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Расчётус показывает маржинальность каждого артикула под скидкой, а автосценарии сами убирают убыточные из акций — до того, как они съедят месяц. Ozon добавляет товары в акции сам и не всегда предупреждает." }
+          },
+          {
+            "@type": "Question",
+            "name": "Сколько и куда везти?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Подсорт по всем кластерам Ozon и складам FBS: скорость продаж, дни запаса, товар в пути и в черновиках. Расчётус собирает сборочный лист, который Ozon принимает без правок, а слот приёмки бронирует за вас." }
+          },
+          {
+            "@type": "Question",
+            "name": "Где держать товар?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Карта логистики: остатки, поставки и отправления по регионам — локальность доставки, перегруженные и обнулённые склады. Решение о новом складе принимается по цифрам, а не на глаз." }
+          },
+          {
+            "@type": "Question",
+            "name": "Сколько заработаю в этом месяце?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Расчётус строит план продаж и прогноз прибыли на месяц по вашим данным. Видно, куда идёт бизнес и что заказывать — пока ещё можно повлиять, а не в отчёте задним числом." }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
 
   <!-- Yandex.Metrika counter -->
   <script type="text/javascript">
