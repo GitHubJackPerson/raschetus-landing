@@ -56,23 +56,98 @@
   window.addEventListener('resize', onScroll);
   tick();
 
-  /* ---------- Chat reveal ---------- */
+  /* ---------- Chat animation ---------- */
   /* html.anim is set in <head> only when prefers-reduced-motion is off.
-     Reveal each dialog once as it scrolls into view. */
+     For each dialog scrolling into view we stage a chat exchange:
+     the question is typed out, Расчётус "thinks" (dots), then types the
+     answer title, and the body prints in. Runs once per dialog. */
   if (root.classList.contains('anim')) {
     var dialogs = document.querySelectorAll('.dialog');
+
     if ('IntersectionObserver' in window) {
       var io = new IntersectionObserver(function (entries) {
         for (var i = 0; i < entries.length; i++) {
           if (entries[i].isIntersecting) {
-            entries[i].target.classList.add('seen');
             io.unobserve(entries[i].target);
+            stage(entries[i].target);
           }
         }
-      }, { rootMargin: '0px 0px -12% 0px', threshold: 0.15 });
+      }, { rootMargin: '0px 0px -14% 0px', threshold: 0.2 });
       for (var d = 0; d < dialogs.length; d++) io.observe(dialogs[d]);
+
+      // Safety net: stage any dialog already in view on load, so the first
+      // exchange animates even if the IO initial callback is delayed.
+      window.addEventListener('load', function () {
+        for (var i = 0; i < dialogs.length; i++) {
+          var r = dialogs[i].getBoundingClientRect();
+          if (r.top < window.innerHeight && r.bottom > 0) stage(dialogs[i]);
+        }
+      });
     } else {
-      for (var k = 0; k < dialogs.length; k++) dialogs[k].classList.add('seen');
+      revealAll(); // No IO support — show everything without staging.
     }
+  }
+
+  function revealAll() {
+    var i, els;
+    els = document.querySelectorAll('.dialog .msg');
+    for (i = 0; i < els.length; i++) els[i].classList.add('in');
+    els = document.querySelectorAll('.msg--service .answer-desc, .msg--service .panel');
+    for (i = 0; i < els.length; i++) els[i].classList.add('show');
+  }
+
+  /* Type an element's own text out character by character. */
+  function typewrite(el, speed, done) {
+    if (!el) { if (done) done(); return; }
+    var full = el.getAttribute('data-tw');
+    if (full === null) { full = el.textContent; el.setAttribute('data-tw', full); }
+    el.textContent = '';
+    el.classList.add('tw');
+    var i = 0;
+    (function step() {
+      el.textContent = full.slice(0, i);
+      if (i++ < full.length) {
+        setTimeout(step, speed);
+      } else {
+        el.classList.remove('tw');
+        if (done) done();
+      }
+    })();
+  }
+
+  function stage(dialog) {
+    if (dialog.__staged) return;
+    dialog.__staged = true;
+    var seller  = dialog.querySelector('.msg--seller');
+    var service = dialog.querySelector('.msg--service');
+    var q       = dialog.querySelector('.question');
+    var title   = dialog.querySelector('.answer-title');
+    var desc    = dialog.querySelector('.answer-desc');
+    var panel   = dialog.querySelector('.panel');
+
+    if (seller) seller.classList.add('in');
+
+    // 1) type the seller question
+    typewrite(q, 24, function () {
+      if (!service) return;
+
+      // 2) Расчётус "thinks" — typing dots
+      var typing = document.createElement('div');
+      typing.className = 'typing';
+      typing.setAttribute('aria-hidden', 'true');
+      typing.innerHTML = '<div class="typing__bubble"><span></span><span></span><span></span></div>';
+      service.parentNode.insertBefore(typing, service);
+      setTimeout(function () { typing.classList.add('in'); }, 120);
+
+      // 3) remove dots, print the answer
+      setTimeout(function () {
+        if (typing.parentNode) typing.parentNode.removeChild(typing);
+        service.classList.add('in');
+        typewrite(title, 20, function () {
+          if (desc)  desc.classList.add('show');
+          if (panel) panel.classList.add('show');
+        });
+      }, 1200);
+    });
   }
 })();

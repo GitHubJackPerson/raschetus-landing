@@ -428,20 +428,55 @@ img.avatar--service { display: block; }
 }
 
 /* ============================================================
-   CHAT REVEAL ANIMATION
+   CHAT ANIMATION
    Enabled only when html.anim is set (no prefers-reduced-motion).
-   JS adds .seen to a .dialog when it scrolls into view.
+   JS stages each dialog on scroll: question in → typing dots →
+   Расчётус "prints" the answer.
    ============================================================ */
 html.anim .dialog .msg { opacity: 0; }
-html.anim .dialog.seen .msg--seller {
-  animation: msgIn .5s cubic-bezier(.2, .7, .2, 1) forwards;
-}
-html.anim .dialog.seen .msg--service {
-  animation: msgIn .5s cubic-bezier(.2, .7, .2, 1) .5s forwards;
-}
+html.anim .msg.in { animation: msgIn .45s cubic-bezier(.2, .7, .2, 1) forwards; }
 @keyframes msgIn {
   from { opacity: 0; transform: translateY(12px); }
   to   { opacity: 1; transform: translateY(0); }
+}
+
+/* typing indicator (assistant is composing the answer) */
+.typing { display: flex; justify-content: flex-end; opacity: 0; }
+.typing.in { animation: msgIn .3s ease forwards; }
+.typing__bubble {
+  background: var(--tint);
+  border-radius: 14px 14px 4px 14px;
+  padding: 13px 17px;
+  display: inline-flex; gap: 6px; align-items: center;
+}
+.typing__bubble span {
+  width: 6px; height: 6px; border-radius: 50%;
+  background: var(--lime-tx);
+  animation: typeBlink 1.2s infinite ease-in-out;
+}
+.typing__bubble span:nth-child(2) { animation-delay: .18s; }
+.typing__bubble span:nth-child(3) { animation-delay: .36s; }
+@keyframes typeBlink {
+  0%, 60%, 100% { opacity: .25; transform: translateY(0); }
+  30%           { opacity: 1;   transform: translateY(-3px); }
+}
+
+/* typewriter caret while text is being printed */
+.tw::after {
+  content: '▍';
+  color: var(--lime-tx);
+  margin-left: 1px;
+  font-weight: 400;
+  animation: caretBlink 1s step-end infinite;
+}
+@keyframes caretBlink { 50% { opacity: 0; } }
+
+/* answer body prints after the title: hold desc + panel, then reveal */
+html.anim .msg--service .answer-desc,
+html.anim .msg--service .panel { opacity: 0; }
+html.anim .msg--service .answer-desc.show,
+html.anim .msg--service .panel.show {
+  animation: msgIn .4s cubic-bezier(.2, .7, .2, 1) forwards;
 }
 
 /* ============================================================
