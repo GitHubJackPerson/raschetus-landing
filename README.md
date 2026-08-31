@@ -54,57 +54,49 @@ python -m http.server 8080
 сохраняется в `localStorage` (`rsh-theme`). Инлайновый скрипт в `<head>`
 проставляет тему до первой отрисовки — вспышки нет.
 
-## Деплой (GitHub Pages)
+## Деплой
 
+Захостен на прод-VPS **72.56.247.99** (тот же nginx, что `app-stpulse.ru`).
+
+- **Live:** https://raschetus.ru — HTTPS (Let's Encrypt, авто-продление certbot)
 - **Репозиторий:** `GitHubJackPerson/raschetus-landing`
-- **Preview-URL:** https://githubjackperson.github.io/raschetus-landing/ (работает уже сейчас)
-- **CI:** `.github/workflows/deploy.yml` — на каждый push в `main` собирает и
-  публикует статику как есть (`actions/upload-pages-artifact` + `deploy-pages`).
-  Source в настройках Pages — **GitHub Actions**.
+- **Файлы на сервере:** `/var/www/raschetus.ru/`
+- **nginx vhost:** `deploy/server/nginx/raschetus.ru.conf` (источник правды в репо;
+  на сервере — `/etc/nginx/sites-available/raschetus.ru`)
+- **DNS:** `A raschetus.ru → 72.56.247.99`
 
-Сайт — чистая статика, все пути относительные, поэтому одинаково работает и на
-project-URL (`…/raschetus-landing/`), и на корне кастомного домена.
+Другие домены на этом IP (`app-stpulse.ru`, `docs.app-stpulse.ru`) не затронуты —
+nginx разводит их по `server_name`.
 
-### Подключить домен raschetus.ru
+### Обновить контент
 
-С Actions-деплоем кастомный домен задаётся **в настройках Pages** (файл `CNAME`
-в репозитории для этого потока игнорируется, поэтому его нет).
+```bash
+./scripts/deploy.sh                        # tar+ssh синк статики + reload nginx
+RASCHETUS_DEPLOY_HOST=prod-kz ./scripts/deploy.sh   # через SSH-alias
+```
 
-1. **DNS у регистратора raschetus.ru** — apex (`@`):
+По правилам STPulse прод штатно катится через CI/CD. Автоматический выкат
+(GitHub Actions → scp на сервер) можно повесить отдельно — нужен deploy-ключ на
+сервере + секрет в репо (как `DEPLOY_SSH_KEY` в основных репозиториях). Пока
+обновление — скриптом.
 
-   ```
-   A     @   185.199.108.153
-   A     @   185.199.109.153
-   A     @   185.199.110.153
-   A     @   185.199.111.153
-   AAAA  @   2606:50c0:8000::153
-   AAAA  @   2606:50c0:8001::153
-   AAAA  @   2606:50c0:8002::153
-   AAAA  @   2606:50c0:8003::153
-   ```
+### Первичная раскатка (если сервер пересоздаётся)
 
-   (опц.) `www` → `CNAME  www  githubjackperson.github.io.`
-
-2. **Указать домен в Pages** (после того как DNS начал резолвиться):
-
-   ```bash
-   printf '{"cname":"raschetus.ru"}' | \
-     gh api -X PUT repos/GitHubJackPerson/raschetus-landing/pages --input -
-   ```
-
-   либо: Settings → Pages → Custom domain → `raschetus.ru` → Save.
-
-3. Дождаться выпуска сертификата и включить **Enforce HTTPS** (Settings → Pages).
+1. `./scripts/deploy.sh` — залить файлы в `/var/www/raschetus.ru`.
+2. Скопировать `deploy/server/nginx/raschetus.ru.conf` →
+   `/etc/nginx/sites-available/raschetus.ru`, симлинк в `sites-enabled/`.
+3. `certbot --nginx -d raschetus.ru` — сертификат + редирект 80→443.
+4. `nginx -t && systemctl reload nginx`.
 
 ## Открытые вопросы
 
-- **DNS raschetus.ru** — домен зарегистрирован и управление DNS под контролем?
-  Записи выше нужно добавить у регистратора; это единственный оставшийся шаг до
-  живого домена. Готов подключить домен в Pages, как только DNS будет настроен.
-- **CTA «Подключить магазин»** — сейчас все ведут на `https://app-stpulse.ru/`.
-  Учесть: регистрация в приложении может быть закрыта
-  (`NUXT_PUBLIC_REGISTRATION_ENABLED=false`) — при необходимости заменить цель
-  (все три кнопки помечены `data-cta="connect"`).
+- **CI-деплой** — повесить GitHub Actions (push → scp), если нужен авто-выкат
+  вместо `scripts/deploy.sh`.
+- **www.raschetus.ru** — если нужен: `A www → 72.56.247.99` +
+  `certbot --nginx -d raschetus.ru -d www.raschetus.ru`.
+- **CTA «Подключить магазин»** — все три кнопки ведут на `https://app-stpulse.ru/`
+  (регистрация в приложении может быть закрыта, `NUXT_PUBLIC_REGISTRATION_ENABLED=false`);
+  кнопки помечены `data-cta="connect"`.
 
 ## Правки контента
 
