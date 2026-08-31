@@ -55,4 +55,24 @@
   window.addEventListener('scroll', onScroll, { passive: true });
   window.addEventListener('resize', onScroll);
   tick();
+
+  /* ---------- Chat reveal ---------- */
+  /* html.anim is set in <head> only when prefers-reduced-motion is off.
+     Reveal each dialog once as it scrolls into view. */
+  if (root.classList.contains('anim')) {
+    var dialogs = document.querySelectorAll('.dialog');
+    if ('IntersectionObserver' in window) {
+      var io = new IntersectionObserver(function (entries) {
+        for (var i = 0; i < entries.length; i++) {
+          if (entries[i].isIntersecting) {
+            entries[i].target.classList.add('seen');
+            io.unobserve(entries[i].target);
+          }
+        }
+      }, { rootMargin: '0px 0px -12% 0px', threshold: 0.15 });
+      for (var d = 0; d < dialogs.length; d++) io.observe(dialogs[d]);
+    } else {
+      for (var k = 0; k < dialogs.length; k++) dialogs[k].classList.add('seen');
+    }
+  }
 })();
