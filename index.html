@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Расчётус — аналитика прибыли для селлеров Ozon</title>
+  <meta name="description" content="Расчётус отвечает цифрами. Здоровье магазина, юнит-экономика, точка безубыточности в акциях, подсорт по кластерам и карта логистики — каждый час дня свой вопрос и готовый ответ.">
+  <meta name="theme-color" content="#0e1110">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="canonical" href="https://raschetus.ru/">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Расчётус">
+  <meta property="og:title" content="Расчётус — аналитика прибыли для селлеров Ozon">
+  <meta property="og:description" content="Каждый час дня — свой вопрос селлера и готовый ответ в цифрах. Посчитано. Сходится. Точка.">
+  <meta property="og:url" content="https://raschetus.ru/">
+  <meta property="og:locale" content="ru_RU">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <!-- Set theme before paint to avoid a flash -->
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem('rsh-theme');
+        if (!t) t = 'dark';
+        if (t === 'light') document.documentElement.classList.add('light');
+      } catch (e) {}
+    })();
+  </script>
+
+  <link rel="preload" href="assets/fonts/geist-cyrillic.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fonts/geist-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="assets/styles.css">
+</head>
+<body>
+
+  <!-- ===================== DAY STRIP (header) ===================== -->
+  <header class="day-strip">
+    <div class="day-strip__inner">
+      <a href="#top" class="logo" aria-label="Расчётус — на главную">
+        <span class="badge logo__badge" aria-hidden="true"><span class="emark">е</span></span>
+        <span class="logo__word">расч<span class="accent emark">ё</span>тус</span>
+      </a>
+
+      <div class="progress" aria-hidden="true">
+        <div class="progress__labels" id="hourLabels">
+          <span>09:05</span><span>10:40</span><span>12:15</span>
+          <span>14:30</span><span>16:20</span><span>18:00</span>
+        </div>
+        <div class="progress__track">
+          <div class="progress__fill" id="progressFill"></div>
+          <div class="progress__dot" id="progressDot"></div>
+        </div>
+      </div>
+
+      <button type="button" class="theme-toggle" id="themeToggle"
+              aria-label="Сменить тему" title="Сменить тему">◐</button>
+
+      <a href="#end" class="btn btn--sm btn--lime">Подключить</a>
+    </div>
+  </header>
+
+  <main>
+    <!-- ===================== OPENING (hero) ===================== -->
+    <section id="top" class="hero" aria-label="Открытие">
+      <p class="eyebrow">расчётус · <span class="ozonus">озонус</span></p>
+      <h1 class="hero__title">Как увеличить прибыль?</h1>
+      <p class="hero__sub">И другие вопросы селлеров изо дня в день…</p>
+      <div class="hero__body">
+        <p class="hero__lead">Расчётус отвечает цифрами. Каждый час дня — свой вопрос и готовый ответ.</p>
+        <div class="hero__cta">
+          <a href="#end" class="btn btn--lime btn--lg">Подключить магазин</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== HOURS ===================== -->
+
+    <!-- 09:05 — дашборд «Пульс» -->
+    <section id="h1" class="moment" data-moment="0" aria-label="09:05 — дашборд «Пульс»">
+      <div class="moment__grid">
+        <div class="clock">
+          <div class="clock__time">09:05</div>
+          <div class="clock__part">начало дня</div>
+        </div>
+        <div class="dialog">
+          <div class="msg msg--seller">
+            <span class="avatar avatar--seller" aria-hidden="true">СЛР</span>
+            <div class="bubble--seller">
+              <div class="bubble__kicker">селлер</div>
+              <span class="question">Что происходит с магазином?</span>
+            </div>
+          </div>
+          <div class="msg msg--service">
+            <div class="bubble--service">
+              <div class="bubble__kicker">расчётус</div>
+              <h2 class="answer-title">Пульс отвечает за пять секунд</h2>
+              <p class="answer-desc">Оценка здоровья от 0 до 100, драйверы прибыли и убытка, топ-5 товаров и утечки денег стоят в порядке важности. Decision Engine внизу дописывает, с чего начать.</p>
+              <div class="panel">
+                <span class="panel__label">здоровье бизнеса 0–100</span>
+                <div class="pulse">
+                  <svg class="pulse__ring" viewBox="0 0 100 100" aria-hidden="true">
+                    <circle cx="50" cy="50" r="38" fill="none" stroke="var(--hair)" stroke-width="8"></circle>
+                    <circle cx="50" cy="50" r="38" fill="none" stroke="var(--lime-tx)" stroke-width="8"
+                            stroke-linecap="round" stroke-dasharray="176 239"
+                            transform="rotate(-90 50 50)"></circle>
+                    <text x="50" y="56" text-anchor="middle" font-size="25" font-weight="800" fill="var(--lime-tx)">74</text>
+                  </svg>
+                  <div class="pulse__notes">
+                    <span class="c-neg">− реклама выше нормы: 6 SKU</span>
+                    <span class="c-warn">− два кластера в ноль за 3 дня</span>
+                    <span class="c-lime">+ маржа растёт третью неделю</span>
+                    <span class="c-mut">сначала: ставки на 2 артикулах</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <span class="avatar avatar--service" aria-hidden="true"><span class="emark">е</span></span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 10:40 — юнит-экономика -->
+    <section id="h2" class="moment moment--alt" data-moment="1" aria-label="10:40 — юнит-экономика">
+      <div class="moment__grid">
+        <div class="clock">
+          <div class="clock__time">10:40</div>
+          <div class="clock__part">за столом</div>
+        </div>
+        <div class="dialog">
+          <div class="msg msg--seller">
+            <span class="avatar avatar--seller" aria-hidden="true">СЛР</span>
+            <div class="bubble--seller">
+              <div class="bubble__kicker">селлер</div>
+              <span class="question">Какая прибыль с этого артикула?</span>
+            </div>
+          </div>
+          <div class="msg msg--service">
+            <div class="bubble--service">
+              <div class="bubble__kicker">расчётус</div>
+              <h2 class="answer-title">Реклама съела маржу именно на нём</h2>
+              <p class="answer-desc">CPC и CPO приходят поартикульно из Performance API и вычитаются там, где возникли, вместе с комиссией, логистикой и хранением. Из 1 290 ₽ остаётся 46.</p>
+              <div class="panel">
+                <span class="panel__label">разбор одной продажи</span>
+                <div class="bars">
+                  <div class="bar">
+                    <div class="bar__head"><span class="bar__label">продажи, 1 шт</span><span class="bar__val">1 290 ₽</span></div>
+                    <div class="bar__track"><div class="bar__fill" style="width:100%;background:var(--tx)"></div></div>
+                  </div>
+                  <div class="bar">
+                    <div class="bar__head"><span class="bar__label">комиссия + логистика</span><span class="bar__val c-neg">−418 ₽</span></div>
+                    <div class="bar__track"><div class="bar__fill" style="width:32%;background:var(--neg)"></div></div>
+                  </div>
+                  <div class="bar">
+                    <div class="bar__head"><span class="bar__label">себестоимость</span><span class="bar__val c-neg">−540 ₽</span></div>
+                    <div class="bar__track"><div class="bar__fill" style="width:42%;background:var(--neg)"></div></div>
+                  </div>
+                  <div class="bar">
+                    <div class="bar__head"><span class="bar__label">реклама CPC + CPO</span><span class="bar__val c-warn">−286 ₽</span></div>
+                    <div class="bar__track"><div class="bar__fill" style="width:22%;background:var(--warn)"></div></div>
+                  </div>
+                  <div class="bars__total"><span>осталось</span><span class="c-neg">46 ₽ · 3,6%</span></div>
+                </div>
+              </div>
+            </div>
+            <span class="avatar avatar--service" aria-hidden="true"><span class="emark">е</span></span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 12:15 — акции Ozon -->
+    <section id="h3" class="moment" data-moment="2" aria-label="12:15 — акции Ozon">
+      <div class="moment__grid">
+        <div class="clock">
+          <div class="clock__time">12:15</div>
+          <div class="clock__part">до обеда</div>
+        </div>
+        <div class="dialog">
+          <div class="msg msg--seller">
+            <span class="avatar avatar--seller" aria-hidden="true">СЛР</span>
+            <div class="bubble--seller">
+              <div class="bubble__kicker">селлер</div>
+              <span class="question">Идти в акцию или нет?</span>
+            </div>
+          </div>
+          <div class="msg msg--service">
+            <div class="bubble--service">
+              <div class="bubble__kicker">расчётус</div>
+              <h2 class="answer-title">Точка Б посчитана по каждому SKU</h2>
+              <p class="answer-desc">Ozon умеет добавлять товары в акции сам и не всегда предупреждает. Скидка ложится поверх комиссии, и продажа уходит под точку безубыточности незаметно — здесь это видно сразу, до согласия.</p>
+              <div class="panel">
+                <span class="panel__label">точка безубыточности</span>
+                <div class="chips">
+                  <span class="chip c-lime">в акции <b>9</b></span>
+                  <span class="chip c-warn">добавлены Ozon <b>4</b></span>
+                  <span class="chip c-neg">ниже точки Б <b>3</b></span>
+                </div>
+                <div class="lines">
+                  <div class="line"><span class="line__name">м/чёрный/50</span><span class="line__mid">−12%</span><span class="line__val c-neg">ниже Б</span></div>
+                  <div class="line"><span class="line__name">n/fytbolka/bel/48</span><span class="line__mid">−8%</span><span class="line__val c-warn">на грани</span></div>
+                  <div class="line"><span class="line__name">pled/zelen/220</span><span class="line__mid">−15%</span><span class="line__val c-lime">держит</span></div>
+                </div>
+              </div>
+            </div>
+            <span class="avatar avatar--service" aria-hidden="true"><span class="emark">е</span></span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 14:30 — поставки -->
+    <section id="h4" class="moment moment--alt" data-moment="3" aria-label="14:30 — поставки">
+      <div class="moment__grid">
+        <div class="clock">
+          <div class="clock__time">14:30</div>
+          <div class="clock__part">после обеда</div>
+        </div>
+        <div class="dialog">
+          <div class="msg msg--seller">
+            <span class="avatar avatar--seller" aria-hidden="true">СЛР</span>
+            <div class="bubble--seller">
+              <div class="bubble__kicker">селлер</div>
+              <span class="question">Сколько и куда везти?</span>
+            </div>
+          </div>
+          <div class="msg msg--service">
+            <div class="bubble--service">
+              <div class="bubble__kicker">расчётус</div>
+              <h2 class="answer-title">Подсорт посчитан по кластерам</h2>
+              <p class="answer-desc">Скорость продаж, дни запаса, то что уже в пути и в черновиках — по 23 кластерам Ozon и складам FBS. Пустой склад и замороженный склад стоят одинаково дорого.</p>
+              <div class="panel">
+                <span class="panel__label">дни запаса · 23 кластера + FBS</span>
+                <div class="clusters">
+                  <div class="cluster cluster--warn" title="12 дней запаса">12</div>
+                  <div class="cluster cluster--crit" title="6 дней запаса">6</div>
+                  <div class="cluster cluster--cool" title="31 день запаса">31</div>
+                  <div class="cluster cluster--crit" title="3 дня запаса">3</div>
+                  <div class="cluster cluster--ok"   title="18 дней запаса">18</div>
+                  <div class="cluster cluster--warn" title="9 дней запаса">9</div>
+                  <div class="cluster cluster--cool" title="44 дня запаса">44</div>
+                  <div class="cluster cluster--crit" title="7 дней запаса">7</div>
+                  <div class="cluster cluster--ok"   title="22 дня запаса">22</div>
+                  <div class="cluster cluster--crit" title="5 дней запаса">5</div>
+                  <div class="cluster cluster--warn" title="14 дней запаса">14</div>
+                  <div class="cluster cluster--ok"   title="27 дней запаса">27</div>
+                  <div class="cluster cluster--crit" title="2 дня запаса">2</div>
+                  <div class="cluster cluster--cool" title="38 дней запаса">38</div>
+                  <div class="cluster cluster--warn" title="11 дней запаса">11</div>
+                  <div class="cluster cluster--warn" title="8 дней запаса">8</div>
+                  <div class="cluster cluster--ok"   title="25 дней запаса">25</div>
+                  <div class="cluster cluster--ok"   title="16 дней запаса">16</div>
+                  <div class="cluster cluster--crit" title="4 дня запаса">4</div>
+                  <div class="cluster cluster--cool" title="33 дня запаса">33</div>
+                  <div class="cluster cluster--ok"   title="19 дней запаса">19</div>
+                  <div class="cluster cluster--crit" title="6 дней запаса">6</div>
+                  <div class="cluster cluster--ok"   title="29 дней запаса">29</div>
+                </div>
+              </div>
+            </div>
+            <span class="avatar avatar--service" aria-hidden="true"><span class="emark">е</span></span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 16:20 — карта логистики -->
+    <section id="h5" class="moment" data-moment="4" aria-label="16:20 — карта логистики">
+      <div class="moment__grid">
+        <div class="clock">
+          <div class="clock__time">16:20</div>
+          <div class="clock__part">конец дня</div>
+        </div>
+        <div class="dialog">
+          <div class="msg msg--seller">
+            <span class="avatar avatar--seller" aria-hidden="true">СЛР</span>
+            <div class="bubble--seller">
+              <div class="bubble__kicker">селлер</div>
+              <span class="question">Где держать товар?</span>
+            </div>
+          </div>
+          <div class="msg msg--service">
+            <div class="bubble--service">
+              <div class="bubble__kicker">расчётус</div>
+              <h2 class="answer-title">Карта показывает, кто кормит, а кто ест</h2>
+              <p class="answer-desc">Остатки, поставки и отправления в разрезе регионов: локальность доставки, перегруженные склады и обнулённые — те, что идут к возмещению.</p>
+              <div class="panel">
+                <span class="panel__label">поставки · остатки · отправления</span>
+                <div class="geo">
+                  <div class="geo__row">
+                    <div class="geo__meta"><span class="geo__name">Центр</span>
+                      <div class="geo__track"><div class="geo__fill" style="width:68%;background:var(--lime-tx)"></div></div></div>
+                    <span class="geo__pct">41%</span>
+                  </div>
+                  <div class="geo__row">
+                    <div class="geo__meta"><span class="geo__name">Юг</span>
+                      <div class="geo__track"><div class="geo__fill" style="width:34%;background:var(--lime-tx)"></div></div></div>
+                    <span class="geo__pct">19%</span>
+                  </div>
+                  <div class="geo__row">
+                    <div class="geo__meta"><span class="geo__name">Северо-Запад</span>
+                      <div class="geo__track"><div class="geo__fill" style="width:16%;background:var(--lime-tx)"></div></div></div>
+                    <span class="geo__pct">9%</span>
+                  </div>
+                  <div class="geo__row">
+                    <div class="geo__meta"><span class="geo__name">Урал</span>
+                      <div class="geo__track"><div class="geo__fill" style="width:26%;background:var(--warn)"></div></div></div>
+                    <span class="geo__pct">14%</span>
+                  </div>
+                  <div class="geo__row">
+                    <div class="geo__meta"><span class="geo__name">Сибирь</span>
+                      <div class="geo__track"><div class="geo__fill" style="width:20%;background:var(--warn)"></div></div></div>
+                    <span class="geo__pct">11%</span>
+                  </div>
+                  <div class="geo__row">
+                    <div class="geo__meta"><span class="geo__name">Дальний Восток</span>
+                      <div class="geo__track"><div class="geo__fill" style="width:11%;background:var(--neg)"></div></div></div>
+                    <span class="geo__pct">6%</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <span class="avatar avatar--service" aria-hidden="true"><span class="emark">е</span></span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 18:00 — итог дня -->
+    <section id="h6" class="moment moment--alt" data-moment="5" aria-label="18:00 — итог дня">
+      <div class="moment__grid">
+        <div class="clock">
+          <div class="clock__time">18:00</div>
+          <div class="clock__part">вечер</div>
+        </div>
+        <div class="dialog">
+          <div class="msg msg--seller">
+            <span class="avatar avatar--seller" aria-hidden="true">СЛР</span>
+            <div class="bubble--seller">
+              <div class="bubble__kicker">селлер</div>
+              <span class="question">Чем закончился день?</span>
+            </div>
+          </div>
+          <div class="msg msg--service">
+            <div class="bubble--service">
+              <div class="bubble__kicker">расчётус</div>
+              <h2 class="answer-title">День закрыт цифрой</h2>
+              <p class="answer-desc">Прибыль за день посчитана со всеми удержаниями, все решения приняты на данных. Ничего не осталось «посмотреть завтра».</p>
+              <div class="panel">
+                <span class="panel__label">день в цифрах</span>
+                <div class="day">
+                  <div class="day__row"><span class="k">выручка за день</span><span class="v">214 800 ₽</span></div>
+                  <div class="day__row"><span class="k">чистая прибыль</span><span class="v c-lime">+48 120 ₽</span></div>
+                  <div class="day__row"><span class="k">вопросов закрыто</span><span class="v">6 из 6</span></div>
+                  <svg class="day__chart" viewBox="0 0 300 70" preserveAspectRatio="none" aria-hidden="true">
+                    <polyline points="0,58 40,52 80,44 120,48 160,32 200,26 240,18 280,12 280,70 0,70" fill="var(--tint)"></polyline>
+                    <polyline points="0,58 40,52 80,44 120,48 160,32 200,26 240,18 280,12" fill="none"
+                              stroke="var(--lime-tx)" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"></polyline>
+                    <circle cx="280" cy="12" r="3.5" fill="var(--lime-tx)"></circle>
+                  </svg>
+                </div>
+              </div>
+            </div>
+            <span class="avatar avatar--service" aria-hidden="true"><span class="emark">е</span></span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== CLOSING (motto) ===================== -->
+    <section id="end" class="closing" aria-label="Финал">
+      <p class="closing__eyebrow">расчётус</p>
+      <p class="closing__motto">Посчитано.<br>Сходится.<br>Точка.</p>
+      <div class="closing__cta">
+        <a href="https://app-stpulse.ru/" class="btn btn--dark" data-cta="connect">Подключить магазин →</a>
+      </div>
+    </section>
+  </main>
+
+  <!-- ===================== FOOTER ===================== -->
+  <footer class="footer">
+    <span>© 2026 расчётус · аналитика прибыли для селлеров Ozon</span>
+    <span class="footer__motto">посчитано · сходится · точка</span>
+  </footer>
+
+  <script src="assets/app.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,9 @@
+# Normalize text to LF in the repo; renderers/servers don't care about EOL.
+* text=auto eol=lf
+
+# Binary assets — never touch EOL / never diff as text.
+*.woff2 binary
+*.woff  binary
+*.png   binary
+*.jpg   binary
+*.svg   text eol=lf
