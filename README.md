@@ -54,18 +54,57 @@ python -m http.server 8080
 сохраняется в `localStorage` (`rsh-theme`). Инлайновый скрипт в `<head>`
 проставляет тему до первой отрисовки — вспышки нет.
 
-## Деплой
+## Деплой (GitHub Pages)
 
-Сайт полностью статический — подойдёт любой вариант: nginx на VPS,
-GitHub Pages, объектное хранилище со static-website. Домен `raschetus.ru`.
-Конкретный хостинг/DNS-контур — по решению владельца (см. открытые вопросы ниже).
+- **Репозиторий:** `GitHubJackPerson/raschetus-landing`
+- **Preview-URL:** https://githubjackperson.github.io/raschetus-landing/ (работает уже сейчас)
+- **CI:** `.github/workflows/deploy.yml` — на каждый push в `main` собирает и
+  публикует статику как есть (`actions/upload-pages-artifact` + `deploy-pages`).
+  Source в настройках Pages — **GitHub Actions**.
+
+Сайт — чистая статика, все пути относительные, поэтому одинаково работает и на
+project-URL (`…/raschetus-landing/`), и на корне кастомного домена.
+
+### Подключить домен raschetus.ru
+
+С Actions-деплоем кастомный домен задаётся **в настройках Pages** (файл `CNAME`
+в репозитории для этого потока игнорируется, поэтому его нет).
+
+1. **DNS у регистратора raschetus.ru** — apex (`@`):
+
+   ```
+   A     @   185.199.108.153
+   A     @   185.199.109.153
+   A     @   185.199.110.153
+   A     @   185.199.111.153
+   AAAA  @   2606:50c0:8000::153
+   AAAA  @   2606:50c0:8001::153
+   AAAA  @   2606:50c0:8002::153
+   AAAA  @   2606:50c0:8003::153
+   ```
+
+   (опц.) `www` → `CNAME  www  githubjackperson.github.io.`
+
+2. **Указать домен в Pages** (после того как DNS начал резолвиться):
+
+   ```bash
+   printf '{"cname":"raschetus.ru"}' | \
+     gh api -X PUT repos/GitHubJackPerson/raschetus-landing/pages --input -
+   ```
+
+   либо: Settings → Pages → Custom domain → `raschetus.ru` → Save.
+
+3. Дождаться выпуска сертификата и включить **Enforce HTTPS** (Settings → Pages).
 
 ## Открытые вопросы
 
-- **CTA «Подключить магазин»** — сейчас ведёт на `https://app-stpulse.ru/`
-  (шапка и hero — на якорь `#end`, финальная кнопка — на приложение).
-  Подтвердить/заменить целевой URL (регистрация в приложении может быть закрыта).
-- **Хостинг raschetus.ru** — где разворачиваем и как настраиваем DNS/SSL.
+- **DNS raschetus.ru** — домен зарегистрирован и управление DNS под контролем?
+  Записи выше нужно добавить у регистратора; это единственный оставшийся шаг до
+  живого домена. Готов подключить домен в Pages, как только DNS будет настроен.
+- **CTA «Подключить магазин»** — сейчас все ведут на `https://app-stpulse.ru/`.
+  Учесть: регистрация в приложении может быть закрыта
+  (`NUXT_PUBLIC_REGISTRATION_ENABLED=false`) — при необходимости заменить цель
+  (все три кнопки помечены `data-cta="connect"`).
 
 ## Правки контента
 
