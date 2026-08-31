@@ -4,12 +4,11 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Расчётус — аналитика прибыли для селлеров Ozon</title>
-  <meta name="description" content="Расчётус отвечает цифрами. Здоровье магазина, юнит-экономика, точка безубыточности в акциях, подсорт по кластерам и карта логистики — каждый час дня свой вопрос и готовый ответ.">
+  <meta name="description" content="Расчётус отвечает цифрами: здоровье магазина, юнит-экономика по SKU, точка безубыточности в акциях, подсорт по кластерам и карта логистики. Каждый час дня — свой вопрос и готовый ответ.">
   <meta name="theme-color" content="#0e1110">
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <link rel="canonical" href="https://raschetus.ru/">
 
-  <!-- Open Graph -->
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Расчётус">
   <meta property="og:title" content="Расчётус — аналитика прибыли для селлеров Ozon">
@@ -18,12 +17,10 @@
   <meta property="og:locale" content="ru_RU">
   <meta name="twitter:card" content="summary_large_image">
 
-  <!-- Set theme before paint to avoid a flash -->
   <script>
     (function () {
       try {
-        var t = localStorage.getItem('rsh-theme');
-        if (!t) t = 'dark';
+        var t = localStorage.getItem('rsh-theme') || 'dark';
         if (t === 'light') document.documentElement.classList.add('light');
       } catch (e) {}
     })();
@@ -35,12 +32,32 @@
 </head>
 <body>
 
+  <!-- Inline SVG sprite: тема-зависимый логотип (буквы — currentColor, «ё» — лайм) -->
+  <svg width="0" height="0" aria-hidden="true" focusable="false" style="position:absolute">
+    <symbol id="wordmark" viewBox="97.46 81.55 401.96 91.46">
+      <g fill="currentColor">
+        <path d="M97.46,111.12h13.01l.27,7.19c2.64-5.37,7.73-8.28,14.38-8.28,13.65,0,20.66,11.01,20.66,25.21s-7.01,25.21-20.66,25.21c-6.28,0-11.19-2.82-14.01-8.01v20.57h-13.65v-61.88ZM120.94,150.07c7.37,0,10.74-6.83,10.74-14.83s-3.55-14.83-10.74-14.83-10.74,7.01-10.74,14.83,3.46,14.83,10.74,14.83Z"/>
+        <path d="M172.81,110.03c14.65,0,22.21,7.19,22.21,20.93v15.2c0,3.18,1.27,3.91,3,3.91h1.73v9.28l-2.37.09c-3.19.09-12.56,1-13.83-7.46-2.46,5-7.83,8.46-16.65,8.46-9.83,0-17.29-5.28-17.29-13.83s6.64-12.28,18.29-14.56l13.29-2.73c-.09-7.01-2.73-10.37-8.46-10.37-4.64,0-7.55,2.64-8.65,7.74l-13.65-.64c1.82-10.28,9.74-16.02,22.39-16.02ZM171.17,151.62c5.92-.09,10.19-4.46,10.19-13.2v-.64l-7.92,1.46c-5.73,1.09-9.83,2-9.83,6.92,0,3.09,2.55,5.46,7.55,5.46Z"/>
+        <path d="M226.05,120.49c-6.83,0-10.74,5.37-10.74,14.74s3.91,14.74,10.74,14.74c5.1,0,8.92-3.28,9.74-9.55l14.11.55c-1.27,12.01-11.01,19.47-23.84,19.47-15.02,0-24.75-10.01-24.75-25.21s9.74-25.21,24.75-25.21c12.47,0,22.2,7.19,23.48,18.93l-14.01.64c-.82-5.82-4.64-9.1-9.46-9.1Z"/>
+        <path d="M286.83,159.35v-21.93c-2.91,4.64-8.1,7.55-14.47,7.55-11.56,0-18.84-7.64-18.84-19.75v-14.11h13.65v10.74c0,7.83,3.28,12.38,8.83,12.38,6.83,0,10.83-4.55,10.83-12.38v-10.74h13.74v48.23h-13.74Z"/>
+        <path d="M400.59,121.22h-16.29v38.13h-13.74v-38.13h-16.38v-10.1h46.41v10.1Z"/>
+        <path d="M415.14,111.12l12.01,33.94,11.65-33.94h12.92l-18.93,52.87c-2.28,6.19-6.46,9.01-13.47,9.01h-8.64v-9.92h6.1c2.91,0,4.46-.91,5.37-3.28l1.18-2.91h-3.82l-17.38-45.77h13.01Z"/>
+        <path d="M475.57,120.49c-6.83,0-10.74,5.37-10.74,14.74s3.91,14.74,10.74,14.74c5.1,0,8.92-3.28,9.74-9.55l14.11.55c-1.27,12.01-11.01,19.47-23.84,19.47-15.02,0-24.75-10.01-24.75-25.21s9.74-25.21,24.75-25.21c12.47,0,22.21,7.19,23.48,18.93l-14.01.64c-.82-5.82-4.64-9.1-9.46-9.1Z"/>
+      </g>
+      <g fill="#a9c811">
+        <path d="M329.74,110.03c13.38,0,23.66,9.28,23.57,26.21v2.55h-34.04c.36,7.19,4.28,11.56,10.46,11.56,3.91,0,7.55-2.37,9.1-6.01l13.83.91c-2.91,9.37-11.92,15.2-22.93,15.2-15.02,0-24.75-10.01-24.75-25.21s9.74-25.21,24.75-25.21ZM339.48,130.5c-.73-7.28-4.91-10.37-9.74-10.37-5.82,0-9.65,3.91-10.37,10.37h20.11Z"/>
+        <rect x="309.79" y="94.62" width="38.72" height="9.36"/>
+        <rect x="319" y="81.55" width="38.72" height="9.36"/>
+      </g>
+    </symbol>
+  </svg>
+
   <!-- ===================== DAY STRIP (header) ===================== -->
   <header class="day-strip">
     <div class="day-strip__inner">
       <a href="#top" class="logo" aria-label="Расчётус — на главную">
-        <span class="badge logo__badge" aria-hidden="true"><span class="emark">е</span></span>
-        <span class="logo__word">расч<span class="accent emark">ё</span>тус</span>
+        <img class="logo__badge" src="assets/img/badge.svg" alt="" width="34" height="34">
+        <svg class="logo__word" aria-hidden="true"><use href="#wordmark"/></svg>
       </a>
 
       <div class="progress" aria-hidden="true">
@@ -64,13 +81,15 @@
   <main>
     <!-- ===================== OPENING (hero) ===================== -->
     <section id="top" class="hero" aria-label="Открытие">
-      <p class="eyebrow">расчётус · <span class="ozonus">озонус</span></p>
-      <h1 class="hero__title">Как увеличить прибыль?</h1>
-      <p class="hero__sub">И другие вопросы селлеров изо дня в день…</p>
-      <div class="hero__body">
-        <p class="hero__lead">Расчётус отвечает цифрами. Каждый час дня — свой вопрос и готовый ответ.</p>
-        <div class="hero__cta">
-          <a href="https://app-stpulse.ru/" class="btn btn--lime btn--lg" data-cta="connect">Подключить магазин</a>
+      <div class="hero__inner">
+        <p class="eyebrow">расчётус · <span class="ozonus">озонус</span></p>
+        <h1 class="hero__title">Как увеличить прибыль?</h1>
+        <p class="hero__sub">И другие вопросы селлеров изо дня в день…</p>
+        <div class="hero__body">
+          <p class="hero__lead">Расчётус отвечает цифрами. Каждый час дня — свой вопрос и готовый ответ.</p>
+          <div class="hero__cta">
+            <a href="https://app-stpulse.ru/" class="btn btn--lime btn--lg" data-cta="connect">Подключить магазин</a>
+          </div>
         </div>
       </div>
     </section>
@@ -80,10 +99,7 @@
     <!-- 09:05 — дашборд «Пульс» -->
     <section id="h1" class="moment" data-moment="0" aria-label="09:05 — дашборд «Пульс»">
       <div class="moment__grid">
-        <div class="clock">
-          <div class="clock__time">09:05</div>
-          <div class="clock__part">начало дня</div>
-        </div>
+        <div class="clock"><div class="clock__time">09:05</div></div>
         <div class="dialog">
           <div class="msg msg--seller">
             <span class="avatar avatar--seller" aria-hidden="true">СЛР</span>
@@ -95,8 +111,8 @@
           <div class="msg msg--service">
             <div class="bubble--service">
               <div class="bubble__kicker">расчётус</div>
-              <h2 class="answer-title">Пульс отвечает за пять секунд</h2>
-              <p class="answer-desc">Оценка здоровья от 0 до 100, драйверы прибыли и убытка, топ-5 товаров и утечки денег стоят в порядке важности. Decision Engine внизу дописывает, с чего начать.</p>
+              <h2 class="answer-title">Пульс — здоровье магазина за пять секунд</h2>
+              <p class="answer-desc">Один экран вместо двадцати отчётов Ozon: оценка от 0 до 100, что тянет прибыль вверх и вниз, топ-5 товаров и главные утечки — по важности. Decision Engine подсказывает, за что взяться первым.</p>
               <div class="panel">
                 <span class="panel__label">здоровье бизнеса 0–100</span>
                 <div class="pulse">
@@ -116,7 +132,7 @@
                 </div>
               </div>
             </div>
-            <span class="avatar avatar--service" aria-hidden="true"><span class="emark">е</span></span>
+            <img class="avatar avatar--service" src="assets/img/badge.svg" alt="Расчётус" width="26" height="26">
           </div>
         </div>
       </div>
@@ -125,10 +141,7 @@
     <!-- 10:40 — юнит-экономика -->
     <section id="h2" class="moment moment--alt" data-moment="1" aria-label="10:40 — юнит-экономика">
       <div class="moment__grid">
-        <div class="clock">
-          <div class="clock__time">10:40</div>
-          <div class="clock__part">за столом</div>
-        </div>
+        <div class="clock"><div class="clock__time">10:40</div></div>
         <div class="dialog">
           <div class="msg msg--seller">
             <span class="avatar avatar--seller" aria-hidden="true">СЛР</span>
@@ -140,8 +153,8 @@
           <div class="msg msg--service">
             <div class="bubble--service">
               <div class="bubble__kicker">расчётус</div>
-              <h2 class="answer-title">Реклама съела маржу именно на нём</h2>
-              <p class="answer-desc">CPC и CPO приходят поартикульно из Performance API и вычитаются там, где возникли, вместе с комиссией, логистикой и хранением. Из 1 290 ₽ остаётся 46.</p>
+              <h2 class="answer-title">Юнит-экономика до копейки на SKU</h2>
+              <p class="answer-desc">Расчётус тянет CPC и CPO поартикульно из Performance API и вычитает их там, где они возникли — вместе с комиссией, логистикой, эквайрингом и хранением. Видно, что из 1 290 ₽ остаётся 46, и почему.</p>
               <div class="panel">
                 <span class="panel__label">разбор одной продажи</span>
                 <div class="bars">
@@ -165,7 +178,7 @@
                 </div>
               </div>
             </div>
-            <span class="avatar avatar--service" aria-hidden="true"><span class="emark">е</span></span>
+            <img class="avatar avatar--service" src="assets/img/badge.svg" alt="Расчётус" width="26" height="26">
           </div>
         </div>
       </div>
@@ -174,10 +187,7 @@
     <!-- 12:15 — акции Ozon -->
     <section id="h3" class="moment" data-moment="2" aria-label="12:15 — акции Ozon">
       <div class="moment__grid">
-        <div class="clock">
-          <div class="clock__time">12:15</div>
-          <div class="clock__part">до обеда</div>
-        </div>
+        <div class="clock"><div class="clock__time">12:15</div></div>
         <div class="dialog">
           <div class="msg msg--seller">
             <span class="avatar avatar--seller" aria-hidden="true">СЛР</span>
@@ -189,8 +199,8 @@
           <div class="msg msg--service">
             <div class="bubble--service">
               <div class="bubble__kicker">расчётус</div>
-              <h2 class="answer-title">Точка Б посчитана по каждому SKU</h2>
-              <p class="answer-desc">Ozon умеет добавлять товары в акции сам и не всегда предупреждает. Скидка ложится поверх комиссии, и продажа уходит под точку безубыточности незаметно — здесь это видно сразу, до согласия.</p>
+              <h2 class="answer-title">Точка безубыточности по каждому SKU</h2>
+              <p class="answer-desc">Ozon добавляет товары в акции сам и не всегда предупреждает. Расчётус считает точку Б на каждый артикул и показывает, кто уйдёт в минус под скидкой — до того, как вы согласитесь.</p>
               <div class="panel">
                 <span class="panel__label">точка безубыточности</span>
                 <div class="chips">
@@ -205,7 +215,7 @@
                 </div>
               </div>
             </div>
-            <span class="avatar avatar--service" aria-hidden="true"><span class="emark">е</span></span>
+            <img class="avatar avatar--service" src="assets/img/badge.svg" alt="Расчётус" width="26" height="26">
           </div>
         </div>
       </div>
@@ -214,10 +224,7 @@
     <!-- 14:30 — поставки -->
     <section id="h4" class="moment moment--alt" data-moment="3" aria-label="14:30 — поставки">
       <div class="moment__grid">
-        <div class="clock">
-          <div class="clock__time">14:30</div>
-          <div class="clock__part">после обеда</div>
-        </div>
+        <div class="clock"><div class="clock__time">14:30</div></div>
         <div class="dialog">
           <div class="msg msg--seller">
             <span class="avatar avatar--seller" aria-hidden="true">СЛР</span>
@@ -229,8 +236,8 @@
           <div class="msg msg--service">
             <div class="bubble--service">
               <div class="bubble__kicker">расчётус</div>
-              <h2 class="answer-title">Подсорт посчитан по кластерам</h2>
-              <p class="answer-desc">Скорость продаж, дни запаса, то что уже в пути и в черновиках — по 23 кластерам Ozon и складам FBS. Пустой склад и замороженный склад стоят одинаково дорого.</p>
+              <h2 class="answer-title">Подсорт по 23 кластерам и FBS</h2>
+              <p class="answer-desc">Скорость продаж, дни запаса, товар в пути и в черновиках — по всем кластерам Ozon и складам FBS. Расчётус собирает сборочный лист, который Ozon принимает без правок, а слот приёмки бронирует за вас.</p>
               <div class="panel">
                 <span class="panel__label">дни запаса · 23 кластера + FBS</span>
                 <div class="clusters">
@@ -260,7 +267,7 @@
                 </div>
               </div>
             </div>
-            <span class="avatar avatar--service" aria-hidden="true"><span class="emark">е</span></span>
+            <img class="avatar avatar--service" src="assets/img/badge.svg" alt="Расчётус" width="26" height="26">
           </div>
         </div>
       </div>
@@ -269,10 +276,7 @@
     <!-- 16:20 — карта логистики -->
     <section id="h5" class="moment" data-moment="4" aria-label="16:20 — карта логистики">
       <div class="moment__grid">
-        <div class="clock">
-          <div class="clock__time">16:20</div>
-          <div class="clock__part">конец дня</div>
-        </div>
+        <div class="clock"><div class="clock__time">16:20</div></div>
         <div class="dialog">
           <div class="msg msg--seller">
             <span class="avatar avatar--seller" aria-hidden="true">СЛР</span>
@@ -284,8 +288,8 @@
           <div class="msg msg--service">
             <div class="bubble--service">
               <div class="bubble__kicker">расчётус</div>
-              <h2 class="answer-title">Карта показывает, кто кормит, а кто ест</h2>
-              <p class="answer-desc">Остатки, поставки и отправления в разрезе регионов: локальность доставки, перегруженные склады и обнулённые — те, что идут к возмещению.</p>
+              <h2 class="answer-title">Карта логистики: кто кормит, а кто ест</h2>
+              <p class="answer-desc">Остатки, поставки и отправления по регионам: локальность доставки, перегруженные и обнулённые склады. Решение о новом складе принимается по цифрам, а не на глаз.</p>
               <div class="panel">
                 <span class="panel__label">поставки · остатки · отправления</span>
                 <div class="geo">
@@ -322,7 +326,7 @@
                 </div>
               </div>
             </div>
-            <span class="avatar avatar--service" aria-hidden="true"><span class="emark">е</span></span>
+            <img class="avatar avatar--service" src="assets/img/badge.svg" alt="Расчётус" width="26" height="26">
           </div>
         </div>
       </div>
@@ -331,10 +335,7 @@
     <!-- 18:00 — итог дня -->
     <section id="h6" class="moment moment--alt" data-moment="5" aria-label="18:00 — итог дня">
       <div class="moment__grid">
-        <div class="clock">
-          <div class="clock__time">18:00</div>
-          <div class="clock__part">вечер</div>
-        </div>
+        <div class="clock"><div class="clock__time">18:00</div></div>
         <div class="dialog">
           <div class="msg msg--seller">
             <span class="avatar avatar--seller" aria-hidden="true">СЛР</span>
@@ -346,8 +347,8 @@
           <div class="msg msg--service">
             <div class="bubble--service">
               <div class="bubble__kicker">расчётус</div>
-              <h2 class="answer-title">День закрыт цифрой</h2>
-              <p class="answer-desc">Прибыль за день посчитана со всеми удержаниями, все решения приняты на данных. Ничего не осталось «посмотреть завтра».</p>
+              <h2 class="answer-title">День закрыт чистой прибылью</h2>
+              <p class="answer-desc">P&L за день посчитан со всеми удержаниями Ozon. Все решения приняты на данных — ничего не осталось «посмотреть в конце месяца», когда уже не исправить.</p>
               <div class="panel">
                 <span class="panel__label">день в цифрах</span>
                 <div class="day">
@@ -363,7 +364,7 @@
                 </div>
               </div>
             </div>
-            <span class="avatar avatar--service" aria-hidden="true"><span class="emark">е</span></span>
+            <img class="avatar avatar--service" src="assets/img/badge.svg" alt="Расчётус" width="26" height="26">
           </div>
         </div>
       </div>
@@ -371,18 +372,48 @@
 
     <!-- ===================== CLOSING (motto) ===================== -->
     <section id="end" class="closing" aria-label="Финал">
-      <p class="closing__eyebrow">расчётус</p>
-      <p class="closing__motto">Посчитано.<br>Сходится.<br>Точка.</p>
-      <div class="closing__cta">
-        <a href="https://app-stpulse.ru/" class="btn btn--dark" data-cta="connect">Подключить магазин →</a>
+      <div class="closing__inner">
+        <p class="closing__eyebrow">расчётус</p>
+        <p class="closing__motto">Посчитано.<br>Сходится.<br>Точка.</p>
+        <div class="closing__cta">
+          <a href="https://app-stpulse.ru/" class="btn btn--dark" data-cta="connect">Подключить магазин →</a>
+        </div>
       </div>
     </section>
   </main>
 
   <!-- ===================== FOOTER ===================== -->
   <footer class="footer">
-    <span>© 2026 расчётус · аналитика прибыли для селлеров Ozon</span>
-    <span class="footer__motto">посчитано · сходится · точка</span>
+    <div class="footer__inner">
+      <div class="footer__brand">
+        <a href="#top" class="logo" aria-label="Расчётус">
+          <img class="logo__badge" src="assets/img/badge.svg" alt="" width="30" height="30">
+          <svg class="logo__word logo__word--sm" aria-hidden="true"><use href="#wordmark"/></svg>
+        </a>
+        <p class="footer__tag">Аналитика прибыли для селлеров Ozon.</p>
+        <p class="footer__motto">посчитано · сходится · точка</p>
+      </div>
+
+      <nav class="footer__nav" aria-label="Ссылки">
+        <a href="https://app-stpulse.ru/">Войти в сервис</a>
+        <a href="https://app-stpulse.ru/info/offer">Оферта</a>
+        <a href="https://app-stpulse.ru/info/policy">Политика конфиденциальности</a>
+        <a href="https://app-stpulse.ru/support">Поддержка</a>
+      </nav>
+
+      <div class="footer__req">
+        <div class="footer__req-title">Реквизиты</div>
+        <p>ИП Ким Алина</p>
+        <p>ИНН 504411444638 · ОГРНИП 326508100471844</p>
+        <p>141503, Московская обл., г. Солнечногорск, ул. Вертлинская, д. 19А, кв. 52</p>
+        <p>Р/с 40802810090810064676 · Филиал «Центральный» Банка ВТБ (ПАО) · БИК 044525411</p>
+      </div>
+    </div>
+
+    <div class="footer__bottom">
+      <span>© 2026 Расчётус</span>
+      <span>аналитика прибыли для селлеров Ozon</span>
+    </div>
   </footer>
 
   <script src="assets/app.js" defer></script>

@@ -62,6 +62,7 @@
   --neg: #ff7a6b;
   --warn: #f7c937;
   --cool: #7ec8f7;
+  --maxw: 1120px;
 }
 :root.light {
   --gr: #ffffff;
@@ -101,37 +102,6 @@ a { color: var(--tx); text-decoration: none; transition: color .15s ease; }
 a:hover { color: var(--lime-tx); }
 :focus-visible { outline: 2px solid var(--lime); outline-offset: 2px; border-radius: 4px; }
 
-.wrap { padding-inline: clamp(16px, 4vw, 52px); }
-
-/* ---- ё-mark (brand glyph: "е" with two manual dots) ---- */
-.emark {
-  position: relative;
-  display: inline-block;
-  line-height: 1;
-}
-.emark::before,
-.emark::after {
-  content: "";
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-  width: .28em;
-  height: .064em;
-  background: currentColor;
-}
-.emark::before { top: .105em; left: 55%; }
-.emark::after  { top: .205em; left: 45%; }
-
-.badge {
-  width: 26px; height: 26px;
-  border-radius: 7px;
-  background: var(--lime);
-  color: var(--on-lime);
-  display: flex; align-items: center; justify-content: center;
-  font-weight: 700; font-size: 16px; line-height: 1;
-  flex-shrink: 0;
-}
-
 /* ============================================================
    DAY STRIP (header)
    ============================================================ */
@@ -146,14 +116,15 @@ a:hover { color: var(--lime-tx); }
   display: flex; align-items: center;
   gap: clamp(12px, 2vw, 26px);
   padding: 11px clamp(16px, 4vw, 52px);
+  max-width: var(--maxw); margin-inline: auto;
 }
-.logo { display: flex; align-items: center; gap: 9px; flex-shrink: 0; }
+
+/* ---- Brand logo (official assets) ---- */
+.logo { display: flex; align-items: center; gap: 10px; flex-shrink: 0; }
 .logo:hover { color: var(--tx); }
-.logo__badge { width: 26px; height: 26px; border-radius: 7px; }
-.logo__word {
-  font-weight: 700; font-size: 16px; letter-spacing: -0.04em;
-}
-.logo__word .accent { color: var(--lime-tx); }
+.logo__badge { width: 34px; height: 34px; display: block; }
+.logo__word { height: 26px; width: auto; display: block; color: var(--tx); }
+.logo__word--sm { height: 22px; }
 
 .progress { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 5px; }
 .progress__labels {
@@ -223,6 +194,7 @@ a:hover { color: var(--lime-tx); }
   border-bottom: 1px solid var(--hair2);
   padding: clamp(38px, 6vw, 96px) clamp(16px, 4vw, 52px);
 }
+.hero__inner { max-width: var(--maxw); margin-inline: auto; }
 .eyebrow {
   font-size: 10.5px; letter-spacing: .24em; text-transform: uppercase;
   color: var(--mut); margin-bottom: 18px;
@@ -253,6 +225,7 @@ a:hover { color: var(--lime-tx); }
   display: grid;
   grid-template-columns: clamp(74px, 8vw, 124px) minmax(0, 1fr);
   align-items: stretch;
+  max-width: var(--maxw); margin-inline: auto;
 }
 .clock {
   border-right: 1px solid var(--hair);
@@ -262,10 +235,6 @@ a:hover { color: var(--lime-tx); }
 .clock__time {
   font-weight: 800; font-size: clamp(15px, 1.7vw, 22px);
   letter-spacing: -0.04em; color: var(--lime-tx); line-height: 1;
-}
-.clock__part {
-  font-size: 8.5px; letter-spacing: .16em; text-transform: uppercase;
-  color: var(--mut); margin-top: 6px;
 }
 .dialog {
   padding: clamp(24px, 3vw, 50px) clamp(16px, 4vw, 52px) clamp(24px, 3vw, 50px) clamp(16px, 2.6vw, 38px);
@@ -285,10 +254,8 @@ a:hover { color: var(--lime-tx); }
   border-radius: 50%; background: var(--gr3); color: var(--mut);
   font-size: 9px; letter-spacing: .04em;
 }
-.avatar--service {
-  border-radius: 7px; background: var(--lime); color: var(--on-lime);
-  font-size: 16px;
-}
+/* service avatar is the official ё-badge <img> */
+img.avatar--service { display: block; }
 
 .bubble__kicker {
   font-size: 8.5px; letter-spacing: .18em; text-transform: uppercase;
@@ -414,6 +381,7 @@ a:hover { color: var(--lime-tx); }
   background: var(--lime); color: var(--on-lime);
   padding: clamp(50px, 8vw, 120px) clamp(16px, 4vw, 52px);
 }
+.closing__inner { max-width: var(--maxw); margin-inline: auto; }
 .closing__eyebrow {
   font-size: 10.5px; letter-spacing: .24em; text-transform: uppercase;
   opacity: .6; margin-bottom: 16px;
@@ -428,20 +396,44 @@ a:hover { color: var(--lime-tx); }
    FOOTER
    ============================================================ */
 .footer {
-  padding: clamp(22px, 3vw, 44px) clamp(16px, 4vw, 52px);
-  display: flex; flex-wrap: wrap; gap: 14px 30px;
-  justify-content: space-between; align-items: center;
-  font-size: 11px; color: var(--mut);
+  border-top: 1px solid var(--hair2);
+  padding: clamp(32px, 4vw, 56px) clamp(16px, 4vw, 52px) clamp(20px, 2.5vw, 32px);
+  color: var(--mut);
 }
-.footer__motto { letter-spacing: .16em; text-transform: uppercase; }
+.footer__inner {
+  max-width: var(--maxw); margin-inline: auto;
+  display: grid; gap: clamp(24px, 3vw, 48px);
+  grid-template-columns: 1.2fr 1fr 1.6fr;
+  align-items: start;
+}
+.footer__brand { display: flex; flex-direction: column; gap: 10px; align-items: flex-start; }
+.footer__tag { color: var(--tx2); font-size: 13px; max-width: 30ch; }
+.footer__motto { letter-spacing: .16em; text-transform: uppercase; font-size: 10px; color: var(--mut); }
+.footer__nav { display: flex; flex-direction: column; gap: 9px; }
+.footer__nav a { color: var(--tx2); font-size: 13px; }
+.footer__nav a:hover { color: var(--lime-tx); }
+.footer__req { display: flex; flex-direction: column; gap: 5px; line-height: 1.5; }
+.footer__req-title { font-size: 10px; letter-spacing: .18em; text-transform: uppercase; color: var(--mut); margin-bottom: 4px; }
+.footer__req p { font-size: 12px; color: var(--tx2); }
+.footer__bottom {
+  max-width: var(--maxw); margin: clamp(24px, 3vw, 40px) auto 0;
+  padding-top: 16px; border-top: 1px solid var(--hair);
+  display: flex; flex-wrap: wrap; gap: 8px 24px; justify-content: space-between;
+  font-size: 11px; color: var(--mut); letter-spacing: .02em;
+}
 
 /* ============================================================
    RESPONSIVE
    ============================================================ */
+@media (max-width: 760px) {
+  .footer__inner { grid-template-columns: 1fr; }
+}
 @media (max-width: 560px) {
   .bubble--seller .question { white-space: normal; }
   /* Numeric hour labels get cramped in the narrow header — keep just the bar. */
   .progress__labels { display: none; }
   .progress { gap: 0; }
   .msg--service { flex-direction: row-reverse; }
+  .logo__word { height: 22px; }
+  .logo__badge { width: 30px; height: 30px; }
 }
