@@ -273,23 +273,23 @@
     expenses.sort(function (a, b) { return Math.abs(b.value) - Math.abs(a.value); });
     var ordered = [priceRow].concat(expenses, [profitRow]).filter(Boolean);
 
+    /* pct и batch_value приходят с сервера — фронт только рендерит */
+    var hasBatch = ordered.some(function (r) { return r.batch_value != null; });
     var batchUnits = num($('fBatch'));
-    var hasBatch = !!(batchUnits && batchUnits > 0);
-    var priceAbs = Math.abs((priceRow && priceRow.value) || payload.price || 1);
 
     var wfHtml = '<div class="calc-wf__row head"><span></span><span></span>' +
       '<span>на штуку</span><span>%</span>' +
-      (hasBatch ? '<span>партия ' + fmtInt.format(batchUnits) + ' шт</span>' : '') +
+      (hasBatch ? '<span>партия ' + (batchUnits ? fmtInt.format(batchUnits) + ' шт' : '') + '</span>' : '') +
       '</div>';
     wfHtml += ordered.map(function (row) {
       var isPrice = row.key === 'price';
       var isProfit = row.key === 'profit';
-      var w = Math.max(1.5, Math.min(100, Math.abs(row.value) / priceAbs * 100));
+      var w = Math.max(1.5, Math.min(100, row.pct != null ? row.pct : 0));
       var barCls = isPrice ? 'price' : (isProfit ? (row.value >= 0 ? 'profit-pos' : 'profit-neg') : 'exp');
       var valCls = isPrice ? '' : (row.value >= 0 ? 'pos' : 'neg');
       var valText = (row.value > 0 && !isPrice ? '+' : '') + rub(row.value);
-      var pctText = fmtRub.format(Math.abs(row.value) / priceAbs * 100) + '%';
-      var batchText = hasBatch ? rub(Math.round(row.value * batchUnits)) : '';
+      var pctText = row.pct != null ? fmtRub.format(row.pct) + '%' : '';
+      var batchText = row.batch_value != null ? rub(row.batch_value) : '';
       return '<div class="calc-wf__row' + (isProfit ? ' total' : '') + '">' +
         '<span class="calc-wf__label">' + row.label + '</span>' +
         '<span class="calc-wf__track"><span class="calc-wf__bar ' + barCls + '" style="width:' + w.toFixed(1) + '%"></span></span>' +
@@ -313,12 +313,12 @@
 
     if (t.breakeven_price != null) {
       var beOk = price >= t.breakeven_price;
-      cards.push(targetCard('Безубыточная цена', rub(t.breakeven_price), false,
+      cards.push(targetCard('Точка безубыточности', rub(t.breakeven_price), false,
         beOk ? 'ваша цена ' + rub(price) + ' — выше ✓' : 'ваша цена ' + rub(price) + ' — ниже, вы в минусе',
         beOk ? 'ok' : 'bad',
         'Минимальная цена продажи, при которой прибыль на единицу равна нулю'));
     } else {
-      cards.push(targetCard('Безубыточная цена', '—', true, NA, 'bad',
+      cards.push(targetCard('Точка безубыточности', '—', true, NA, 'bad',
         'Минимальная цена продажи, при которой прибыль на единицу равна нулю'));
     }
 
@@ -332,20 +332,25 @@
         'Цена продажи, при которой маржинальность достигнет ' + pct(pm.target_margin_pct)));
     }
 
-    if (t.price_for_roi_annual) {
-      var pr = t.price_for_roi_annual;
-      var prOk = pr.price != null && price >= pr.price;
-      cards.push(targetCard('Цена для ' + pct(pr.target_roi_annual_pct) + ' годовых',
-        pr.price != null ? rub(pr.price) : '—', pr.price == null,
-        pr.price == null ? NA : (prOk ? 'уже достигнуто ✓' : 'при обороте ' + pr.turnover_days + ' дн'),
-        pr.price == null ? 'bad' : (prOk ? 'ok' : ''),
-        'Цена, при которой вложенные деньги приносят ' + pct(pr.target_roi_annual_pct) + ' годовых при обороте ' + pr.turnover_days + ' дн'));
+    if (t.turnover_for_roi_annual) {
+      var tr2 = t.turnover_for_roi_annual;
+      var trTip = 'За сколько дней должна продаваться единица при этой цене, чтобы вложенные деньги приносили ' + pct(tr2.target_roi_annual_pct) + ' годовых';
+      if (tr2.max_days != null && tr2.max_days >= 1) {
+        var trOk = tr2.current_days <= tr2.max_days;
+        cards.push(targetCard('Оборот для ' + pct(tr2.target_roi_annual_pct) + ' годовых',
+          'до ' + fmtInt.format(tr2.max_days) + ' дн', false,
+          trOk ? 'у вас ' + tr2.current_days + ' дн ✓' : 'у вас ' + tr2.current_days + ' дн — медленнее',
+          trOk ? 'ok' : 'bad', trTip));
+      } else {
+        cards.push(targetCard('Оборот для ' + pct(tr2.target_roi_annual_pct) + ' годовых', '—', true,
+          'при этой цене прибыль ≤ 0', 'bad', trTip));
+      }
     }
 
     if (t.max_cost_price != null) {
       var mcOk = cost <= t.max_cost_price;
       cards.push(targetCard('Макс. себестоимость', rub(t.max_cost_price), false,
-        mcOk ? 'у вас ' + rub(cost) + ' — запас ' + rub(Math.max(0, t.max_cost_price - cost)) + ' ✓'
+        mcOk ? 'запас ' + rub(Math.max(0, t.max_cost_price - cost)) + ' ✓'
              : 'у вас ' + rub(cost) + ' — дороже',
         mcOk ? 'ok' : 'bad',
         'Максимальная закупочная цена, при которой вы не уходите в минус при этой цене продажи'));

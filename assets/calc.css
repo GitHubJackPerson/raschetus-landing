@@ -96,20 +96,26 @@ select.calc-input {
 .calc-field--type.ok .calc-input { border-color: var(--lime-tx); }
 
 /* ---- Details (доп. параметры) ---- */
-.calc-more { margin-top: 18px; }
+.calc-more { margin-top: 20px; }
 .calc-more summary {
   cursor: pointer; list-style: none;
-  font-size: 13.5px; font-weight: 700; color: var(--lime-tx);
-  display: flex; align-items: center; justify-content: space-between; gap: 6px;
+  display: flex; align-items: center; gap: 14px;
   user-select: none;
+}
+.calc-more summary::before, .calc-more summary::after {
+  content: ''; flex: 1; height: 1px; background: var(--hair2);
+}
+.calc-more__badge {
+  display: inline-flex; align-items: center; gap: 7px;
+  font-size: 12.5px; font-weight: 700; color: var(--lime-tx);
   background: var(--soft);
   border: 1px solid var(--hair2);
-  border-radius: 10px;
-  padding: 11px 14px;
+  border-radius: 999px;
+  padding: 8px 16px;
   transition: border-color .15s ease, background .15s ease;
 }
-.calc-more summary:hover { border-color: var(--lime-tx); }
-.calc-more[open] summary { border-color: var(--lime-tx); background: var(--tint); }
+.calc-more summary:hover .calc-more__badge { border-color: var(--lime-tx); }
+.calc-more[open] .calc-more__badge { border-color: var(--lime-tx); background: var(--tint); }
 .calc-more summary::-webkit-details-marker { display: none; }
 .calc-more__arrow { font-size: 10px; transition: transform .15s ease; }
 .calc-more[open] .calc-more__arrow { transform: rotate(180deg); }
@@ -133,7 +139,7 @@ select.calc-input {
 .calc-submit { margin-top: 20px; display: flex; align-items: center; gap: 14px; flex-wrap: wrap; }
 .calc-submit .btn { border: 0; font-family: inherit; }
 .calc-submit .btn:disabled { opacity: .55; cursor: wait; }
-.calc-submit__note { font-size: 12px; color: var(--mut); }
+.calc-submit__note { font-size: 12px; color: var(--mut); opacity: .55; }
 
 .calc-error {
   margin-top: 16px;
@@ -230,7 +236,7 @@ select.calc-input {
   text-align: center;
 }
 .calc-cta__title { font-size: clamp(18px, 2.4vw, 23px); font-weight: 800; margin-bottom: 8px; }
-.calc-cta__sub { color: var(--tx2); font-size: 14px; max-width: 58ch; margin: 0 auto 18px; }
+.calc-cta__sub { color: var(--tx2); font-size: 14px; margin: 0 auto 18px; }
 .calc-cta__note { display: block; margin-top: 10px; font-size: 12px; color: var(--mut); }
 
 /* ---- Tooltips ---- */
