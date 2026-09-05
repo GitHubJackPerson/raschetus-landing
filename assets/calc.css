@@ -250,6 +250,7 @@ select.calc-input {
   color: var(--mut); margin-bottom: -2px;
 }
 .calc-wf__row.head span { text-align: right; }
+.calc-wf__row.head .calc-wf__pct, .calc-wf__row.head .calc-wf__batch { font-size: inherit; color: inherit; }
 .calc-wf__label { color: var(--tx2); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 .calc-wf__track { height: 14px; border-radius: 5px; background: var(--soft); position: relative; overflow: hidden; }
 .calc-wf__bar { position: absolute; top: 0; bottom: 0; left: 0; border-radius: 5px; min-width: 2px; }
@@ -295,6 +296,29 @@ select.calc-input {
 .calc-cta__title { font-size: clamp(18px, 2.4vw, 23px); font-weight: 800; margin-bottom: 8px; }
 .calc-cta__sub { color: var(--tx2); font-size: 14px; margin: 0 auto 18px; }
 .calc-cta__note { display: block; margin-top: 10px; font-size: 12px; color: var(--mut); }
+
+/* ---- SEO-справка + FAQ ---- */
+.calc-seo { margin-top: clamp(34px, 5vw, 56px); border-top: 1px solid var(--hair); padding-top: clamp(24px, 4vw, 38px); }
+.calc-seo h2 { font-size: 19px; font-weight: 800; margin-bottom: 14px; }
+.calc-seo h2:not(:first-child) { margin-top: 30px; }
+.calc-seo p { font-size: 13.5px; line-height: 1.6; color: var(--tx2); margin-bottom: 12px; max-width: 76ch; }
+.calc-seo p strong { color: var(--tx); }
+.calc-faq { border: 1px solid var(--hair); border-radius: 10px; margin-bottom: 8px; background: var(--gr2); }
+.calc-faq summary {
+  cursor: pointer; list-style: none;
+  display: flex; align-items: center; justify-content: space-between; gap: 10px;
+  font-size: 13.5px; font-weight: 600; color: var(--tx);
+  padding: 12px 14px;
+  user-select: none;
+}
+.calc-faq summary::-webkit-details-marker { display: none; }
+.calc-faq summary::after { content: '▾'; font-size: 10px; color: var(--mut); transition: transform .15s ease; }
+.calc-faq[open] summary::after { transform: rotate(180deg); }
+.calc-faq p { padding: 0 14px 12px; margin: 0; font-size: 13px; line-height: 1.55; color: var(--tx2); }
+
+/* Скрытые CSS-тултипы (opacity:0) остаются в layout и распирали scrollWidth
+   на мобиле — clip обрезает без создания скролл-контейнера */
+html, body { overflow-x: clip; }
 
 /* ---- Tooltips ---- */
 [data-tip] { position: relative; }

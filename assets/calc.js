@@ -291,8 +291,8 @@
     var batchUnits = num($('fBatch'));
 
     var wfHtml = '<div class="calc-wf__row head"><span></span><span></span>' +
-      '<span>на штуку</span><span>%</span>' +
-      (hasBatch ? '<span>партия ' + (batchUnits ? fmtInt.format(batchUnits) + ' шт' : '') + '</span>' : '') +
+      '<span>на штуку</span><span class="calc-wf__pct">%</span>' +
+      (hasBatch ? '<span class="calc-wf__batch">партия ' + (batchUnits ? fmtInt.format(batchUnits) + ' шт' : '') + '</span>' : '') +
       '</div>';
     wfHtml += ordered.map(function (row) {
       var isPrice = row.key === 'price';
