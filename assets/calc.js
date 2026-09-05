@@ -52,9 +52,12 @@
   var typeInput = $('fType');
   var typeDrop = $('typeDrop');
   var typeField = typeInput.closest('.calc-field--type');
-  var chosen = null; /* {main_category, category, product_type} */
+  var chosen = null; /* {main_category, category, product_type, default_buyout_pct} */
   var acTimer = null;
   var acAbort = null;
+  /* Юзер правил поле «Выкуп» руками — больше не перетираем его дефолтом типа */
+  var buyoutTouched = false;
+  $('fBuyout').addEventListener('input', function () { buyoutTouched = true; });
 
   function closeDrop() { typeDrop.hidden = true; typeDrop.innerHTML = ''; }
 
@@ -78,6 +81,15 @@
           typeInput.value = it.product_type;
           typeField.classList.add('ok');
           $('typeHint').textContent = it.main_category + ' · ' + it.category;
+          /* Медианный выкуп для типа (сервер: тип -> категория -> общий) —
+             подставляем, пока юзер не правил поле сам */
+          if (it.default_buyout_pct && !buyoutTouched) {
+            $('fBuyout').value = it.default_buyout_pct;
+            var bl = document.querySelector('label[for="fBuyout"]');
+            if (bl) bl.setAttribute('data-tip',
+              'Доля заказов, которые покупатели выкупают. Подставлено медианное значение для типа «'
+              + it.product_type + '» по данным продавцов Расчётуса — ' + it.default_buyout_pct + '%');
+          }
           closeDrop();
         });
         typeDrop.appendChild(b);
