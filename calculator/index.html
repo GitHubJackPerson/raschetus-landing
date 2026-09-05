@@ -283,7 +283,7 @@
                 </select>
               </div>
               <div class="calc-field">
-                <label class="calc-label" for="fBuyout" data-tip="Доля заказов, которые покупатели выкупают. При выборе типа товара подставим медианное значение по данным продавцов Расчётуса">Выкуп, %</label>
+                <label class="calc-label" for="fBuyout" data-tip="Доля заказов, которые покупатели выкупают. При выборе типа товара подставим медианное значение для этого типа">Выкуп, %</label>
                 <input class="calc-input" id="fBuyout" type="number" min="1" max="100" step="any" value="85">
               </div>
               <div class="calc-field">
@@ -377,6 +377,10 @@
         <div class="calc-block">
           <h2 class="calc-block__title">Контрольные точки</h2>
           <div class="calc-targets" id="targetsGrid"></div>
+        </div>
+
+        <div class="calc-export">
+          <button type="button" class="btn btn--sm calc-export__btn" id="exportBtn">&#8595; Скачать расчёт (Excel)</button>
         </div>
 
         <div class="calc-cta">

@@ -88,7 +88,7 @@
             var bl = document.querySelector('label[for="fBuyout"]');
             if (bl) bl.setAttribute('data-tip',
               'Доля заказов, которые покупатели выкупают. Подставлено медианное значение для типа «'
-              + it.product_type + '» по данным продавцов Расчётуса — ' + it.default_buyout_pct + '%');
+              + it.product_type + '» — ' + it.default_buyout_pct + '%');
           }
           closeDrop();
         });
@@ -221,6 +221,7 @@
       .then(function (r) { return r.json().then(function (j) { return { status: r.status, body: j }; }); })
       .then(function (res) {
         if (res.status === 200 && res.body && res.body.data) {
+          lastPayload = payload;
           render(res.body.data, payload);
           try { if (typeof ym === 'function') ym(112116470, 'reachGoal', 'calc_done'); } catch (e2) {}
           return;
@@ -261,6 +262,39 @@
       '<span class="calc-target__value' + (isNa ? ' na' : '') + '">' + value + '</span>' +
       (status ? '<span class="calc-target__status ' + (statusCls || '') + '">' + status + '</span>' : '') +
       '</div>';
+  }
+
+  /* Выгрузка расчёта в Excel: тот же payload, сервер отдаёт готовый XLSX */
+  var lastPayload = null;
+  var exportBtn = $('exportBtn');
+  if (exportBtn) {
+    exportBtn.addEventListener('click', function () {
+      if (!lastPayload) return;
+      exportBtn.disabled = true;
+      exportBtn.textContent = 'Готовим файл…';
+      fetch(API + '/public/unit-calc/export', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', Accept: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet' },
+        body: JSON.stringify(lastPayload)
+      })
+        .then(function (r) { if (!r.ok) throw new Error('export'); return r.blob(); })
+        .then(function (blob) {
+          var url = URL.createObjectURL(blob);
+          var a = document.createElement('a');
+          a.href = url;
+          a.download = 'raschet-pribyli-ozon.xlsx';
+          document.body.appendChild(a);
+          a.click();
+          a.remove();
+          setTimeout(function () { URL.revokeObjectURL(url); }, 2000);
+          try { if (typeof ym === 'function') ym(112116470, 'reachGoal', 'calc_export'); } catch (e2) {}
+        })
+        .catch(function () { showError('Не удалось скачать файл. Попробуйте ещё раз чуть позже.'); })
+        .finally(function () {
+          exportBtn.disabled = false;
+          exportBtn.textContent = '↓ Скачать расчёт (Excel)';
+        });
+    });
   }
 
   function render(d, payload) {

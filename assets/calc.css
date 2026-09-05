@@ -366,3 +366,17 @@ html, body { overflow-x: clip; }
 @media (max-width: 440px) {
   .calc-more__grid { grid-template-columns: 1fr; }
 }
+
+/* ===== Выгрузка расчёта ===== */
+.calc-export { margin: 14px 0 4px; text-align: right; }
+.calc-export__btn {
+  border: 1px solid var(--hair2, rgba(255,255,255,.14));
+  background: transparent;
+  color: var(--tx2, #cbd2ce);
+  cursor: pointer;
+  border-radius: 8px;
+  padding: 8px 14px;
+  font-size: 13px;
+}
+.calc-export__btn:hover { color: var(--tx, #eef2ee); border-color: var(--lime-ink, #a9c811); }
+.calc-export__btn:disabled { opacity: .6; cursor: default; }
