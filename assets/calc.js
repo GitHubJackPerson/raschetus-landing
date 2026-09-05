@@ -76,7 +76,7 @@
   typeInput.addEventListener('input', function () {
     chosen = null;
     typeField.classList.remove('ok');
-    $('typeHint').textContent = 'Выберите тип из подсказки — от него зависит комиссия Ozon';
+    $('typeHint').textContent = '';
     var q = typeInput.value.trim();
     clearTimeout(acTimer);
     if (q.length < 2) { closeDrop(); return; }
@@ -224,103 +224,162 @@
   });
 
   /* ---------- Рендер результата ---------- */
-  function kpiCard(label, value, cls, note) {
-    return '<div class="calc-kpi"><div class="calc-kpi__label">' + label + '</div>' +
+  function kpiCard(label, value, cls, note, tip) {
+    return '<div class="calc-kpi" data-tip="' + tip + '"><div class="calc-kpi__label">' + label + '</div>' +
       '<div class="calc-kpi__value ' + (cls || '') + '">' + value + '</div>' +
       (note ? '<div class="calc-kpi__note">' + note + '</div>' : '') + '</div>';
   }
 
-  function targetRow(label, value, isNa) {
-    return '<div class="calc-target"><span class="calc-target__label">' + label + '</span>' +
-      '<span class="calc-target__value' + (isNa ? ' na' : '') + '">' + value + '</span></div>';
-  }
-
-  function funnelCell(numHtml, cap, cls) {
-    return '<div class="calc-funnel__cell"><div class="calc-funnel__num ' + (cls || '') + '">' + numHtml + '</div>' +
-      '<div class="calc-funnel__cap">' + cap + '</div></div>';
+  function targetCard(cap, value, isNa, status, statusCls, tip) {
+    return '<div class="calc-target" data-tip="' + tip + '">' +
+      '<span class="calc-target__cap">' + cap + '</span>' +
+      '<span class="calc-target__value' + (isNa ? ' na' : '') + '">' + value + '</span>' +
+      (status ? '<span class="calc-target__status ' + (statusCls || '') + '">' + status + '</span>' : '') +
+      '</div>';
   }
 
   function render(d, payload) {
     var pu = d.per_unit;
     var posNeg = function (v) { return v >= 0 ? 'pos' : 'neg'; };
+    var turnoverDays = (d.targets && d.targets.price_for_roi_annual ? d.targets.price_for_roi_annual.turnover_days : payload.turnover_days) || 30;
 
     /* KPI */
     $('kpiGrid').innerHTML =
-      kpiCard('Прибыль с единицы', rub(pu.profit), posNeg(pu.profit), 'после всех расходов' + (payload.tax_regime ? ' и налога' : '')) +
-      kpiCard('Маржинальность', pct(pu.margin_pct), posNeg(pu.margin_pct), 'от цены продажи') +
-      kpiCard('ROI на вложенное', pct(pu.roi_pct), posNeg(pu.roi_pct), 'прибыль ÷ себестоимость') +
-      kpiCard('ROI годовых', pct(pu.roi_annual_pct), posNeg(pu.roi_annual_pct), 'при обороте ' + (d.targets && d.targets.price_for_roi_annual ? d.targets.price_for_roi_annual.turnover_days : payload.turnover_days || 30) + ' дн');
+      kpiCard('Прибыль с единицы', rub(pu.profit), posNeg(pu.profit),
+        'после всех расходов' + (payload.tax_regime ? ' и налога' : ''),
+        'Цена минус все расходы: себестоимость, комиссия и логистика Ozon, невыкупы и возвраты, реклама, хранение, страхование' + (payload.tax_regime ? ', налог' : '')) +
+      kpiCard('Маржинальность', pct(pu.margin_pct), posNeg(pu.margin_pct), 'от цены продажи',
+        'Прибыль ÷ цена продажи × 100%. Какая доля цены остаётся вам') +
+      kpiCard('ROI на вложенное', pct(pu.roi_pct), posNeg(pu.roi_pct), 'прибыль ÷ себестоимость',
+        'Сколько приносит каждый вложенный в закупку рубль за один оборот') +
+      kpiCard('ROI годовых', pct(pu.roi_annual_pct), posNeg(pu.roi_annual_pct), 'при обороте ' + turnoverDays + ' дн',
+        'ROI × (365 ÷ оборот в днях) — доходность вложенных денег в пересчёте на год');
 
-    /* Meta */
-    var meta = [];
-    meta.push('Комиссия Ozon: <b>' + pct(d.inputs.commission_pct) + '</b>');
-    meta.push('Логистика: <b>' + rub(d.inputs.logistics_tariff) + '</b>');
-    if (payload.spp_pct) meta.push('Цена для покупателя (с СПП): <b>' + rub(pu.price_buyer) + '</b>');
-    $('calcMeta').innerHTML = meta.join('<span aria-hidden="true"> · </span>');
+    /* Meta — только цена покупателя при СПП */
+    if (payload.spp_pct) {
+      $('calcMeta').innerHTML = 'Цена для покупателя (с СПП): <b>' + rub(pu.price_buyer) + '</b>';
+      $('calcMeta').hidden = false;
+    } else {
+      $('calcMeta').hidden = true;
+    }
 
-    /* Waterfall */
-    var priceAbs = Math.abs((d.waterfall[0] && d.waterfall[0].value) || payload.price || 1);
-    var wfHtml = d.waterfall.map(function (row) {
+    /* Waterfall: цена → расходы по убыванию суммы → прибыль */
+    var priceRow = null, profitRow = null, expenses = [];
+    d.waterfall.forEach(function (row) {
+      if (row.key === 'price') priceRow = row;
+      else if (row.key === 'profit') profitRow = row;
+      else expenses.push(row);
+    });
+    expenses.sort(function (a, b) { return Math.abs(b.value) - Math.abs(a.value); });
+    var ordered = [priceRow].concat(expenses, [profitRow]).filter(Boolean);
+
+    var batchUnits = num($('fBatch'));
+    var hasBatch = !!(batchUnits && batchUnits > 0);
+    var priceAbs = Math.abs((priceRow && priceRow.value) || payload.price || 1);
+
+    var wfHtml = '<div class="calc-wf__row head"><span></span><span></span>' +
+      '<span>на штуку</span><span>%</span>' +
+      (hasBatch ? '<span>партия ' + fmtInt.format(batchUnits) + ' шт</span>' : '') +
+      '</div>';
+    wfHtml += ordered.map(function (row) {
       var isPrice = row.key === 'price';
       var isProfit = row.key === 'profit';
       var w = Math.max(1.5, Math.min(100, Math.abs(row.value) / priceAbs * 100));
       var barCls = isPrice ? 'price' : (isProfit ? (row.value >= 0 ? 'profit-pos' : 'profit-neg') : 'exp');
       var valCls = isPrice ? '' : (row.value >= 0 ? 'pos' : 'neg');
       var valText = (row.value > 0 && !isPrice ? '+' : '') + rub(row.value);
+      var pctText = fmtRub.format(Math.abs(row.value) / priceAbs * 100) + '%';
+      var batchText = hasBatch ? rub(Math.round(row.value * batchUnits)) : '';
       return '<div class="calc-wf__row' + (isProfit ? ' total' : '') + '">' +
         '<span class="calc-wf__label">' + row.label + '</span>' +
         '<span class="calc-wf__track"><span class="calc-wf__bar ' + barCls + '" style="width:' + w.toFixed(1) + '%"></span></span>' +
-        '<span class="calc-wf__val ' + valCls + '">' + valText + '</span></div>';
+        '<span class="calc-wf__val ' + valCls + '">' + valText + '</span>' +
+        '<span class="calc-wf__pct">' + pctText + '</span>' +
+        (hasBatch ? '<span class="calc-wf__batch">' + batchText + '</span>' : '') +
+        '</div>';
     }).join('');
-    $('waterfall').innerHTML = wfHtml;
+    var wfEl = $('waterfall');
+    wfEl.classList.toggle('calc-wf--batch', hasBatch);
+    wfEl.innerHTML = wfHtml;
 
-    /* Targets */
+    /* Контрольные точки */
     var t = d.targets || {};
     var NA = 'недостижимо до 500 000 ₽';
-    var rows = [];
-    rows.push(targetRow('Мин. цена безубыточности',
-      t.breakeven_price != null ? rub(t.breakeven_price) : NA, t.breakeven_price == null));
+    var cards = [];
+
+    var price = payload.price;
+    var cost = payload.cost_price;
+    var drr = payload.drr_pct || 0;
+
+    if (t.breakeven_price != null) {
+      var beOk = price >= t.breakeven_price;
+      cards.push(targetCard('Безубыточная цена', rub(t.breakeven_price), false,
+        beOk ? 'ваша цена ' + rub(price) + ' — выше ✓' : 'ваша цена ' + rub(price) + ' — ниже, вы в минусе',
+        beOk ? 'ok' : 'bad',
+        'Минимальная цена продажи, при которой прибыль на единицу равна нулю'));
+    } else {
+      cards.push(targetCard('Безубыточная цена', '—', true, NA, 'bad',
+        'Минимальная цена продажи, при которой прибыль на единицу равна нулю'));
+    }
+
     if (t.price_for_margin) {
-      rows.push(targetRow('Цена для маржи ' + pct(t.price_for_margin.target_margin_pct),
-        t.price_for_margin.price != null ? rub(t.price_for_margin.price) : NA, t.price_for_margin.price == null));
+      var pm = t.price_for_margin;
+      var pmOk = pm.price != null && price >= pm.price;
+      cards.push(targetCard('Цена для маржи ' + pct(pm.target_margin_pct),
+        pm.price != null ? rub(pm.price) : '—', pm.price == null,
+        pm.price == null ? NA : (pmOk ? 'уже достигнуто ✓' : 'сейчас ' + rub(price)),
+        pm.price == null ? 'bad' : (pmOk ? 'ok' : ''),
+        'Цена продажи, при которой маржинальность достигнет ' + pct(pm.target_margin_pct)));
     }
+
     if (t.price_for_roi_annual) {
-      rows.push(targetRow('Цена для ' + pct(t.price_for_roi_annual.target_roi_annual_pct) + ' годовых (оборот ' + t.price_for_roi_annual.turnover_days + ' дн)',
-        t.price_for_roi_annual.price != null ? rub(t.price_for_roi_annual.price) : NA, t.price_for_roi_annual.price == null));
+      var pr = t.price_for_roi_annual;
+      var prOk = pr.price != null && price >= pr.price;
+      cards.push(targetCard('Цена для ' + pct(pr.target_roi_annual_pct) + ' годовых',
+        pr.price != null ? rub(pr.price) : '—', pr.price == null,
+        pr.price == null ? NA : (prOk ? 'уже достигнуто ✓' : 'при обороте ' + pr.turnover_days + ' дн'),
+        pr.price == null ? 'bad' : (prOk ? 'ok' : ''),
+        'Цена, при которой вложенные деньги приносят ' + pct(pr.target_roi_annual_pct) + ' годовых при обороте ' + pr.turnover_days + ' дн'));
     }
-    rows.push(targetRow('Макс. себестоимость при этой цене',
-      t.max_cost_price != null ? rub(t.max_cost_price) : '—', t.max_cost_price == null));
-    rows.push(targetRow('Макс. ДРР при этой цене',
-      t.max_drr_pct != null ? pct(t.max_drr_pct) : '—', t.max_drr_pct == null));
+
+    if (t.max_cost_price != null) {
+      var mcOk = cost <= t.max_cost_price;
+      cards.push(targetCard('Макс. себестоимость', rub(t.max_cost_price), false,
+        mcOk ? 'у вас ' + rub(cost) + ' — запас ' + rub(Math.max(0, t.max_cost_price - cost)) + ' ✓'
+             : 'у вас ' + rub(cost) + ' — дороже',
+        mcOk ? 'ok' : 'bad',
+        'Максимальная закупочная цена, при которой вы не уходите в минус при этой цене продажи'));
+    }
+
+    if (t.max_drr_pct != null) {
+      var mdOk = drr <= t.max_drr_pct;
+      cards.push(targetCard('Макс. ДРР', pct(t.max_drr_pct), false,
+        mdOk ? 'у вас ' + pct(drr) + ' ✓' : 'у вас ' + pct(drr) + ' — реклама съедает прибыль',
+        mdOk ? 'ok' : 'bad',
+        'Максимальная доля рекламных расходов от выручки, при которой прибыль ещё не уходит в минус'));
+    }
+
     if (t.turnover && t.turnover.extra_day_cost_per_unit) {
-      rows.push(targetRow('Цена лишнего дня оборота',
-        rub(t.turnover.extra_day_cost_per_unit) + ' / ед·день', false));
+      cards.push(targetCard('Лишний день оборота', rub(t.turnover.extra_day_cost_per_unit), false,
+        'за единицу в день', '',
+        'Во сколько обходится каждый лишний день на складе: хранение, страхование и замороженные в товаре деньги'));
     }
+
     if (t.turnover && t.turnover.pace_for_turnover) {
       var pf = t.turnover.pace_for_turnover;
-      rows.push(targetRow('Темп для партии ' + fmtInt.format(pf.batch_units) + ' шт за ' + fmtInt.format(pf.target_turnover_days) + ' дн',
-        fmtRub.format(pf.units_per_day) + ' шт/день', false));
+      cards.push(targetCard('Темп для партии', fmtRub.format(pf.units_per_day) + ' шт/день', false,
+        fmtInt.format(pf.batch_units) + ' шт за ' + fmtInt.format(pf.target_turnover_days) + ' дн', '',
+        'Сколько штук в день нужно продавать, чтобы партия обернулась за целевой срок'));
     }
+
     if (t.pace_for_monthly_profit) {
-      rows.push(targetRow('Темп для прибыли ' + rub(t.pace_for_monthly_profit.target_monthly_profit) + ' в месяц',
-        fmtRub.format(t.pace_for_monthly_profit.units_per_day) + ' шт/день', false));
+      var pm2 = t.pace_for_monthly_profit;
+      cards.push(targetCard('Темп для цели в месяц', fmtRub.format(pm2.units_per_day) + ' шт/день', false,
+        'цель ' + rub(pm2.target_monthly_profit) + '/мес', '',
+        'Темп продаж для целевой прибыли в месяц при текущей прибыли с единицы'));
     }
-    $('targetsGrid').innerHTML = rows.join('');
 
-    /* Funnel per 100 orders */
-    var f = d.per_100_orders;
-    $('funnelGrid').innerHTML =
-      funnelCell(fmtInt.format(f.orders), 'заказов') +
-      funnelCell(fmtRub.format(f.buyouts), 'выкупят (' + pct(payload.buyout_pct || 90) + ')') +
-      funnelCell(fmtRub.format(f.kept), 'останется после возвратов') +
-      funnelCell(rub(f.profit), 'прибыль итого', posNeg(f.profit));
-
-    /* Disclaimer */
-    $('calcDisclaimer').textContent =
-      'Расчёт ориентировочный, по официальным тарифам Ozon от ' + (d.tariffs_actual_at || '—') +
-      ' (комиссия типа товара, логистика по литражу — базовые тарифы, доставка до места выдачи, обратная логистика, обработка невыкупа/возврата' +
-      (payload.insurance_enabled === false ? '' : ', страхование запасов') +
-      '). Фактические условия зависят от кластера отгрузки, акций и вашего договора с Ozon.';
+    $('targetsGrid').innerHTML = cards.join('');
 
     resultEl.hidden = false;
     resultEl.scrollIntoView({ behavior: 'smooth', block: 'start' });

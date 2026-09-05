@@ -114,8 +114,7 @@
       <section class="calc__intro" aria-label="О калькуляторе">
         <p class="eyebrow">расчётус · калькулятор</p>
         <h1 class="calc__title">Сколько вы заработаете на&nbsp;товаре?</h1>
-        <p class="calc__sub">Прибыль, маржа и ROI до закупки — по полной тарифной модели <span class="ozonus">Ozon</span>:
-          комиссия категории, логистика по литражу, невыкупы и возвраты, реклама, налог и страхование.
+        <p class="calc__sub">Прибыль, маржа и ROI до закупки — по актуальным тарифам <span class="ozonus">Ozon</span>.
           Бесплатно и без регистрации.</p>
       </section>
 
@@ -124,30 +123,29 @@
         <form id="calcForm" novalidate>
 
           <div class="calc-field calc-field--type">
-            <label class="calc-label" for="fType">Тип товара <span class="req">*</span></label>
+            <label class="calc-label" for="fType" data-tip="От типа товара зависит комиссия Ozon — выберите вариант из подсказки">Тип товара <span class="req">*</span></label>
             <div class="calc-type-wrap">
               <input class="calc-input" id="fType" type="text" autocomplete="off" spellcheck="false"
                      placeholder="Начните вводить: например, «колонка» или «футболка»">
               <div class="calc-type-drop" id="typeDrop" hidden></div>
             </div>
-            <p class="calc-hint" id="typeHint">Выберите тип из подсказки — от него зависит комиссия Ozon</p>
+            <p class="calc-hint" id="typeHint"></p>
           </div>
 
           <div class="calc-row">
             <div class="calc-field">
               <label class="calc-label" for="fPrice">Цена продажи, ₽ <span class="req">*</span></label>
-              <input class="calc-input" id="fPrice" type="number" min="1" max="500000" step="any" inputmode="decimal" placeholder="1 990">
+              <input class="calc-input" id="fPrice" type="number" min="1" max="500000" step="any" inputmode="decimal">
             </div>
             <div class="calc-field">
-              <label class="calc-label" for="fCost">Себестоимость, ₽ <span class="req">*</span></label>
-              <input class="calc-input" id="fCost" type="number" min="0" max="500000" step="any" inputmode="decimal" placeholder="700">
-              <p class="calc-hint">Закупка + доставка до склада, за единицу</p>
+              <label class="calc-label" for="fCost" data-tip="Закупка + доставка до склада, за единицу">Себестоимость, ₽ <span class="req">*</span></label>
+              <input class="calc-input" id="fCost" type="number" min="0" max="500000" step="any" inputmode="decimal">
             </div>
           </div>
 
           <div class="calc-row calc-row--dims">
             <div class="calc-field">
-              <label class="calc-label">Габариты упаковки, см <span class="req">*</span></label>
+              <label class="calc-label" data-tip="От объёма упаковки зависит тариф логистики Ozon">Габариты упаковки, см <span class="req">*</span></label>
               <div class="calc-dims">
                 <input class="calc-input" id="fLen" type="number" min="0" max="1000" step="any" inputmode="decimal" placeholder="Длина" aria-label="Длина, см">
                 <span class="calc-dims__x">×</span>
@@ -157,9 +155,8 @@
               </div>
             </div>
             <div class="calc-field">
-              <label class="calc-label" for="fVol">…или объём, л</label>
-              <input class="calc-input" id="fVol" type="number" min="0" max="10000" step="any" inputmode="decimal" placeholder="2.5">
-              <p class="calc-hint">От объёма зависит тариф логистики</p>
+              <label class="calc-label" for="fVol" data-tip="Если знаете объём — укажите его вместо габаритов">…или объём, л</label>
+              <input class="calc-input" id="fVol" type="number" min="0" max="10000" step="any" inputmode="decimal">
             </div>
           </div>
 
@@ -189,14 +186,12 @@
                 <input class="calc-input" id="fDrr" type="number" min="0" max="100" step="any" value="0">
               </div>
               <div class="calc-field">
-                <label class="calc-label" for="fSpp">Скидка за счёт Ozon (СПП), %</label>
+                <label class="calc-label" for="fSpp" data-tip="Скидка постоянного покупателя, которую Ozon даёт за свой счёт. Влияет на налоговую базу">Скидка за счёт Ozon (СПП), %</label>
                 <input class="calc-input" id="fSpp" type="number" min="0" max="90" step="any" value="0">
-                <p class="calc-hint">Влияет на налоговую базу — налог считается от цены покупателя</p>
               </div>
               <div class="calc-field">
-                <label class="calc-label" for="fTurnover">Оборот, дней</label>
+                <label class="calc-label" for="fTurnover" data-tip="За сколько дней в среднем продаётся единица товара. Влияет на хранение, страхование и годовой ROI">Оборот, дней</label>
                 <input class="calc-input" id="fTurnover" type="number" min="1" max="365" step="1" value="30">
-                <p class="calc-hint">За сколько дней в среднем продаётся единица</p>
               </div>
               <div class="calc-field">
                 <label class="calc-label" for="fTaxRegime">Налоговый режим</label>
@@ -220,7 +215,6 @@
                   <input type="checkbox" id="fInsurance" checked>
                   <span>Страхование запасов Ozon</span>
                 </label>
-                <p class="calc-hint">Включено Ozon по умолчанию с июля 2026 (можно отключить в кабинете)</p>
               </div>
             </div>
 
@@ -237,15 +231,15 @@
                 </div>
                 <div class="calc-field">
                   <label class="calc-label" for="fBatch">Партия, шт</label>
-                  <input class="calc-input" id="fBatch" type="number" min="0" max="1000000" step="1" placeholder="500">
+                  <input class="calc-input" id="fBatch" type="number" min="0" max="1000000" step="1">
                 </div>
                 <div class="calc-field">
                   <label class="calc-label" for="fBatchDays">Продать партию за, дней</label>
-                  <input class="calc-input" id="fBatchDays" type="number" min="1" max="365" step="1" placeholder="60">
+                  <input class="calc-input" id="fBatchDays" type="number" min="1" max="365" step="1">
                 </div>
                 <div class="calc-field">
                   <label class="calc-label" for="fMonthly">Целевая прибыль в месяц, ₽</label>
-                  <input class="calc-input" id="fMonthly" type="number" min="0" step="any" placeholder="100 000">
+                  <input class="calc-input" id="fMonthly" type="number" min="0" step="any">
                 </div>
               </div>
             </div>
@@ -268,28 +262,19 @@
         <div class="calc-meta" id="calcMeta"></div>
 
         <div class="calc-block">
-          <h2 class="calc-block__title">Из чего складывается прибыль <span class="calc-block__sub">на 1 проданную единицу</span></h2>
+          <h2 class="calc-block__title">Куда уходят деньги <span class="calc-block__sub">на 1 проданную единицу</span></h2>
           <div class="calc-wf" id="waterfall"></div>
         </div>
 
         <div class="calc-block">
-          <h2 class="calc-block__title">Ориентиры <span class="calc-block__sub">точки безубыточности и цели</span></h2>
+          <h2 class="calc-block__title">Контрольные точки <span class="calc-block__sub">безубыточность и цели</span></h2>
           <div class="calc-targets" id="targetsGrid"></div>
         </div>
 
-        <div class="calc-block">
-          <h2 class="calc-block__title">Воронка на 100 заказов</h2>
-          <div class="calc-funnel" id="funnelGrid"></div>
-        </div>
-
-        <p class="calc-disclaimer" id="calcDisclaimer"></p>
-
         <div class="calc-cta">
           <p class="calc-cta__title">Это прогноз. А сколько вы зарабатываете на самом деле?</p>
-          <p class="calc-cta__sub">Подключите магазин к Расчётусу — увидите фактическую прибыль по каждому вашему товару:
-            со всеми удержаниями Ozon, рекламой и налогом, разнесёнными до штуки.</p>
+          <p class="calc-cta__sub">Подключите магазин — Расчётус покажет фактическую прибыль по каждому вашему товару.</p>
           <a href="https://mp.raschetus.ru/" class="btn btn--lime btn--lg" data-cta="connect">Подключить бесплатно — 5 дней</a>
-          <span class="calc-cta__note">Без привязки карты</span>
         </div>
       </section>
 
