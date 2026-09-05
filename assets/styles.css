@@ -423,6 +423,8 @@ img.avatar--service { display: block; }
 }
 .footer__social-link:hover { transform: translateY(-2px); border-color: var(--lime-tx); }
 .footer__social-link img { width: 22px; height: 22px; display: block; }
+/* Логотип-бейдж (32px) выше строк текста — центрируем первые строки nav/req по его оптическому центру */
+.footer__nav, .footer__req { padding-top: 7px; }
 .footer__nav { display: flex; flex-direction: column; gap: 9px; }
 .footer__nav a { color: var(--tx2); font-size: 13px; }
 .footer__nav a:hover { color: var(--lime-tx); }
@@ -512,6 +514,7 @@ html.anim .msg--service .panel.show {
    ============================================================ */
 @media (max-width: 760px) {
   .footer__inner { grid-template-columns: 1fr; }
+  .footer__nav, .footer__req { padding-top: 0; }
 }
 @media (max-width: 700px) {
   .offers__grid { grid-template-columns: 1fr; }
