@@ -112,16 +112,38 @@
 
       <!-- ===================== INTRO ===================== -->
       <section class="calc__intro" aria-label="О калькуляторе">
-        <p class="eyebrow">расчётус · калькулятор юнитки Ozon</p>
+        <div class="calc__eyebrow-row">
+          <p class="eyebrow">расчётус · калькулятор юнитки Ozon</p>
+          <button type="button" class="calc-help-btn" id="calcHelpBtn"
+                  aria-label="Как пользоваться калькулятором" title="Как пользоваться">?</button>
+        </div>
         <h1 class="calc__title">Сколько вы заработаете на&nbsp;товаре?</h1>
         <p class="calc__sub">Прибыль, маржа и ROI по актуальным тарифам <span class="ozonus">Ozon</span>.
           Бесплатно и без регистрации.</p>
-        <ol class="calc-steps" aria-label="Как пользоваться">
-          <li><b>1</b>Укажите тип товара, цену, себестоимость и габариты</li>
-          <li><b>2</b>При желании уточните выкуп, рекламу и налог</li>
-          <li><b>3</b>Получите прибыль, разбор расходов и контрольные точки</li>
-        </ol>
       </section>
+
+      <!-- Попап «Как пользоваться» -->
+      <div class="calc-help" id="calcHelp" hidden>
+        <div class="calc-help__overlay" data-close></div>
+        <div class="calc-help__box" role="dialog" aria-modal="true" aria-label="Как пользоваться калькулятором">
+          <button type="button" class="calc-help__close" data-close aria-label="Закрыть">×</button>
+          <h2 class="calc-help__title">Как пользоваться</h2>
+          <ol class="calc-help__steps">
+            <li><b>1</b><span><strong>Тип товара.</strong> Начните вводить название и выберите вариант из подсказки —
+              от типа зависит комиссия Ozon, у каждой категории своя ставка.</span></li>
+            <li><b>2</b><span><strong>Цена и себестоимость.</strong> Цена продажи на витрине и ваши затраты
+              на единицу: закупка плюс доставка до склада.</span></li>
+            <li><b>3</b><span><strong>Габариты или объём.</strong> Размеры упаковки в сантиметрах либо готовый
+              объём в литрах — по нему считается тариф логистики.</span></li>
+            <li><b>4</b><span><strong>Уточните расчёт</strong> — схема продаж, выкуп, возвраты, реклама, СПП,
+              налог и оборот. Чем точнее заполните, тем ближе прогноз к реальности; можно оставить значения
+              по умолчанию.</span></li>
+            <li><b>5</b><span><strong>Нажмите «Рассчитать прибыль».</strong> Получите прибыль с единицы, маржу
+              и ROI, разбор «куда уходят деньги» и контрольные точки: безубыточность, максимальную себестоимость
+              и ДРР. Наведите курсор на метрику — появится пояснение.</span></li>
+          </ol>
+        </div>
+      </div>
 
       <!-- ===================== FORM ===================== -->
       <section class="calc-card" aria-label="Параметры товара">
@@ -254,7 +276,6 @@
 
           <div class="calc-submit">
             <button type="submit" class="btn btn--lime btn--lg" id="calcBtn">Рассчитать прибыль</button>
-            <span class="calc-submit__note">Бесплатно · без регистрации</span>
           </div>
         </form>
       </section>

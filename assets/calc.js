@@ -25,6 +25,19 @@
     });
   }
 
+  /* ---------- Попап «Как пользоваться» ---------- */
+  var helpEl = $('calcHelp');
+  var helpBtn = $('calcHelpBtn');
+  if (helpEl && helpBtn) {
+    helpBtn.addEventListener('click', function () { helpEl.hidden = false; });
+    helpEl.addEventListener('click', function (e) {
+      if (e.target.hasAttribute('data-close')) helpEl.hidden = true;
+    });
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && !helpEl.hidden) helpEl.hidden = true;
+    });
+  }
+
   /* ---------- Форматирование ---------- */
   var fmtRub = new Intl.NumberFormat('ru-RU', { maximumFractionDigits: 2, minimumFractionDigits: 0 });
   var fmtInt = new Intl.NumberFormat('ru-RU', { maximumFractionDigits: 0 });
