@@ -11,4 +11,10 @@
       <image:title>Расчётус — аналитика прибыли для селлеров Ozon</image:title>
     </image:image>
   </url>
+  <url>
+    <loc>https://raschetus.ru/calculator/</loc>
+    <lastmod>2026-09-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
 </urlset>
