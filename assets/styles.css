@@ -415,6 +415,15 @@ img.avatar--service { display: block; }
 .footer__brand { display: flex; flex-direction: column; gap: 10px; align-items: flex-start; }
 .footer__tag { color: var(--tx2); font-size: 13px; max-width: 30ch; }
 .footer__motto { letter-spacing: .16em; text-transform: uppercase; font-size: 10px; color: var(--mut); }
+.footer__social { display: flex; gap: 10px; margin-top: 4px; }
+.footer__social-link {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 34px; height: 34px; border-radius: 9px;
+  border: 1px solid var(--hair2);
+  transition: transform .15s ease, border-color .15s ease;
+}
+.footer__social-link:hover { transform: translateY(-2px); border-color: var(--lime-tx); }
+.footer__social-link img { width: 22px; height: 22px; display: block; }
 .footer__nav { display: flex; flex-direction: column; gap: 9px; }
 .footer__nav a { color: var(--tx2); font-size: 13px; }
 .footer__nav a:hover { color: var(--lime-tx); }
