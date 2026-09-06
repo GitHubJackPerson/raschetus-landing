@@ -186,7 +186,7 @@ a:hover { color: var(--lime-tx); }
 }
 .btn--dark:hover { background: #000; color: var(--lime-tx); }
 :root.light .btn--dark:hover { background: #14181a; }
-.hero__link { color: var(--mut); font-weight: 600; font-size: 14px; text-decoration: none; transition: color .15s ease; }
+.hero__link { color: var(--mut); font-weight: 600; font-size: 14px; text-decoration: none; margin-left: 10px; transition: color .15s ease; }
 .hero__link:hover { color: var(--lime-tx); }
 
 /* ============================================================
