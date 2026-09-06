@@ -3,30 +3,30 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Планирование поставок Ozon — что и куда везти | Расчётус</title>
-  <meta name="description" content="Планирование поставок на Ozon: сколько и куда везти по кластерам FBO и складам FBS. Подсорт, дни запаса, скорость продаж, сборочный лист, бронь слотов приёмки и возмещение за обнулённый склад.">
+  <title>ОПиУ на Ozon — отчёт о прибылях и убытках селлера | Расчётус</title>
+  <meta name="description" content="Отчёт о прибылях и убытках (ОПиУ / P&L) для продавца Ozon: выручка минус комиссия, логистика, реклама, возвраты, налог и себестоимость — реальная прибыль магазина по месяцам. Данные из кабинета Ozon по API.">
   <meta name="theme-color" content="#0e1110">
   <meta name="color-scheme" content="dark light">
   <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
-  <meta name="keywords" content="планирование поставок Ozon, подсорт Ozon, что везти на Ozon, поставки FBO, склады FBS, дни запаса, сборочный лист Ozon, слоты приёмки, возмещение Ozon">
+  <meta name="keywords" content="ОПиУ Ozon, P&L Ozon, прибыли и убытки Ozon, реальная прибыль Ozon, финансовый отчёт селлера, прибыль магазина Ozon, отчёт о прибылях и убытках">
   <meta name="author" content="Расчётус">
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
   <link rel="apple-touch-icon" href="/assets/img/badge.svg">
-  <link rel="canonical" href="https://raschetus.ru/postavki/">
+  <link rel="canonical" href="https://raschetus.ru/opiu/">
   <link rel="preconnect" href="https://mc.yandex.ru" crossorigin>
 
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Расчётус">
-  <meta property="og:title" content="Планирование поставок Ozon — что и куда везти">
-  <meta property="og:description" content="Сколько и куда везти по кластерам FBO и складам FBS: подсорт, дни запаса, сборочный лист, слоты приёмки и возмещение за обнулённый склад.">
-  <meta property="og:url" content="https://raschetus.ru/postavki/">
+  <meta property="og:title" content="ОПиУ на Ozon — реальная прибыль магазина">
+  <meta property="og:description" content="Отчёт о прибылях и убытках селлера Ozon: из выручки вычтены комиссия, логистика, реклама, возвраты, налог и себестоимость. Реальная прибыль по месяцам.">
+  <meta property="og:url" content="https://raschetus.ru/opiu/">
   <meta property="og:locale" content="ru_RU">
   <meta property="og:image" content="https://raschetus.ru/assets/img/og.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Планирование поставок Ozon — что и куда везти">
-  <meta name="twitter:description" content="Подсорт по кластерам FBO и складам FBS, сборочный лист, слоты приёмки и возмещение за обнулённый склад Ozon.">
+  <meta name="twitter:title" content="ОПиУ на Ozon — реальная прибыль магазина">
+  <meta name="twitter:description" content="Отчёт о прибылях и убытках селлера Ozon: из выручки вычтены комиссия, логистика, реклама, возвраты, налог и себестоимость. Реальная прибыль по месяцам.">
   <meta name="twitter:image" content="https://raschetus.ru/assets/img/og.png">
 
   <script>
@@ -38,58 +38,85 @@
   <link rel="stylesheet" href="/assets/styles.css">
 
   <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@graph": [
-      {
-        "@type": "WebPage",
-        "@id": "https://raschetus.ru/postavki/#webpage",
-        "url": "https://raschetus.ru/postavki/",
-        "name": "Планирование поставок Ozon — что и куда везти",
-        "inLanguage": "ru-RU",
-        "isPartOf": { "@id": "https://raschetus.ru/#website" },
-        "about": "Планирование поставок на маркетплейс Ozon: подсорт по кластерам FBO и складам FBS, дни запаса, сборочный лист, слоты приёмки, возмещение за обнулённый склад.",
-        "primaryImageOfPage": "https://raschetus.ru/assets/img/og.png"
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebPage",
+      "@id": "https://raschetus.ru/opiu/#webpage",
+      "url": "https://raschetus.ru/opiu/",
+      "name": "ОПиУ на Ozon — реальная прибыль магазина",
+      "inLanguage": "ru-RU",
+      "isPartOf": {
+        "@id": "https://raschetus.ru/#website"
       },
-      {
-        "@type": "BreadcrumbList",
-        "itemListElement": [
-          { "@type": "ListItem", "position": 1, "name": "Главная", "item": "https://raschetus.ru/" },
-          { "@type": "ListItem", "position": 2, "name": "Планирование поставок Ozon", "item": "https://raschetus.ru/postavki/" }
-        ]
-      },
-      {
-        "@type": "FAQPage",
-        "mainEntity": [
-          {
-            "@type": "Question",
-            "name": "Как планировать поставки на Ozon?",
-            "acceptedAnswer": { "@type": "Answer", "text": "Расчётус берёт из кабинета Ozon фактические продажи, остатки и товар в пути и считает, сколько и куда везти — по кластерам FBO и складам FBS, с учётом скорости продаж и дней запаса. Формирует сборочный лист и помогает забронировать слот приёмки." }
-          },
-          {
-            "@type": "Question",
-            "name": "Что такое подсорт поставки?",
-            "acceptedAnswer": { "@type": "Answer", "text": "Подсорт — сколько единиц товара докинуть на каждый склад или кластер, чтобы товар не кончился до следующей поставки. Расчётус считает подсорт автоматически по скорости продаж, остаткам и товару в пути." }
-          },
-          {
-            "@type": "Question",
-            "name": "Чем поставки FBO отличаются от FBS?",
-            "acceptedAnswer": { "@type": "Answer", "text": "FBO — товар хранится на складах Ozon по кластерам, и Ozon сам доставляет его покупателю. FBS — товар на вашем складе, вы отгружаете по заказу. Расчётус планирует обе схемы в одном расчёте и показывает общую потребность." }
-          },
-          {
-            "@type": "Question",
-            "name": "Как узнать, что везти на склад Ozon?",
-            "acceptedAnswer": { "@type": "Answer", "text": "По скорости продаж и дням запаса: сервис показывает, что в дефиците, сколько товара уже в пути и сколько докинуть — по каждому кластеру. Не «поровну», а туда, где реально продаётся." }
-          },
-          {
-            "@type": "Question",
-            "name": "Как получить возмещение за обнулённый склад Ozon?",
-            "acceptedAnswer": { "@type": "Answer", "text": "Если Ozon обнулил остаток на складе, Расчётус хранит снимок остатка на дату обнуления. С этими данными продавец запрашивает у Ozon возмещение за потерянный товар." }
+      "about": "Отчёт о прибылях и убытках (ОПиУ / P&L) для продавца Ozon: реальная прибыль магазина по месяцам с учётом всех удержаний Ozon, рекламы, возвратов, налога и себестоимости.",
+      "primaryImageOfPage": "https://raschetus.ru/assets/img/og.png"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Главная",
+          "item": "https://raschetus.ru/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "ОПиУ (прибыли и убытки)",
+          "item": "https://raschetus.ru/opiu/"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Что такое ОПиУ на Ozon?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "ОПиУ (отчёт о прибылях и убытках, P&L) — сводный финансовый отчёт: из выручки вычитаются комиссия, логистика, эквайринг, реклама, хранение, возвраты, налог и себестоимость, и остаётся чистая прибыль магазина по месяцам. Подробнее в базе знаний."
           }
-        ]
-      }
-    ]
-  }
+        },
+        {
+          "@type": "Question",
+          "name": "Как узнать реальную прибыль на Ozon?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Подключить кабинет по API — Расчётус соберёт ОПиУ и покажет фактическую прибыль по магазину и по каждому товару, а не выручку из кабинета Ozon."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Почему прибыль в Расчётусе отличается от кабинета Ozon?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Кабинет показывает выручку и разрозненные начисления, а ОПиУ сводит их в прибыль с учётом всех удержаний, возвратов, налога и себестоимости — поэтому итог отличается и точнее отражает реальность."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Учитывается ли налог в прибыли?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Да. УСН «Доходы», УСН «Доходы минус расходы» и ОСНО с НДС учитываются в расчёте прибыли по системе налогообложения, заданной для магазина."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Чем прибыль отличается от движения денег?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Прибыль — финансовый результат за период (ОПиУ), движение денег (ДДС) — сколько денег фактически пришло и ушло со счёта. Деньги на балансе и прибыль не одно и то же; Расчётус показывает оба отчёта."
+          }
+        }
+      ]
+    }
+  ]
+}
   </script>
 
   <style>
@@ -97,8 +124,8 @@
     .art__crumbs { font-size: 12px; letter-spacing: .04em; text-transform: uppercase; color: var(--mut); }
     .art__crumbs a { color: var(--mut); text-decoration: none; }
     .art__crumbs a:hover { color: var(--lime-tx); }
-    .art__h1 { font-size: clamp(30px,5vw,56px); font-weight: 800; letter-spacing: -0.04em; line-height: 1.03; color: var(--tx); max-width: 18ch; margin-top: 12px; }
-    .art__lead { color: var(--tx2); font-size: clamp(15px,1.6vw,19px); line-height: 1.5; max-width: 60ch; margin-top: 16px; }
+    .art__h1 { font-size: clamp(30px,5vw,56px); font-weight: 800; letter-spacing: -0.04em; line-height: 1.03; color: var(--tx); max-width: 20ch; margin-top: 12px; }
+    .art__lead { color: var(--tx2); font-size: clamp(15px,1.6vw,19px); line-height: 1.5; max-width: 62ch; margin-top: 16px; }
     .art__cta { display: flex; gap: 14px; align-items: center; flex-wrap: wrap; margin-top: 24px; }
     .art__sec { margin-top: clamp(26px,4vw,44px); max-width: 74ch; }
     .art__sec h2 { font-size: clamp(20px,2.6vw,30px); font-weight: 800; letter-spacing: -0.03em; line-height: 1.1; color: var(--tx); }
@@ -139,47 +166,35 @@
 
   <main class="art">
     <nav class="art__crumbs" aria-label="Хлебные крошки">
-      <a href="/">Главная</a> → Планирование поставок Ozon
+      <a href="/">Главная</a> → ОПиУ (прибыли и убытки)
     </nav>
 
-    <h1 class="art__h1">Планирование поставок на <span class="ozonus">Ozon</span></h1>
-    <p class="art__lead">Расчётус считает, что и куда везти, чтобы товар не встал в ноль на складе и не заморозил деньги.
-      Данные берутся из вашего кабинета Ozon — по фактическим продажам, остаткам и товару в пути.</p>
+    <h1 class="art__h1">Отчёт о прибылях и убытках (ОПиУ) на <span class="ozonus">Ozon</span></h1>
+    <p class="art__lead">Реальная прибыль магазина, а не выручка из кабинета: из дохода вычитаются все удержания Ozon, реклама, возвраты, налог и себестоимость. Видно по месяцам, откуда прибыль и куда утекают деньги.</p>
     <div class="art__cta">
       <a href="https://mp.raschetus.ru/" class="btn btn--lime btn--lg" data-cta="connect">Подключить бесплатно</a>
       <a href="/calculator/" class="hero__link" data-cta="calculator">Калькулятор прибыли Ozon →</a>
     </div>
 
     <section class="art__sec">
-      <h2>Подсорт по кластерам Ozon</h2>
-      <p>Сколько единиц докинуть на каждый кластер FBO — с учётом скорости продаж, дней запаса, остатка на складе
-        и товара в пути. Не «поровну по всем», а туда, где товар реально продаётся.
-        <a href="/docs/supplies/supply-planning/" target="_blank" rel="noopener">Как считается подсорт →</a></p>
+      <h2>Полный P&L по месяцам</h2>
+      <p>Выручка, комиссия, логистика, эквайринг, реклама, хранение, возвраты, компенсации, налог, себестоимость и чистая прибыль — в одной таблице по месяцам. Не разрозненные начисления, а сведённый финансовый результат. <a href="/docs/finances/profit-and-loss/" target="_blank" rel="noopener">Как устроен ОПиУ →</a></p>
     </section>
-
     <section class="art__sec">
-      <h2>FBO и FBS в одном расчёте</h2>
-      <p>Планирование учитывает и склады Ozon (FBO по кластерам), и ваши склады (FBS). Видно общую потребность
-        по товару и где именно чего не хватает — без ручного сведе́ния двух схем.</p>
+      <h2>Почему цифры не сходятся с кабинетом</h2>
+      <p>Кабинет Ozon показывает выручку и отдельные начисления; ОПиУ сводит всё в прибыль, поэтому итог отличается — и он ближе к реальности. <a href="/docs/faq/numbers-diff-faq/" target="_blank" rel="noopener">Почему цифры отличаются →</a></p>
     </section>
-
     <section class="art__sec">
-      <h2>Дни запаса и скорость продаж</h2>
-      <p>По каждому товару: за сколько дней кончится текущий остаток, что уже в дефиците, а что в избытке
-        и морозит вложенные деньги. Так видно, что заказывать в первую очередь.</p>
+      <h2>Движение денег отдельно от прибыли</h2>
+      <p>Сколько денег реально пришло и ушло со счёта — отдельным отчётом (ДДС), чтобы не спутать прибыль с остатком на балансе. <a href="/docs/finances/cashflow/" target="_blank" rel="noopener">Про движение денег →</a></p>
     </section>
-
     <section class="art__sec">
-      <h2>Сборочный лист и слоты приёмки</h2>
-      <p>Готовый сборочный лист на поставку — одним файлом. Бронь слота приёмки на складе Ozon оформляется
-        прямо из сервиса, без ручного отслеживания свободных окон.</p>
+      <h2>Налог внутри расчёта прибыли</h2>
+      <p>УСН или ОСНО с НДС учитываются прямо в прибыли, а не считаются на салфетке в конце квартала. Систему налогообложения магазин задаёт в настройках. <a href="/docs/stores/taxes/" target="_blank" rel="noopener">Про налоги →</a></p>
     </section>
-
     <section class="art__sec">
-      <h2>Возмещение за обнулённый склад</h2>
-      <p>Если Ozon обнулил остаток на складе, Расчётус хранит снимок остатка на дату обнуления — с этими данными
-        продавец запрашивает у Ozon возмещение за потерянный товар.
-        <a href="/docs/supplies/stock-fixations/" target="_blank" rel="noopener">Подробнее в базе знаний →</a></p>
+      <h2>До прибыли на единицу товара</h2>
+      <p>Прибыль магазина можно свести до прибыли на штуку и увидеть, какой товар её формирует. <a href="/unit-ekonomika/">Юнит-экономика товара на Ozon →</a></p>
     </section>
 
     <div class="art__cta">
@@ -193,30 +208,24 @@
       <h2 class="caps__faq-h">Частые вопросы</h2>
       <div class="faqs">
         <details class="faq">
-          <summary>Как планировать поставки на Ozon?</summary>
-          <p>Расчётус берёт из кабинета Ozon фактические продажи, остатки и товар в пути и считает, сколько и куда
-            везти — по кластерам FBO и складам FBS, с учётом скорости продаж и дней запаса. Формирует сборочный
-            лист и помогает забронировать слот приёмки. <a href="/docs/supplies/supply-planning/" target="_blank" rel="noopener">Подробнее в базе знаний</a>.</p>
+          <summary>Что такое ОПиУ на Ozon?</summary>
+          <p>ОПиУ (отчёт о прибылях и убытках, P&L) — сводный финансовый отчёт: из выручки вычитаются комиссия, логистика, эквайринг, реклама, хранение, возвраты, налог и себестоимость, и остаётся чистая прибыль магазина по месяцам. <a href="/docs/finances/profit-and-loss/" target="_blank" rel="noopener">Подробнее в базе знаний</a>.</p>
         </details>
         <details class="faq">
-          <summary>Что такое подсорт поставки?</summary>
-          <p>Подсорт — сколько единиц товара докинуть на каждый склад или кластер, чтобы товар не кончился до
-            следующей поставки. Расчётус считает подсорт автоматически по скорости продаж, остаткам и товару в пути.</p>
+          <summary>Как узнать реальную прибыль на Ozon?</summary>
+          <p>Подключить кабинет по API — Расчётус соберёт ОПиУ и покажет фактическую прибыль по магазину и по каждому товару, а не выручку из кабинета Ozon.</p>
         </details>
         <details class="faq">
-          <summary>Чем поставки FBO отличаются от FBS?</summary>
-          <p>FBO — товар хранится на складах Ozon по кластерам, и Ozon сам доставляет его покупателю. FBS — товар
-            на вашем складе, вы отгружаете по заказу. Расчётус планирует обе схемы в одном расчёте.</p>
+          <summary>Почему прибыль в Расчётусе отличается от кабинета Ozon?</summary>
+          <p>Кабинет показывает выручку и разрозненные начисления, а ОПиУ сводит их в прибыль с учётом всех удержаний, возвратов, налога и себестоимости — поэтому итог отличается и точнее отражает реальность.</p>
         </details>
         <details class="faq">
-          <summary>Как узнать, что везти на склад Ozon?</summary>
-          <p>По скорости продаж и дням запаса: сервис показывает, что в дефиците, сколько товара уже в пути и
-            сколько докинуть — по каждому кластеру. Не «поровну», а туда, где реально продаётся.</p>
+          <summary>Учитывается ли налог в прибыли?</summary>
+          <p>Да. УСН «Доходы», УСН «Доходы минус расходы» и ОСНО с НДС учитываются в расчёте прибыли по системе налогообложения, заданной для магазина.</p>
         </details>
         <details class="faq">
-          <summary>Как получить возмещение за обнулённый склад Ozon?</summary>
-          <p>Если Ozon обнулил остаток на складе, останется снимок остатка на дату обнуления; с этими данными
-            запрашивают у Ozon возмещение за потерянный товар. <a href="/docs/supplies/stock-fixations/" target="_blank" rel="noopener">Про поставки в базе знаний</a>.</p>
+          <summary>Чем прибыль отличается от движения денег?</summary>
+          <p>Прибыль — финансовый результат за период (ОПиУ), движение денег (ДДС) — сколько денег фактически пришло и ушло со счёта. Деньги на балансе и прибыль не одно и то же; Расчётус показывает оба отчёта.</p>
         </details>
       </div>
     </div>

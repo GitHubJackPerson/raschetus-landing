@@ -420,12 +420,10 @@ img.avatar--service { display: block; }
 .footer__social { display: flex; gap: 10px; margin-top: 4px; }
 .footer__social-link {
   display: inline-flex; align-items: center; justify-content: center;
-  width: 34px; height: 34px; border-radius: 9px;
-  border: 1px solid var(--hair2);
-  transition: transform .15s ease, border-color .15s ease;
+  transition: transform .15s ease;
 }
-.footer__social-link:hover { transform: translateY(-2px); border-color: var(--lime-tx); }
-.footer__social-link img { width: 22px; height: 22px; display: block; }
+.footer__social-link:hover { transform: translateY(-2px); }
+.footer__social-link img { width: 32px; height: 32px; display: block; border-radius: 8px; }
 /* Логотип-бейдж (32px) выше строк текста — центрируем первые строки nav/req по его оптическому центру */
 .footer__col, .footer__req { padding-top: 7px; }
 .footer__col { display: flex; flex-direction: column; gap: 9px; }

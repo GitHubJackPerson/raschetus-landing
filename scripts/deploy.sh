@@ -18,7 +18,7 @@ cd "$(dirname "$0")/.."
 
 echo "→ Деплой на ${HOST}:${DEST}"
 
-tar -cf - index.html calculator postavki favicon.svg robots.txt sitemap.xml assets \
+tar -cf - index.html calculator postavki unit-ekonomika opiu reklama akcii favicon.svg robots.txt sitemap.xml assets \
   | ssh "$HOST" "set -e
       mkdir -p '${DEST}'
       tar -C '${DEST}' -xf -
