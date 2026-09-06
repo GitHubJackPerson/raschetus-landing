@@ -186,6 +186,8 @@ a:hover { color: var(--lime-tx); }
 }
 .btn--dark:hover { background: #000; color: var(--lime-tx); }
 :root.light .btn--dark:hover { background: #14181a; }
+.btn--ghost { background: transparent; border: 1px solid var(--hair2); color: var(--tx); }
+.btn--ghost:hover { border-color: var(--lime-tx); color: var(--lime-tx); }
 
 /* ============================================================
    OPENING (hero)
