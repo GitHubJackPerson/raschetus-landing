@@ -2,3 +2,4 @@ User-agent: *
 Allow: /
 
 Sitemap: https://raschetus.ru/sitemap.xml
+Sitemap: https://raschetus.ru/docs/sitemap.xml
