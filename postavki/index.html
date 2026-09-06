@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Планирование поставок Ozon — что и куда везти | Расчётус</title>
+  <meta name="description" content="Планирование поставок на Ozon: сколько и куда везти по кластерам FBO и складам FBS. Подсорт, дни запаса, скорость продаж, сборочный лист, бронь слотов приёмки и возмещение за обнулённый склад.">
+  <meta name="theme-color" content="#0e1110">
+  <meta name="color-scheme" content="dark light">
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+  <meta name="keywords" content="планирование поставок Ozon, подсорт Ozon, что везти на Ozon, поставки FBO, склады FBS, дни запаса, сборочный лист Ozon, слоты приёмки, возмещение Ozon">
+  <meta name="author" content="Расчётус">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="/assets/img/badge.svg">
+  <link rel="canonical" href="https://raschetus.ru/postavki/">
+  <link rel="preconnect" href="https://mc.yandex.ru" crossorigin>
+
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Расчётус">
+  <meta property="og:title" content="Планирование поставок Ozon — что и куда везти">
+  <meta property="og:description" content="Сколько и куда везти по кластерам FBO и складам FBS: подсорт, дни запаса, сборочный лист, слоты приёмки и возмещение за обнулённый склад.">
+  <meta property="og:url" content="https://raschetus.ru/postavki/">
+  <meta property="og:locale" content="ru_RU">
+  <meta property="og:image" content="https://raschetus.ru/assets/img/og.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Планирование поставок Ozon — что и куда везти">
+  <meta name="twitter:description" content="Подсорт по кластерам FBO и складам FBS, сборочный лист, слоты приёмки и возмещение за обнулённый склад Ozon.">
+  <meta name="twitter:image" content="https://raschetus.ru/assets/img/og.png">
+
+  <script>
+    (function () { try { if ((localStorage.getItem('rsh-theme') || 'dark') === 'light') document.documentElement.classList.add('light'); } catch (e) {} })();
+  </script>
+
+  <link rel="preload" href="/assets/fonts/geist-cyrillic.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/assets/fonts/geist-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="/assets/styles.css">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebPage",
+        "@id": "https://raschetus.ru/postavki/#webpage",
+        "url": "https://raschetus.ru/postavki/",
+        "name": "Планирование поставок Ozon — что и куда везти",
+        "inLanguage": "ru-RU",
+        "isPartOf": { "@id": "https://raschetus.ru/#website" },
+        "about": "Планирование поставок на маркетплейс Ozon: подсорт по кластерам FBO и складам FBS, дни запаса, сборочный лист, слоты приёмки, возмещение за обнулённый склад.",
+        "primaryImageOfPage": "https://raschetus.ru/assets/img/og.png"
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Главная", "item": "https://raschetus.ru/" },
+          { "@type": "ListItem", "position": 2, "name": "Планирование поставок Ozon", "item": "https://raschetus.ru/postavki/" }
+        ]
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Как планировать поставки на Ozon?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Расчётус берёт из кабинета Ozon фактические продажи, остатки и товар в пути и считает, сколько и куда везти — по кластерам FBO и складам FBS, с учётом скорости продаж и дней запаса. Формирует сборочный лист и помогает забронировать слот приёмки." }
+          },
+          {
+            "@type": "Question",
+            "name": "Что такое подсорт поставки?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Подсорт — сколько единиц товара докинуть на каждый склад или кластер, чтобы товар не кончился до следующей поставки. Расчётус считает подсорт автоматически по скорости продаж, остаткам и товару в пути." }
+          },
+          {
+            "@type": "Question",
+            "name": "Чем поставки FBO отличаются от FBS?",
+            "acceptedAnswer": { "@type": "Answer", "text": "FBO — товар хранится на складах Ozon по кластерам, и Ozon сам доставляет его покупателю. FBS — товар на вашем складе, вы отгружаете по заказу. Расчётус планирует обе схемы в одном расчёте и показывает общую потребность." }
+          },
+          {
+            "@type": "Question",
+            "name": "Как узнать, что везти на склад Ozon?",
+            "acceptedAnswer": { "@type": "Answer", "text": "По скорости продаж и дням запаса: сервис показывает, что в дефиците, сколько товара уже в пути и сколько докинуть — по каждому кластеру. Не «поровну», а туда, где реально продаётся." }
+          },
+          {
+            "@type": "Question",
+            "name": "Как получить возмещение за обнулённый склад Ozon?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Если Ozon обнулил остаток на складе, Расчётус хранит снимок остатка на дату обнуления. С этими данными продавец запрашивает у Ozon возмещение за потерянный товар." }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+
+  <style>
+    .art { max-width: var(--maxw); margin-inline: auto; padding: clamp(28px,5vw,64px) clamp(16px,4vw,52px); }
+    .art__crumbs { font-size: 12px; letter-spacing: .04em; text-transform: uppercase; color: var(--mut); }
+    .art__crumbs a { color: var(--mut); text-decoration: none; }
+    .art__crumbs a:hover { color: var(--lime-tx); }
+    .art__h1 { font-size: clamp(30px,5vw,56px); font-weight: 800; letter-spacing: -0.04em; line-height: 1.03; color: var(--tx); max-width: 18ch; margin-top: 12px; }
+    .art__lead { color: var(--tx2); font-size: clamp(15px,1.6vw,19px); line-height: 1.5; max-width: 60ch; margin-top: 16px; }
+    .art__cta { display: flex; gap: 14px; align-items: center; flex-wrap: wrap; margin-top: 24px; }
+    .art__sec { margin-top: clamp(26px,4vw,44px); max-width: 74ch; }
+    .art__sec h2 { font-size: clamp(20px,2.6vw,30px); font-weight: 800; letter-spacing: -0.03em; line-height: 1.1; color: var(--tx); }
+    .art__sec p { color: var(--tx2); font-size: 15px; line-height: 1.65; margin-top: 10px; }
+    .art__sec a { color: var(--lime-tx); }
+  </style>
+</head>
+<body>
+
+  <header class="day-strip">
+    <div class="day-strip__inner">
+      <a href="/" class="logo" aria-label="Расчётус — на главную">
+        <img class="logo__badge" src="/assets/img/badge.svg" alt="" width="32" height="32">
+        <svg class="logo__word" viewBox="97.46 81.55 401.96 91.46" role="img" aria-label="расчётус">
+          <g fill="currentColor">
+            <path d="M97.46,111.12h13.01l.27,7.19c2.64-5.37,7.73-8.28,14.38-8.28,13.65,0,20.66,11.01,20.66,25.21s-7.01,25.21-20.66,25.21c-6.28,0-11.19-2.82-14.01-8.01v20.57h-13.65v-61.88ZM120.94,150.07c7.37,0,10.74-6.83,10.74-14.83s-3.55-14.83-10.74-14.83-10.74,7.01-10.74,14.83,3.46,14.83,10.74,14.83Z"/>
+            <path d="M172.81,110.03c14.65,0,22.21,7.19,22.21,20.93v15.2c0,3.18,1.27,3.91,3,3.91h1.73v9.28l-2.37.09c-3.19.09-12.56,1-13.83-7.46-2.46,5-7.83,8.46-16.65,8.46-9.83,0-17.29-5.28-17.29-13.83s6.64-12.28,18.29-14.56l13.29-2.73c-.09-7.01-2.73-10.37-8.46-10.37-4.64,0-7.55,2.64-8.65,7.74l-13.65-.64c1.82-10.28,9.74-16.02,22.39-16.02ZM171.17,151.62c5.92-.09,10.19-4.46,10.19-13.2v-.64l-7.92,1.46c-5.73,1.09-9.83,2-9.83,6.92,0,3.09,2.55,5.46,7.55,5.46Z"/>
+            <path d="M226.05,120.49c-6.83,0-10.74,5.37-10.74,14.74s3.91,14.74,10.74,14.74c5.1,0,8.92-3.28,9.74-9.55l14.11.55c-1.27,12.01-11.01,19.47-23.84,19.47-15.02,0-24.75-10.01-24.75-25.21s9.74-25.21,24.75-25.21c12.47,0,22.2,7.19,23.48,18.93l-14.01.64c-.82-5.82-4.64-9.1-9.46-9.1Z"/>
+            <path d="M286.83,159.35v-21.93c-2.91,4.64-8.1,7.55-14.47,7.55-11.56,0-18.84-7.64-18.84-19.75v-14.11h13.65v10.74c0,7.83,3.28,12.38,8.83,12.38,6.83,0,10.83-4.55,10.83-12.38v-10.74h13.74v48.23h-13.74Z"/>
+            <path d="M400.59,121.22h-16.29v38.13h-13.74v-38.13h-16.38v-10.1h46.41v10.1Z"/>
+            <path d="M415.14,111.12l12.01,33.94,11.65-33.94h12.92l-18.93,52.87c-2.28,6.19-6.46,9.01-13.47,9.01h-8.64v-9.92h6.1c2.91,0,4.46-.91,5.37-3.28l1.18-2.91h-3.82l-17.38-45.77h13.01Z"/>
+            <path d="M475.57,120.49c-6.83,0-10.74,5.37-10.74,14.74s3.91,14.74,10.74,14.74c5.1,0,8.92-3.28,9.74-9.55l14.11.55c-1.27,12.01-11.01,19.47-23.84,19.47-15.02,0-24.75-10.01-24.75-25.21s9.74-25.21,24.75-25.21c12.47,0,22.21,7.19,23.48,18.93l-14.01.64c-.82-5.82-4.64-9.1-9.46-9.1Z"/>
+          </g>
+          <g fill="#a9c811">
+            <path d="M329.74,110.03c13.38,0,23.66,9.28,23.57,26.21v2.55h-34.04c.36,7.19,4.28,11.56,10.46,11.56,3.91,0,7.55-2.37,9.1-6.01l13.83.91c-2.91,9.37-11.92,15.2-22.93,15.2-15.02,0-24.75-10.01-24.75-25.21s9.74-25.21,24.75-25.21ZM339.48,130.5c-.73-7.28-4.91-10.37-9.74-10.37-5.82,0-9.65,3.91-10.37,10.37h20.11Z"/>
+            <rect x="309.79" y="94.62" width="38.72" height="9.36"/>
+            <rect x="319" y="81.55" width="38.72" height="9.36"/>
+          </g>
+        </svg>
+      </a>
+
+      <div class="day-strip__spacer" aria-hidden="true"></div>
+
+      <button type="button" class="theme-toggle" id="themeToggle" aria-label="Сменить тему" title="Сменить тему">◐</button>
+      <a href="https://mp.raschetus.ru/" class="btn btn--sm btn--lime" data-cta="connect">Подключить</a>
+    </div>
+  </header>
+
+  <main class="art">
+    <nav class="art__crumbs" aria-label="Хлебные крошки">
+      <a href="/">Главная</a> → Планирование поставок Ozon
+    </nav>
+
+    <h1 class="art__h1">Планирование поставок на <span class="ozonus">Ozon</span></h1>
+    <p class="art__lead">Расчётус считает, что и куда везти, чтобы товар не встал в ноль на складе и не заморозил деньги.
+      Данные берутся из вашего кабинета Ozon — по фактическим продажам, остаткам и товару в пути.</p>
+    <div class="art__cta">
+      <a href="https://mp.raschetus.ru/" class="btn btn--lime btn--lg" data-cta="connect">Подключить бесплатно</a>
+      <a href="/calculator/" class="hero__link" data-cta="calculator">Калькулятор прибыли Ozon →</a>
+    </div>
+
+    <section class="art__sec">
+      <h2>Подсорт по кластерам Ozon</h2>
+      <p>Сколько единиц докинуть на каждый кластер FBO — с учётом скорости продаж, дней запаса, остатка на складе
+        и товара в пути. Не «поровну по всем», а туда, где товар реально продаётся.
+        <a href="/docs/finances/planning/" target="_blank" rel="noopener">Как считается подсорт →</a></p>
+    </section>
+
+    <section class="art__sec">
+      <h2>FBO и FBS в одном расчёте</h2>
+      <p>Планирование учитывает и склады Ozon (FBO по кластерам), и ваши склады (FBS). Видно общую потребность
+        по товару и где именно чего не хватает — без ручного сведе́ния двух схем.</p>
+    </section>
+
+    <section class="art__sec">
+      <h2>Дни запаса и скорость продаж</h2>
+      <p>По каждому товару: за сколько дней кончится текущий остаток, что уже в дефиците, а что в избытке
+        и морозит вложенные деньги. Так видно, что заказывать в первую очередь.</p>
+    </section>
+
+    <section class="art__sec">
+      <h2>Сборочный лист и слоты приёмки</h2>
+      <p>Готовый сборочный лист на поставку — одним файлом. Бронь слота приёмки на складе Ozon оформляется
+        прямо из сервиса, без ручного отслеживания свободных окон.</p>
+    </section>
+
+    <section class="art__sec">
+      <h2>Возмещение за обнулённый склад</h2>
+      <p>Если Ozon обнулил остаток на складе, Расчётус хранит снимок остатка на дату обнуления — с этими данными
+        продавец запрашивает у Ozon возмещение за потерянный товар.
+        <a href="/docs/finances/planning/" target="_blank" rel="noopener">Подробнее в базе знаний →</a></p>
+    </section>
+
+    <div class="art__cta">
+      <a href="https://mp.raschetus.ru/" class="btn btn--lime btn--lg" data-cta="connect">Попробовать бесплатно</a>
+      <a href="/" class="hero__link">На главную →</a>
+    </div>
+  </main>
+
+  <section class="caps" aria-label="Частые вопросы">
+    <div class="caps__inner">
+      <h2 class="caps__faq-h">Частые вопросы</h2>
+      <div class="faqs">
+        <details class="faq">
+          <summary>Как планировать поставки на Ozon?</summary>
+          <p>Расчётус берёт из кабинета Ozon фактические продажи, остатки и товар в пути и считает, сколько и куда
+            везти — по кластерам FBO и складам FBS, с учётом скорости продаж и дней запаса. Формирует сборочный
+            лист и помогает забронировать слот приёмки. <a href="/docs/finances/planning/" target="_blank" rel="noopener">Подробнее в базе знаний</a>.</p>
+        </details>
+        <details class="faq">
+          <summary>Что такое подсорт поставки?</summary>
+          <p>Подсорт — сколько единиц товара докинуть на каждый склад или кластер, чтобы товар не кончился до
+            следующей поставки. Расчётус считает подсорт автоматически по скорости продаж, остаткам и товару в пути.</p>
+        </details>
+        <details class="faq">
+          <summary>Чем поставки FBO отличаются от FBS?</summary>
+          <p>FBO — товар хранится на складах Ozon по кластерам, и Ozon сам доставляет его покупателю. FBS — товар
+            на вашем складе, вы отгружаете по заказу. Расчётус планирует обе схемы в одном расчёте.</p>
+        </details>
+        <details class="faq">
+          <summary>Как узнать, что везти на склад Ozon?</summary>
+          <p>По скорости продаж и дням запаса: сервис показывает, что в дефиците, сколько товара уже в пути и
+            сколько докинуть — по каждому кластеру. Не «поровну», а туда, где реально продаётся.</p>
+        </details>
+        <details class="faq">
+          <summary>Как получить возмещение за обнулённый склад Ozon?</summary>
+          <p>Если Ozon обнулил остаток на складе, останется снимок остатка на дату обнуления; с этими данными
+            запрашивают у Ozon возмещение за потерянный товар. <a href="/docs/finances/planning/" target="_blank" rel="noopener">Про поставки в базе знаний</a>.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer__inner">
+      <div class="footer__brand">
+        <a href="/" class="logo" aria-label="Расчётус">
+          <img class="logo__badge" src="/assets/img/badge.svg" alt="" width="28" height="28">
+          <svg class="logo__word logo__word--sm" viewBox="97.46 81.55 401.96 91.46" role="img" aria-label="расчётус">
+            <g fill="currentColor">
+              <path d="M97.46,111.12h13.01l.27,7.19c2.64-5.37,7.73-8.28,14.38-8.28,13.65,0,20.66,11.01,20.66,25.21s-7.01,25.21-20.66,25.21c-6.28,0-11.19-2.82-14.01-8.01v20.57h-13.65v-61.88ZM120.94,150.07c7.37,0,10.74-6.83,10.74-14.83s-3.55-14.83-10.74-14.83-10.74,7.01-10.74,14.83,3.46,14.83,10.74,14.83Z"/>
+              <path d="M172.81,110.03c14.65,0,22.21,7.19,22.21,20.93v15.2c0,3.18,1.27,3.91,3,3.91h1.73v9.28l-2.37.09c-3.19.09-12.56,1-13.83-7.46-2.46,5-7.83,8.46-16.65,8.46-9.83,0-17.29-5.28-17.29-13.83s6.64-12.28,18.29-14.56l13.29-2.73c-.09-7.01-2.73-10.37-8.46-10.37-4.64,0-7.55,2.64-8.65,7.74l-13.65-.64c1.82-10.28,9.74-16.02,22.39-16.02ZM171.17,151.62c5.92-.09,10.19-4.46,10.19-13.2v-.64l-7.92,1.46c-5.73,1.09-9.83,2-9.83,6.92,0,3.09,2.55,5.46,7.55,5.46Z"/>
+              <path d="M226.05,120.49c-6.83,0-10.74,5.37-10.74,14.74s3.91,14.74,10.74,14.74c5.1,0,8.92-3.28,9.74-9.55l14.11.55c-1.27,12.01-11.01,19.47-23.84,19.47-15.02,0-24.75-10.01-24.75-25.21s9.74-25.21,24.75-25.21c12.47,0,22.2,7.19,23.48,18.93l-14.01.64c-.82-5.82-4.64-9.1-9.46-9.1Z"/>
+              <path d="M286.83,159.35v-21.93c-2.91,4.64-8.1,7.55-14.47,7.55-11.56,0-18.84-7.64-18.84-19.75v-14.11h13.65v10.74c0,7.83,3.28,12.38,8.83,12.38,6.83,0,10.83-4.55,10.83-12.38v-10.74h13.74v48.23h-13.74Z"/>
+              <path d="M400.59,121.22h-16.29v38.13h-13.74v-38.13h-16.38v-10.1h46.41v10.1Z"/>
+              <path d="M415.14,111.12l12.01,33.94,11.65-33.94h12.92l-18.93,52.87c-2.28,6.19-6.46,9.01-13.47,9.01h-8.64v-9.92h6.1c2.91,0,4.46-.91,5.37-3.28l1.18-2.91h-3.82l-17.38-45.77h13.01Z"/>
+              <path d="M475.57,120.49c-6.83,0-10.74,5.37-10.74,14.74s3.91,14.74,10.74,14.74c5.1,0,8.92-3.28,9.74-9.55l14.11.55c-1.27,12.01-11.01,19.47-23.84,19.47-15.02,0-24.75-10.01-24.75-25.21s9.74-25.21,24.75-25.21c12.47,0,22.21,7.19,23.48,18.93l-14.01.64c-.82-5.82-4.64-9.1-9.46-9.1Z"/>
+            </g>
+            <g fill="#a9c811">
+              <path d="M329.74,110.03c13.38,0,23.66,9.28,23.57,26.21v2.55h-34.04c.36,7.19,4.28,11.56,10.46,11.56,3.91,0,7.55-2.37,9.1-6.01l13.83.91c-2.91,9.37-11.92,15.2-22.93,15.2-15.02,0-24.75-10.01-24.75-25.21s9.74-25.21,24.75-25.21ZM339.48,130.5c-.73-7.28-4.91-10.37-9.74-10.37-5.82,0-9.65,3.91-10.37,10.37h20.11Z"/>
+              <rect x="309.79" y="94.62" width="38.72" height="9.36"/>
+              <rect x="319" y="81.55" width="38.72" height="9.36"/>
+            </g>
+          </svg>
+        </a>
+        <p class="footer__tag">Автоматизатор прибыли для продавцов.</p>
+        <div class="footer__social" aria-label="Наши каналы">
+          <a class="footer__social-link" href="https://t.me/+xFvrkNuvMwJlNWJi" target="_blank" rel="noopener" aria-label="Telegram">
+            <img src="/assets/img/telegram.svg" alt="" width="26" height="26" loading="lazy">
+          </a>
+          <a class="footer__social-link" href="https://max.ru/join/67xusMM6ZoqiAVRrtHFl0Cbkvway0GDgukFH06FK2XU" target="_blank" rel="noopener" aria-label="MAX">
+            <img src="/assets/img/max.svg" alt="" width="26" height="26" loading="lazy">
+          </a>
+        </div>
+      </div>
+
+      <nav class="footer__nav" aria-label="Ссылки">
+        <a href="/">Главная</a>
+        <a href="/calculator/">Калькулятор прибыли</a>
+        <a href="/docs/" target="_blank" rel="noopener">База знаний</a>
+        <a href="https://mp.raschetus.ru/info/offer">Оферта</a>
+        <a href="https://mp.raschetus.ru/info/policy">Политика конфиденциальности</a>
+      </nav>
+
+      <div class="footer__req">
+        <div class="footer__req-title">Реквизиты</div>
+        <p>ИП Ким Алина</p>
+        <p>ИНН 504411444638</p>
+        <p>ОГРНИП 326508100471844</p>
+      </div>
+    </div>
+
+    <div class="footer__bottom">
+      <span>© 2026 Расчётус</span>
+      <span>посчитано · сходится · точка</span>
+    </div>
+  </footer>
+
+  <script>
+    (function () {
+      var r = document.documentElement, b = document.getElementById('themeToggle');
+      function g() { return r.classList.contains('light') ? '◑' : '◐'; }
+      if (b) {
+        b.textContent = g();
+        b.addEventListener('click', function () {
+          r.classList.toggle('light');
+          try { localStorage.setItem('rsh-theme', r.classList.contains('light') ? 'light' : 'dark'); } catch (e) {}
+          b.textContent = g();
+          var m = document.querySelector('meta[name="theme-color"]');
+          if (m) m.setAttribute('content', r.classList.contains('light') ? '#ffffff' : '#0e1110');
+        });
+      }
+    })();
+  </script>
+
+  <!-- Yandex.Metrika counter -->
+  <script type="text/javascript">
+    (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};m[i].l=1*new Date();for(var j=0;j<document.scripts.length;j++){if(document.scripts[j].src===r){return;}}k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})(window,document,'script','https://mc.yandex.ru/metrika/tag.js','ym');
+    ym(112116470, 'init', {ssr:true, webvisor:true, clickmap:true, ecommerce:"dataLayer", accurateTrackBounce:true, trackLinks:true});
+  </script>
+  <noscript><div><img src="https://mc.yandex.ru/watch/112116470" style="position:absolute; left:-9999px;" alt=""></div></noscript>
+  <!-- /Yandex.Metrika counter -->
+</body>
+</html>
