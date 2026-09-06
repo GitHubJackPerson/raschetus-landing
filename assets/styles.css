@@ -428,7 +428,7 @@ img.avatar--service { display: block; }
 .footer__col, .footer__req { padding-top: 7px; }
 .footer__col { display: flex; flex-direction: column; gap: 9px; }
 .footer__col-h { font-size: 10px; letter-spacing: .18em; text-transform: uppercase; color: var(--mut); margin-bottom: 2px; }
-.footer__col a { color: var(--tx2); font-size: 13px; }
+.footer__col a { display: block; color: var(--tx2); font-size: 13px; }
 .footer__col a:hover { color: var(--lime-tx); }
 .footer__req { display: flex; flex-direction: column; gap: 5px; line-height: 1.5; }
 .footer__req-title { font-size: 10px; letter-spacing: .18em; text-transform: uppercase; color: var(--mut); margin-bottom: 4px; }
