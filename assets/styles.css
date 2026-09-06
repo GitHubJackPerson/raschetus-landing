@@ -515,17 +515,9 @@ html.anim .msg--service .panel.show {
    CAPS (SEO capabilities + FAQ)
    ============================================================ */
 .caps { border-top: 1px solid var(--hair2); }
-.caps__inner { max-width: var(--maxw); margin-inline: auto; padding: clamp(40px,6vw,88px) clamp(16px,4vw,52px); }
-.caps__title { font-size: clamp(24px,3.4vw,40px); font-weight: 800; letter-spacing: -0.04em; line-height: 1.05; color: var(--tx); max-width: 24ch; margin-top: 10px; }
-.caps__lead { color: var(--tx2); font-size: clamp(14px,1.5vw,17px); max-width: 64ch; margin-top: 14px; }
-.caps__grid { display: grid; grid-template-columns: repeat(3,1fr); gap: clamp(14px,2vw,20px); margin-top: clamp(24px,3vw,40px); }
-.cap { border: 1px solid var(--hair2); border-radius: 14px; background: var(--gr2); padding: 20px 20px 22px; display: flex; flex-direction: column; gap: 8px; }
-.cap__title { font-weight: 700; font-size: 17px; letter-spacing: -0.02em; color: var(--tx); }
-.cap__desc { font-size: 13.5px; color: var(--tx2); flex: 1; }
-.cap__link { color: var(--lime-tx); font-weight: 600; font-size: 13.5px; text-decoration: none; margin-top: 4px; }
-.cap__link:hover { text-decoration: underline; }
-.caps__faq-h { font-size: clamp(20px,2.4vw,28px); font-weight: 800; letter-spacing: -0.03em; color: var(--tx); margin-top: clamp(36px,5vw,64px); }
-.faqs { margin-top: 18px; max-width: 80ch; }
+.caps__inner { max-width: var(--maxw); margin-inline: auto; padding: clamp(40px,6vw,80px) clamp(16px,4vw,52px); }
+.caps__faq-h { font-size: clamp(20px,2.4vw,28px); font-weight: 800; letter-spacing: -0.03em; color: var(--tx); margin-top: 0; }
+.faqs { margin-top: 14px; max-width: 80ch; }
 .faq { border-bottom: 1px solid var(--hair); }
 .faq > summary { cursor: pointer; list-style: none; padding: 15px 0; font-weight: 600; font-size: 16px; color: var(--tx); display: flex; justify-content: space-between; gap: 12px; }
 .faq > summary::-webkit-details-marker { display: none; }
@@ -533,8 +525,6 @@ html.anim .msg--service .panel.show {
 .faq[open] > summary::after { content: '−'; }
 .faq > p { color: var(--tx2); font-size: 14px; line-height: 1.6; padding: 0 0 16px; margin: 0; max-width: 72ch; }
 .faq a { color: var(--lime-tx); }
-@media (max-width: 900px) { .caps__grid { grid-template-columns: 1fr 1fr; } }
-@media (max-width: 560px) { .caps__grid { grid-template-columns: 1fr; } }
 
 /* ============================================================
    RESPONSIVE
