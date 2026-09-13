@@ -49,6 +49,7 @@
   <link rel="preload" href="assets/fonts/geist-cyrillic.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="assets/fonts/geist-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="assets/styles.css?v=20260906">
+  <link rel="stylesheet" href="assets/player.css?v=20260913">
 
   <!-- Structured data (Schema.org) — командная версия -->
   <script type="application/ld+json">
@@ -249,6 +250,7 @@
         <div class="hero__body">
           <div class="hero__cta">
             <a href="https://mp.raschetus.ru/" class="btn btn--lime btn--lg" data-cta="connect">Подключить бесплатно</a>
+            <a href="#obzor" class="hero__link" data-cta="obzor">Смотреть обзор сервиса →</a>
             <a href="/calculator/" class="hero__link" data-cta="calculator">Калькулятор прибыли Ozon →</a>
           </div>
         </div>
@@ -273,6 +275,16 @@
           <div class="offer__title">5 дней бесплатно</div>
           <p class="offer__desc">Полный доступ ко всем отчётам и ботам сразу. Без привязки карты.</p>
         </div>
+      </div>
+    </section>
+
+    <!-- ===================== ОБЗОР СЕРВИСА (видео) ===================== -->
+    <section id="obzor" class="video-sec" aria-label="Обзор сервиса">
+      <div class="video-sec__inner">
+        <p class="eyebrow">За 6 минут</p>
+        <h2 class="video-sec__title">Обзор сервиса</h2>
+        <p class="video-sec__sub">Посмотрите, как <span class="hl">Расчётус</span> считает прибыль, юнит-экономику и планирует поставки — на живом кабинете.</p>
+        <div class="rp" data-src="assets/media/obzor.mp4" data-poster="assets/media/obzor-poster.jpg" data-title="Обзор сервиса Расчётус"></div>
       </div>
     </section>
 
@@ -653,5 +665,6 @@
   </footer>
 
   <script src="assets/app.js?v=20260906" defer></script>
+  <script src="assets/player.js?v=20260913" defer></script>
 </body>
 </html>

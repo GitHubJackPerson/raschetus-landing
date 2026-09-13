@@ -1,0 +1,215 @@
+/* ============================================================
+   Расчётус — брендовый видеоплеер (vanilla, self-contained)
+   Графит + лайм, обе темы. Цвета через var(...) с фолбэками —
+   работает на лендинге, в Базе знаний (MkDocs) и в кабинете.
+   Разметка: <div class="rp" data-src data-poster data-title></div>
+   Плеер собирает внутренности сам (assets/player.js).
+   ============================================================ */
+
+.rp {
+  --rp-lime: var(--lime, #a9c811);
+  --rp-lime-h: var(--lime-h, #bcdd1a);
+  --rp-on-lime: var(--on-lime, #0e1110);
+  --rp-ink: #eef2ea;
+  --rp-mut: rgba(238, 242, 234, .62);
+  --rp-scrim: rgba(8, 10, 9, .55);
+  --rp-track: rgba(238, 242, 234, .22);
+  --rp-panel: rgba(12, 15, 14, .72);
+
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  background: #0b0d0c;
+  border: 1px solid var(--hair2, rgba(233, 237, 230, .20));
+  border-radius: 16px;
+  overflow: hidden;
+  color: var(--rp-ink);
+  font-family: inherit;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+  isolation: isolate;
+}
+.rp:focus-visible { outline: 2px solid var(--rp-lime); outline-offset: 2px; }
+
+.rp__video {
+  position: absolute; inset: 0;
+  width: 100%; height: 100%;
+  display: block; object-fit: contain;
+  background: #0b0d0c;
+}
+
+/* ---- Большая кнопка запуска (поверх постера) ---- */
+.rp__big {
+  position: absolute; inset: 0; z-index: 4;
+  display: grid; place-items: center;
+  width: 100%; height: 100%;
+  border: 0; margin: 0; padding: 0;
+  background: transparent;
+  cursor: pointer;
+  transition: opacity .2s ease;
+}
+.rp__big::before {
+  content: "";
+  position: absolute; inset: 0;
+  background: radial-gradient(120% 90% at 50% 55%, rgba(8,10,9,.15), rgba(8,10,9,.45));
+  opacity: .9;
+}
+.rp__big-ic {
+  position: relative;
+  width: clamp(64px, 9vw, 92px);
+  height: clamp(64px, 9vw, 92px);
+  display: grid; place-items: center;
+  border-radius: 999px;
+  background: var(--rp-lime);
+  color: var(--rp-on-lime);
+  box-shadow: 0 10px 40px rgba(0,0,0,.35), 0 0 0 10px rgba(169,200,17,.14);
+  transition: transform .18s ease, background .18s ease, box-shadow .18s ease;
+}
+.rp__big:hover .rp__big-ic { transform: scale(1.06); background: var(--rp-lime-h); box-shadow: 0 12px 46px rgba(0,0,0,.4), 0 0 0 14px rgba(169,200,17,.18); }
+.rp__big:active .rp__big-ic { transform: scale(.98); }
+.rp__big-ic svg { width: 42%; height: 42%; margin-left: 8%; fill: currentColor; }
+.rp.is-started .rp__big { opacity: 0; pointer-events: none; }
+
+/* ---- Нижняя панель управления ---- */
+.rp__gradient {
+  position: absolute; left: 0; right: 0; bottom: 0; z-index: 5;
+  height: 110px; pointer-events: none;
+  background: linear-gradient(to top, rgba(8,10,9,.82), rgba(8,10,9,0));
+  opacity: 0; transition: opacity .25s ease;
+}
+.rp__bar {
+  position: absolute; left: 0; right: 0; bottom: 0; z-index: 6;
+  padding: 6px 12px 10px;
+  display: flex; flex-direction: column; gap: 4px;
+  opacity: 0; transform: translateY(6px);
+  transition: opacity .25s ease, transform .25s ease;
+}
+.rp.is-active .rp__gradient { opacity: 1; }
+.rp.is-active .rp__bar { opacity: 1; transform: none; }
+.rp.is-active { cursor: default; }
+.rp.is-playing:not(.is-active) { cursor: none; }
+
+/* ---- Дорожка прогресса ---- */
+.rp__track {
+  position: relative;
+  height: 16px; display: flex; align-items: center;
+  cursor: pointer; touch-action: none;
+}
+.rp__rail { position: absolute; left: 0; right: 0; height: 4px; border-radius: 999px; background: var(--rp-track); overflow: hidden; transition: height .12s ease; }
+.rp__buffered { position: absolute; inset: 0; width: 0; background: rgba(238,242,234,.28); }
+.rp__played   { position: absolute; inset: 0; width: 0; background: var(--rp-lime); }
+.rp__knob {
+  position: absolute; top: 50%; left: 0;
+  width: 13px; height: 13px; border-radius: 999px;
+  background: var(--rp-lime); box-shadow: 0 1px 6px rgba(0,0,0,.5);
+  transform: translate(-50%, -50%) scale(0);
+  transition: transform .12s ease;
+}
+.rp__track:hover .rp__rail, .rp.is-scrubbing .rp__rail { height: 6px; }
+.rp__track:hover .rp__knob, .rp.is-scrubbing .rp__knob { transform: translate(-50%, -50%) scale(1); }
+
+.rp__hover-time {
+  position: absolute; bottom: 18px; transform: translateX(-50%);
+  padding: 2px 7px; border-radius: 6px;
+  background: var(--rp-panel); backdrop-filter: blur(6px);
+  font-size: 12px; font-variant-numeric: tabular-nums; color: var(--rp-ink);
+  pointer-events: none; opacity: 0; transition: opacity .12s ease; white-space: nowrap;
+}
+.rp__track:hover .rp__hover-time { opacity: 1; }
+
+/* ---- Ряд кнопок ---- */
+.rp__controls { display: flex; align-items: center; gap: 6px; }
+.rp__spring { flex: 1 1 auto; }
+.rp__btn {
+  display: grid; place-items: center;
+  width: 34px; height: 34px; padding: 0;
+  border: 0; border-radius: 9px;
+  background: transparent; color: var(--rp-ink);
+  cursor: pointer; transition: background .15s ease, color .15s ease;
+}
+.rp__btn:hover { background: rgba(238,242,234,.12); }
+.rp__btn:focus-visible { outline: 2px solid var(--rp-lime); outline-offset: 1px; }
+.rp__btn svg { width: 20px; height: 20px; fill: currentColor; }
+
+.rp__time { font-size: 13px; font-variant-numeric: tabular-nums; color: var(--rp-mut); padding: 0 4px; white-space: nowrap; }
+.rp__time b { color: var(--rp-ink); font-weight: 600; }
+
+/* ---- Громкость ---- */
+.rp__vol { display: flex; align-items: center; }
+.rp__vol-slider {
+  width: 0; opacity: 0; overflow: hidden;
+  transition: width .18s ease, opacity .18s ease, margin .18s ease;
+  height: 4px; border-radius: 999px; margin: 0;
+  background: var(--rp-track); position: relative; cursor: pointer; touch-action: none;
+}
+.rp__vol:hover .rp__vol-slider, .rp__vol:focus-within .rp__vol-slider { width: 72px; opacity: 1; margin: 0 8px 0 2px; }
+.rp__vol-fill { position: absolute; inset: 0; width: 100%; background: var(--rp-lime); border-radius: 999px; }
+.rp__vol-knob { position: absolute; top: 50%; width: 11px; height: 11px; border-radius: 999px; background: var(--rp-lime); transform: translate(-50%, -50%); box-shadow: 0 1px 4px rgba(0,0,0,.5); }
+
+/* ---- Скорость ---- */
+.rp__speed-wrap { position: relative; }
+.rp__speed {
+  min-width: 40px; height: 34px; padding: 0 8px;
+  border: 0; border-radius: 9px; background: transparent;
+  color: var(--rp-ink); font-size: 13px; font-weight: 600; font-variant-numeric: tabular-nums;
+  cursor: pointer; transition: background .15s ease;
+}
+.rp__speed:hover { background: rgba(238,242,234,.12); }
+.rp__menu {
+  position: absolute; right: 0; bottom: calc(100% + 8px);
+  min-width: 92px; padding: 4px;
+  background: var(--rp-panel); backdrop-filter: blur(10px);
+  border: 1px solid var(--hair2, rgba(233,237,230,.20)); border-radius: 10px;
+  box-shadow: 0 12px 32px rgba(0,0,0,.4);
+  display: none; flex-direction: column; gap: 2px; z-index: 8;
+}
+.rp__menu.is-open { display: flex; }
+.rp__menu button {
+  display: flex; align-items: center; justify-content: space-between; gap: 12px;
+  width: 100%; padding: 6px 10px;
+  border: 0; border-radius: 7px; background: transparent;
+  color: var(--rp-ink); font-size: 13px; font-variant-numeric: tabular-nums;
+  cursor: pointer; text-align: left; transition: background .12s ease;
+}
+.rp__menu button:hover { background: rgba(238,242,234,.12); }
+.rp__menu button[aria-checked="true"] { color: var(--rp-lime); font-weight: 600; }
+.rp__menu button[aria-checked="true"]::after { content: "✓"; }
+
+/* ---- Спиннер загрузки ---- */
+.rp__spin {
+  position: absolute; top: 50%; left: 50%; z-index: 3;
+  width: 44px; height: 44px; margin: -22px 0 0 -22px;
+  border: 3px solid rgba(238,242,234,.25); border-top-color: var(--rp-lime);
+  border-radius: 999px; opacity: 0; pointer-events: none;
+}
+.rp.is-loading .rp__spin { opacity: 1; animation: rp-spin .8s linear infinite; }
+@keyframes rp-spin { to { transform: rotate(360deg); } }
+
+/* ---- Fullscreen ---- */
+.rp:fullscreen { border: 0; border-radius: 0; aspect-ratio: auto; width: 100%; height: 100%; }
+.rp:fullscreen .rp__video { object-fit: contain; }
+.rp:-webkit-full-screen { border: 0; border-radius: 0; width: 100%; height: 100%; }
+
+@media (prefers-reduced-motion: reduce) {
+  .rp *, .rp::before, .rp::after { transition: none !important; animation: none !important; }
+}
+
+/* ---- Компактный ряд на узких экранах ---- */
+@media (max-width: 520px) {
+  .rp__time { font-size: 12px; }
+  .rp__vol { display: none; }
+  .rp__btn { width: 32px; height: 32px; }
+}
+
+/* ---- Секция «Обзор сервиса» на лендинге (обёртка вокруг .rp) ---- */
+.video-sec { padding: clamp(40px, 7vw, 88px) 20px; }
+.video-sec__inner { max-width: 900px; margin: 0 auto; text-align: center; }
+.video-sec__title {
+  font-size: clamp(28px, 5vw, 46px); font-weight: 800; line-height: 1.05;
+  letter-spacing: -.02em; color: var(--tx, #e9ede6); margin: 6px 0 10px;
+}
+.video-sec__sub {
+  font-size: clamp(15px, 2.2vw, 18px); line-height: 1.5;
+  color: var(--tx2, #b6c0b7); max-width: 640px; margin: 0 auto clamp(22px, 4vw, 34px);
+}
+.video-sec .rp { box-shadow: 0 30px 80px rgba(0,0,0,.28); }
