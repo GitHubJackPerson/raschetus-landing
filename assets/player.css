@@ -206,7 +206,7 @@
 .video-sec__inner { max-width: 900px; margin: 0 auto; text-align: center; }
 .video-sec__title {
   font-size: clamp(28px, 5vw, 46px); font-weight: 800; line-height: 1.05;
-  letter-spacing: -.02em; color: var(--tx, #e9ede6); margin: 6px 0 10px;
+  letter-spacing: -.02em; color: var(--tx, #e9ede6); margin: 0 0 clamp(22px, 4vw, 34px);
 }
 .video-sec__sub {
   font-size: clamp(15px, 2.2vw, 18px); line-height: 1.5;
