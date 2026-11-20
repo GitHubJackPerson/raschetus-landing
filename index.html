@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Расчётус — аналитика Ozon для всей команды продавца</title>
-  <meta name="description" content="Расчётус отвечает на рабочие вопросы всей команды продавца Ozon: босса, РОПа, менеджера, финансиста и логиста. Реальная прибыль по каждому товару. 5 сотрудников в каждом тарифе.">
+  <title>Расчётус — аналитика Ozon и Wildberries для команды продавца</title>
+  <meta name="description" content="Расчётус — аналитика Ozon и Wildberries для всей команды продавца: реальная прибыль по каждому товару, ОПиУ, реклама и поставки. 5 сотрудников в тарифе.">
   <meta name="theme-color" content="#0e1110">
   <meta name="color-scheme" content="dark light">
   <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
@@ -18,7 +18,7 @@
 
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Расчётус">
-  <meta property="og:title" content="Расчётус — аналитика Ozon для всей команды продавца">
+  <meta property="og:title" content="Расчётус — аналитика Ozon и Wildberries для команды продавца">
   <meta property="og:description" content="У каждого в команде свой вопрос к одним и тем же цифрам. Расчётус отвечает всем пятерым. Посчитано. Сходится. Точка.">
   <meta property="og:url" content="https://raschetus.ru/">
   <meta property="og:locale" content="ru_RU">
@@ -29,7 +29,7 @@
   <meta property="og:image:height" content="630">
   <meta property="og:image:alt" content="Расчётус — аналитика Ozon для всей команды продавца">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Расчётус — аналитика Ozon для всей команды продавца">
+  <meta name="twitter:title" content="Расчётус — аналитика Ozon и Wildberries для команды продавца">
   <meta name="twitter:description" content="Считаем реальную прибыль по каждому товару Ozon и отвечаем на вопросы всей команды продавца.">
   <meta name="twitter:image" content="https://raschetus.ru/assets/img/og.png">
   <meta name="twitter:image:alt" content="Расчётус — аналитика Ozon для всей команды продавца">
@@ -53,86 +53,119 @@
 
   <!-- Structured data (Schema.org) — командная версия -->
   <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@graph": [
-      {
-        "@type": "Organization",
-        "@id": "https://raschetus.ru/#org",
-        "name": "Расчётус",
-        "alternateName": "STPulse",
-        "url": "https://raschetus.ru/",
-        "logo": "https://raschetus.ru/assets/img/og.png",
-        "description": "Сервис аналитики для продавцов маркетплейса Ozon: считает реальную прибыль по каждому товару, юнит-экономику, себестоимость, рекламу, поставки и акции. Отвечает на вопросы всей команды продавца.",
-        "areaServed": "RU",
-        "founder": { "@type": "Person", "name": "Ким Алина" },
-        "sameAs": [
-          "https://t.me/+xFvrkNuvMwJlNWJi",
-          "https://max.ru/join/67xusMM6ZoqiAVRrtHFl0Cbkvway0GDgukFH06FK2XU"
-        ]
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://raschetus.ru/#org",
+      "name": "Расчётус",
+      "alternateName": "STPulse",
+      "url": "https://raschetus.ru/",
+      "logo": "https://raschetus.ru/assets/img/og.png",
+      "description": "Сервис аналитики для продавцов маркетплейсов Ozon и Wildberries: считает реальную прибыль по каждому товару, юнит-экономику, себестоимость, рекламу, поставки и акции. Отвечает на вопросы всей команды продавца.",
+      "areaServed": "RU",
+      "founder": {
+        "@type": "Person",
+        "name": "Ким Алина"
       },
-      {
-        "@type": "WebSite",
-        "@id": "https://raschetus.ru/#website",
-        "url": "https://raschetus.ru/",
-        "name": "Расчётус",
-        "inLanguage": "ru-RU",
-        "publisher": { "@id": "https://raschetus.ru/#org" }
-      },
-      {
-        "@type": "SoftwareApplication",
-        "name": "Расчётус",
-        "operatingSystem": "Web",
-        "applicationCategory": "BusinessApplication",
-        "url": "https://mp.raschetus.ru/",
-        "inLanguage": "ru-RU",
-        "description": "Аналитика Ozon для всей команды продавца: дашборд «Пульс», юнит-экономика по SKU, маржинальность в акциях с автосценариями, подсорт по кластерам и FBS, карта логистики, план и прогноз прибыли.",
-        "publisher": { "@id": "https://raschetus.ru/#org" },
-        "offers": {
-          "@type": "Offer",
-          "price": "0",
-          "priceCurrency": "RUB",
-          "description": "5 дней тестового периода без привязки карты. 5 сотрудников в каждом тарифе."
-        }
-      },
-      {
-        "@type": "FAQPage",
-        "@id": "https://raschetus.ru/#faq",
-        "mainEntity": [
-          {
-            "@type": "Question",
-            "name": "Как посчитать чистую прибыль на Ozon?",
-            "acceptedAnswer": { "@type": "Answer", "text": "Расчётус подключается к кабинету по API и собирает отчёт о прибылях и убытках (ОПиУ): из выручки вычитаются комиссия, логистика, эквайринг, реклама, хранение, возвраты, налог и себестоимость. Вы видите фактическую прибыль по магазину и по каждому товару, а не выручку из кабинета." }
-          },
-          {
-            "@type": "Question",
-            "name": "Что такое юнит-экономика товара на Ozon?",
-            "acceptedAnswer": { "@type": "Answer", "text": "Это расчёт прибыли на одну единицу товара со всеми удержаниями Ozon и рекламой, разнесёнными до штуки: цена минус комиссия категории, логистика, невыкупы и возвраты, реклама, налог и себестоимость. Прикинуть прибыль до закупки можно в бесплатном калькуляторе, а по факту продаж — в отчёте «Юнит-экономика»." }
-          },
-          {
-            "@type": "Question",
-            "name": "Как считать ДРР и оценивать рекламу на Ozon?",
-            "acceptedAnswer": { "@type": "Answer", "text": "ДРР — доля рекламных расходов от выручки. Расчётус показывает ДРР и расходы на продвижение по каждому товару, поэтому видно, где реклама съедает маржу, а где её стоит масштабировать." }
-          },
-          {
-            "@type": "Question",
-            "name": "Что везти на склады Ozon — как считается подсорт?",
-            "acceptedAnswer": { "@type": "Answer", "text": "Расчётус считает подсорт по всем кластерам Ozon и складам FBS: скорость продаж, дни запаса, товар в пути и в черновиках. Формирует сборочный лист и помогает забронировать слот приёмки." }
-          },
-          {
-            "@type": "Question",
-            "name": "Чем Расчётус отличается от аналитики в кабинете Ozon?",
-            "acceptedAnswer": { "@type": "Answer", "text": "Кабинет Ozon показывает выручку и разрозненные отчёты. Расчётус сводит всё в реальную прибыль: ОПиУ, юнит-экономику по товару, планирование поставок, рекламу и возвраты — в одном кабинете и для всей команды. Это финансовая аналитика для управленческих решений, а не выгрузки данных." }
-          },
-          {
-            "@type": "Question",
-            "name": "Есть ли бесплатный доступ и сколько стоит?",
-            "acceptedAnswer": { "@type": "Answer", "text": "Есть 5 дней полного доступа ко всем отчётам без привязки карты. Тариф единый для больших и маленьких магазинов, и в каждом тарифе бесплатно до 5 сотрудников." }
-          }
-        ]
+      "sameAs": [
+        "https://t.me/+xFvrkNuvMwJlNWJi",
+        "https://max.ru/join/67xusMM6ZoqiAVRrtHFl0Cbkvway0GDgukFH06FK2XU"
+      ]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://raschetus.ru/#website",
+      "url": "https://raschetus.ru/",
+      "name": "Расчётус",
+      "inLanguage": "ru-RU",
+      "publisher": {
+        "@id": "https://raschetus.ru/#org"
       }
-    ]
-  }
+    },
+    {
+      "@type": "SoftwareApplication",
+      "name": "Расчётус",
+      "operatingSystem": "Web",
+      "applicationCategory": "BusinessApplication",
+      "url": "https://mp.raschetus.ru/",
+      "inLanguage": "ru-RU",
+      "description": "Аналитика Ozon и Wildberries для всей команды продавца: дашборд «Пульс», юнит-экономика по SKU, маржинальность в акциях с автосценариями, подсорт по кластерам и FBS, карта логистики, план и прогноз прибыли.",
+      "publisher": {
+        "@id": "https://raschetus.ru/#org"
+      },
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "RUB",
+        "description": "5 дней тестового периода без привязки карты. 5 сотрудников в каждом тарифе."
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://raschetus.ru/#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Как посчитать чистую прибыль на Ozon?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Расчётус подключается к кабинету по API и собирает отчёт о прибылях и убытках (ОПиУ): из выручки вычитаются комиссия, логистика, эквайринг, реклама, хранение, возвраты, налог и себестоимость. Вы видите фактическую прибыль по магазину и по каждому товару, а не выручку из кабинета. Подробнее про ОПиУ."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Что такое юнит-экономика товара на Ozon?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Это расчёт прибыли на одну единицу товара со всеми удержаниями Ozon и рекламой, разнесёнными до штуки: цена минус комиссия категории, логистика, невыкупы и возвраты, реклама, налог и себестоимость. Прикинуть прибыль до закупки можно в бесплатном калькуляторе, а по факту продаж — в отчёте «Юнит-экономика»."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Как считать ДРР и оценивать рекламу на Ozon?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "ДРР — доля рекламных расходов от выручки. Расчётус показывает ДРР и расходы на продвижение по каждому товару, поэтому видно, где реклама съедает маржу, а где её стоит масштабировать. Реклама и ДРР по каждому товару и как устроена аналитика рекламы."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Что везти на склады Ozon — как считается подсорт?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Расчётус считает подсорт по всем кластерам Ozon и складам FBS: скорость продаж, дни запаса, товар в пути и в черновиках. Формирует сборочный лист и помогает забронировать слот приёмки. Про планирование поставок."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Чем Расчётус отличается от аналитики в кабинете Ozon?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Кабинет Ozon показывает выручку и разрозненные отчёты. Расчётус сводит всё в реальную прибыль: ОПиУ, юнит-экономику по товару, планирование поставок, рекламу и возвраты — в одном кабинете и для всей команды. Это финансовая аналитика для управленческих решений, а не выгрузки данных."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Работает ли Расчётус с Wildberries?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Да, в открытой бете. Магазин WB подключается по токену WB API, и его отчёты появляются в тех же разделах, что у Ozon: ОПиУ, ОДДС, Баланс, Операционка, «Юнитка и Реклама», Соинвест (СПП), остатки и поставки. Планирование поставок, отзывы и раздел «Покупатели» пока работают только для Ozon. До 31 декабря 2026 года магазины WB бесплатны для кабинетов с оплаченной подпиской Ozon и не занимают место в тарифе; данные загружаются с 1 января 2026 года. Как подключить Wildberries."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Есть ли бесплатный доступ и сколько стоит?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Есть 5 дней полного доступа ко всем отчётам без привязки карты. Тариф единый для больших и маленьких магазинов, и в каждом тарифе бесплатно до 5 сотрудников. Про тарифы."
+          }
+        }
+      ]
+    }
+  ]
+}
   </script>
 
   <!-- Персонажи команды: карточка слева в сетке .moment__grid (на месте .clock).
@@ -244,7 +277,7 @@
     <!-- ===================== OPENING (hero) ===================== -->
     <section id="top" class="hero" aria-label="Открытие">
       <div class="hero__inner">
-        <p class="eyebrow">Финансовая аналитика и поставки <span class="ozonus">Ozon</span></p>
+        <p class="eyebrow">Финансовая аналитика <span class="ozonus">Ozon</span> и <span class="ozonus">Wildberries</span></p>
         <h1 class="hero__title">Как увеличить прибыль?</h1>
         <p class="hero__sub"><span class="hl">Расчётус</span> — сервис №1 для командной работы на Ozon</p>
         <div class="hero__body">
@@ -253,6 +286,7 @@
             <a href="#obzor" class="hero__link" data-cta="obzor">Смотреть обзор сервиса →</a>
             <a href="/calculator/" class="hero__link" data-cta="calculator">Калькулятор прибыли Ozon →</a>
           </div>
+          <p class="hero__note" style="margin-top:14px;font-size:14px;line-height:1.45;color:var(--tx2)">Ozon и Wildberries в одном кабинете. Магазины WB — в открытой бете: бесплатно до 31 декабря 2026 года при подписке. <a style="color:var(--lime-tx)" href="/docs/stores/wildberries/" target="_blank" rel="noopener">Что уже работает для WB →</a></p>
         </div>
       </div>
     </section>
@@ -574,6 +608,10 @@
               прибыль: ОПиУ, юнит-экономику по товару, планирование поставок, рекламу и возвраты — в
               одном кабинете и для всей команды. Это финансовая аналитика для управленческих решений,
               а не выгрузки данных.</p>
+          </details>
+          <details class="faq">
+            <summary>Работает ли Расчётус с Wildberries?</summary>
+            <p>Да, в открытой бете. Магазин WB подключается по токену WB API, и его отчёты появляются в тех же разделах, что у Ozon: ОПиУ, ОДДС, Баланс, Операционка, «Юнитка и Реклама», Соинвест (СПП), остатки и поставки. Планирование поставок, отзывы и раздел «Покупатели» пока работают только для Ozon. До 31 декабря 2026 года магазины WB бесплатны для кабинетов с оплаченной подпиской Ozon и не занимают место в тарифе; данные загружаются с 1 января 2026 года. <a href="/docs/stores/wildberries/" target="_blank" rel="noopener">Как подключить Wildberries</a>.</p>
           </details>
           <details class="faq">
             <summary>Есть ли бесплатный доступ и сколько стоит?</summary>
