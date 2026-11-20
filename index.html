@@ -352,7 +352,7 @@
             <div class="bubble--service">
               <div class="bubble__kicker">расчётус</div>
               <h2 class="answer-title">Маржинальность каждого товара в акциях Ozon</h2>
-              <p class="answer-desc">Ozon сам добавляет товары в акции и не всегда предупреждает. Расчётус показывает маржинальность каждого артикула под скидкой и учитывает баллы за скидку, а автосценарии сами убирают автодобавленные — без ручной проверки списков каждое утро. <a style="color:var(--lime-tx)" href="/docs/promos/actions/" target="_blank" rel="noopener">Аналитика акций →</a></p>
+              <p class="answer-desc">Ozon сам добавляет товары в акции и не всегда предупреждает. Расчётус показывает маржинальность каждого артикула под скидкой и учитывает баллы за скидку, а автосценарии сами убирают автодобавленные — без ручной проверки списков каждое утро. <a style="color:var(--lime-tx)" href="/akcii/">Аналитика акций →</a></p>
               <div class="panel">
                 <span class="panel__label">маржинальность по SKU</span>
                 <div class="chips">
@@ -392,7 +392,7 @@
             <div class="bubble--service">
               <div class="bubble__kicker">расчётус</div>
               <h2 class="answer-title">Юнит-экономика товара до копейки на SKU</h2>
-              <p class="answer-desc">Настоящая прибыль по каждому товару — со всеми удержаниями Ozon (комиссия, логистика, реклама, налог) и рекламой, разнесёнными до штуки. Видно, что из 1 290 ₽ остаётся 46 и почему. Прикинуть до закупки — в <a style="color:var(--lime-tx)" href="/calculator/">калькуляторе</a>, по факту — в отчёте <a style="color:var(--lime-tx)" href="/docs/analytics/unit-economics/" target="_blank" rel="noopener">«Юнит-экономика»</a>.</p>
+              <p class="answer-desc">Настоящая прибыль по каждому товару — со всеми удержаниями Ozon (комиссия, логистика, реклама, налог) и рекламой, разнесёнными до штуки. Видно, что из 1 290 ₽ остаётся 46 и почему. Прикинуть до закупки — в <a style="color:var(--lime-tx)" href="/calculator/">калькуляторе</a>, по факту — в отчёте <a style="color:var(--lime-tx)" href="/unit-ekonomika/">«Юнит-экономика»</a>.</p>
               <div class="panel">
                 <span class="panel__label">разбор одной продажи</span>
                 <div class="bars">
@@ -485,7 +485,7 @@
             <div class="bubble--service">
               <div class="bubble__kicker">расчётус</div>
               <h2 class="answer-title">Планирование поставок по кластерам Ozon и FBS</h2>
-              <p class="answer-desc">Скорость продаж, дни запаса, товар в пути и в черновиках — по всем кластерам Ozon и складам FBS. Расчётус планирует поставки: сколько и куда везти (подсорт), сборочный лист и бронь слотов приёмки. Если Ozon обнулил склад, останется снимок остатка на дату обнуления — с ним запрашивают возмещение. <a style="color:var(--lime-tx)" href="/docs/supplies/supply-planning/" target="_blank" rel="noopener">Планирование поставок →</a></p>
+              <p class="answer-desc">Скорость продаж, дни запаса, товар в пути и в черновиках — по всем кластерам Ozon и складам FBS. Расчётус планирует поставки: сколько и куда везти (подсорт), сборочный лист и бронь слотов приёмки. Если Ozon обнулил склад, останется снимок остатка на дату обнуления — с ним запрашивают возмещение. <a style="color:var(--lime-tx)" href="/postavki/">Планирование поставок →</a></p>
               <div class="panel">
                 <span class="panel__label">дни запаса · все кластеры + FBS</span>
                 <div class="clusters">
@@ -546,7 +546,7 @@
             <p>Расчётус подключается к кабинету по API и собирает отчёт о прибылях и убытках (ОПиУ):
               из выручки вычитаются комиссия, логистика, эквайринг, реклама, хранение, возвраты,
               налог и себестоимость. Вы видите фактическую прибыль по магазину и по каждому товару,
-              а не выручку из кабинета. <a href="/docs/finances/profit-and-loss/" target="_blank" rel="noopener">Подробнее в базе знаний</a>.</p>
+              а не выручку из кабинета. <a href="/opiu/">Подробнее про ОПиУ</a>.</p>
           </details>
           <details class="faq">
             <summary>Что такое юнит-экономика товара на Ozon?</summary>
@@ -560,7 +560,7 @@
             <summary>Как считать ДРР и оценивать рекламу на Ozon?</summary>
             <p>ДРР — доля рекламных расходов от выручки. Расчётус показывает ДРР и расходы на
               продвижение по каждому товару, поэтому видно, где реклама съедает маржу, а где её
-              стоит масштабировать. <a href="/docs/ads/" target="_blank" rel="noopener">Как устроена аналитика рекламы</a>.</p>
+              стоит масштабировать. <a href="/reklama/">Реклама и ДРР по каждому товару</a> и <a href="/docs/ads/" target="_blank" rel="noopener">как устроена аналитика рекламы</a>.</p>
           </details>
           <details class="faq">
             <summary>Что везти на склады Ozon — как считается подсорт?</summary>
@@ -662,7 +662,8 @@
     </div>
   </footer>
 
-  <script src="assets/app.js?v=20261120" defer></script>
+  <script src="assets/app.js?v=20261120b" defer></script>
   <script src="assets/player.js?v=20260913" defer></script>
+  <script src="/assets/track.js?v=20261120" defer></script>
 </body>
 </html>
