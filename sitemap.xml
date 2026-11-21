@@ -120,6 +120,12 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://raschetus.ru/novoe/</loc>
+    <lastmod>2026-11-21</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>https://raschetus.ru/docs/</loc>
     <lastmod>2026-09-06</lastmod>
     <changefreq>weekly</changefreq>
