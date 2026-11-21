@@ -16,6 +16,7 @@ on:
       - 'reklama/**'
       - 'wildberries/**'
       - 'akcii/**'
+      - 'stati/**'
       - 'favicon.svg'
       - 'robots.txt'
       - 'sitemap.xml'
@@ -43,7 +44,7 @@ jobs:
       - name: Stage site
         run: |
           mkdir -p _site
-          cp -r index.html calculator postavki unit-ekonomika opiu reklama akcii wildberries info favicon.svg robots.txt sitemap.xml assets _site/
+          cp -r index.html calculator postavki unit-ekonomika opiu reklama akcii wildberries stati info favicon.svg robots.txt sitemap.xml assets _site/
 
       - name: Deploy (rsync mirror)
         run: |
