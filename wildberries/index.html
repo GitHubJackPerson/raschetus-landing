@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Аналитика Wildberries: прибыль и юнит-экономика | Расчётус</title>
+  <meta name="description" content="Аналитика Wildberries в Расчётусе: прибыль по товарам, ОПиУ, Операционка, СПП и деньги по отчётам WB. Ozon и WB в одном кабинете. Открытая бета.">
+  <meta name="theme-color" content="#0e1110">
+  <meta name="color-scheme" content="dark light">
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+  <meta name="keywords" content="аналитика Wildberries, прибыль Wildberries, юнит-экономика Wildberries, ОПиУ Wildberries, СПП Wildberries, аналитика WB, Ozon и Wildberries в одном кабинете">
+  <meta name="author" content="Расчётус">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="/assets/img/badge.svg">
+  <link rel="canonical" href="https://raschetus.ru/wildberries/">
+  <link rel="preconnect" href="https://mc.yandex.ru" crossorigin>
+
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Расчётус">
+  <meta property="og:title" content="Аналитика Wildberries: прибыль, юнит-экономика и ОПиУ">
+  <meta property="og:description" content="Что Расчётус считает для магазина WB: прибыль по товарам и месяцам, СПП, деньги по еженедельным отчётам WB. Ozon и WB в одном кабинете.">
+  <meta property="og:url" content="https://raschetus.ru/wildberries/">
+  <meta property="og:locale" content="ru_RU">
+  <meta property="og:image" content="https://raschetus.ru/assets/img/og.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Аналитика Wildberries: прибыль, юнит-экономика и ОПиУ">
+  <meta name="twitter:description" content="Что Расчётус считает для магазина WB: прибыль по товарам и месяцам, СПП, деньги по еженедельным отчётам WB. Ozon и WB в одном кабинете.">
+  <meta name="twitter:image" content="https://raschetus.ru/assets/img/og.png">
+
+  <script>
+    (function () { try { if ((localStorage.getItem('rsh-theme') || 'dark') === 'light') document.documentElement.classList.add('light'); } catch (e) {} })();
+  </script>
+
+  <link rel="preload" href="/assets/fonts/geist-cyrillic.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/assets/fonts/geist-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="/assets/styles.css?v=20260906">
+
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebPage",
+      "@id": "https://raschetus.ru/wildberries/#webpage",
+      "url": "https://raschetus.ru/wildberries/",
+      "name": "Аналитика Wildberries: прибыль, юнит-экономика и ОПиУ",
+      "inLanguage": "ru-RU",
+      "isPartOf": {
+        "@id": "https://raschetus.ru/#website"
+      },
+      "about": "Аналитика магазина Wildberries в Расчётусе: прибыль по месяцам и товарам, юнит-экономика, ОПиУ, СПП и деньги по еженедельным отчётам WB; магазины Ozon и WB в одном кабинете.",
+      "primaryImageOfPage": "https://raschetus.ru/assets/img/og.png"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Главная",
+          "item": "https://raschetus.ru/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Аналитика Wildberries",
+          "item": "https://raschetus.ru/wildberries/"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Какой токен WB API нужен для Расчётуса?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Персональный токен с уровнем доступа «Только чтение». Обязательные категории — Финансы, Статистика, Аналитика, Продвижение, Контент, Маркетплейс, Цены и скидки: без любой из них токен не примется. Документы, Поставки и Вопросы и отзывы — необязательные: без них магазин подключится. Но без категории «Поставки» не загрузятся раздел «Поставки» и режим «Поставки» на карте логистики."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Можно ли загрузить данные Wildberries за 2025 год?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Нет. Данные WB загружаются с 1 января 2026 года, более ранние периоды не загружаются."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Почему комиссия WB в отчёте выше тарифа?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "WB удерживает из своего вознаграждения скидку покупателю за свой счёт (СПП). Поэтому в ОПиУ под строкой «WB комиссия» есть строка «в т. ч. скидка WB (СПП)» — она показывает, какая часть комиссии приходится на эту скидку."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Как перенести себестоимость с Ozon на Wildberries?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "В разделе «Себестоимость» у магазина WB есть кнопка «Из Ozon по артикулу». Она подставляет себестоимость из ваших магазинов Ozon товарам WB с тем же артикулом продавца. Перед подстановкой окно покажет, скольким товарам будет задана цена; уже заданные цены не меняются."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Почему магазин WB неактивен в некоторых разделах?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Эти разделы пока работают только с магазинами Ozon: Планирование поставок, рекламные отчёты, «Отзывы и вопросы» и «Покупатели». Магазин WB в их селекторе неактивен, а подсказка объясняет почему. Список разделов, которые работают для WB, — в статье о подключении Wildberries."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Когда в ОДДС появляется выплата Wildberries?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Выплата за неделю ставится в день, который задаёт «Лаг выплаты» в настройках ОДДС: через сколько дней после воскресенья приходят деньги, обычно 3 дня, в среду. Сумма берётся из еженедельного отчёта WB о реализации, загружать отчёт по выплатам не нужно."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Что будет с данными WB, если отключить магазин?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Сохранённый токен удаляется сразу, а через 14 дней удаляются данные магазина: себестоимость, история остатков и загруженные отчёты WB. Если в течение 14 дней снова подключить этот же кабинет WB, всё сохранится."
+          }
+        }
+      ]
+    }
+  ]
+}
+  </script>
+
+  <style>
+    .art { max-width: var(--maxw); margin-inline: auto; padding: clamp(28px,5vw,64px) clamp(16px,4vw,52px); }
+    .art__crumbs { font-size: 12px; letter-spacing: .04em; text-transform: uppercase; color: var(--mut); }
+    .art__crumbs a { color: var(--mut); text-decoration: none; }
+    .art__crumbs a:hover { color: var(--lime-tx); }
+    .art__h1 { font-size: clamp(30px,5vw,56px); font-weight: 800; letter-spacing: -0.04em; line-height: 1.03; color: var(--tx); max-width: 20ch; margin-top: 12px; }
+    .art__lead { color: var(--tx2); font-size: clamp(15px,1.6vw,19px); line-height: 1.5; max-width: 62ch; margin-top: 16px; }
+    .art__cta { display: flex; gap: 14px; align-items: center; flex-wrap: wrap; margin-top: 24px; }
+    .art__sec { margin-top: clamp(26px,4vw,44px); max-width: 74ch; }
+    .art__sec h2 { font-size: clamp(20px,2.6vw,30px); font-weight: 800; letter-spacing: -0.03em; line-height: 1.1; color: var(--tx); }
+    .art__sec p { color: var(--tx2); font-size: 15px; line-height: 1.65; margin-top: 10px; }
+    .art__sec a { color: var(--lime-tx); }
+    .art__sec ul, .art__sec ol { color: var(--tx2); font-size: 15px; line-height: 1.65; margin-top: 10px; padding-left: 22px; }
+    .art__sec li { margin-top: 6px; }
+    .art__sec strong { color: var(--tx); }
+    .art__tablewrap { margin-top: 14px; overflow-x: auto; -webkit-overflow-scrolling: touch; border: 1px solid var(--hair); border-radius: 12px; }
+    .art__table { width: 100%; border-collapse: collapse; font-size: 14px; line-height: 1.45; }
+    .art__table:not(.art__table--num) { min-width: 520px; }
+    .art__table th, .art__table td { text-align: left; padding: 9px 12px; border-bottom: 1px solid var(--hair); color: var(--tx2); vertical-align: top; }
+    .art__table th { color: var(--tx); font-weight: 700; background: var(--tint); }
+    .art__table--num td + td, .art__table--num th + th { white-space: nowrap; }
+    @media (max-width: 480px) { .art__table { font-size: 13px; } .art__table th, .art__table td { padding: 8px 8px; } }
+    .art__table tr:last-child td { border-bottom: 0; }
+    .art__table tr.is-total td { color: var(--tx); font-weight: 700; }
+  </style>
+</head>
+<body>
+
+  <header class="day-strip">
+    <div class="day-strip__inner">
+      <a href="/" class="logo" aria-label="Расчётус — на главную">
+        <img class="logo__badge" src="/assets/img/badge.svg" alt="" width="32" height="32">
+        <svg class="logo__word" viewBox="97.46 81.55 401.96 91.46" role="img" aria-label="расчётус">
+          <g fill="currentColor">
+            <path d="M97.46,111.12h13.01l.27,7.19c2.64-5.37,7.73-8.28,14.38-8.28,13.65,0,20.66,11.01,20.66,25.21s-7.01,25.21-20.66,25.21c-6.28,0-11.19-2.82-14.01-8.01v20.57h-13.65v-61.88ZM120.94,150.07c7.37,0,10.74-6.83,10.74-14.83s-3.55-14.83-10.74-14.83-10.74,7.01-10.74,14.83,3.46,14.83,10.74,14.83Z"/>
+            <path d="M172.81,110.03c14.65,0,22.21,7.19,22.21,20.93v15.2c0,3.18,1.27,3.91,3,3.91h1.73v9.28l-2.37.09c-3.19.09-12.56,1-13.83-7.46-2.46,5-7.83,8.46-16.65,8.46-9.83,0-17.29-5.28-17.29-13.83s6.64-12.28,18.29-14.56l13.29-2.73c-.09-7.01-2.73-10.37-8.46-10.37-4.64,0-7.55,2.64-8.65,7.74l-13.65-.64c1.82-10.28,9.74-16.02,22.39-16.02ZM171.17,151.62c5.92-.09,10.19-4.46,10.19-13.2v-.64l-7.92,1.46c-5.73,1.09-9.83,2-9.83,6.92,0,3.09,2.55,5.46,7.55,5.46Z"/>
+            <path d="M226.05,120.49c-6.83,0-10.74,5.37-10.74,14.74s3.91,14.74,10.74,14.74c5.1,0,8.92-3.28,9.74-9.55l14.11.55c-1.27,12.01-11.01,19.47-23.84,19.47-15.02,0-24.75-10.01-24.75-25.21s9.74-25.21,24.75-25.21c12.47,0,22.2,7.19,23.48,18.93l-14.01.64c-.82-5.82-4.64-9.1-9.46-9.1Z"/>
+            <path d="M286.83,159.35v-21.93c-2.91,4.64-8.1,7.55-14.47,7.55-11.56,0-18.84-7.64-18.84-19.75v-14.11h13.65v10.74c0,7.83,3.28,12.38,8.83,12.38,6.83,0,10.83-4.55,10.83-12.38v-10.74h13.74v48.23h-13.74Z"/>
+            <path d="M400.59,121.22h-16.29v38.13h-13.74v-38.13h-16.38v-10.1h46.41v10.1Z"/>
+            <path d="M415.14,111.12l12.01,33.94,11.65-33.94h12.92l-18.93,52.87c-2.28,6.19-6.46,9.01-13.47,9.01h-8.64v-9.92h6.1c2.91,0,4.46-.91,5.37-3.28l1.18-2.91h-3.82l-17.38-45.77h13.01Z"/>
+            <path d="M475.57,120.49c-6.83,0-10.74,5.37-10.74,14.74s3.91,14.74,10.74,14.74c5.1,0,8.92-3.28,9.74-9.55l14.11.55c-1.27,12.01-11.01,19.47-23.84,19.47-15.02,0-24.75-10.01-24.75-25.21s9.74-25.21,24.75-25.21c12.47,0,22.21,7.19,23.48,18.93l-14.01.64c-.82-5.82-4.64-9.1-9.46-9.1Z"/>
+          </g>
+          <g fill="#a9c811">
+            <path d="M329.74,110.03c13.38,0,23.66,9.28,23.57,26.21v2.55h-34.04c.36,7.19,4.28,11.56,10.46,11.56,3.91,0,7.55-2.37,9.1-6.01l13.83.91c-2.91,9.37-11.92,15.2-22.93,15.2-15.02,0-24.75-10.01-24.75-25.21s9.74-25.21,24.75-25.21ZM339.48,130.5c-.73-7.28-4.91-10.37-9.74-10.37-5.82,0-9.65,3.91-10.37,10.37h20.11Z"/>
+            <rect x="309.79" y="94.62" width="38.72" height="9.36"/>
+            <rect x="319" y="81.55" width="38.72" height="9.36"/>
+          </g>
+        </svg>
+      </a>
+
+      <div class="day-strip__spacer" aria-hidden="true"></div>
+
+      <button type="button" class="theme-toggle" id="themeToggle" aria-label="Сменить тему" title="Сменить тему">◐</button>
+      <a href="https://mp.raschetus.ru/" class="btn btn--sm btn--lime" data-cta="connect">Подключить</a>
+    </div>
+  </header>
+
+
+  <main class="art">
+    <nav class="art__crumbs" aria-label="Хлебные крошки">
+      <a href="/">Главная</a> → Аналитика Wildberries
+    </nav>
+
+    <h1 class="art__h1">Аналитика Wildberries: прибыль, юнит-экономика и ОПиУ</h1>
+    <p class="art__lead">Аналитика Wildberries в Расчётусе отвечает на вопрос, сколько магазин WB зарабатывает на самом деле: по месяцам, по дням и по каждому товару, после комиссии, логистики, рекламы, себестоимости и налога. Данные приходят из отчётов WB по токену API, а магазины Ozon и Wildberries видны в одном кабинете — по отдельности или вместе.</p>
+    <div class="art__cta">
+      <a href="https://mp.raschetus.ru/" class="btn btn--lime btn--lg" data-cta="connect">Подключить магазин</a>
+      <a href="/docs/stores/wildberries/" class="hero__link" target="_blank" rel="noopener">Инструкция по подключению WB →</a>
+    </div>
+
+    <section class="art__sec">
+      <h2>Условия открытой беты</h2>
+      <p>Wildberries в Расчётусе работает в режиме бета-версии: рядом с названием стоит значок «бета». Чтобы не было сюрпризов, условия — сразу:</p>
+      <ul>
+        <li><strong>Нужна оплаченная подписка Ozon.</strong> Открытая бета WB доступна только кабинетам, у которых оплачен тариф для магазина Ozon. Без подписки Ozon магазин WB подключить нельзя.</li>
+        <li><strong>Бесплатно до 31 декабря 2026 года.</strong> Отдельной оплаты за WB нет, магазин WB не занимает слот тарифа, число магазинов WB не ограничено.</li>
+        <li><strong>В тестовом периоде WB недоступен.</strong> Пятидневный тест — это один магазин Ozon; магазин WB подключается после оформления подписки. <a href="/docs/getting-started/tariffs/" target="_blank" rel="noopener">Тарифы и подписка →</a></li>
+        <li><strong>Данные — с 1 января 2026 года.</strong> Более ранние периоды WB не загружаются.</li>
+      </ul>
+      <p>Если платная подписка закончилась, загрузка данных WB приостанавливается, а уже загруженные отчёты остаются доступны.</p>
+    </section>
+
+    <section class="art__sec">
+      <h2>Прибыль магазина WB: что остаётся от цены</h2>
+      <p>Выплата Wildberries за неделю — это ещё не прибыль. В ней нет закупки товара, ваших расходов вне площадки и налога, а скидка покупателю за счёт WB делает картину ещё запутаннее: покупатель платит меньше вашей цены, а комиссия в отчёте оказывается выше тарифа.</p>
+      <p>Управленческий ОПиУ разбирает это по строкам. Доходы считаются по цене продавца из отчётов WB о продажах, а расходы площадки собраны в понятные группы:</p>
+      <div class="art__tablewrap">
+        <table class="art__table">
+          <thead>
+            <tr><th>Строка ОПиУ</th><th>Что в ней</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>WB комиссия</td><td>Вознаграждение WB. Под ней — строка «в т.&nbsp;ч. скидка WB (СПП)»: WB удерживает эту скидку из вознаграждения, поэтому комиссия выше тарифа</td></tr>
+            <tr><td>WB фулфилмент</td><td>Логистика, хранение и другие услуги площадки</td></tr>
+            <tr><td>WB маркетинг</td><td>Реклама по фактическому расходу кампаний. Часть, оплаченная бонусами и кешбэком WB, в расход не входит — её сумма видна в подсказке</td></tr>
+            <tr><td>Удержано WB на рекламу (справочно)</td><td>Сколько WB удержал из выплат в оплату рекламы. Это та же реклама, поэтому в прибыль строка не входит</td></tr>
+            <tr><td>WB прочее, Баллы WB (соинвест)</td><td>Остальные удержания и баллы площадки</td></tr>
+            <tr><td>Себестоимость, свои расходы, налог</td><td>Из таблицы себестоимости, Журнала ДДС и налоговых настроек магазина — как у Ozon</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>Год целиком, месяцы и кварталы стоят на одном экране, а под каждой расходной строкой — её доля от выручки. Если загрузка данных WB приостановлена или отчёты ещё грузятся, над таблицей появляется плашка с причиной. <a href="/docs/finances/profit-and-loss/" target="_blank" rel="noopener">Управленческий ОПиУ →</a> Как устроен отчёт целиком, со всеми группами расходов, — на странице <a href="/opiu/">«ОПиУ: чистая прибыль по месяцам»</a>.</p>
+      <p><strong>Финансовый ОПиУ</strong> для WB строится по еженедельным отчётам WB о продажах, документы загружать не нужно. Доходы в нём — реализация по цене покупателя, вознаграждение WB — разница между ценой покупателя и суммой «к перечислению» за вычетом эквайринга и услуг ПВЗ. Значок у месяца показывает, все ли еженедельные отчёты за месяц загружены. <a href="/docs/finances/financial-pnl/" target="_blank" rel="noopener">Финансовый ОПиУ →</a></p>
+    </section>
+
+    <section class="art__sec">
+      <h2>Юнит-экономика Wildberries по каждому товару</h2>
+      <p>Общая прибыль магазина может быть в плюсе, пока несколько артикулов тихо торгуют в минус. «Юнитка и Реклама» показывает экономику каждого товара за выбранный период: выручку, себестоимость, рекламу, маржу, ROI, рентабельность и конверсии. Для магазина WB отчёт устроен так же, с поправками на площадку:</p>
+      <ul>
+        <li><strong>Категории — это предметы WB, модели — склейки карточек WB.</strong> Назначать модели вручную не нужно, склейки берутся автоматически.</li>
+        <li><strong>Рекламные кампании WB</strong> — в фильтре и во вкладке «Кампании» окна товара. Расход показан полностью, а столбец «Из них бонусами» — часть, оплаченная бонусами и кешбэком WB: в расходы на рекламу в отчётах она не входит.</li>
+        <li><strong>Поисковые кластеры</strong> — группы похожих запросов, которые формирует WB. По каждому кластеру видны показы, клики, CTR, добавления в корзину, заказы, расход, CPC, CPM и средняя позиция.</li>
+      </ul>
+      <p>Без себестоимости прибыль товара не посчитать, а маркетплейсы её не передают. Для WB работает та же таблица себестоимости по месяцам, плюс кнопка «Из Ozon по артикулу»: она подставляет себестоимость из ваших магазинов Ozon товарам WB с тем же артикулом продавца. Уже заданные цены не меняются. <a href="/docs/reports/cost-price/" target="_blank" rel="noopener">Себестоимость →</a></p>
+      <p>Самовыкупы у WB сервис сам не находит: в отчётах WB нет такого признака. Их список ведётся вручную по номеру заказа (srid), а переключатель «Не учитывать самовыкупы как продажи» убирает их из продаж в ОПиУ, Операционке и Юнитке. <a href="/docs/finances/self-buyouts/" target="_blank" rel="noopener">Самовыкупы →</a></p>
+      <p>Как читать экономику товара — прибыль на единицу, маржу и ROI — подробно разобрано на странице <a href="/unit-ekonomika/">«Юнит-экономика»</a>. Полное описание отчёта — в статье <a href="/docs/analytics/unit-economics/" target="_blank" rel="noopener">«Юнит-экономика»</a> базы знаний.</p>
+    </section>
+
+    <section class="art__sec">
+      <h2>Каждый день: Операционка и СПП</h2>
+      <p><strong>Операционка (РНП)</strong> показывает продажи, рекламу, прибыль и воронку по дням — для WB с теми же режимами, наборами показателей и графиками. Расходы называются по площадке, а в наборе «Расходы» есть строка скидки WB (СПП). <a href="/docs/analytics/operations/" target="_blank" rel="noopener">Операционка →</a></p>
+      <p><strong>«Соинвест (СПП)»</strong> для магазина WB показывает СПП WB — скидку покупателю, которую оплачивает WB, в процентах от вашей цены, по товарам и по дням. Режим «Цена покупателя» показывает вашу цену за вычетом СПП WB. Если у вас есть магазины обеих площадок, вид «Ozon и WB» ставит один товар в одну строку: где скидка площадки больше и где покупателю дешевле. На Ozon и WB скидки устроены по-разному, поэтому сравнивается полная скидка за счёт площадки. <a href="/docs/analytics/coinvest/" target="_blank" rel="noopener">Соинвест (СПП) →</a></p>
+    </section>
+
+    <section class="art__sec">
+      <h2>Деньги: ОДДС, Баланс и платёжный календарь</h2>
+      <p>Прибыль и деньги на счёте почти никогда не совпадают. Для WB поступления в ОДДС — это выплаты по еженедельным отчётам о реализации: сумма к перечислению за неделю, то есть продажи минус услуги, хранение, штрафы и удержания. Выплата ставится в день, который задаёт настройка «Лаг выплаты»: через сколько дней после воскресенья приходят деньги, обычно 3 дня, в среду. Загружать «Отчёт по выплатам», как у Ozon, не нужно. <a href="/docs/finances/odds/" target="_blank" rel="noopener">ОДДС →</a></p>
+      <p>Баланс показывает, где сейчас прибыль: остатки на складах WB и у вас — из снимков остатков, деньги на счетах — из ОДДС, а задолженность WB перед вами — деньги по отчётам WB, которые ещё не выплачены. <a href="/docs/finances/balance-sheet/" target="_blank" rel="noopener">Баланс →</a> Журнал ДДС и платёжный календарь тоже работают для магазинов WB.</p>
+    </section>
+
+    <section class="art__sec">
+      <h2>Ozon и WB в одном кабинете</h2>
+      <p>Если вы торгуете на двух площадках, главный вопрос — какая из них и какой товар на ней зарабатывает. В селекторе магазинов магазины WB отмечены значком WB, магазины Ozon — OZ, и их можно выбирать вместе:</p>
+      <ul>
+        <li><strong>ОПиУ, финансовый ОПиУ, ОДДС и Баланс</strong> — режимы «Все магазины» и «Список магазинов» показывают каждый период по магазинам и колонку «Итого».</li>
+        <li><strong>Операционка и Юнитка</strong> складывают показатели магазинов обеих площадок. Остатки, СПП и показы при этом считаются по своей площадке.</li>
+        <li><strong>Поставки</strong> нескольких магазинов, в том числе Ozon и WB, собираются в один список с площадкой и магазином у каждой поставки.</li>
+        <li><strong>Связи товаров.</strong> Карточки разных магазинов собираются в один товар по одинаковому штрихкоду, затем по артикулу продавца, плюс ручные связи. Карточка WB связывается по размерам: каждый размер — со своим товаром. <a href="/docs/stores/multiple-shops/" target="_blank" rel="noopener">Несколько магазинов →</a></li>
+      </ul>
+    </section>
+
+    <section class="art__sec">
+      <h2>Склад, поставки, акции и возвраты</h2>
+      <ul>
+        <li><strong>Остатки.</strong> WB передаёт остаток всех своих складов одной строкой, поэтому вместо кластеров в отчёте колонка «Склады WB», а склады FBS — отдельным блоком. Есть плата за хранение за последние 30 дней. <a href="/docs/supplies/stocks/" target="_blank" rel="noopener">Остатки →</a></li>
+        <li><strong>Поставки на склады WB (FBW)</strong> — что и сколько едет, по складам и статусам; обновляются раз в 2 часа. Нужна категория токена «Поставки». <a href="/docs/supplies/incoming/" target="_blank" rel="noopener">Поставки →</a></li>
+        <li><strong>Карта логистики</strong> для WB показывает регионы покупателей и федеральные округа: где заказывают ваши товары, хватает ли туда поставок и что едет на склады WB, а также скорость приёмки (поставки и скорость приёмки — при категории токена «Поставки»). <a href="/docs/supplies/logistics-map/" target="_blank" rel="noopener">Карта логистики →</a></li>
+        <li><strong>Акции.</strong> Переключатель «Акции с товарами | Автоакции»: по акциям, куда товары добавляете вы, — статус товара, плановая цена, скидка, цена с СПП и маржа от точки безубыточности; по автоакциям — сводка участия. <a href="/docs/promos/actions/" target="_blank" rel="noopener">Акции →</a></li>
+        <li><strong>Возвраты.</strong> Возвраты покупателей из отчётов WB о продажах и «Возвраты вам» — брак, заблокированные и неопознанные товары, которые нужно забрать в пункте выдачи; столбец «Осталось дней» показывает, сколько дней осталось до конца хранения. <a href="/docs/analytics/returns/" target="_blank" rel="noopener">Возвраты →</a></li>
+      </ul>
+      <p>Ещё для WB работают Пульс и дашборды, План продаж и Финансовый план, Журнал событий, Каталог товаров, Списанные товары и Задачи для команды. Полный список — в таблице статьи <a href="/docs/stores/wildberries/" target="_blank" rel="noopener">«Подключение Wildberries»</a>.</p>
+    </section>
+
+    <section class="art__sec">
+      <h2>Что пока работает только для Ozon</h2>
+      <p>Честно о границах беты. Если раздел пока не работает с WB, магазин WB в селекторе неактивен, а подсказка объясняет почему.</p>
+      <ul>
+        <li>Планирование поставок, рекламные отчёты, «Отзывы и вопросы» и раздел «Покупатели» — только для магазинов Ozon.</li>
+        <li>В окне товара Юнитки у WB нет вкладок «Поисковые запросы» и «Позиции» — вместо запросов показаны поисковые кластеры.</li>
+        <li>В возвратах у WB нет вкладок «Ждут вас», «Сомнительные» и «Потерянные».</li>
+        <li>В «Остатках» у WB нет кластеров и переключателя платного хранения.</li>
+        <li>Данные WB до 1 января 2026 года не загружаются.</li>
+      </ul>
+    </section>
+
+    <section class="art__sec">
+      <h2>Как подключить магазин WB</h2>
+      <ol>
+        <li>Оформите подписку для магазина Ozon, если её ещё нет.</li>
+        <li>В кабинете WB Партнёры под владельцем магазина откройте Профиль → Интеграции по API → Создать токен → Для интеграции вручную.</li>
+        <li>Выберите тип «Персональный», отметьте категории Финансы, Статистика, Аналитика, Продвижение, Контент, Маркетплейс, Цены и скидки (обязательны), Документы, Поставки, Вопросы и отзывы (необязательны; «Поставки» нужна для раздела «Поставки» и карты логистики) и уровень доступа «Только чтение».</li>
+        <li>В Расчётусе откройте Аккаунт → Магазины → «Добавить» → Wildberries, укажите название и вставьте токен.</li>
+        <li>Проверка доступа занимает около минуты, первая загрузка отчётов — примерно 30–70 минут. Ход загрузки виден в карточке магазина.</li>
+      </ol>
+      <p>Подключить магазин может владелец кабинета или сотрудник с правом «Магазины и ключи». <a href="/docs/stores/wildberries/" target="_blank" rel="noopener">Подробная инструкция с видео →</a></p>
+    </section>
+
+    <div class="art__cta">
+      <a href="https://mp.raschetus.ru/" class="btn btn--lime btn--lg" data-cta="connect">Подключить магазин</a>
+      <a href="/" class="hero__link">На главную →</a>
+    </div>
+  </main>
+
+  <section class="caps" aria-label="Частые вопросы">
+    <div class="caps__inner">
+      <h2 class="caps__faq-h">Частые вопросы</h2>
+      <div class="faqs">
+        <details class="faq">
+          <summary>Какой токен WB API нужен для Расчётуса?</summary>
+          <p>Персональный токен с уровнем доступа «Только чтение». Обязательные категории — Финансы, Статистика, Аналитика, Продвижение, Контент, Маркетплейс, Цены и скидки: без любой из них токен не примется. Документы, Поставки и Вопросы и отзывы — необязательные: без них магазин подключится. Но без категории «Поставки» не загрузятся раздел «Поставки» и режим «Поставки» на карте логистики.</p>
+        </details>
+        <details class="faq">
+          <summary>Можно ли загрузить данные Wildberries за 2025 год?</summary>
+          <p>Нет. Данные WB загружаются с 1 января 2026 года, более ранние периоды не загружаются.</p>
+        </details>
+        <details class="faq">
+          <summary>Почему комиссия WB в отчёте выше тарифа?</summary>
+          <p>WB удерживает из своего вознаграждения скидку покупателю за свой счёт (СПП). Поэтому в ОПиУ под строкой «WB комиссия» есть строка «в т. ч. скидка WB (СПП)» — она показывает, какая часть комиссии приходится на эту скидку.</p>
+        </details>
+        <details class="faq">
+          <summary>Как перенести себестоимость с Ozon на Wildberries?</summary>
+          <p>В разделе «Себестоимость» у магазина WB есть кнопка «Из Ozon по артикулу». Она подставляет себестоимость из ваших магазинов Ozon товарам WB с тем же артикулом продавца. Перед подстановкой окно покажет, скольким товарам будет задана цена; уже заданные цены не меняются.</p>
+        </details>
+        <details class="faq">
+          <summary>Почему магазин WB неактивен в некоторых разделах?</summary>
+          <p>Эти разделы пока работают только с магазинами Ozon: Планирование поставок, рекламные отчёты, «Отзывы и вопросы» и «Покупатели». Магазин WB в их селекторе неактивен, а подсказка объясняет почему. Список разделов, которые работают для WB, — в <a href="/docs/stores/wildberries/" target="_blank" rel="noopener">статье о подключении Wildberries</a>.</p>
+        </details>
+        <details class="faq">
+          <summary>Когда в ОДДС появляется выплата Wildberries?</summary>
+          <p>Выплата за неделю ставится в день, который задаёт «Лаг выплаты» в настройках ОДДС: через сколько дней после воскресенья приходят деньги, обычно 3 дня, в среду. Сумма берётся из еженедельного отчёта WB о реализации, загружать отчёт по выплатам не нужно.</p>
+        </details>
+        <details class="faq">
+          <summary>Что будет с данными WB, если отключить магазин?</summary>
+          <p>Сохранённый токен удаляется сразу, а через 14 дней удаляются данные магазина: себестоимость, история остатков и загруженные отчёты WB. Если в течение 14 дней снова подключить этот же кабинет WB, всё сохранится.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer__inner">
+      <div class="footer__brand">
+        <a href="/" class="logo" aria-label="Расчётус">
+          <img class="logo__badge" src="/assets/img/badge.svg" alt="" width="28" height="28">
+          <svg class="logo__word logo__word--sm" viewBox="97.46 81.55 401.96 91.46" role="img" aria-label="расчётус">
+            <g fill="currentColor">
+              <path d="M97.46,111.12h13.01l.27,7.19c2.64-5.37,7.73-8.28,14.38-8.28,13.65,0,20.66,11.01,20.66,25.21s-7.01,25.21-20.66,25.21c-6.28,0-11.19-2.82-14.01-8.01v20.57h-13.65v-61.88ZM120.94,150.07c7.37,0,10.74-6.83,10.74-14.83s-3.55-14.83-10.74-14.83-10.74,7.01-10.74,14.83,3.46,14.83,10.74,14.83Z"/>
+              <path d="M172.81,110.03c14.65,0,22.21,7.19,22.21,20.93v15.2c0,3.18,1.27,3.91,3,3.91h1.73v9.28l-2.37.09c-3.19.09-12.56,1-13.83-7.46-2.46,5-7.83,8.46-16.65,8.46-9.83,0-17.29-5.28-17.29-13.83s6.64-12.28,18.29-14.56l13.29-2.73c-.09-7.01-2.73-10.37-8.46-10.37-4.64,0-7.55,2.64-8.65,7.74l-13.65-.64c1.82-10.28,9.74-16.02,22.39-16.02ZM171.17,151.62c5.92-.09,10.19-4.46,10.19-13.2v-.64l-7.92,1.46c-5.73,1.09-9.83,2-9.83,6.92,0,3.09,2.55,5.46,7.55,5.46Z"/>
+              <path d="M226.05,120.49c-6.83,0-10.74,5.37-10.74,14.74s3.91,14.74,10.74,14.74c5.1,0,8.92-3.28,9.74-9.55l14.11.55c-1.27,12.01-11.01,19.47-23.84,19.47-15.02,0-24.75-10.01-24.75-25.21s9.74-25.21,24.75-25.21c12.47,0,22.2,7.19,23.48,18.93l-14.01.64c-.82-5.82-4.64-9.1-9.46-9.1Z"/>
+              <path d="M286.83,159.35v-21.93c-2.91,4.64-8.1,7.55-14.47,7.55-11.56,0-18.84-7.64-18.84-19.75v-14.11h13.65v10.74c0,7.83,3.28,12.38,8.83,12.38,6.83,0,10.83-4.55,10.83-12.38v-10.74h13.74v48.23h-13.74Z"/>
+              <path d="M400.59,121.22h-16.29v38.13h-13.74v-38.13h-16.38v-10.1h46.41v10.1Z"/>
+              <path d="M415.14,111.12l12.01,33.94,11.65-33.94h12.92l-18.93,52.87c-2.28,6.19-6.46,9.01-13.47,9.01h-8.64v-9.92h6.1c2.91,0,4.46-.91,5.37-3.28l1.18-2.91h-3.82l-17.38-45.77h13.01Z"/>
+              <path d="M475.57,120.49c-6.83,0-10.74,5.37-10.74,14.74s3.91,14.74,10.74,14.74c5.1,0,8.92-3.28,9.74-9.55l14.11.55c-1.27,12.01-11.01,19.47-23.84,19.47-15.02,0-24.75-10.01-24.75-25.21s9.74-25.21,24.75-25.21c12.47,0,22.21,7.19,23.48,18.93l-14.01.64c-.82-5.82-4.64-9.1-9.46-9.1Z"/>
+            </g>
+            <g fill="#a9c811">
+              <path d="M329.74,110.03c13.38,0,23.66,9.28,23.57,26.21v2.55h-34.04c.36,7.19,4.28,11.56,10.46,11.56,3.91,0,7.55-2.37,9.1-6.01l13.83.91c-2.91,9.37-11.92,15.2-22.93,15.2-15.02,0-24.75-10.01-24.75-25.21s9.74-25.21,24.75-25.21ZM339.48,130.5c-.73-7.28-4.91-10.37-9.74-10.37-5.82,0-9.65,3.91-10.37,10.37h20.11Z"/>
+              <rect x="309.79" y="94.62" width="38.72" height="9.36"/>
+              <rect x="319" y="81.55" width="38.72" height="9.36"/>
+            </g>
+          </svg>
+        </a>
+        <p class="footer__tag">Автоматизатор прибыли для продавцов.</p>
+        <div class="footer__social" aria-label="Наши каналы">
+          <a class="footer__social-link" href="https://t.me/+xFvrkNuvMwJlNWJi" target="_blank" rel="noopener" aria-label="Telegram">
+            <img src="/assets/img/telegram.png" alt="" width="26" height="26" loading="lazy">
+          </a>
+          <a class="footer__social-link" href="https://max.ru/join/67xusMM6ZoqiAVRrtHFl0Cbkvway0GDgukFH06FK2XU" target="_blank" rel="noopener" aria-label="MAX">
+            <img src="/assets/img/max.png" alt="" width="26" height="26" loading="lazy">
+          </a>
+        </div>
+      </div>
+
+      <nav class="footer__col" aria-label="Инструменты">
+        <div class="footer__col-h">Инструменты</div>
+        <a href="/calculator/">Калькулятор прибыли</a>
+        <a href="/unit-ekonomika/">Юнит-экономика</a>
+        <a href="/opiu/">Прибыли и убытки</a>
+        <a href="/reklama/">Реклама и ДРР</a>
+        <a href="/akcii/">Акции Ozon</a>
+        <a href="/postavki/">Планирование поставок</a>
+      </nav>
+
+      <nav class="footer__col" aria-label="Компания">
+        <div class="footer__col-h">Компания</div>
+        <a href="/docs/" target="_blank" rel="noopener">База знаний</a>
+        <a href="https://mp.raschetus.ru/info/offer">Оферта</a>
+        <a href="https://mp.raschetus.ru/info/policy">Политика конфиденциальности</a>
+      </nav>
+
+      <div class="footer__req">
+        <div class="footer__req-title">Реквизиты</div>
+        <p>ИП Ким Алина</p>
+        <p>ИНН 504411444638</p>
+        <p>ОГРНИП 326508100471844</p>
+      </div>
+    </div>
+
+    <div class="footer__bottom">
+      <span>© 2026 Расчётус</span>
+      <span>посчитано · сходится · точка</span>
+    </div>
+  </footer>
+
+  <script>
+    (function () {
+      var r = document.documentElement, b = document.getElementById('themeToggle');
+      function g() { return r.classList.contains('light') ? '◑' : '◐'; }
+      if (b) {
+        b.textContent = g();
+        b.addEventListener('click', function () {
+          r.classList.toggle('light');
+          try { localStorage.setItem('rsh-theme', r.classList.contains('light') ? 'light' : 'dark'); } catch (e) {}
+          b.textContent = g();
+          var m = document.querySelector('meta[name="theme-color"]');
+          if (m) m.setAttribute('content', r.classList.contains('light') ? '#ffffff' : '#0e1110');
+        });
+      }
+    })();
+  </script>
+
+  <!-- Yandex.Metrika counter -->
+  <script type="text/javascript">
+    (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};m[i].l=1*new Date();for(var j=0;j<document.scripts.length;j++){if(document.scripts[j].src===r){return;}}k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})(window,document,'script','https://mc.yandex.ru/metrika/tag.js','ym');
+    ym(112116470, 'init', {ssr:true, webvisor:true, clickmap:true, ecommerce:"dataLayer", accurateTrackBounce:true, trackLinks:true});
+  </script>
+  <noscript><div><img src="https://mc.yandex.ru/watch/112116470" style="position:absolute; left:-9999px;" alt=""></div></noscript>
+  <!-- /Yandex.Metrika counter -->
+  <script src="/assets/track.js?v=20261120" defer></script>
+</body>
+</html>
