@@ -48,6 +48,36 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://raschetus.ru/stati/</loc>
+    <lastmod>2026-11-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://raschetus.ru/stati/chto-takoe-podsort-ozon/</loc>
+    <lastmod>2026-11-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://raschetus.ru/stati/planirovanie-postavok-ozon-po-klasteram/</loc>
+    <lastmod>2026-11-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://raschetus.ru/stati/avtodobavlenie-v-akcii-ozon/</loc>
+    <lastmod>2026-11-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://raschetus.ru/stati/kak-poschitat-drr-ozon/</loc>
+    <lastmod>2026-11-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://raschetus.ru/docs/</loc>
     <lastmod>2026-09-06</lastmod>
     <changefreq>weekly</changefreq>

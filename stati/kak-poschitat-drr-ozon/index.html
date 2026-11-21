@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Как посчитать ДРР на Ozon: формулы и примеры</title>
+  <meta name="description" content="Как посчитать ДРР на Ozon: от заказов, выручки и выкупов, как его считает сам Ozon, безубыточный ДРР, ROAS и ROMI на условном примере.">
+  <meta name="theme-color" content="#0e1110">
+  <meta name="color-scheme" content="dark light">
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+  <meta name="keywords" content="как посчитать ДРР, ДРР формула, ДРР Ozon, ДРР от заказов, ДРР от выкупов, безубыточный ДРР, ROAS, ROMI, CPO">
+  <meta name="author" content="Расчётус">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="/assets/img/badge.svg">
+  <link rel="canonical" href="https://raschetus.ru/stati/kak-poschitat-drr-ozon/">
+  <link rel="preconnect" href="https://mc.yandex.ru" crossorigin>
+
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Расчётус">
+  <meta property="og:title" content="Как посчитать ДРР на Ozon: формулы, выкуп и безубыточный ДРР">
+  <meta property="og:description" content="Как посчитать ДРР на Ozon: от заказов, выручки и выкупов, как его считает сам Ozon, безубыточный ДРР, ROAS и ROMI на условном примере.">
+  <meta property="og:url" content="https://raschetus.ru/stati/kak-poschitat-drr-ozon/">
+  <meta property="og:locale" content="ru_RU">
+  <meta property="og:image" content="https://raschetus.ru/assets/img/og/reklama.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Как посчитать ДРР на Ozon: формулы, выкуп и безубыточный ДРР">
+  <meta name="twitter:description" content="Как посчитать ДРР на Ozon: от заказов, выручки и выкупов, как его считает сам Ozon, безубыточный ДРР, ROAS и ROMI на условном примере.">
+  <meta name="twitter:image" content="https://raschetus.ru/assets/img/og/reklama.png">
+
+  <script>
+    (function () { try { if ((localStorage.getItem('rsh-theme') || 'dark') === 'light') document.documentElement.classList.add('light'); } catch (e) {} })();
+  </script>
+
+  <link rel="preload" href="/assets/fonts/geist-cyrillic.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/assets/fonts/geist-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="/assets/styles.css?v=20260906">
+
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Article",
+      "@id": "https://raschetus.ru/stati/kak-poschitat-drr-ozon/#article",
+      "headline": "Как посчитать ДРР на Ozon: формулы, выкуп и безубыточный ДРР",
+      "description": "Как посчитать ДРР на Ozon: от заказов, выручки и выкупов, как его считает сам Ozon, безубыточный ДРР, ROAS и ROMI на условном примере.",
+      "url": "https://raschetus.ru/stati/kak-poschitat-drr-ozon/",
+      "mainEntityOfPage": "https://raschetus.ru/stati/kak-poschitat-drr-ozon/",
+      "inLanguage": "ru-RU",
+      "datePublished": "2026-11-21",
+      "dateModified": "2026-11-21",
+      "image": "https://raschetus.ru/assets/img/og/reklama.png",
+      "wordCount": 1796,
+      "articleSection": "Статьи",
+      "keywords": "как посчитать ДРР, ДРР формула, ДРР Ozon, ДРР от заказов, ДРР от выкупов, безубыточный ДРР, ROAS, ROMI, CPO",
+      "author": {
+        "@type": "Organization",
+        "name": "Расчётус",
+        "url": "https://raschetus.ru/"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "Расчётус",
+        "url": "https://raschetus.ru/",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://raschetus.ru/assets/img/badge.svg"
+        }
+      },
+      "isPartOf": {
+        "@id": "https://raschetus.ru/#website"
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Главная",
+          "item": "https://raschetus.ru/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Статьи",
+          "item": "https://raschetus.ru/stati/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Как посчитать ДРР",
+          "item": "https://raschetus.ru/stati/kak-poschitat-drr-ozon/"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "За какой период считать ДРР?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Не короче 14 дней, лучше 28–30. Рекламная статистика доходит с задержкой в несколько дней, а заказ Ozon приписывает рекламе, если он сделан в течение 10 дней после клика или 30 дней после добавления в корзину или избранное. ДРР за 2–3 последних дня почти всегда выглядит хуже, чем окажется потом."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Почему ДРР в кабинете Ozon ниже, чем в моей таблице?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Чаще всего из-за знаменателя. В «ДРР в продвижении» Ozon включает все оплаченные заказы, включая отмены и возвраты, а по умолчанию ещё и заказы объединённой карточки. Если вы делите расход на выкупленную выручку только рекламируемого товара, ваш ДРР будет выше."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Что такое ДРР от прибыли?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Доля расходов на рекламу в прибыли товара до рекламы. Если он равен 100%, реклама съедает всю прибыль; выше 100% — товар с рекламой работает в минус. Это самый прямой ответ на вопрос «окупается ли реклама», но для него нужна полная экономика товара: себестоимость, удержания Ozon и налог."
+          }
+        }
+      ]
+    }
+  ]
+}
+  </script>
+
+  <style>
+    .art { max-width: var(--maxw); margin-inline: auto; padding: clamp(28px,5vw,64px) clamp(16px,4vw,52px); }
+    .art__crumbs { font-size: 12px; letter-spacing: .04em; text-transform: uppercase; color: var(--mut); }
+    .art__crumbs a { color: var(--mut); text-decoration: none; }
+    .art__crumbs a:hover { color: var(--lime-tx); }
+    .art__h1 { font-size: clamp(28px,4.6vw,50px); font-weight: 800; letter-spacing: -0.04em; line-height: 1.06; color: var(--tx); max-width: 22ch; margin-top: 12px; }
+    .art__meta { color: var(--mut); font-size: 13px; margin-top: 14px; }
+    .art__lead { color: var(--tx2); font-size: clamp(15px,1.6vw,19px); line-height: 1.55; max-width: 64ch; margin-top: 16px; }
+    .post { max-width: 74ch; }
+    .post h2 { font-size: clamp(21px,2.6vw,30px); font-weight: 800; letter-spacing: -0.03em; line-height: 1.12; color: var(--tx); margin-top: clamp(30px,4vw,48px); scroll-margin-top: 80px; }
+    .post h3 { font-size: 18px; font-weight: 700; letter-spacing: -0.01em; color: var(--tx); margin-top: 24px; }
+    .post p, .post li { color: var(--tx2); font-size: 16px; line-height: 1.7; }
+    .post p { margin-top: 12px; }
+    .post ul, .post ol { margin-top: 10px; padding-left: 22px; }
+    .post li { margin-top: 6px; }
+    .post strong { color: var(--tx); }
+    .post a { color: var(--lime-tx); }
+    .post code { font-family: ui-monospace, SFMono-Regular, Consolas, monospace; font-size: .92em; background: var(--soft); padding: 1px 5px; border-radius: 4px; }
+    .post .formula { margin-top: 14px; padding: 14px 18px; border-left: 3px solid var(--lime); background: var(--tint); border-radius: 0 10px 10px 0; color: var(--tx); font-weight: 600; font-size: 16px; line-height: 1.6; }
+    .post .note { margin-top: 16px; padding: 14px 18px; border: 1px solid var(--hair2); border-radius: 12px; background: var(--gr2); }
+    .post .note p:first-child { margin-top: 0; }
+    .post .note__h { color: var(--tx); font-weight: 700; font-size: 14px; letter-spacing: .02em; text-transform: uppercase; }
+    .post .tbl { margin-top: 14px; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+    .post table { border-collapse: collapse; min-width: 100%; font-size: 14px; }
+    .post th, .post td { text-align: left; padding: 9px 12px; border-bottom: 1px solid var(--hair); color: var(--tx2); vertical-align: top; }
+    .post th { color: var(--tx); font-weight: 700; border-bottom-color: var(--hair2); white-space: nowrap; }
+    .post td.num, .post th.num { text-align: right; white-space: nowrap; }
+    .toc { margin-top: 26px; padding: 16px 20px; border: 1px solid var(--hair2); border-radius: 12px; max-width: 74ch; background: var(--gr2); }
+    .toc__h { font-size: 12px; letter-spacing: .06em; text-transform: uppercase; color: var(--mut); font-weight: 700; }
+    .toc ol { margin-top: 8px; padding-left: 20px; }
+    .toc li { color: var(--tx2); font-size: 14px; line-height: 1.5; margin-top: 4px; }
+    .toc a { color: var(--tx2); text-decoration: none; }
+    .toc a:hover { color: var(--lime-tx); }
+    .try { margin-top: clamp(34px,5vw,56px); max-width: 74ch; padding: clamp(20px,3vw,30px); border-radius: 16px; background: var(--tint); border: 1px solid var(--tint2); }
+    .try__h { font-size: clamp(20px,2.4vw,26px); font-weight: 800; letter-spacing: -0.03em; color: var(--tx); }
+    .try p { color: var(--tx2); font-size: 15px; line-height: 1.6; margin-top: 8px; }
+    .try__cta { display: flex; gap: 14px; align-items: center; flex-wrap: wrap; margin-top: 18px; }
+    .more { margin-top: clamp(34px,5vw,56px); max-width: 74ch; }
+    .more__h { font-size: 18px; font-weight: 800; color: var(--tx); }
+    .more ul { list-style: none; margin-top: 10px; }
+    .more li { border-bottom: 1px solid var(--hair); }
+    .more a { display: block; padding: 12px 0; color: var(--tx2); text-decoration: none; font-weight: 600; }
+    .more a:hover { color: var(--lime-tx); }
+    .cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 16px; margin-top: clamp(24px,4vw,40px); }
+    .card { display: flex; flex-direction: column; padding: 22px; border: 1px solid var(--hair2); border-radius: 16px; background: var(--gr2); text-decoration: none; transition: border-color .15s ease; }
+    .card:hover { border-color: var(--lime-tx); }
+    .card__tag { font-size: 12px; letter-spacing: .05em; text-transform: uppercase; color: var(--lime-tx); font-weight: 700; }
+    .card__h { font-size: 20px; font-weight: 800; letter-spacing: -0.02em; line-height: 1.2; color: var(--tx); margin-top: 10px; }
+    .card__p { color: var(--tx2); font-size: 14px; line-height: 1.55; margin-top: 10px; flex: 1; }
+    .card__meta { color: var(--mut); font-size: 13px; margin-top: 16px; }
+    @media (max-width: 520px) { .post p, .post li { font-size: 15px; } .post table { font-size: 13px; } }
+  </style>
+</head>
+<body>
+
+  <header class="day-strip">
+    <div class="day-strip__inner">
+      <a href="/" class="logo" aria-label="Расчётус — на главную">
+        <img class="logo__badge" src="/assets/img/badge.svg" alt="" width="32" height="32">
+        <svg class="logo__word" viewBox="97.46 81.55 401.96 91.46" role="img" aria-label="расчётус">
+          <g fill="currentColor">
+            <path d="M97.46,111.12h13.01l.27,7.19c2.64-5.37,7.73-8.28,14.38-8.28,13.65,0,20.66,11.01,20.66,25.21s-7.01,25.21-20.66,25.21c-6.28,0-11.19-2.82-14.01-8.01v20.57h-13.65v-61.88ZM120.94,150.07c7.37,0,10.74-6.83,10.74-14.83s-3.55-14.83-10.74-14.83-10.74,7.01-10.74,14.83,3.46,14.83,10.74,14.83Z"/>
+            <path d="M172.81,110.03c14.65,0,22.21,7.19,22.21,20.93v15.2c0,3.18,1.27,3.91,3,3.91h1.73v9.28l-2.37.09c-3.19.09-12.56,1-13.83-7.46-2.46,5-7.83,8.46-16.65,8.46-9.83,0-17.29-5.28-17.29-13.83s6.64-12.28,18.29-14.56l13.29-2.73c-.09-7.01-2.73-10.37-8.46-10.37-4.64,0-7.55,2.64-8.65,7.74l-13.65-.64c1.82-10.28,9.74-16.02,22.39-16.02ZM171.17,151.62c5.92-.09,10.19-4.46,10.19-13.2v-.64l-7.92,1.46c-5.73,1.09-9.83,2-9.83,6.92,0,3.09,2.55,5.46,7.55,5.46Z"/>
+            <path d="M226.05,120.49c-6.83,0-10.74,5.37-10.74,14.74s3.91,14.74,10.74,14.74c5.1,0,8.92-3.28,9.74-9.55l14.11.55c-1.27,12.01-11.01,19.47-23.84,19.47-15.02,0-24.75-10.01-24.75-25.21s9.74-25.21,24.75-25.21c12.47,0,22.2,7.19,23.48,18.93l-14.01.64c-.82-5.82-4.64-9.1-9.46-9.1Z"/>
+            <path d="M286.83,159.35v-21.93c-2.91,4.64-8.1,7.55-14.47,7.55-11.56,0-18.84-7.64-18.84-19.75v-14.11h13.65v10.74c0,7.83,3.28,12.38,8.83,12.38,6.83,0,10.83-4.55,10.83-12.38v-10.74h13.74v48.23h-13.74Z"/>
+            <path d="M400.59,121.22h-16.29v38.13h-13.74v-38.13h-16.38v-10.1h46.41v10.1Z"/>
+            <path d="M415.14,111.12l12.01,33.94,11.65-33.94h12.92l-18.93,52.87c-2.28,6.19-6.46,9.01-13.47,9.01h-8.64v-9.92h6.1c2.91,0,4.46-.91,5.37-3.28l1.18-2.91h-3.82l-17.38-45.77h13.01Z"/>
+            <path d="M475.57,120.49c-6.83,0-10.74,5.37-10.74,14.74s3.91,14.74,10.74,14.74c5.1,0,8.92-3.28,9.74-9.55l14.11.55c-1.27,12.01-11.01,19.47-23.84,19.47-15.02,0-24.75-10.01-24.75-25.21s9.74-25.21,24.75-25.21c12.47,0,22.21,7.19,23.48,18.93l-14.01.64c-.82-5.82-4.64-9.1-9.46-9.1Z"/>
+          </g>
+          <g fill="#a9c811">
+            <path d="M329.74,110.03c13.38,0,23.66,9.28,23.57,26.21v2.55h-34.04c.36,7.19,4.28,11.56,10.46,11.56,3.91,0,7.55-2.37,9.1-6.01l13.83.91c-2.91,9.37-11.92,15.2-22.93,15.2-15.02,0-24.75-10.01-24.75-25.21s9.74-25.21,24.75-25.21ZM339.48,130.5c-.73-7.28-4.91-10.37-9.74-10.37-5.82,0-9.65,3.91-10.37,10.37h20.11Z"/>
+            <rect x="309.79" y="94.62" width="38.72" height="9.36"/>
+            <rect x="319" y="81.55" width="38.72" height="9.36"/>
+          </g>
+        </svg>
+      </a>
+
+      <div class="day-strip__spacer" aria-hidden="true"></div>
+
+      <button type="button" class="theme-toggle" id="themeToggle" aria-label="Сменить тему" title="Сменить тему">◐</button>
+      <a href="https://mp.raschetus.ru/" class="btn btn--sm btn--lime" data-cta="connect">Подключить</a>
+    </div>
+  </header>
+
+  <main class="art">
+    <nav class="art__crumbs" aria-label="Хлебные крошки">
+      <a href="/">Главная</a> → <a href="/stati/">Статьи</a> → Как посчитать ДРР
+    </nav>
+
+    <article>
+      <h1 class="art__h1">Как посчитать ДРР на Ozon: формулы, выкуп и безубыточный ДРР</h1>
+      <p class="art__meta"><time datetime="2026-11-21">21 ноября 2026</time> · 10 мин чтения</p>
+      <p class="art__lead"><strong>Как посчитать ДРР</strong>: разделить расходы на рекламу на выручку и умножить на 100%. Но на Ozon у этой формулы как минимум три разных знаменателя, а сам Ozon считает ДРР по-своему. Разбираем, какой ДРР брать для какой задачи, как сделать поправку на выкуп, как найти безубыточный ДРР своего товара и чем ДРР отличается от ROAS и ROMI.</p>
+
+      <nav class="toc" aria-label="Содержание">
+        <div class="toc__h">Содержание</div>
+        <ol>
+        <li><a href="#formula">Формула ДРР и три знаменателя</a></li>
+        <li><a href="#ozon">Как ДРР считает сам Ozon</a></li>
+        <li><a href="#vykup">Поправка на выкуп</a></li>
+        <li><a href="#bezubytok">Какой ДРР допустим для вашего товара</a></li>
+        <li><a href="#cpo">CPO, ставка и связь с ДРР</a></li>
+        <li><a href="#roas">ROAS и ROMI: чем отличаются от ДРР</a></li>
+        <li><a href="#dannye">Где взять цифры для расчёта</a></li>
+        <li><a href="#oshibki">Семь ошибок при расчёте ДРР</a></li>
+        <li><a href="#raschetus">Как это считается в Расчётусе</a></li>
+        </ol>
+      </nav>
+
+      <div class="post">
+<p>ДРР — доля рекламных расходов — самый популярный показатель рекламы на маркетплейсах. Им удобно сравнивать товары и кампании, по нему ставят цели: «держим ДРР до 15%». Проблема в том, что одно и то же число у разных людей означает разное: один делит на заказы, другой на выкупы, третий — на всю выручку магазина. А «нормальный ДРР» без привязки к прибыли товара не значит ничего.</p>
+
+<h2 id="formula">Формула ДРР и три знаменателя</h2>
+<div class="formula">ДРР = Расходы на рекламу ÷ Выручка × 100%</div>
+<p>Числитель понятен — сколько потратили на рекламу за период. С выручкой сложнее: на Ozon её можно взять по-разному, и каждая версия отвечает на свой вопрос.</p>
+<div class="tbl"><table>
+  <thead><tr><th>ДРР</th><th>Знаменатель</th><th>Для чего</th></tr></thead>
+  <tbody>
+    <tr><td>От заказов</td><td>Сумма заказов за период</td><td>Быстрая оценка: заказы видны сразу, не надо ждать выкупа</td></tr>
+    <tr><td>От выручки (выкупов)</td><td>Выкупленные товары минус возвраты</td><td>Деньги, которые реально останутся у продавца; сверка с прибылью</td></tr>
+    <tr><td>Рекламный</td><td>Только заказы или выручка, которые пришли с рекламы</td><td>Оценка самой кампании: сколько стоит рубль рекламных продаж</td></tr>
+    <tr><td>Общий</td><td>Все заказы или вся выручка товара — с рекламы и без</td><td>Какую долю всех продаж товара съедает реклама</td></tr>
+  </tbody>
+</table></div>
+<p>Рекламный ДРР всегда выше общего: в знаменателе меньше продаж. Общий ДРР показывает нагрузку рекламы на товар, рекламный — эффективность конкретной кампании. Смотреть стоит оба, но сравнивать — только ДРР с одинаковым знаменателем.</p>
+
+<h2 id="ozon">Как ДРР считает сам Ozon</h2>
+<p>В аналитике продвижения Ozon показывает <strong>ДРР в продвижении</strong> — расход, делённый на продажи в продвижении (<a href="https://performance-help.ozon.ru/product-ads/analitika-prodvijeniya/rabotat-s-analitikoi-prodvijeniya" target="_blank" rel="noopener">справка Ozon по аналитике продвижения</a>). Важно, что попадает в эти «продажи».</p>
+<ul>
+  <li><strong>Отмены и возвраты.</strong> Для оплаты за заказ Ozon считает все оплаченные заказы, включая отменённые и возвращённые (<a href="https://performance-help.ozon.ru/product-ads/oplata-za-zakaz/rezultaty-oplaty-za-zakaz" target="_blank" rel="noopener">справка Ozon: результаты оплаты за заказ</a>). У оплаты за клик учитываются оплаченные заказы, а возврат из статистики не убирается (<a href="https://performance-help.ozon.ru/product-ads/oplata-za-klik/results-of-campaign" target="_blank" rel="noopener">справка Ozon: результаты кампании с оплатой за клик</a>).</li>
+  <li><strong>Объединённая карточка.</strong> По умолчанию в продажи входят заказы других товаров той же модели; убрать их можно фильтром «Без учёта моделей».</li>
+  <li><strong>Окно атрибуции.</strong> При оплате за клик заказ приписывают рекламе, если он сделан в течение 10 дней после клика или 30 дней после добавления в корзину или избранное. При оплате за заказ — если покупатель перешёл в карточку или добавил товар в корзину или избранное из поиска, категории или рекомендаций и заказал в течение 30 дней.</li>
+</ul>
+<p>Из-за этого ДРР в кабинете Ozon почти всегда ниже, чем ДРР, посчитанный от выкупленной выручки самого рекламируемого товара. Ни один из них не «неправильный» — они просто про разное. Для решений о деньгах ближе второй.</p>
+
+<h2 id="vykup">Поправка на выкуп</h2>
+<p>Заказ — ещё не продажа. Если товар выкупают в 80% случаев, из каждых 100 рублей заказов до продавца доходят 80, а расход на рекламу остаётся прежним. Перевести ДРР от заказов в ДРР от выкупов можно одной формулой:</p>
+<div class="formula">ДРР от выкупов = ДРР от заказов ÷ Доля выкупа</div>
+<p>Условный пример: ДРР от заказов — 12%, выкуп — 75%. ДРР от выкупов: 12 ÷ 0,75 = 16%. При выкупе 50–65% ДРР от выкупов выше ДРР от заказов в 1,5–2 раза (1 ÷ 0,65 ≈ 1,54; 1 ÷ 0,5 = 2) — и именно эту разницу чаще всего не видят, когда ставят цель по ДРР от заказов.</p>
+
+<h2 id="bezubytok">Какой ДРР допустим для вашего товара</h2>
+<p>Универсальной нормы нет. В статьях называют разные «нормальные» значения ДРР, но без привязки к марже любое из них ничего не говорит. Условно: если товар до рекламы оставляет продавцу 35 рублей с каждых 100 рублей заказов, ДРР 25% ещё приносит прибыль. Если оставляет 18 рублей — тот же ДРР 25% означает минус 7 рублей с каждых 100.</p>
+<p>Правильный ориентир — <strong>безубыточный ДРР</strong>: при каком ДРР реклама съедает ровно всю прибыль заказа.</p>
+<p>Здесь и дальше в формулах с одним заказом речь о рекламном ДРР — расходе на рекламу, делённом на заказы, которые пришли с рекламы.</p>
+<div class="formula">Безубыточный рекламный ДРР от заказов = Прибыль до рекламы на один заказ ÷ Средний чек заказа × 100%</div>
+<p>«Прибыль до рекламы на заказ» считают с учётом выкупа: выручка с заказа (чек × доля выкупа) минус себестоимость выкупленных штук, удержания Ozon с учётом невыкупов и налог с выручки. Налог на прибыль (УСН «Доходы минус расходы», ОСНО) в точке безубыточности равен нулю, поэтому его здесь не вычитают.</p>
+<div class="note">
+  <p class="note__h">Условный пример</p>
+  <p>Средний чек заказа — 2 400 ₽, себестоимость единицы — 800 ₽, выкуп — 80%, УСН «Доходы» 6%. На один заказ:</p>
+  <ul>
+    <li>выручка: 2 400 × 0,8 = 1 920 ₽;</li>
+    <li>себестоимость выкупленного: 800 × 0,8 = 640 ₽;</li>
+    <li>удержания Ozon (комиссия, логистика, эквайринг, обратная логистика невыкупов): 560 ₽;</li>
+    <li>налог 6% с 1 920 ₽: 115 ₽.</li>
+  </ul>
+  <p>Прибыль до рекламы: 1 920 − 640 − 560 − 115 = 605 ₽ на заказ. Безубыточный ДРР от заказов: 605 ÷ 2 400 ≈ 25%; от выкупов: 605 ÷ 1 920 ≈ 31,5%.</p>
+</div>
+<p>Всё, что ниже безубыточного ДРР, приносит прибыль; выше — забирает её. Рабочую цель ставят ниже порога, оставляя запас на себя: например, если хотите сохранить хотя бы 10% от чека, цель — около 15% от заказов.</p>
+<p>Тот же порог удобно считать в рублях — как <strong>максимальную цену заказа с рекламы</strong>, или макс. CPO. Это и есть прибыль до рекламы на заказ — в примере 605 ₽. Почему этот расчёт делают по каждому артикулу, а не по магазину в среднем, подробно разобрано на странице <a href="/reklama/">«ДРР и окупаемость рекламы на Ozon»</a>.</p>
+
+<h2 id="cpo">CPO, ставка и связь с ДРР</h2>
+<p>CPO — сколько стоит один заказ с рекламы:</p>
+<div class="formula">CPO = Расходы на рекламу ÷ Заказы с рекламы<br>Рекламный ДРР от заказов = CPO ÷ Средний чек рекламного заказа</div>
+<p>ДРР и CPO — две записи одного и того же: процентом и рублями. Рубли удобнее для решений по ставке. Если вы знаете макс. CPO и конверсию из клика в заказ, легко найти максимальную цену клика:</p>
+<div class="formula">Максимальная цена клика = Макс. CPO × Конверсия клика в заказ</div>
+<p>В примере выше: макс. CPO 605 ₽, из клика заказывают 3%. Дороже 605 × 0,03 ≈ 18 ₽ за клик платить нельзя — реклама уйдёт в минус. Если ставка выше, искать нужно либо более дешёвый трафик, либо причину низкой конверсии в самой карточке: цена, фото, отзывы, срок доставки.</p>
+
+<h3>Оплата за клик и оплата за заказ</h3>
+<p>При оплате за заказ продавец платит фиксированный процент за заказ, пришедший из продвижения, и без комбо-модели ДРР в продвижении близок к этой ставке (<a href="https://performance-help.ozon.ru/product-ads/oplata-za-zakaz/payment-for-the-order" target="_blank" rel="noopener">справка Ozon об оплате за заказ</a>). Но оплачиваются и заказы, которые потом отменят или вернут, поэтому ДРР от выкупов у такой кампании выше ставки — в том же соотношении, что и выкуп. Сравнивая оплату за клик и за заказ, сравнивайте их по одному показателю: цене выкупленного заказа.</p>
+
+<h2 id="roas">ROAS и ROMI: чем отличаются от ДРР</h2>
+<div class="tbl"><table>
+  <thead><tr><th>Показатель</th><th>Формула</th><th>Что показывает</th></tr></thead>
+  <tbody>
+    <tr><td>ДРР</td><td>Расход ÷ Выручка × 100%</td><td>Какую долю выручки съедает реклама</td></tr>
+    <tr><td>ROAS</td><td>Выручка ÷ Расход</td><td>Сколько рублей выручки даёт рубль рекламы. ROAS = 1 ÷ ДРР</td></tr>
+    <tr><td>ROMI</td><td>(Прибыль до рекламы − Расход) ÷ Расход × 100%</td><td>Сколько прибыли вернул каждый рубль рекламы</td></tr>
+  </tbody>
+</table></div>
+<p>ДРР и ROAS — одно и то же число, записанное по-разному: ДРР 20% = ROAS 5. Ни тот ни другой не говорит, окупилась ли реклама, — в них нет себестоимости и удержаний. Отсюда распространённая ошибка «ДРР ниже 100% — реклама окупается»: при ДРР 50% товар почти наверняка в минусе, потому что от каждого рубля выручки ещё нужно заплатить за товар, комиссию, логистику и налог.</p>
+<p>ROMI учитывает прибыль и отвечает на вопрос прямо. В том же условном примере кампания потратила 30 000 ₽ и принесла 100 заказов на 240 000 ₽. Рекламный ДРР от заказов — 12,5%, ROAS — 8, CPO — 300 ₽. Прибыль до рекламы — 605 ₽ × 100 = 60 500 ₽. ROMI = (60 500 − 30 000) ÷ 30 000 ≈ 102%: каждый рубль рекламы вернулся и принёс ещё рубль прибыли. Если бы CPO вырос до 700 ₽, ROMI стал бы отрицательным, хотя рекламный ДРР от заказов — 29% — по многим «нормам» ещё выглядел бы приемлемо.</p>
+
+<h2 id="dannye">Где взять цифры для расчёта</h2>
+<p>Для всех формул выше нужны четыре набора данных за один и тот же период.</p>
+<ul>
+  <li><strong>Расход на рекламу</strong> — в аналитике продвижения Ozon: по кампаниям — для оплаты за клик, «Оплата за заказ: все товары» — общим итогом. Если часть рекламы оплачена бонусами, решите заранее, считаете вы её расходом или нет, и держите это правило во всех расчётах.</li>
+  <li><strong>Заказы с рекламы и их сумма</strong> — там же. Проверьте, включены ли заказы объединённой карточки: для ДРР конкретного товара их лучше убрать.</li>
+  <li><strong>Выкуп</strong> — доля выкупленных заказов товара за прошлые периоды. Берите период, за который заказы уже успели дойти до покупателя, иначе выкуп будет занижен.</li>
+  <li><strong>Прибыль до рекламы на заказ</strong> — из себестоимости, удержаний Ozon по товару и налога. Это самая трудоёмкая часть: удержания приходят разными строками в финансовых отчётах.</li>
+</ul>
+<p>Главное правило — один период и одна граница для числителя и знаменателя. ДРР, где расход взят за неделю, а выручка за месяц, или расход по кампании, а выручка по всему магазину, ничего не покажет.</p>
+
+<h2 id="oshibki">Семь ошибок при расчёте ДРР</h2>
+<ol>
+  <li><strong>Сравнивать ДРР с разными знаменателями</strong> — свой от выкупов с ДРР в кабинете Ozon от заказов с моделями.</li>
+  <li><strong>Ставить цель по ДРР от заказов, забыв про выкуп.</strong> При выкупе 70% реальная нагрузка почти в полтора раза выше.</li>
+  <li><strong>Считать один ДРР по магазину.</strong> Средний ДРР прячет товары, которые работают в минус.</li>
+  <li><strong>Брать «норму» из статьи вместо своего безубыточного ДРР.</strong> У каждого товара свой порог.</li>
+  <li><strong>Считать по последним дням.</strong> Атрибуция и статистика догоняют позже, период — от 14 дней.</li>
+  <li><strong>Путать ROAS с окупаемостью.</strong> ROAS 3 при прибыли до рекламы 25% от чека — это убыток.</li>
+  <li><strong>Смешивать рекламу кампаний с маркетинговыми услугами.</strong> Подписки и другие маркетинговые услуги Ozon оплачиваются не за клик и не за заказ, их лучше учитывать отдельной строкой.</li>
+</ol>
+
+<h2 id="raschetus">Как это считается в Расчётусе</h2>
+<p>В разделе «Юнитка и Реклама» (<a href="/docs/ads/internal-ads/" target="_blank" rel="noopener">статья базы знаний «Рекламные кампании»</a>) по каждому артикулу собраны расход, показы, клики, конверсии, CPM, CPC, CPO прямого заказа и несколько ДРР: по прямой выручке, с атрибуцией, от заказов, от выручки и от прибыли товара. В окне товара видно, в каких кампаниях он участвует и с каким CPO и ДРР по каждой.</p>
+<p>В <a href="/docs/analytics/operations/" target="_blank" rel="noopener">Операционке</a> — две постоянные строки по магазину и дням: ДРР от заказов и ДРР от выручки.</p>
+<p>Окно <a href="/docs/analytics/ad-budget/" target="_blank" rel="noopener">«Бюджет рекламы»</a> считает по каждому товару максимальный CPO по прогнозу прибыли заказов и сравнивает его с текущим CPO: «Окупается» с запасом в рублях, «На грани», если CPO выше 85% от максимального, или «В минус». Там же — бюджет под нужное число заказов и ДРР плана.</p>
+      </div>
+    </article>
+
+    <aside class="try" aria-label="Посчитать на своих данных">
+      <div class="try__h">Посчитать на своих данных</div>
+      <p>Расчётус считает ДРР от заказов, от выручки и по прямой рекламной выручке по каждому артикулу и сравнивает цену заказа с рекламы с тем, сколько этот заказ приносит.</p>
+      <p>5&nbsp;дней полного доступа без привязки карты: подключите магазин Ozon по ключу Seller API — отчёты соберутся из ваших продаж.</p>
+      <div class="try__cta">
+        <a href="https://mp.raschetus.ru/register?utm_source=site&utm_medium=article&utm_campaign=kak-poschitat-drr-ozon" class="btn btn--lime btn--lg" data-cta="connect">Попробовать 5 дней бесплатно</a>
+        <a href="/reklama/" class="hero__link" data-cta="landing">Реклама и ДРР по товарам в Расчётусе&nbsp;→</a>
+      </div>
+    </aside>
+
+    <nav class="more" aria-label="Другие статьи">
+      <div class="more__h">Ещё статьи</div>
+      <ul>
+        <li><a href="/stati/chto-takoe-podsort-ozon/">Что такое подсорт на Ozon и как его посчитать →</a></li>
+        <li><a href="/stati/planirovanie-postavok-ozon-po-klasteram/">Планирование поставок на Ozon по кластерам →</a></li>
+        <li><a href="/stati/avtodobavlenie-v-akcii-ozon/">Автодобавление в акции Ozon: как отключить и не потерять маржу →</a></li>
+        <li><a href="/stati/">Все статьи →</a></li>
+      </ul>
+    </nav>
+  </main>
+
+  <section class="caps" aria-label="Частые вопросы">
+    <div class="caps__inner">
+      <h2 class="caps__faq-h">Частые вопросы</h2>
+      <div class="faqs">
+        <details class="faq">
+          <summary>За какой период считать ДРР?</summary>
+          <p>Не короче 14 дней, лучше 28–30. Рекламная статистика доходит с задержкой в несколько дней, а заказ Ozon приписывает рекламе, если он сделан в течение 10 дней после клика или 30 дней после добавления в корзину или избранное. ДРР за 2–3 последних дня почти всегда выглядит хуже, чем окажется потом.</p>
+        </details>
+        <details class="faq">
+          <summary>Почему ДРР в кабинете Ozon ниже, чем в моей таблице?</summary>
+          <p>Чаще всего из-за знаменателя. В «ДРР в продвижении» Ozon включает все оплаченные заказы, включая отмены и возвраты, а по умолчанию ещё и заказы объединённой карточки. Если вы делите расход на выкупленную выручку только рекламируемого товара, ваш ДРР будет выше.</p>
+        </details>
+        <details class="faq">
+          <summary>Что такое ДРР от прибыли?</summary>
+          <p>Доля расходов на рекламу в прибыли товара до рекламы. Если он равен 100%, реклама съедает всю прибыль; выше 100% — товар с рекламой работает в минус. Это самый прямой ответ на вопрос «окупается ли реклама», но для него нужна полная экономика товара: себестоимость, удержания Ozon и налог.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer__inner">
+      <div class="footer__brand">
+        <a href="/" class="logo" aria-label="Расчётус">
+          <img class="logo__badge" src="/assets/img/badge.svg" alt="" width="28" height="28">
+          <svg class="logo__word logo__word--sm" viewBox="97.46 81.55 401.96 91.46" role="img" aria-label="расчётус">
+            <g fill="currentColor">
+              <path d="M97.46,111.12h13.01l.27,7.19c2.64-5.37,7.73-8.28,14.38-8.28,13.65,0,20.66,11.01,20.66,25.21s-7.01,25.21-20.66,25.21c-6.28,0-11.19-2.82-14.01-8.01v20.57h-13.65v-61.88ZM120.94,150.07c7.37,0,10.74-6.83,10.74-14.83s-3.55-14.83-10.74-14.83-10.74,7.01-10.74,14.83,3.46,14.83,10.74,14.83Z"/>
+              <path d="M172.81,110.03c14.65,0,22.21,7.19,22.21,20.93v15.2c0,3.18,1.27,3.91,3,3.91h1.73v9.28l-2.37.09c-3.19.09-12.56,1-13.83-7.46-2.46,5-7.83,8.46-16.65,8.46-9.83,0-17.29-5.28-17.29-13.83s6.64-12.28,18.29-14.56l13.29-2.73c-.09-7.01-2.73-10.37-8.46-10.37-4.64,0-7.55,2.64-8.65,7.74l-13.65-.64c1.82-10.28,9.74-16.02,22.39-16.02ZM171.17,151.62c5.92-.09,10.19-4.46,10.19-13.2v-.64l-7.92,1.46c-5.73,1.09-9.83,2-9.83,6.92,0,3.09,2.55,5.46,7.55,5.46Z"/>
+              <path d="M226.05,120.49c-6.83,0-10.74,5.37-10.74,14.74s3.91,14.74,10.74,14.74c5.1,0,8.92-3.28,9.74-9.55l14.11.55c-1.27,12.01-11.01,19.47-23.84,19.47-15.02,0-24.75-10.01-24.75-25.21s9.74-25.21,24.75-25.21c12.47,0,22.2,7.19,23.48,18.93l-14.01.64c-.82-5.82-4.64-9.1-9.46-9.1Z"/>
+              <path d="M286.83,159.35v-21.93c-2.91,4.64-8.1,7.55-14.47,7.55-11.56,0-18.84-7.64-18.84-19.75v-14.11h13.65v10.74c0,7.83,3.28,12.38,8.83,12.38,6.83,0,10.83-4.55,10.83-12.38v-10.74h13.74v48.23h-13.74Z"/>
+              <path d="M400.59,121.22h-16.29v38.13h-13.74v-38.13h-16.38v-10.1h46.41v10.1Z"/>
+              <path d="M415.14,111.12l12.01,33.94,11.65-33.94h12.92l-18.93,52.87c-2.28,6.19-6.46,9.01-13.47,9.01h-8.64v-9.92h6.1c2.91,0,4.46-.91,5.37-3.28l1.18-2.91h-3.82l-17.38-45.77h13.01Z"/>
+              <path d="M475.57,120.49c-6.83,0-10.74,5.37-10.74,14.74s3.91,14.74,10.74,14.74c5.1,0,8.92-3.28,9.74-9.55l14.11.55c-1.27,12.01-11.01,19.47-23.84,19.47-15.02,0-24.75-10.01-24.75-25.21s9.74-25.21,24.75-25.21c12.47,0,22.21,7.19,23.48,18.93l-14.01.64c-.82-5.82-4.64-9.1-9.46-9.1Z"/>
+            </g>
+            <g fill="#a9c811">
+              <path d="M329.74,110.03c13.38,0,23.66,9.28,23.57,26.21v2.55h-34.04c.36,7.19,4.28,11.56,10.46,11.56,3.91,0,7.55-2.37,9.1-6.01l13.83.91c-2.91,9.37-11.92,15.2-22.93,15.2-15.02,0-24.75-10.01-24.75-25.21s9.74-25.21,24.75-25.21ZM339.48,130.5c-.73-7.28-4.91-10.37-9.74-10.37-5.82,0-9.65,3.91-10.37,10.37h20.11Z"/>
+              <rect x="309.79" y="94.62" width="38.72" height="9.36"/>
+              <rect x="319" y="81.55" width="38.72" height="9.36"/>
+            </g>
+          </svg>
+        </a>
+        <p class="footer__tag">Автоматизатор прибыли для продавцов.</p>
+        <div class="footer__social" aria-label="Наши каналы">
+          <a class="footer__social-link" href="https://t.me/+xFvrkNuvMwJlNWJi" target="_blank" rel="noopener" aria-label="Telegram">
+            <img src="/assets/img/telegram.png" alt="" width="26" height="26" loading="lazy">
+          </a>
+          <a class="footer__social-link" href="https://max.ru/join/67xusMM6ZoqiAVRrtHFl0Cbkvway0GDgukFH06FK2XU" target="_blank" rel="noopener" aria-label="MAX">
+            <img src="/assets/img/max.png" alt="" width="26" height="26" loading="lazy">
+          </a>
+        </div>
+      </div>
+
+      <nav class="footer__col" aria-label="Инструменты">
+        <div class="footer__col-h">Инструменты</div>
+        <a href="/calculator/">Калькулятор прибыли</a>
+        <a href="/unit-ekonomika/">Юнит-экономика</a>
+        <a href="/opiu/">Прибыли и убытки</a>
+        <a href="/reklama/">Реклама и ДРР</a>
+        <a href="/akcii/">Акции Ozon</a>
+        <a href="/postavki/">Планирование поставок</a>
+      </nav>
+
+      <nav class="footer__col" aria-label="Компания">
+        <div class="footer__col-h">Компания</div>
+        <a href="/docs/" target="_blank" rel="noopener">База знаний</a>
+        <a href="/stati/">Статьи</a>
+        <a href="https://mp.raschetus.ru/info/offer">Оферта</a>
+        <a href="https://mp.raschetus.ru/info/policy">Политика конфиденциальности</a>
+      </nav>
+
+      <div class="footer__req">
+        <div class="footer__req-title">Реквизиты</div>
+        <p>ИП Ким Алина</p>
+        <p>ИНН 504411444638</p>
+        <p>ОГРНИП 326508100471844</p>
+      </div>
+    </div>
+
+    <div class="footer__bottom">
+      <span>© 2026 Расчётус</span>
+      <span>посчитано · сходится · точка</span>
+    </div>
+  </footer>
+
+
+  <script>
+    (function () {
+      var r = document.documentElement, b = document.getElementById('themeToggle');
+      function g() { return r.classList.contains('light') ? '◑' : '◐'; }
+      if (b) {
+        b.textContent = g();
+        b.addEventListener('click', function () {
+          r.classList.toggle('light');
+          try { localStorage.setItem('rsh-theme', r.classList.contains('light') ? 'light' : 'dark'); } catch (e) {}
+          b.textContent = g();
+          var m = document.querySelector('meta[name="theme-color"]');
+          if (m) m.setAttribute('content', r.classList.contains('light') ? '#ffffff' : '#0e1110');
+        });
+      }
+    })();
+  </script>
+
+  <!-- Yandex.Metrika counter -->
+  <script type="text/javascript">
+    (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};m[i].l=1*new Date();for(var j=0;j<document.scripts.length;j++){if(document.scripts[j].src===r){return;}}k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})(window,document,'script','https://mc.yandex.ru/metrika/tag.js','ym');
+    ym(112116470, 'init', {ssr:true, webvisor:true, clickmap:true, ecommerce:"dataLayer", accurateTrackBounce:true, trackLinks:true});
+  </script>
+  <noscript><div><img src="https://mc.yandex.ru/watch/112116470" style="position:absolute; left:-9999px;" alt=""></div></noscript>
+  <!-- /Yandex.Metrika counter -->
+  <script src="/assets/track.js?v=20261120" defer></script>
+</body>
+</html>
