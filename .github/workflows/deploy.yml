@@ -14,6 +14,7 @@ on:
       - 'unit-ekonomika/**'
       - 'opiu/**'
       - 'reklama/**'
+      - 'wildberries/**'
       - 'akcii/**'
       - 'favicon.svg'
       - 'robots.txt'
@@ -42,7 +43,7 @@ jobs:
       - name: Stage site
         run: |
           mkdir -p _site
-          cp -r index.html calculator postavki unit-ekonomika opiu reklama akcii info favicon.svg robots.txt sitemap.xml assets _site/
+          cp -r index.html calculator postavki unit-ekonomika opiu reklama akcii wildberries info favicon.svg robots.txt sitemap.xml assets _site/
 
       - name: Deploy (rsync mirror)
         run: |
