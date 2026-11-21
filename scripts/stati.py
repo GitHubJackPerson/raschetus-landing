@@ -241,7 +241,10 @@ def build_article(a, arts, header, footer, tail):
                             "acceptedAnswer": {"@type": "Answer", "text": plain(x)}} for q, x in a["faq"]],
         })
     toc_html = "\n".join(f'        <li><a href="#{i}">{html.escape(t)}</a></li>' for i, t in toc)
-    others = [o for o in arts if o["slug"] != a["slug"]][:3]
+    # Hand-picked related articles go first; the newest ones fill the rest.
+    by_slug = {o["slug"]: o for o in arts}
+    picked = [by_slug[s] for s in a.get("related", []) if s in by_slug and s != a["slug"]]
+    others = (picked + [o for o in arts if o["slug"] != a["slug"] and o not in picked])[:3]
     more = "\n".join(f'        <li><a href="/stati/{o["slug"]}/">{html.escape(o["h1"])} →</a></li>' for o in others)
     land = a["landing"]
     page = head(a["title"], a["description"], url, a["og_title"], a.get("og_description", a["description"]),
@@ -304,10 +307,10 @@ def build_article(a, arts, header, footer, tail):
 
 
 LIST = {
-    "title": "Статьи для продавцов Ozon — поставки, акции, реклама",
-    "description": "Статьи Расчётуса для продавцов Ozon: как считать подсорт и поставки по кластерам, отключать автодобавление в акции, считать ДРР и окупаемость рекламы.",
+    "title": "Статьи для продавцов Ozon — прибыль, выплаты, поставки",
+    "description": "Статьи для продавцов Ozon: чистая прибыль и юнит-экономика, отчёт о реализации и выплаты, налог на УСН, самовыкупы, подсорт, акции и ДРР.",
     "h1": "Статьи для продавцов Ozon",
-    "lead": "Разбираем, как считать то, от чего зависит прибыль на маркетплейсе: поставки, акции, рекламу. "
+    "lead": "Разбираем, как считать то, от чего зависит прибыль на маркетплейсе: прибыль и налоги, выплаты, поставки, акции, рекламу. "
             "С формулами, условными примерами и ссылками на правила Ozon.",
 }
 
@@ -348,7 +351,7 @@ def build_list(arts, minutes, header, footer, tail):
         <span class="card__meta">{human_date(a['published'])} · {minutes[a['slug']]} мин чтения</span>
       </a>""" for a in arts)
     page = head(LIST["title"], LIST["description"], url, LIST["h1"], LIST["description"],
-                f"{SITE}/assets/img/og.png", ld, CSS, "статьи Ozon, подсорт Ozon, поставки по кластерам, автодобавление в акции Ozon, ДРР Ozon",
+                f"{SITE}/assets/img/og.png", ld, CSS, "статьи Ozon, чистая прибыль Ozon, отчёт о реализации Ozon, выплаты Ozon, юнит-экономика Ozon, подсорт Ozon, ДРР Ozon",
                 "website")
     page += f"""
 <body>
@@ -385,7 +388,11 @@ def main():
     header, footer, tail = chrome()
     arts = load()
     minutes = {}
+    slugs = {a["slug"] for a in arts}
     for a in arts:
+        missing = [s for s in a.get("related", []) if s not in slugs]
+        if missing:
+            sys.exit(f"{a['slug']}: unknown related {missing}")
         for key in ("title", "description"):
             if key == "title" and len(a[key]) > 60:
                 sys.exit(f"{a['slug']}: title {len(a[key])} > 60")

@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Юнит-экономика на Ozon: шаблон таблицы и пример</title>
+  <meta name="description" content="Шаблон таблицы юнит-экономики Ozon с формулами для Excel и Google Таблиц: выкуп, невыкупы, эквайринг, реклама через ДРР, хранение, налог. Пример расчёта.">
+  <meta name="theme-color" content="#0e1110">
+  <meta name="color-scheme" content="dark light">
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+  <meta name="keywords" content="юнит-экономика Ozon таблица, шаблон юнит-экономики Ozon, юнит-экономика Ozon пример расчёта, юнит-экономика Excel, формулы юнит-экономики, маржа наценка ROI">
+  <meta name="author" content="Расчётус">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="/assets/img/badge.svg">
+  <link rel="canonical" href="https://raschetus.ru/stati/yunit-ekonomika-ozon-shablon-tablicy/">
+  <link rel="preconnect" href="https://mc.yandex.ru" crossorigin>
+
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Расчётус">
+  <meta property="og:title" content="Юнит-экономика на Ozon: шаблон таблицы и пример расчёта">
+  <meta property="og:description" content="Шаблон таблицы юнит-экономики Ozon с формулами для Excel и Google Таблиц: выкуп, невыкупы, эквайринг, реклама через ДРР, хранение, налог. Пример расчёта.">
+  <meta property="og:url" content="https://raschetus.ru/stati/yunit-ekonomika-ozon-shablon-tablicy/">
+  <meta property="og:locale" content="ru_RU">
+  <meta property="og:image" content="https://raschetus.ru/assets/img/og/unit-ekonomika.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Юнит-экономика на Ozon: шаблон таблицы и пример расчёта">
+  <meta name="twitter:description" content="Шаблон таблицы юнит-экономики Ozon с формулами для Excel и Google Таблиц: выкуп, невыкупы, эквайринг, реклама через ДРР, хранение, налог. Пример расчёта.">
+  <meta name="twitter:image" content="https://raschetus.ru/assets/img/og/unit-ekonomika.png">
+
+  <script>
+    (function () { try { if ((localStorage.getItem('rsh-theme') || 'dark') === 'light') document.documentElement.classList.add('light'); } catch (e) {} })();
+  </script>
+
+  <link rel="preload" href="/assets/fonts/geist-cyrillic.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/assets/fonts/geist-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="/assets/styles.css?v=20260906">
+
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Article",
+      "@id": "https://raschetus.ru/stati/yunit-ekonomika-ozon-shablon-tablicy/#article",
+      "headline": "Юнит-экономика на Ozon: шаблон таблицы и пример расчёта",
+      "description": "Шаблон таблицы юнит-экономики Ozon с формулами для Excel и Google Таблиц: выкуп, невыкупы, эквайринг, реклама через ДРР, хранение, налог. Пример расчёта.",
+      "url": "https://raschetus.ru/stati/yunit-ekonomika-ozon-shablon-tablicy/",
+      "mainEntityOfPage": "https://raschetus.ru/stati/yunit-ekonomika-ozon-shablon-tablicy/",
+      "inLanguage": "ru-RU",
+      "datePublished": "2026-11-21",
+      "dateModified": "2026-11-21",
+      "image": "https://raschetus.ru/assets/img/og/unit-ekonomika.png",
+      "wordCount": 1806,
+      "articleSection": "Статьи",
+      "keywords": "юнит-экономика Ozon таблица, шаблон юнит-экономики Ozon, юнит-экономика Ozon пример расчёта, юнит-экономика Excel, формулы юнит-экономики, маржа наценка ROI",
+      "author": {
+        "@type": "Organization",
+        "name": "Расчётус",
+        "url": "https://raschetus.ru/"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "Расчётус",
+        "url": "https://raschetus.ru/",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://raschetus.ru/assets/img/badge.svg"
+        }
+      },
+      "isPartOf": {
+        "@id": "https://raschetus.ru/#website"
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Главная",
+          "item": "https://raschetus.ru/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Статьи",
+          "item": "https://raschetus.ru/stati/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Шаблон юнит-экономики",
+          "item": "https://raschetus.ru/stati/yunit-ekonomika-ozon-shablon-tablicy/"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Чем маржа отличается от наценки и ROI?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Все три делят прибыль или разницу цен на разную базу. Наценка — (цена − себестоимость) ÷ себестоимость, она не учитывает расходы Ozon и почти всегда выглядит большой. Маржа — прибыль ÷ цена: какая доля цены остаётся вам. ROI — прибыль ÷ себестоимость: сколько приносит каждый рубль, вложенный в товар. Для решений о цене смотрят маржу, о закупке — ROI."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Как распределить хранение и общие расходы на единицу товара?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Хранение — по оборачиваемости: платные дни на складе Ozon начинаются только после транзита и бесплатного периода категории, поэтому тариф за день умножают на дни сверх этого срока. Общие расходы бизнеса — зарплату, аренду, сервисы — в юнит-экономику товара лучше не размазывать: их покрывают из суммы прибыли всех товаров и проверяют в прибыли магазина за месяц."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Где взять фактические расходы Ozon по товару?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "В начислениях кабинета Ozon: удержания привязаны к отправлениям и товарам, их можно выгрузить и сгруппировать по артикулу за период. Берите период не короче месяца, чтобы в него попали невыкупы и возвраты, а логистика усреднилась по кластерам."
+          }
+        }
+      ]
+    }
+  ]
+}
+  </script>
+
+  <style>
+    .art { max-width: var(--maxw); margin-inline: auto; padding: clamp(28px,5vw,64px) clamp(16px,4vw,52px); }
+    .art__crumbs { font-size: 12px; letter-spacing: .04em; text-transform: uppercase; color: var(--mut); }
+    .art__crumbs a { color: var(--mut); text-decoration: none; }
+    .art__crumbs a:hover { color: var(--lime-tx); }
+    .art__h1 { font-size: clamp(28px,4.6vw,50px); font-weight: 800; letter-spacing: -0.04em; line-height: 1.06; color: var(--tx); max-width: 22ch; margin-top: 12px; }
+    .art__meta { color: var(--mut); font-size: 13px; margin-top: 14px; }
+    .art__lead { color: var(--tx2); font-size: clamp(15px,1.6vw,19px); line-height: 1.55; max-width: 64ch; margin-top: 16px; }
+    .post { max-width: 74ch; }
+    .post h2 { font-size: clamp(21px,2.6vw,30px); font-weight: 800; letter-spacing: -0.03em; line-height: 1.12; color: var(--tx); margin-top: clamp(30px,4vw,48px); scroll-margin-top: 80px; }
+    .post h3 { font-size: 18px; font-weight: 700; letter-spacing: -0.01em; color: var(--tx); margin-top: 24px; }
+    .post p, .post li { color: var(--tx2); font-size: 16px; line-height: 1.7; }
+    .post p { margin-top: 12px; }
+    .post ul, .post ol { margin-top: 10px; padding-left: 22px; }
+    .post li { margin-top: 6px; }
+    .post strong { color: var(--tx); }
+    .post a { color: var(--lime-tx); }
+    .post code { font-family: ui-monospace, SFMono-Regular, Consolas, monospace; font-size: .92em; background: var(--soft); padding: 1px 5px; border-radius: 4px; }
+    .post .formula { margin-top: 14px; padding: 14px 18px; border-left: 3px solid var(--lime); background: var(--tint); border-radius: 0 10px 10px 0; color: var(--tx); font-weight: 600; font-size: 16px; line-height: 1.6; }
+    .post .note { margin-top: 16px; padding: 14px 18px; border: 1px solid var(--hair2); border-radius: 12px; background: var(--gr2); }
+    .post .note p:first-child { margin-top: 0; }
+    .post .note__h { color: var(--tx); font-weight: 700; font-size: 14px; letter-spacing: .02em; text-transform: uppercase; }
+    .post .tbl { margin-top: 14px; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+    .post table { border-collapse: collapse; min-width: 100%; font-size: 14px; }
+    .post th, .post td { text-align: left; padding: 9px 12px; border-bottom: 1px solid var(--hair); color: var(--tx2); vertical-align: top; }
+    .post th { color: var(--tx); font-weight: 700; border-bottom-color: var(--hair2); white-space: nowrap; }
+    .post td.num, .post th.num { text-align: right; white-space: nowrap; }
+    .toc { margin-top: 26px; padding: 16px 20px; border: 1px solid var(--hair2); border-radius: 12px; max-width: 74ch; background: var(--gr2); }
+    .toc__h { font-size: 12px; letter-spacing: .06em; text-transform: uppercase; color: var(--mut); font-weight: 700; }
+    .toc ol { margin-top: 8px; padding-left: 20px; }
+    .toc li { color: var(--tx2); font-size: 14px; line-height: 1.5; margin-top: 4px; }
+    .toc a { color: var(--tx2); text-decoration: none; }
+    .toc a:hover { color: var(--lime-tx); }
+    .try { margin-top: clamp(34px,5vw,56px); max-width: 74ch; padding: clamp(20px,3vw,30px); border-radius: 16px; background: var(--tint); border: 1px solid var(--tint2); }
+    .try__h { font-size: clamp(20px,2.4vw,26px); font-weight: 800; letter-spacing: -0.03em; color: var(--tx); }
+    .try p { color: var(--tx2); font-size: 15px; line-height: 1.6; margin-top: 8px; }
+    .try__cta { display: flex; gap: 14px; align-items: center; flex-wrap: wrap; margin-top: 18px; }
+    .more { margin-top: clamp(34px,5vw,56px); max-width: 74ch; }
+    .more__h { font-size: 18px; font-weight: 800; color: var(--tx); }
+    .more ul { list-style: none; margin-top: 10px; }
+    .more li { border-bottom: 1px solid var(--hair); }
+    .more a { display: block; padding: 12px 0; color: var(--tx2); text-decoration: none; font-weight: 600; }
+    .more a:hover { color: var(--lime-tx); }
+    .cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 16px; margin-top: clamp(24px,4vw,40px); }
+    .card { display: flex; flex-direction: column; padding: 22px; border: 1px solid var(--hair2); border-radius: 16px; background: var(--gr2); text-decoration: none; transition: border-color .15s ease; }
+    .card:hover { border-color: var(--lime-tx); }
+    .card__tag { font-size: 12px; letter-spacing: .05em; text-transform: uppercase; color: var(--lime-tx); font-weight: 700; }
+    .card__h { font-size: 20px; font-weight: 800; letter-spacing: -0.02em; line-height: 1.2; color: var(--tx); margin-top: 10px; }
+    .card__p { color: var(--tx2); font-size: 14px; line-height: 1.55; margin-top: 10px; flex: 1; }
+    .card__meta { color: var(--mut); font-size: 13px; margin-top: 16px; }
+    @media (max-width: 520px) { .post p, .post li { font-size: 15px; } .post table { font-size: 13px; } }
+  </style>
+</head>
+<body>
+
+  <header class="day-strip">
+    <div class="day-strip__inner">
+      <a href="/" class="logo" aria-label="Расчётус — на главную">
+        <img class="logo__badge" src="/assets/img/badge.svg" alt="" width="32" height="32">
+        <svg class="logo__word" viewBox="97.46 81.55 401.96 91.46" role="img" aria-label="расчётус">
+          <g fill="currentColor">
+            <path d="M97.46,111.12h13.01l.27,7.19c2.64-5.37,7.73-8.28,14.38-8.28,13.65,0,20.66,11.01,20.66,25.21s-7.01,25.21-20.66,25.21c-6.28,0-11.19-2.82-14.01-8.01v20.57h-13.65v-61.88ZM120.94,150.07c7.37,0,10.74-6.83,10.74-14.83s-3.55-14.83-10.74-14.83-10.74,7.01-10.74,14.83,3.46,14.83,10.74,14.83Z"/>
+            <path d="M172.81,110.03c14.65,0,22.21,7.19,22.21,20.93v15.2c0,3.18,1.27,3.91,3,3.91h1.73v9.28l-2.37.09c-3.19.09-12.56,1-13.83-7.46-2.46,5-7.83,8.46-16.65,8.46-9.83,0-17.29-5.28-17.29-13.83s6.64-12.28,18.29-14.56l13.29-2.73c-.09-7.01-2.73-10.37-8.46-10.37-4.64,0-7.55,2.64-8.65,7.74l-13.65-.64c1.82-10.28,9.74-16.02,22.39-16.02ZM171.17,151.62c5.92-.09,10.19-4.46,10.19-13.2v-.64l-7.92,1.46c-5.73,1.09-9.83,2-9.83,6.92,0,3.09,2.55,5.46,7.55,5.46Z"/>
+            <path d="M226.05,120.49c-6.83,0-10.74,5.37-10.74,14.74s3.91,14.74,10.74,14.74c5.1,0,8.92-3.28,9.74-9.55l14.11.55c-1.27,12.01-11.01,19.47-23.84,19.47-15.02,0-24.75-10.01-24.75-25.21s9.74-25.21,24.75-25.21c12.47,0,22.2,7.19,23.48,18.93l-14.01.64c-.82-5.82-4.64-9.1-9.46-9.1Z"/>
+            <path d="M286.83,159.35v-21.93c-2.91,4.64-8.1,7.55-14.47,7.55-11.56,0-18.84-7.64-18.84-19.75v-14.11h13.65v10.74c0,7.83,3.28,12.38,8.83,12.38,6.83,0,10.83-4.55,10.83-12.38v-10.74h13.74v48.23h-13.74Z"/>
+            <path d="M400.59,121.22h-16.29v38.13h-13.74v-38.13h-16.38v-10.1h46.41v10.1Z"/>
+            <path d="M415.14,111.12l12.01,33.94,11.65-33.94h12.92l-18.93,52.87c-2.28,6.19-6.46,9.01-13.47,9.01h-8.64v-9.92h6.1c2.91,0,4.46-.91,5.37-3.28l1.18-2.91h-3.82l-17.38-45.77h13.01Z"/>
+            <path d="M475.57,120.49c-6.83,0-10.74,5.37-10.74,14.74s3.91,14.74,10.74,14.74c5.1,0,8.92-3.28,9.74-9.55l14.11.55c-1.27,12.01-11.01,19.47-23.84,19.47-15.02,0-24.75-10.01-24.75-25.21s9.74-25.21,24.75-25.21c12.47,0,22.21,7.19,23.48,18.93l-14.01.64c-.82-5.82-4.64-9.1-9.46-9.1Z"/>
+          </g>
+          <g fill="#a9c811">
+            <path d="M329.74,110.03c13.38,0,23.66,9.28,23.57,26.21v2.55h-34.04c.36,7.19,4.28,11.56,10.46,11.56,3.91,0,7.55-2.37,9.1-6.01l13.83.91c-2.91,9.37-11.92,15.2-22.93,15.2-15.02,0-24.75-10.01-24.75-25.21s9.74-25.21,24.75-25.21ZM339.48,130.5c-.73-7.28-4.91-10.37-9.74-10.37-5.82,0-9.65,3.91-10.37,10.37h20.11Z"/>
+            <rect x="309.79" y="94.62" width="38.72" height="9.36"/>
+            <rect x="319" y="81.55" width="38.72" height="9.36"/>
+          </g>
+        </svg>
+      </a>
+
+      <div class="day-strip__spacer" aria-hidden="true"></div>
+
+      <button type="button" class="theme-toggle" id="themeToggle" aria-label="Сменить тему" title="Сменить тему">◐</button>
+      <a href="https://mp.raschetus.ru/" class="btn btn--sm btn--lime" data-cta="connect">Подключить</a>
+    </div>
+  </header>
+
+  <main class="art">
+    <nav class="art__crumbs" aria-label="Хлебные крошки">
+      <a href="/">Главная</a> → <a href="/stati/">Статьи</a> → Шаблон юнит-экономики
+    </nav>
+
+    <article>
+      <h1 class="art__h1">Юнит-экономика на Ozon: шаблон таблицы и пример расчёта</h1>
+      <p class="art__meta"><time datetime="2026-11-21">21 ноября 2026</time> · 10 мин чтения</p>
+      <p class="art__lead"><strong>Юнит-экономика на Ozon</strong> отвечает на вопрос, сколько остаётся с одной проданной единицы товара после всех расходов. Ниже — шаблон таблицы, который можно собрать в Excel или Google Таблицах за 15 минут: входные данные, формулы для каждой строки с адресами ячеек и условный пример. Отдельно разбираем то, что в готовых шаблонах обычно пропускают: невыкупы, рекламу через ДРР, хранение и разницу между маржой, наценкой и ROI.</p>
+
+      <nav class="toc" aria-label="Содержание">
+        <div class="toc__h">Содержание</div>
+        <ol>
+        <li><a href="#logika">Главный принцип: считать на проданную единицу</a></li>
+        <li><a href="#shablon">Шаблон: входные данные</a></li>
+        <li><a href="#formuly">Шаблон: формулы расчёта</a></li>
+        <li><a href="#tonkosti">Что обычно упускают в шаблонах</a></li>
+        <li><a href="#assortiment">От одного товара к ассортименту</a></li>
+        <li><a href="#fakt">Когда переходить с тарифов на факт</a></li>
+        <li><a href="#raschetus">Как это устроено в Расчётусе</a></li>
+        </ol>
+      </nav>
+
+      <div class="post">
+<p>Юнит-экономику обычно считают дважды. Первый раз — до закупки, по тарифам Ozon и предположениям о выкупе и рекламе: стоит ли вообще заходить с товаром. Второй — когда товар уже продаётся: подтвердились ли предположения и какие товары тянут магазин вниз. Шаблон ниже подходит для обоих случаев: меняются только источники цифр во входных ячейках.</p>
+
+<h2 id="logika">Главный принцип: считать на проданную единицу</h2>
+<p>На Ozon вы платите не только за проданные товары. Логистику оплачивают за все отправления, включая те, что покупатель не забрал, а при невыкупе — ещё и обратную логистику. Поэтому расходы удобнее всего пересчитывать на одну выкупленную единицу: какие расходы приходятся на неё с учётом невыкупов.</p>
+<div class="formula">Логистика на проданную единицу = Логистика за отправление ÷ Доля выкупа<br>Обратная логистика на проданную единицу = Обратная логистика × (1 − Доля выкупа) ÷ Доля выкупа</div>
+<p>При выкупе 80% на каждые 100 отправлений продаются 80 единиц, а логистику платите за все 100 и ещё за 20 обратных доставок. Если поставить в таблицу логистику «за одну штуку» без деления на выкуп, товар будет выглядеть прибыльнее, чем он есть, — и тем сильнее, чем ниже выкуп в категории.</p>
+
+<h2 id="shablon">Шаблон: входные данные</h2>
+<p>Создайте лист и заполните колонку B. Цифры — условные, для примера; свои ставки берите из <a href="https://seller-edu.ozon.ru/libra/commissions-tariffs/legal-information/full-actual-commissions" target="_blank" rel="noopener">полного списка комиссий и тарифов Ozon</a> или, если товар уже продаётся, из начислений по нему.</p>
+<div class="tbl"><table>
+  <thead><tr><th>Ячейка</th><th>Показатель</th><th class="num">Пример</th><th>Откуда взять</th></tr></thead>
+  <tbody>
+    <tr><td>B1</td><td>Цена продажи, ₽</td><td class="num">1 990</td><td>Ваша цена в личном кабинете Ozon</td></tr>
+    <tr><td>B2</td><td>Себестоимость единицы, ₽</td><td class="num">650</td><td>Закупка + доставка до вашего склада</td></tr>
+    <tr><td>B3</td><td>Вознаграждение Ozon, %</td><td class="num">20%</td><td>Предельная ставка категории и схемы; шаблон считает продажу по вашей цене</td></tr>
+    <tr><td>B4</td><td>Логистика за отправление, ₽</td><td class="num">110</td><td>Тариф по объёму или факт по товару</td></tr>
+    <tr><td>B5</td><td>Обратная логистика за невыкуп, ₽</td><td class="num">110</td><td>Тариф или факт</td></tr>
+    <tr><td>B6</td><td>Доля выкупа</td><td class="num">80%</td><td>История товара или категории</td></tr>
+    <tr><td>B7</td><td>Эквайринг, %</td><td class="num">1,5%</td><td>Начисления (тариф задаёт банк-партнёр)</td></tr>
+    <tr><td>B8</td><td>ДРР от выручки, %</td><td class="num">8%</td><td>План или факт рекламы товара</td></tr>
+    <tr><td>B9</td><td>Хранение на единицу, ₽</td><td class="num">15</td><td>Платные дни сверх бесплатного срока (см. ниже)</td></tr>
+    <tr><td>B10</td><td>Налог с выручки, %</td><td class="num">6%</td><td>Ваш режим: УСН «Доходы», НПД и т. п.</td></tr>
+  </tbody>
+</table></div>
+<p>Эквайринг по правилам Ozon возвращается продавцу при возвратах, отменах и невыкупах (за отдельными исключениями), поэтому в шаблоне он считается только с выкупленных единиц. Если товар продаётся со скидкой за счёт Ozon, налог на УСН «Доходы» считают от цены реализации — цены, по которой купил покупатель; в шаблоне для этого можно добавить ячейку со скидкой и умножить B1 на (1 − скидка) в строке налога. Остальные строки трогать не нужно: по условиям Ozon с 1 декабря 2026 года скидка за счёт Ozon уменьшает вознаграждение за продажу, поэтому до налога вы получаете почти столько же, сколько при продаже по своей цене: сначала уменьшается вознаграждение, остаток скидки — стоимость услуг.</p>
+
+<h2 id="formuly">Шаблон: формулы расчёта</h2>
+<p>Ниже — строки расчёта с формулами, которые можно скопировать как есть. Результат в колонке «Пример» — для входных данных выше.</p>
+<div class="tbl"><table>
+  <thead><tr><th>Ячейка</th><th>Строка</th><th>Формула</th><th class="num">Пример, ₽</th></tr></thead>
+  <tbody>
+    <tr><td>B12</td><td>Вознаграждение Ozon</td><td><code>=B1*B3</code></td><td class="num">398,00</td></tr>
+    <tr><td>B13</td><td>Логистика на проданную ед.</td><td><code>=B4/B6</code></td><td class="num">137,50</td></tr>
+    <tr><td>B14</td><td>Обратная логистика невыкупов</td><td><code>=B5*(1-B6)/B6</code></td><td class="num">27,50</td></tr>
+    <tr><td>B15</td><td>Эквайринг</td><td><code>=B1*B7</code></td><td class="num">29,85</td></tr>
+    <tr><td>B16</td><td>Реклама</td><td><code>=B1*B8</code></td><td class="num">159,20</td></tr>
+    <tr><td>B17</td><td>Хранение</td><td><code>=B9</code></td><td class="num">15,00</td></tr>
+    <tr><td>B18</td><td>Налог</td><td><code>=B1*B10</code></td><td class="num">119,40</td></tr>
+    <tr><td>B19</td><td>Все расходы, кроме себестоимости</td><td><code>=SUM(B12:B18)</code></td><td class="num">886,45</td></tr>
+    <tr><td>B20</td><td><strong>Прибыль на единицу</strong></td><td><code>=B1-B2-B19</code></td><td class="num"><strong>453,55</strong></td></tr>
+    <tr><td>B21</td><td>Маржа</td><td><code>=B20/B1</code></td><td class="num">22,8%</td></tr>
+    <tr><td>B22</td><td>ROI</td><td><code>=B20/B2</code></td><td class="num">69,8%</td></tr>
+    <tr><td>B23</td><td>Наценка</td><td><code>=(B1-B2)/B2</code></td><td class="num">206,2%</td></tr>
+    <tr><td>B24</td><td>Цена безубыточности</td><td><code>=(B2+B13+B14+B17)/(1-B3-B7-B8-B10)</code></td><td class="num">1 286,82</td></tr>
+  </tbody>
+</table></div>
+<p>В русской версии Excel вместо <code>SUM</code> пишите <code>СУММ</code>. Google Таблицы принимают <code>SUM</code> при любом языке.</p>
+<p>Как читать результат примера: с каждой проданной штуки по 1 990 ₽ остаётся 453,55 ₽ — 22,8% цены. Вложенные в товар 650 ₽ приносят 69,8% за один оборот. Наценка в 206% выглядит впечатляюще, но о прибыли ничего не говорит: в ней нет ни одного расхода Ozon.</p>
+
+<h3>Цена безубыточности</h3>
+<p>Строка B24 показывает цену, при которой прибыль равна нулю. Расходы, которые растут вместе с ценой (вознаграждение, эквайринг, реклама через ДРР, налог с выручки), в сумме составляют 35,5% цены. Остальные — себестоимость, логистика, обратная логистика и хранение — 830 ₽ на единицу от цены не зависят. Отсюда 830 ÷ (1 − 0,355) ≈ 1 286,82 ₽. Ниже этой цены товар невыгодно продавать ни в акции, ни на распродаже — каждая продажа уйдёт в минус. Результат приближённый: тариф логистики Ozon тоже зависит от цены товара, и при сильном снижении цены его стоит пересчитать.</p>
+
+<h2 id="tonkosti">Что обычно упускают в шаблонах</h2>
+<h3>Реклама через ДРР, а не «бюджет в месяц»</h3>
+<p>Бюджет рекламы в рублях в юнит-экономику напрямую не ложится: он зависит от числа продаж. Удобнее задавать рекламу долей от выручки — ДРР — и умножать на цену: при ДРР 8% на каждую проданную единицу приходится 8% её цены. Здесь важно, от чего посчитан ДРР: от заказов или от выкупленной выручки. ДРР от заказов при выкупе 80% нужно разделить на 0,8, иначе реклама на единицу будет занижена. Подробно — в статье <a href="/stati/kak-poschitat-drr-ozon/">«Как посчитать ДРР на Ozon»</a>.</p>
+<h3>Хранение через оборачиваемость</h3>
+<p>Хранение на FBO нельзя считать как «тариф × все дни на складе». По условиям Ozon с 1 декабря 2026 года первые 21 день после приёмки — транзит. С 22-го дня начинается размещение, и сначала оно бесплатное: срок зависит от категории и типа товара. Платить приходится за «вынужденное размещение» — дни сверх этого срока, по тарифу за литр объёма в день; для крупногабаритных поставок плата начинается сразу после транзита (раздел «Размещение» в <a href="https://seller-edu.ozon.ru/libra/commissions-tariffs/legal-information/full-actual-commissions" target="_blank" rel="noopener">полном списке комиссий и тарифов</a>).</p>
+<div class="formula">Хранение на единицу = Тариф за литр в день × Объём единицы, л × max(0; Дней до продажи − 21 − Бесплатные дни категории)</div>
+<p>В Excel это <code>=тариф*объём*MAX(0;дни-21-бесплатные)</code> (в русской версии — <code>МАКС</code>). Отсюда главное: товар, который продаётся быстрее транзита и бесплатного срока, за хранение почти не платит, а для медленного товара каждый лишний день идёт по полному тарифу. Поэтому оборачиваемость стоит держать в таблице отдельным входом и проверять, на какой день после приёмки уходит средняя единица.</p>
+<div class="note">
+  <p class="note__h">Условный пример</p>
+  <p>Объём единицы — 2 л, тариф — 2,50 ₽ за литр в день, бесплатный срок категории — 30 дней. Если товар в среднем продаётся за 45 дней после приёмки, платных дней нет: 45 − 21 − 30 &lt; 0. Если за 90 дней — платных 39, хранение на единицу: 2,50 × 2 × 39 = 195 ₽. Для товара из нашего примера это почти половина прибыли с единицы.</p>
+</div>
+<p>Сроки и тарифы зависят от категории, склада и даты поставки — для поставок, принятых с 22 сентября по 31 декабря 2026 года, у Ozon действуют специальные сроки, — поэтому свои значения берите из таблицы Ozon по категориям или из фактических начислений за размещение.</p>
+<h3>Налог — по своему режиму</h3>
+<p>Строка B18 подходит для налога с выручки: УСН «Доходы», НПД, АУСН «Доходы». Для «Доходов минус расходы» налог считают от прибыли: <code>=(B1-B2-SUM(B12:B17))*ставка</code>. При НДС на УСН к налогу добавляется НДС, который сидит внутри цены. Как настроить налог под режим, разобрано в статье <a href="/stati/kalkulyator-pribyli-ozon-samozanyatyj-usn/">о калькуляторе прибыли для самозанятого и ИП на УСН</a>.</p>
+<h3>Что не входит в юнит-экономику товара</h3>
+<p>Зарплата, аренда, бухгалтер, сервисы, подписки уровня магазина не зависят от конкретной продажи. Если распределять их по товарам, прибыль единицы будет меняться от того, сколько продано других товаров. Оставьте их на уровне магазина: сумма прибыли всех товаров минус эти расходы — это и есть операционная прибыль. Как дойти от неё до чистой прибыли, разобрано в статье <a href="/stati/kak-poschitat-chistuyu-pribyl-ozon/">«Как посчитать чистую прибыль на Ozon»</a>.</p>
+
+<h2 id="assortiment">От одного товара к ассортименту</h2>
+<p>Шаблон на одну колонку удобен для проверки идеи. Для магазина таблицу разворачивают: строки — товары, столбцы — те же входные данные и формулы. Дальше добавьте три столбца:</p>
+<ol>
+  <li><strong>Продано за период, шт.</strong> — из отчёта о продажах.</li>
+  <li><strong>Прибыль товара</strong> = прибыль на единицу × продано шт.</li>
+  <li><strong>Доля в прибыли магазина</strong> — прибыль товара, делённая на сумму по всем товарам.</li>
+</ol>
+<p>Отсортируйте по прибыли товара. Обычно сверху оказывается небольшая группа, которая даёт основную прибыль, а внизу — товары с отрицательной прибылью, которые съедают часть заработка лидеров. Именно с ними и работают в первую очередь: цена, реклама, выкуп, логистика — ячейки шаблона показывают, какой рычаг сильнее.</p>
+<div class="note">
+  <p class="note__h">Условный пример: проверка рычагов</p>
+  <p>Если в примере выше выкуп упадёт с 80% до 65%, логистика на единицу вырастет до 169,23 ₽, обратная логистика — до 59,23 ₽, и прибыль на единицу снизится с 453,55 до 390,09 ₽. Если вместо этого ДРР вырастет с 8 до 14%, прибыль снизится на 119,40 ₽ — до 334,15 ₽. Шаблон позволяет проверить такие сценарии за минуту.</p>
+</div>
+
+<h2 id="fakt">Когда переходить с тарифов на факт</h2>
+<p>Расчёт по тарифам — прогноз. На практике логистика зависит от того, из какого кластера и в какой кластер ушёл заказ, выкуп отличается от среднего по категории, а в начисления попадают услуги, которых не было в плане: кросс-докинг, упаковка, разовые сборы. Через месяц продаж замените входные ячейки фактическими значениями по товару — удержаниями из начислений, реальным выкупом и ДРР — и сравните с планом. Если расхождение большое, причина почти всегда в одной-двух строках, и шаблон помогает её найти.</p>
+<p>Для расчёта до закупки подойдёт <a href="/calculator/">калькулятор прибыли Ozon</a>: он подставляет комиссию категории и логистику по объёму из тарифов. Для товаров, которые уже продаются, ручная таблица быстро становится тяжёлой: десятки артикулов, начисления по отправлениям и пересчёт каждый месяц.</p>
+
+<h2 id="raschetus">Как это устроено в Расчётусе</h2>
+<p>В отчёте <a href="/docs/analytics/unit-economics/" target="_blank" rel="noopener">«Юнит-экономика»</a> строки — товары, а данные — фактические начисления Ozon за выбранный период: выручка, себестоимость, удержания по группам, реклама, налог по настройкам магазина, прибыль до и после налога, маржинальность и ROI. Набор «На 1 единицу» показывает экономику одной штуки: среднюю цену продавца и покупателя, прибыль и точку безубыточности до и после налога, себестоимость и расходы Ozon на единицу.</p>
+<ul>
+  <li>Процент выкупа считается по заказам, судьба которых уже определилась: выкупы ÷ (выкупы + отмены).</li>
+  <li>Кнопки ролей над таблицей и ABC-анализ показывают, какие товары дают прибыль, а какие её съедают; карта товаров и график концентрации прибыли — то же самое на графиках.</li>
+  <li>В «Мои формулы» можно добавить свои столбцы из метрик отчёта — например, долю рекламы в прибыли.</li>
+</ul>
+<p>Расходы, которые нельзя отнести к конкретному товару, в товарный итог не входят — их видно в <a href="/docs/analytics/operations/" target="_blank" rel="noopener">Операционке</a> в режиме «Сводно».</p>
+      </div>
+    </article>
+
+    <aside class="try" aria-label="Посчитать на своих данных">
+      <div class="try__h">Посчитать на своих данных</div>
+      <p>Расчётус считает юнит-экономику не по тарифам, а по фактическим начислениям Ozon: по каждому артикулу за выбранный период — выручку, все удержания, рекламу, налог, прибыль на единицу, маржу и ROI.</p>
+      <p>5&nbsp;дней полного доступа без привязки карты: подключите магазин Ozon по ключу Seller API — отчёты соберутся из ваших продаж.</p>
+      <div class="try__cta">
+        <a href="https://mp.raschetus.ru/register?utm_source=site&utm_medium=article&utm_campaign=yunit-ekonomika-ozon-shablon-tablicy" class="btn btn--lime btn--lg" data-cta="connect">Попробовать 5 дней бесплатно</a>
+        <a href="/unit-ekonomika/" class="hero__link" data-cta="landing">Юнит-экономика по каждому товару в Расчётусе&nbsp;→</a>
+      </div>
+    </aside>
+
+    <nav class="more" aria-label="Другие статьи">
+      <div class="more__h">Ещё статьи</div>
+      <ul>
+        <li><a href="/stati/samovykupy-uchet-v-pribyli/">Самовыкупы: как учитывать их в прибыли и отчётах →</a></li>
+        <li><a href="/stati/kalkulyator-pribyli-ozon-samozanyatyj-usn/">Калькулятор прибыли Ozon для самозанятого и ИП на УСН →</a></li>
+        <li><a href="/stati/kak-poschitat-drr-ozon/">Как посчитать ДРР на Ozon: формулы, выкуп и безубыточный ДРР →</a></li>
+        <li><a href="/stati/">Все статьи →</a></li>
+      </ul>
+    </nav>
+  </main>
+
+  <section class="caps" aria-label="Частые вопросы">
+    <div class="caps__inner">
+      <h2 class="caps__faq-h">Частые вопросы</h2>
+      <div class="faqs">
+        <details class="faq">
+          <summary>Чем маржа отличается от наценки и ROI?</summary>
+          <p>Все три делят прибыль или разницу цен на разную базу. Наценка — (цена − себестоимость) ÷ себестоимость, она не учитывает расходы Ozon и почти всегда выглядит большой. Маржа — прибыль ÷ цена: какая доля цены остаётся вам. ROI — прибыль ÷ себестоимость: сколько приносит каждый рубль, вложенный в товар. Для решений о цене смотрят маржу, о закупке — ROI.</p>
+        </details>
+        <details class="faq">
+          <summary>Как распределить хранение и общие расходы на единицу товара?</summary>
+          <p>Хранение — по оборачиваемости: платные дни на складе Ozon начинаются только после транзита и бесплатного периода категории, поэтому тариф за день умножают на дни сверх этого срока. Общие расходы бизнеса — зарплату, аренду, сервисы — в юнит-экономику товара лучше не размазывать: их покрывают из суммы прибыли всех товаров и проверяют в прибыли магазина за месяц.</p>
+        </details>
+        <details class="faq">
+          <summary>Где взять фактические расходы Ozon по товару?</summary>
+          <p>В начислениях кабинета Ozon: удержания привязаны к отправлениям и товарам, их можно выгрузить и сгруппировать по артикулу за период. Берите период не короче месяца, чтобы в него попали невыкупы и возвраты, а логистика усреднилась по кластерам.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer__inner">
+      <div class="footer__brand">
+        <a href="/" class="logo" aria-label="Расчётус">
+          <img class="logo__badge" src="/assets/img/badge.svg" alt="" width="28" height="28">
+          <svg class="logo__word logo__word--sm" viewBox="97.46 81.55 401.96 91.46" role="img" aria-label="расчётус">
+            <g fill="currentColor">
+              <path d="M97.46,111.12h13.01l.27,7.19c2.64-5.37,7.73-8.28,14.38-8.28,13.65,0,20.66,11.01,20.66,25.21s-7.01,25.21-20.66,25.21c-6.28,0-11.19-2.82-14.01-8.01v20.57h-13.65v-61.88ZM120.94,150.07c7.37,0,10.74-6.83,10.74-14.83s-3.55-14.83-10.74-14.83-10.74,7.01-10.74,14.83,3.46,14.83,10.74,14.83Z"/>
+              <path d="M172.81,110.03c14.65,0,22.21,7.19,22.21,20.93v15.2c0,3.18,1.27,3.91,3,3.91h1.73v9.28l-2.37.09c-3.19.09-12.56,1-13.83-7.46-2.46,5-7.83,8.46-16.65,8.46-9.83,0-17.29-5.28-17.29-13.83s6.64-12.28,18.29-14.56l13.29-2.73c-.09-7.01-2.73-10.37-8.46-10.37-4.64,0-7.55,2.64-8.65,7.74l-13.65-.64c1.82-10.28,9.74-16.02,22.39-16.02ZM171.17,151.62c5.92-.09,10.19-4.46,10.19-13.2v-.64l-7.92,1.46c-5.73,1.09-9.83,2-9.83,6.92,0,3.09,2.55,5.46,7.55,5.46Z"/>
+              <path d="M226.05,120.49c-6.83,0-10.74,5.37-10.74,14.74s3.91,14.74,10.74,14.74c5.1,0,8.92-3.28,9.74-9.55l14.11.55c-1.27,12.01-11.01,19.47-23.84,19.47-15.02,0-24.75-10.01-24.75-25.21s9.74-25.21,24.75-25.21c12.47,0,22.2,7.19,23.48,18.93l-14.01.64c-.82-5.82-4.64-9.1-9.46-9.1Z"/>
+              <path d="M286.83,159.35v-21.93c-2.91,4.64-8.1,7.55-14.47,7.55-11.56,0-18.84-7.64-18.84-19.75v-14.11h13.65v10.74c0,7.83,3.28,12.38,8.83,12.38,6.83,0,10.83-4.55,10.83-12.38v-10.74h13.74v48.23h-13.74Z"/>
+              <path d="M400.59,121.22h-16.29v38.13h-13.74v-38.13h-16.38v-10.1h46.41v10.1Z"/>
+              <path d="M415.14,111.12l12.01,33.94,11.65-33.94h12.92l-18.93,52.87c-2.28,6.19-6.46,9.01-13.47,9.01h-8.64v-9.92h6.1c2.91,0,4.46-.91,5.37-3.28l1.18-2.91h-3.82l-17.38-45.77h13.01Z"/>
+              <path d="M475.57,120.49c-6.83,0-10.74,5.37-10.74,14.74s3.91,14.74,10.74,14.74c5.1,0,8.92-3.28,9.74-9.55l14.11.55c-1.27,12.01-11.01,19.47-23.84,19.47-15.02,0-24.75-10.01-24.75-25.21s9.74-25.21,24.75-25.21c12.47,0,22.21,7.19,23.48,18.93l-14.01.64c-.82-5.82-4.64-9.1-9.46-9.1Z"/>
+            </g>
+            <g fill="#a9c811">
+              <path d="M329.74,110.03c13.38,0,23.66,9.28,23.57,26.21v2.55h-34.04c.36,7.19,4.28,11.56,10.46,11.56,3.91,0,7.55-2.37,9.1-6.01l13.83.91c-2.91,9.37-11.92,15.2-22.93,15.2-15.02,0-24.75-10.01-24.75-25.21s9.74-25.21,24.75-25.21ZM339.48,130.5c-.73-7.28-4.91-10.37-9.74-10.37-5.82,0-9.65,3.91-10.37,10.37h20.11Z"/>
+              <rect x="309.79" y="94.62" width="38.72" height="9.36"/>
+              <rect x="319" y="81.55" width="38.72" height="9.36"/>
+            </g>
+          </svg>
+        </a>
+        <p class="footer__tag">Автоматизатор прибыли для продавцов.</p>
+        <div class="footer__social" aria-label="Наши каналы">
+          <a class="footer__social-link" href="https://t.me/+xFvrkNuvMwJlNWJi" target="_blank" rel="noopener" aria-label="Telegram">
+            <img src="/assets/img/telegram.png" alt="" width="26" height="26" loading="lazy">
+          </a>
+          <a class="footer__social-link" href="https://max.ru/join/67xusMM6ZoqiAVRrtHFl0Cbkvway0GDgukFH06FK2XU" target="_blank" rel="noopener" aria-label="MAX">
+            <img src="/assets/img/max.png" alt="" width="26" height="26" loading="lazy">
+          </a>
+        </div>
+      </div>
+
+      <nav class="footer__col" aria-label="Инструменты">
+        <div class="footer__col-h">Инструменты</div>
+        <a href="/calculator/">Калькулятор прибыли</a>
+        <a href="/unit-ekonomika/">Юнит-экономика</a>
+        <a href="/opiu/">Прибыли и убытки</a>
+        <a href="/reklama/">Реклама и ДРР</a>
+        <a href="/akcii/">Акции Ozon</a>
+        <a href="/postavki/">Планирование поставок</a>
+      </nav>
+
+      <nav class="footer__col" aria-label="Компания">
+        <div class="footer__col-h">Компания</div>
+        <a href="/docs/" target="_blank" rel="noopener">База знаний</a>
+        <a href="/stati/">Статьи</a>
+        <a href="https://mp.raschetus.ru/info/offer">Оферта</a>
+        <a href="https://mp.raschetus.ru/info/policy">Политика конфиденциальности</a>
+      </nav>
+
+      <div class="footer__req">
+        <div class="footer__req-title">Реквизиты</div>
+        <p>ИП Ким Алина</p>
+        <p>ИНН 504411444638</p>
+        <p>ОГРНИП 326508100471844</p>
+      </div>
+    </div>
+
+    <div class="footer__bottom">
+      <span>© 2026 Расчётус</span>
+      <span>посчитано · сходится · точка</span>
+    </div>
+  </footer>
+
+
+  <script>
+    (function () {
+      var r = document.documentElement, b = document.getElementById('themeToggle');
+      function g() { return r.classList.contains('light') ? '◑' : '◐'; }
+      if (b) {
+        b.textContent = g();
+        b.addEventListener('click', function () {
+          r.classList.toggle('light');
+          try { localStorage.setItem('rsh-theme', r.classList.contains('light') ? 'light' : 'dark'); } catch (e) {}
+          b.textContent = g();
+          var m = document.querySelector('meta[name="theme-color"]');
+          if (m) m.setAttribute('content', r.classList.contains('light') ? '#ffffff' : '#0e1110');
+        });
+      }
+    })();
+  </script>
+
+  <!-- Yandex.Metrika counter -->
+  <script type="text/javascript">
+    (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};m[i].l=1*new Date();for(var j=0;j<document.scripts.length;j++){if(document.scripts[j].src===r){return;}}k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})(window,document,'script','https://mc.yandex.ru/metrika/tag.js','ym');
+    ym(112116470, 'init', {ssr:true, webvisor:true, clickmap:true, ecommerce:"dataLayer", accurateTrackBounce:true, trackLinks:true});
+  </script>
+  <noscript><div><img src="https://mc.yandex.ru/watch/112116470" style="position:absolute; left:-9999px;" alt=""></div></noscript>
+  <!-- /Yandex.Metrika counter -->
+  <script src="/assets/track.js?v=20261120" defer></script>
+</body>
+</html>

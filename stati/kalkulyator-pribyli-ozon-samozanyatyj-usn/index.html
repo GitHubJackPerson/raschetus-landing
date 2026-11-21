@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Калькулятор прибыли Ozon для самозанятого и ИП на УСН</title>
+  <meta name="description" content="Как посчитать прибыль товара на Ozon для самозанятого, ИП на УСН «Доходы» и «Доходы минус расходы»: база налога, настройки калькулятора и пример.">
+  <meta name="theme-color" content="#0e1110">
+  <meta name="color-scheme" content="dark light">
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+  <meta name="keywords" content="калькулятор прибыли Ozon для самозанятого, калькулятор Ozon УСН, налог самозанятого на Ozon, УСН доходы Ozon, УСН доходы минус расходы Ozon, НПД Ozon, прибыль товара Ozon">
+  <meta name="author" content="Расчётус">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="/assets/img/badge.svg">
+  <link rel="canonical" href="https://raschetus.ru/stati/kalkulyator-pribyli-ozon-samozanyatyj-usn/">
+  <link rel="preconnect" href="https://mc.yandex.ru" crossorigin>
+
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Расчётус">
+  <meta property="og:title" content="Калькулятор прибыли Ozon для самозанятого и ИП на УСН">
+  <meta property="og:description" content="Как посчитать прибыль товара на Ozon для самозанятого, ИП на УСН «Доходы» и «Доходы минус расходы»: база налога, настройки калькулятора и пример.">
+  <meta property="og:url" content="https://raschetus.ru/stati/kalkulyator-pribyli-ozon-samozanyatyj-usn/">
+  <meta property="og:locale" content="ru_RU">
+  <meta property="og:image" content="https://raschetus.ru/assets/img/og/calculator.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Калькулятор прибыли Ozon для самозанятого и ИП на УСН">
+  <meta name="twitter:description" content="Как посчитать прибыль товара на Ozon для самозанятого, ИП на УСН «Доходы» и «Доходы минус расходы»: база налога, настройки калькулятора и пример.">
+  <meta name="twitter:image" content="https://raschetus.ru/assets/img/og/calculator.png">
+
+  <script>
+    (function () { try { if ((localStorage.getItem('rsh-theme') || 'dark') === 'light') document.documentElement.classList.add('light'); } catch (e) {} })();
+  </script>
+
+  <link rel="preload" href="/assets/fonts/geist-cyrillic.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/assets/fonts/geist-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="/assets/styles.css?v=20260906">
+
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Article",
+      "@id": "https://raschetus.ru/stati/kalkulyator-pribyli-ozon-samozanyatyj-usn/#article",
+      "headline": "Калькулятор прибыли Ozon для самозанятого и ИП на УСН",
+      "description": "Как посчитать прибыль товара на Ozon для самозанятого, ИП на УСН «Доходы» и «Доходы минус расходы»: база налога, настройки калькулятора и пример.",
+      "url": "https://raschetus.ru/stati/kalkulyator-pribyli-ozon-samozanyatyj-usn/",
+      "mainEntityOfPage": "https://raschetus.ru/stati/kalkulyator-pribyli-ozon-samozanyatyj-usn/",
+      "inLanguage": "ru-RU",
+      "datePublished": "2026-11-21",
+      "dateModified": "2026-11-21",
+      "image": "https://raschetus.ru/assets/img/og/calculator.png",
+      "wordCount": 1627,
+      "articleSection": "Статьи",
+      "keywords": "калькулятор прибыли Ozon для самозанятого, калькулятор Ozon УСН, налог самозанятого на Ozon, УСН доходы Ozon, УСН доходы минус расходы Ozon, НПД Ozon, прибыль товара Ozon",
+      "author": {
+        "@type": "Organization",
+        "name": "Расчётус",
+        "url": "https://raschetus.ru/"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "Расчётус",
+        "url": "https://raschetus.ru/",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://raschetus.ru/assets/img/badge.svg"
+        }
+      },
+      "isPartOf": {
+        "@id": "https://raschetus.ru/#website"
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Главная",
+          "item": "https://raschetus.ru/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Статьи",
+          "item": "https://raschetus.ru/stati/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Калькулятор для самозанятого и УСН",
+          "item": "https://raschetus.ru/stati/kalkulyator-pribyli-ozon-samozanyatyj-usn/"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Можно ли самозанятому перепродавать товары на Ozon?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Нет. Налог на профессиональный доход не применяют те, кто перепродаёт товары, а Ozon допускает самозанятых только с продукцией собственного производства. Кроме того, самозанятым нельзя продавать подакцизные товары, товары с обязательной маркировкой, продукты питания и ряд других категорий. Для перепродажи нужен ИП или ООО на другом режиме."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Платит ли самозанятый налог с комиссии Ozon?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Да, по сути: налог считается с суммы продаж из колонки «Реализовано на сумму» отчёта о реализации, а комиссия и услуги Ozon её не уменьшают. Поэтому налог 4% — это 4% от цены продажи, а не от денег, которые пришли на счёт."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Что выгоднее на Ozon: УСН «Доходы» или «Доходы минус расходы»?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "При базовых ставках 6% и 15% режимы равны, когда расходы составляют 60% дохода. Если документально подтверждённые расходы — себестоимость, услуги Ozon, реклама — выше 60% дохода, обычно выгоднее «Доходы минус расходы», если ниже — «Доходы». Решение принимают по году целиком, с учётом региональных ставок, взносов ИП и минимального налога."
+          }
+        }
+      ]
+    }
+  ]
+}
+  </script>
+
+  <style>
+    .art { max-width: var(--maxw); margin-inline: auto; padding: clamp(28px,5vw,64px) clamp(16px,4vw,52px); }
+    .art__crumbs { font-size: 12px; letter-spacing: .04em; text-transform: uppercase; color: var(--mut); }
+    .art__crumbs a { color: var(--mut); text-decoration: none; }
+    .art__crumbs a:hover { color: var(--lime-tx); }
+    .art__h1 { font-size: clamp(28px,4.6vw,50px); font-weight: 800; letter-spacing: -0.04em; line-height: 1.06; color: var(--tx); max-width: 22ch; margin-top: 12px; }
+    .art__meta { color: var(--mut); font-size: 13px; margin-top: 14px; }
+    .art__lead { color: var(--tx2); font-size: clamp(15px,1.6vw,19px); line-height: 1.55; max-width: 64ch; margin-top: 16px; }
+    .post { max-width: 74ch; }
+    .post h2 { font-size: clamp(21px,2.6vw,30px); font-weight: 800; letter-spacing: -0.03em; line-height: 1.12; color: var(--tx); margin-top: clamp(30px,4vw,48px); scroll-margin-top: 80px; }
+    .post h3 { font-size: 18px; font-weight: 700; letter-spacing: -0.01em; color: var(--tx); margin-top: 24px; }
+    .post p, .post li { color: var(--tx2); font-size: 16px; line-height: 1.7; }
+    .post p { margin-top: 12px; }
+    .post ul, .post ol { margin-top: 10px; padding-left: 22px; }
+    .post li { margin-top: 6px; }
+    .post strong { color: var(--tx); }
+    .post a { color: var(--lime-tx); }
+    .post code { font-family: ui-monospace, SFMono-Regular, Consolas, monospace; font-size: .92em; background: var(--soft); padding: 1px 5px; border-radius: 4px; }
+    .post .formula { margin-top: 14px; padding: 14px 18px; border-left: 3px solid var(--lime); background: var(--tint); border-radius: 0 10px 10px 0; color: var(--tx); font-weight: 600; font-size: 16px; line-height: 1.6; }
+    .post .note { margin-top: 16px; padding: 14px 18px; border: 1px solid var(--hair2); border-radius: 12px; background: var(--gr2); }
+    .post .note p:first-child { margin-top: 0; }
+    .post .note__h { color: var(--tx); font-weight: 700; font-size: 14px; letter-spacing: .02em; text-transform: uppercase; }
+    .post .tbl { margin-top: 14px; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+    .post table { border-collapse: collapse; min-width: 100%; font-size: 14px; }
+    .post th, .post td { text-align: left; padding: 9px 12px; border-bottom: 1px solid var(--hair); color: var(--tx2); vertical-align: top; }
+    .post th { color: var(--tx); font-weight: 700; border-bottom-color: var(--hair2); white-space: nowrap; }
+    .post td.num, .post th.num { text-align: right; white-space: nowrap; }
+    .toc { margin-top: 26px; padding: 16px 20px; border: 1px solid var(--hair2); border-radius: 12px; max-width: 74ch; background: var(--gr2); }
+    .toc__h { font-size: 12px; letter-spacing: .06em; text-transform: uppercase; color: var(--mut); font-weight: 700; }
+    .toc ol { margin-top: 8px; padding-left: 20px; }
+    .toc li { color: var(--tx2); font-size: 14px; line-height: 1.5; margin-top: 4px; }
+    .toc a { color: var(--tx2); text-decoration: none; }
+    .toc a:hover { color: var(--lime-tx); }
+    .try { margin-top: clamp(34px,5vw,56px); max-width: 74ch; padding: clamp(20px,3vw,30px); border-radius: 16px; background: var(--tint); border: 1px solid var(--tint2); }
+    .try__h { font-size: clamp(20px,2.4vw,26px); font-weight: 800; letter-spacing: -0.03em; color: var(--tx); }
+    .try p { color: var(--tx2); font-size: 15px; line-height: 1.6; margin-top: 8px; }
+    .try__cta { display: flex; gap: 14px; align-items: center; flex-wrap: wrap; margin-top: 18px; }
+    .more { margin-top: clamp(34px,5vw,56px); max-width: 74ch; }
+    .more__h { font-size: 18px; font-weight: 800; color: var(--tx); }
+    .more ul { list-style: none; margin-top: 10px; }
+    .more li { border-bottom: 1px solid var(--hair); }
+    .more a { display: block; padding: 12px 0; color: var(--tx2); text-decoration: none; font-weight: 600; }
+    .more a:hover { color: var(--lime-tx); }
+    .cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 16px; margin-top: clamp(24px,4vw,40px); }
+    .card { display: flex; flex-direction: column; padding: 22px; border: 1px solid var(--hair2); border-radius: 16px; background: var(--gr2); text-decoration: none; transition: border-color .15s ease; }
+    .card:hover { border-color: var(--lime-tx); }
+    .card__tag { font-size: 12px; letter-spacing: .05em; text-transform: uppercase; color: var(--lime-tx); font-weight: 700; }
+    .card__h { font-size: 20px; font-weight: 800; letter-spacing: -0.02em; line-height: 1.2; color: var(--tx); margin-top: 10px; }
+    .card__p { color: var(--tx2); font-size: 14px; line-height: 1.55; margin-top: 10px; flex: 1; }
+    .card__meta { color: var(--mut); font-size: 13px; margin-top: 16px; }
+    @media (max-width: 520px) { .post p, .post li { font-size: 15px; } .post table { font-size: 13px; } }
+  </style>
+</head>
+<body>
+
+  <header class="day-strip">
+    <div class="day-strip__inner">
+      <a href="/" class="logo" aria-label="Расчётус — на главную">
+        <img class="logo__badge" src="/assets/img/badge.svg" alt="" width="32" height="32">
+        <svg class="logo__word" viewBox="97.46 81.55 401.96 91.46" role="img" aria-label="расчётус">
+          <g fill="currentColor">
+            <path d="M97.46,111.12h13.01l.27,7.19c2.64-5.37,7.73-8.28,14.38-8.28,13.65,0,20.66,11.01,20.66,25.21s-7.01,25.21-20.66,25.21c-6.28,0-11.19-2.82-14.01-8.01v20.57h-13.65v-61.88ZM120.94,150.07c7.37,0,10.74-6.83,10.74-14.83s-3.55-14.83-10.74-14.83-10.74,7.01-10.74,14.83,3.46,14.83,10.74,14.83Z"/>
+            <path d="M172.81,110.03c14.65,0,22.21,7.19,22.21,20.93v15.2c0,3.18,1.27,3.91,3,3.91h1.73v9.28l-2.37.09c-3.19.09-12.56,1-13.83-7.46-2.46,5-7.83,8.46-16.65,8.46-9.83,0-17.29-5.28-17.29-13.83s6.64-12.28,18.29-14.56l13.29-2.73c-.09-7.01-2.73-10.37-8.46-10.37-4.64,0-7.55,2.64-8.65,7.74l-13.65-.64c1.82-10.28,9.74-16.02,22.39-16.02ZM171.17,151.62c5.92-.09,10.19-4.46,10.19-13.2v-.64l-7.92,1.46c-5.73,1.09-9.83,2-9.83,6.92,0,3.09,2.55,5.46,7.55,5.46Z"/>
+            <path d="M226.05,120.49c-6.83,0-10.74,5.37-10.74,14.74s3.91,14.74,10.74,14.74c5.1,0,8.92-3.28,9.74-9.55l14.11.55c-1.27,12.01-11.01,19.47-23.84,19.47-15.02,0-24.75-10.01-24.75-25.21s9.74-25.21,24.75-25.21c12.47,0,22.2,7.19,23.48,18.93l-14.01.64c-.82-5.82-4.64-9.1-9.46-9.1Z"/>
+            <path d="M286.83,159.35v-21.93c-2.91,4.64-8.1,7.55-14.47,7.55-11.56,0-18.84-7.64-18.84-19.75v-14.11h13.65v10.74c0,7.83,3.28,12.38,8.83,12.38,6.83,0,10.83-4.55,10.83-12.38v-10.74h13.74v48.23h-13.74Z"/>
+            <path d="M400.59,121.22h-16.29v38.13h-13.74v-38.13h-16.38v-10.1h46.41v10.1Z"/>
+            <path d="M415.14,111.12l12.01,33.94,11.65-33.94h12.92l-18.93,52.87c-2.28,6.19-6.46,9.01-13.47,9.01h-8.64v-9.92h6.1c2.91,0,4.46-.91,5.37-3.28l1.18-2.91h-3.82l-17.38-45.77h13.01Z"/>
+            <path d="M475.57,120.49c-6.83,0-10.74,5.37-10.74,14.74s3.91,14.74,10.74,14.74c5.1,0,8.92-3.28,9.74-9.55l14.11.55c-1.27,12.01-11.01,19.47-23.84,19.47-15.02,0-24.75-10.01-24.75-25.21s9.74-25.21,24.75-25.21c12.47,0,22.21,7.19,23.48,18.93l-14.01.64c-.82-5.82-4.64-9.1-9.46-9.1Z"/>
+          </g>
+          <g fill="#a9c811">
+            <path d="M329.74,110.03c13.38,0,23.66,9.28,23.57,26.21v2.55h-34.04c.36,7.19,4.28,11.56,10.46,11.56,3.91,0,7.55-2.37,9.1-6.01l13.83.91c-2.91,9.37-11.92,15.2-22.93,15.2-15.02,0-24.75-10.01-24.75-25.21s9.74-25.21,24.75-25.21ZM339.48,130.5c-.73-7.28-4.91-10.37-9.74-10.37-5.82,0-9.65,3.91-10.37,10.37h20.11Z"/>
+            <rect x="309.79" y="94.62" width="38.72" height="9.36"/>
+            <rect x="319" y="81.55" width="38.72" height="9.36"/>
+          </g>
+        </svg>
+      </a>
+
+      <div class="day-strip__spacer" aria-hidden="true"></div>
+
+      <button type="button" class="theme-toggle" id="themeToggle" aria-label="Сменить тему" title="Сменить тему">◐</button>
+      <a href="https://mp.raschetus.ru/" class="btn btn--sm btn--lime" data-cta="connect">Подключить</a>
+    </div>
+  </header>
+
+  <main class="art">
+    <nav class="art__crumbs" aria-label="Хлебные крошки">
+      <a href="/">Главная</a> → <a href="/stati/">Статьи</a> → Калькулятор для самозанятого и УСН
+    </nav>
+
+    <article>
+      <h1 class="art__h1">Калькулятор прибыли Ozon для самозанятого и ИП на УСН</h1>
+      <p class="art__meta"><time datetime="2026-11-21">21 ноября 2026</time> · 9 мин чтения</p>
+      <p class="art__lead"><strong>Калькулятор прибыли Ozon для самозанятого</strong> и ИП на упрощёнке отличается от обычного одним полем — налогом. Но именно оно решает, сколько останется с каждой продажи: у самозанятого и ИП на УСН «Доходы» налог берётся со всей цены продажи, а не с выплаты Ozon. Разбираем, от чего считается налог в каждом режиме, как настроить <a href="/calculator/">калькулятор прибыли</a> и на одном товаре сравниваем режимы.</p>
+
+      <nav class="toc" aria-label="Содержание">
+        <div class="toc__h">Содержание</div>
+        <ol>
+        <li><a href="#rezhimy">Какие режимы подходят для продаж на Ozon</a></li>
+        <li><a href="#baza">От какой суммы платится налог</a></li>
+        <li><a href="#samozanyatyj">Самозанятый на Ozon: что важно для расчёта</a></li>
+        <li><a href="#nds">НДС на УСН: когда он появляется в расчёте</a></li>
+        <li><a href="#kalkulyator">Как настроить калькулятор под свой режим</a></li>
+        <li><a href="#primer">Пример: один товар на разных режимах</a></li>
+        <li><a href="#kak-vybrat">Как выбрать режим: «Доходы» или «Доходы минус расходы»</a></li>
+        <li><a href="#raschetus">После запуска продаж — по данным магазина</a></li>
+        </ol>
+      </nav>
+
+      <div class="post">
+<p>Калькуляторов прибыли для Ozon много, и многие считают одинаково: цена минус комиссия, логистика и себестоимость. Налог в них часто не учитывается вовсе или стоит одной строкой «6%». Для самозанятого и для ИП на «Доходы минус расходы» такая строка даёт неверный результат, а при доходе больше 20 млн ₽ в год к налогу на УСН добавляется НДС. Ниже — что нужно знать о каждом режиме, прежде чем вписывать ставку.</p>
+
+<h2 id="rezhimy">Какие режимы подходят для продаж на Ozon</h2>
+<p>Ozon работает с продавцами на ОСНО, УСН, АУСН, ЕСХН и НПД. Патент для торговли через интернет не применяется — продавцу с патентом нужен другой режим (<a href="https://seller-edu.ozon.ru/libra/finances-documents/taxes/nalogi" target="_blank" rel="noopener">база знаний Ozon: выбор системы налогообложения</a>).</p>
+<div class="tbl"><table>
+  <thead><tr><th>Режим</th><th>Ставка</th><th>Налог считается с</th><th>Ограничения</th></tr></thead>
+  <tbody>
+    <tr><td>НПД (самозанятый)</td><td>4% с продаж физлицам</td><td>Суммы продаж</td><td>Доход до 2,4 млн ₽ в год, только товары своего производства</td></tr>
+    <tr><td>УСН «Доходы»</td><td>6%</td><td>Всего дохода</td><td>Доход до 490,5 млн ₽ в 2026 году</td></tr>
+    <tr><td>УСН «Доходы минус расходы»</td><td>15%</td><td>Доходов минус расходы</td><td>Минимальный налог 1% от доходов за год</td></tr>
+    <tr><td>АУСН</td><td>8% или 20%</td><td>Дохода или доходов минус расходы</td><td>Доход до 60 млн ₽ в год, до 5 сотрудников</td></tr>
+    <tr><td>ОСНО</td><td>25% налог на прибыль (для ООО; ИП платит НДФЛ) + НДС</td><td>Прибыли; НДС — с продаж</td><td>Без лимитов</td></tr>
+  </tbody>
+</table></div>
+<p>Регионы могут снижать ставки УСН: для «Доходов» — до 1%, для «Доходов минус расходы» — до 5% (<a href="https://www.nalog.gov.ru/rn77/taxation/taxes/usn/" target="_blank" rel="noopener">ФНС: упрощённая система налогообложения</a>). Проверьте ставку своего региона перед расчётом.</p>
+
+<h2 id="baza">От какой суммы платится налог</h2>
+<p>Главное, что нужно понять: по договору с Ozon ваш доход — это сумма, которую вы заработали от реализации товаров <strong>до вычета комиссий и услуг</strong>. Ozon только продаёт товар от вашего имени, а за свои услуги выставляет отдельные документы.</p>
+<ul>
+  <li><strong>НПД и УСН «Доходы»</strong> — налог со всего товарооборота. Комиссия Ozon, логистика, реклама и себестоимость базу не уменьшают.</li>
+  <li><strong>УСН «Доходы минус расходы»</strong> — из доходов вычитают комиссию, стоимость услуг Ozon и другие подтверждённые расходы, в том числе себестоимость проданного товара.</li>
+  <li><strong>Дата дохода на УСН</strong> — дата утверждения отчёта о реализации. Сумму продаж берут из этого отчёта; подробнее — в статье <a href="/stati/kak-chitat-otchet-o-realizacii-ozon/">«Как читать отчёт о реализации Ozon»</a>.</li>
+</ul>
+<p>Отсюда частая ошибка в самостоятельных расчётах: налог 6% или 4% считают с выплаты Ozon. Выплата меньше суммы продаж на все удержания маркетплейса, поэтому налог получается заниженным, а прибыль — завышенной.</p>
+
+<h2 id="samozanyatyj">Самозанятый на Ozon: что важно для расчёта</h2>
+<p>Ozon принимает самозанятых — физлиц и ИП на НПД — на любой схеме: FBO, FBS или realFBS (<a href="https://seller-edu.ozon.ru/libra/how-to-start/self-employed" target="_blank" rel="noopener">база знаний Ozon для самозанятых</a>). Ограничений несколько.</p>
+<ul>
+  <li><strong>Только своё производство.</strong> Нельзя продавать подакцизные товары, товары с обязательной маркировкой, продукты питания, полезные ископаемые, антиквариат, винтаж и предметы для коллекционирования, а также товары, которые продаются после проверки документов качества. Перепродажа на НПД запрещена законом (<a href="https://npd.nalog.ru/faq/" target="_blank" rel="noopener">ФНС: вопросы о налоге на профессиональный доход</a>).</li>
+  <li><strong>Только покупателям-физлицам</strong> — по ставке 4%. Продавать юрлицам самозанятым на Ozon нельзя.</li>
+  <li><strong>Лимит 2,4 млн ₽ в год.</strong> С момента превышения вы перестаёте быть плательщиком НПД. Ozon советует открыть ИП и перейти на другой режим заранее — например, когда продажи достигнут 2,2 млн ₽ за год.</li>
+  <li><strong>Чек — до 9-го числа следующего месяца.</strong> Чек в «Моём налоге» можно формировать на каждую продажу или на несколько сразу; сумму берут из колонки «Реализовано на сумму» отчёта о реализации. Если в отчёте есть колонка «Баллы за скидки», её в чек не включают.</li>
+  <li><strong>Налоговый вычет 10 000 ₽.</strong> Пока он не израсходован, ставка по продажам физлицам снижается с 4% до 3% (<a href="https://npd.nalog.ru/" target="_blank" rel="noopener">ФНС</a>). Для расчёта цены лучше закладывать 4%: вычет разовый — при снижении ставки на 1 процентный пункт его хватает примерно на 1 млн ₽ продаж.</li>
+</ul>
+<p>Для расчёта прибыли это значит простое правило: налог самозанятого — 4% от цены, по которой товар реально продан, с каждой выкупленной единицы.</p>
+
+<h2 id="nds">НДС на УСН: когда он появляется в расчёте</h2>
+<p>С 2026 года ИП и компании на УСН платят НДС, если доход превысил 20 млн ₽: при превышении по итогам 2025 года — с 1 января 2026-го, при превышении в течение 2026 года — с 1-го числа следующего месяца. Есть два варианта ставки:</p>
+<ul>
+  <li><strong>5% или 7% без вычетов</strong> — 5% при доходе до 272,5 млн ₽ в 2026 году, 7% — от 272,5 до 490,5 млн ₽;</li>
+  <li><strong>22% (или 10% для отдельных товаров) с вычетом входного НДС</strong> — выгоднее, если большая часть расходов идёт с НДС.</li>
+</ul>
+<p>НДС входит в цену товара: из каждых 1 050 ₽ продажи при ставке 5% налогу принадлежат 50 ₽. Поэтому, когда магазин приближается к порогу, юнит-экономику каждого товара стоит пересчитать заранее: при той же цене прибыль с единицы заметно снизится.</p>
+
+<h2 id="kalkulyator">Как настроить калькулятор под свой режим</h2>
+<p>В <a href="/calculator/">калькуляторе прибыли Ozon</a> налог задаётся в блоке «Уточнить расчёт» тремя полями: «Налоговый режим», «Ставка налога, %» и «НДС, %». Налог считается от цены покупателя — после вычета скидки за счёт Ozon.</p>
+<div class="tbl"><table>
+  <thead><tr><th>Ваш режим</th><th>Налоговый режим</th><th>Ставка</th><th>НДС</th></tr></thead>
+  <tbody>
+    <tr><td>Самозанятый (НПД)</td><td>УСН Доходы</td><td>4</td><td>0</td></tr>
+    <tr><td>УСН «Доходы», доход до 20 млн ₽</td><td>УСН Доходы</td><td>6 или ставка региона</td><td>0</td></tr>
+    <tr><td>УСН «Доходы», доход выше 20 млн ₽</td><td>УСН Доходы</td><td>6</td><td>5, 7 или 22</td></tr>
+    <tr><td>УСН «Доходы минус расходы»</td><td>УСН Доходы − Расходы</td><td>15 или ставка региона</td><td>0, 5, 7 или 22</td></tr>
+    <tr><td>ОСНО</td><td>ОСНО</td><td>25 (ООО) или ставка НДФЛ для ИП</td><td>22 или 10</td></tr>
+  </tbody>
+</table></div>
+<p>Сначала выберите режим, потом впишите ставку: при выборе «УСН Доходы» калькулятор сам подставляет 6%, и самозанятому её нужно заменить на 4. Режим «УСН Доходы» подходит самозанятому потому, что механика та же: процент со всей суммы продаж, без вычета расходов.</p>
+<p>Три вещи, которые калькулятор на одну единицу товара не учитывает:</p>
+<ol>
+  <li><strong>Минимальный налог</strong> на «Доходы минус расходы». Он считается по году, а не по товару: если за год налог 15% получится меньше 1% доходов, заплатить придётся 1%.</li>
+  <li><strong>Вычет входного НДС.</strong> НДС считается как часть цены продажи без вычетов. Для ставок 5% и 7% это и есть правило; для 22% результат получится осторожным — реальный НДС к уплате будет меньше на вычеты.</li>
+  <li><strong>Страховые взносы ИП и прочие расходы бизнеса</strong> — зарплаты, аренда, сервисы. Их учитывают уже в прибыли магазина за месяц.</li>
+</ol>
+
+<h2 id="primer">Пример: один товар на разных режимах</h2>
+<div class="note">
+  <p class="note__h">Условный пример на одну выкупленную единицу</p>
+  <p>Цена продажи — 1 500 ₽. Себестоимость — 450 ₽. Комиссия, логистика с учётом невыкупов и эквайринг — 560 ₽. Реклама — 120 ₽. Прибыль до налога: 1 500 − 450 − 560 − 120 = 370 ₽.</p>
+  <div class="tbl"><table>
+    <thead><tr><th>Режим</th><th class="num">Налог, ₽</th><th class="num">Прибыль, ₽</th><th class="num">Маржа</th></tr></thead>
+    <tbody>
+      <tr><td>НПД 4%: 1 500 × 0,04</td><td class="num">60</td><td class="num">310</td><td class="num">20,7%</td></tr>
+      <tr><td>УСН «Доходы» 6%: 1 500 × 0,06</td><td class="num">90</td><td class="num">280</td><td class="num">18,7%</td></tr>
+      <tr><td>УСН «Доходы минус расходы» 15%: 370 × 0,15</td><td class="num">55,5</td><td class="num">314,5</td><td class="num">21,0%</td></tr>
+      <tr><td>УСН «Доходы» 6% + НДС 5%</td><td class="num">157,1</td><td class="num">212,9</td><td class="num">14,2%</td></tr>
+    </tbody>
+  </table></div>
+  <p>Последняя строка: НДС 1 500 ÷ 1,05 × 0,05 ≈ 71,4 ₽, налог УСН (1 500 − 71,4) × 0,06 ≈ 85,7 ₽, вместе ≈ 157,1 ₽.</p>
+</div>
+<p>Что видно из примера:</p>
+<ul>
+  <li>Расходы на единицу — 1 130 ₽, то есть 75% цены. Это больше 60%, поэтому «Доходы минус расходы» выгоднее «Доходов»: 15% от прибыли меньше, чем 6% от всей цены.</li>
+  <li>Переход через порог НДС при той же цене забирает с единицы ещё 67 ₽ — почти четверть прибыли. Если цену поднять нельзя, проверьте, хватит ли маржи на рекламу и акции.</li>
+  <li>Если товар пойдёт в акцию со скидкой и прибыль до налога упадёт до 50 ₽, налог на УСН «Доходы» всё равно считается от цены, а не от прибыли: при цене около 1 000 ₽ это 60 ₽ — больше, чем 50 ₽ прибыли. Точку безубыточности с налогом калькулятор показывает в блоке «Контрольные точки».</li>
+</ul>
+
+<h2 id="kak-vybrat">Как выбрать режим: «Доходы» или «Доходы минус расходы»</h2>
+<p>При ставках 6% и 15% режимы дают одинаковый налог, когда расходы составляют 60% дохода: 6% от дохода = 15% от оставшихся 40%. На маркетплейсе, где комиссия, логистика и себестоимость вместе часто съедают больше половины цены, «Доходы минус расходы» нередко выгоднее. Но есть оговорки.</p>
+<ul>
+  <li>В расходы на УСН принимаются только оплаченные и документально подтверждённые расходы. Закупка без документов базу не уменьшит.</li>
+  <li>Себестоимость товара на «Доходах минус расходах» учитывают по мере продажи, а не в момент закупки.</li>
+  <li>Минимальный налог 1% платится даже в убыточный год.</li>
+  <li>ИП на УСН «Доходы» может уменьшать налог на страховые взносы — при небольших оборотах это сильно меняет сравнение.</li>
+</ul>
+<p>Режим меняют с начала года, поэтому считайте на годовых цифрах и согласуйте выбор с бухгалтером.</p>
+
+<h2 id="raschetus">После запуска продаж — по данным магазина</h2>
+<p>Калькулятор отвечает на вопрос «стоит ли закупать». Когда товар уже продаётся, реальные удержания Ozon, выкуп и реклама становятся известны, и прибыль считают по факту.</p>
+<p>В Расчётусе налог задаётся в <a href="/docs/stores/taxes/" target="_blank" rel="noopener">налоговых настройках магазина</a>: ОСНО, УСН «Доходы», УСН «Доходы − Расходы», АУСН «Доходы» и АУСН «Доходы − Расходы», ставка вводится числом, НДС — отдельным полем, при праве на вычет можно учесть входной НДС по услугам Ozon и закупке. Если режим или ставка менялись в течение года, это задаётся в «Истории налогов», и каждый месяц считается по своим правилам. Отдельного режима НПД в настройках нет.</p>
+<p>Налог по этим настройкам считается в <a href="/docs/finances/profit-and-loss/" target="_blank" rel="noopener">ОПиУ</a>, <a href="/docs/analytics/operations/" target="_blank" rel="noopener">Операционке</a> и <a href="/docs/analytics/unit-economics/" target="_blank" rel="noopener">юнит-экономике</a> по каждому товару — это расчётная оценка для управления, а не замена работе бухгалтера.</p>
+      </div>
+    </article>
+
+    <aside class="try" aria-label="Посчитать на своих данных">
+      <div class="try__h">Посчитать на своих данных</div>
+      <p>После подключения магазина Расчётус считает налог по настройкам магазина — ОСНО, УСН или АУСН с выбранной ставкой и НДС — во всех отчётах: ОПиУ, Операционке и юнит-экономике по товарам.</p>
+      <p>5&nbsp;дней полного доступа без привязки карты: подключите магазин Ozon по ключу Seller API — отчёты соберутся из ваших продаж.</p>
+      <div class="try__cta">
+        <a href="https://mp.raschetus.ru/register?utm_source=site&utm_medium=article&utm_campaign=kalkulyator-pribyli-ozon-samozanyatyj-usn" class="btn btn--lime btn--lg" data-cta="connect">Попробовать 5 дней бесплатно</a>
+        <a href="/calculator/" class="hero__link" data-cta="landing">Открыть калькулятор прибыли Ozon&nbsp;→</a>
+      </div>
+    </aside>
+
+    <nav class="more" aria-label="Другие статьи">
+      <div class="more__h">Ещё статьи</div>
+      <ul>
+        <li><a href="/stati/kak-poschitat-chistuyu-pribyl-ozon/">Как посчитать чистую прибыль на Ozon: пошаговый расчёт за месяц →</a></li>
+        <li><a href="/stati/kak-chitat-otchet-o-realizacii-ozon/">Как читать отчёт о реализации Ozon и сверять его с выплатами →</a></li>
+        <li><a href="/stati/yunit-ekonomika-ozon-shablon-tablicy/">Юнит-экономика на Ozon: шаблон таблицы и пример расчёта →</a></li>
+        <li><a href="/stati/">Все статьи →</a></li>
+      </ul>
+    </nav>
+  </main>
+
+  <section class="caps" aria-label="Частые вопросы">
+    <div class="caps__inner">
+      <h2 class="caps__faq-h">Частые вопросы</h2>
+      <div class="faqs">
+        <details class="faq">
+          <summary>Можно ли самозанятому перепродавать товары на Ozon?</summary>
+          <p>Нет. Налог на профессиональный доход не применяют те, кто перепродаёт товары, а Ozon допускает самозанятых только с продукцией собственного производства. Кроме того, самозанятым нельзя продавать подакцизные товары, товары с обязательной маркировкой, продукты питания и ряд других категорий. Для перепродажи нужен ИП или ООО на другом режиме.</p>
+        </details>
+        <details class="faq">
+          <summary>Платит ли самозанятый налог с комиссии Ozon?</summary>
+          <p>Да, по сути: налог считается с суммы продаж из колонки «Реализовано на сумму» отчёта о реализации, а комиссия и услуги Ozon её не уменьшают. Поэтому налог 4% — это 4% от цены продажи, а не от денег, которые пришли на счёт.</p>
+        </details>
+        <details class="faq">
+          <summary>Что выгоднее на Ozon: УСН «Доходы» или «Доходы минус расходы»?</summary>
+          <p>При базовых ставках 6% и 15% режимы равны, когда расходы составляют 60% дохода. Если документально подтверждённые расходы — себестоимость, услуги Ozon, реклама — выше 60% дохода, обычно выгоднее «Доходы минус расходы», если ниже — «Доходы». Решение принимают по году целиком, с учётом региональных ставок, взносов ИП и минимального налога.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer__inner">
+      <div class="footer__brand">
+        <a href="/" class="logo" aria-label="Расчётус">
+          <img class="logo__badge" src="/assets/img/badge.svg" alt="" width="28" height="28">
+          <svg class="logo__word logo__word--sm" viewBox="97.46 81.55 401.96 91.46" role="img" aria-label="расчётус">
+            <g fill="currentColor">
+              <path d="M97.46,111.12h13.01l.27,7.19c2.64-5.37,7.73-8.28,14.38-8.28,13.65,0,20.66,11.01,20.66,25.21s-7.01,25.21-20.66,25.21c-6.28,0-11.19-2.82-14.01-8.01v20.57h-13.65v-61.88ZM120.94,150.07c7.37,0,10.74-6.83,10.74-14.83s-3.55-14.83-10.74-14.83-10.74,7.01-10.74,14.83,3.46,14.83,10.74,14.83Z"/>
+              <path d="M172.81,110.03c14.65,0,22.21,7.19,22.21,20.93v15.2c0,3.18,1.27,3.91,3,3.91h1.73v9.28l-2.37.09c-3.19.09-12.56,1-13.83-7.46-2.46,5-7.83,8.46-16.65,8.46-9.83,0-17.29-5.28-17.29-13.83s6.64-12.28,18.29-14.56l13.29-2.73c-.09-7.01-2.73-10.37-8.46-10.37-4.64,0-7.55,2.64-8.65,7.74l-13.65-.64c1.82-10.28,9.74-16.02,22.39-16.02ZM171.17,151.62c5.92-.09,10.19-4.46,10.19-13.2v-.64l-7.92,1.46c-5.73,1.09-9.83,2-9.83,6.92,0,3.09,2.55,5.46,7.55,5.46Z"/>
+              <path d="M226.05,120.49c-6.83,0-10.74,5.37-10.74,14.74s3.91,14.74,10.74,14.74c5.1,0,8.92-3.28,9.74-9.55l14.11.55c-1.27,12.01-11.01,19.47-23.84,19.47-15.02,0-24.75-10.01-24.75-25.21s9.74-25.21,24.75-25.21c12.47,0,22.2,7.19,23.48,18.93l-14.01.64c-.82-5.82-4.64-9.1-9.46-9.1Z"/>
+              <path d="M286.83,159.35v-21.93c-2.91,4.64-8.1,7.55-14.47,7.55-11.56,0-18.84-7.64-18.84-19.75v-14.11h13.65v10.74c0,7.83,3.28,12.38,8.83,12.38,6.83,0,10.83-4.55,10.83-12.38v-10.74h13.74v48.23h-13.74Z"/>
+              <path d="M400.59,121.22h-16.29v38.13h-13.74v-38.13h-16.38v-10.1h46.41v10.1Z"/>
+              <path d="M415.14,111.12l12.01,33.94,11.65-33.94h12.92l-18.93,52.87c-2.28,6.19-6.46,9.01-13.47,9.01h-8.64v-9.92h6.1c2.91,0,4.46-.91,5.37-3.28l1.18-2.91h-3.82l-17.38-45.77h13.01Z"/>
+              <path d="M475.57,120.49c-6.83,0-10.74,5.37-10.74,14.74s3.91,14.74,10.74,14.74c5.1,0,8.92-3.28,9.74-9.55l14.11.55c-1.27,12.01-11.01,19.47-23.84,19.47-15.02,0-24.75-10.01-24.75-25.21s9.74-25.21,24.75-25.21c12.47,0,22.21,7.19,23.48,18.93l-14.01.64c-.82-5.82-4.64-9.1-9.46-9.1Z"/>
+            </g>
+            <g fill="#a9c811">
+              <path d="M329.74,110.03c13.38,0,23.66,9.28,23.57,26.21v2.55h-34.04c.36,7.19,4.28,11.56,10.46,11.56,3.91,0,7.55-2.37,9.1-6.01l13.83.91c-2.91,9.37-11.92,15.2-22.93,15.2-15.02,0-24.75-10.01-24.75-25.21s9.74-25.21,24.75-25.21ZM339.48,130.5c-.73-7.28-4.91-10.37-9.74-10.37-5.82,0-9.65,3.91-10.37,10.37h20.11Z"/>
+              <rect x="309.79" y="94.62" width="38.72" height="9.36"/>
+              <rect x="319" y="81.55" width="38.72" height="9.36"/>
+            </g>
+          </svg>
+        </a>
+        <p class="footer__tag">Автоматизатор прибыли для продавцов.</p>
+        <div class="footer__social" aria-label="Наши каналы">
+          <a class="footer__social-link" href="https://t.me/+xFvrkNuvMwJlNWJi" target="_blank" rel="noopener" aria-label="Telegram">
+            <img src="/assets/img/telegram.png" alt="" width="26" height="26" loading="lazy">
+          </a>
+          <a class="footer__social-link" href="https://max.ru/join/67xusMM6ZoqiAVRrtHFl0Cbkvway0GDgukFH06FK2XU" target="_blank" rel="noopener" aria-label="MAX">
+            <img src="/assets/img/max.png" alt="" width="26" height="26" loading="lazy">
+          </a>
+        </div>
+      </div>
+
+      <nav class="footer__col" aria-label="Инструменты">
+        <div class="footer__col-h">Инструменты</div>
+        <a href="/calculator/">Калькулятор прибыли</a>
+        <a href="/unit-ekonomika/">Юнит-экономика</a>
+        <a href="/opiu/">Прибыли и убытки</a>
+        <a href="/reklama/">Реклама и ДРР</a>
+        <a href="/akcii/">Акции Ozon</a>
+        <a href="/postavki/">Планирование поставок</a>
+      </nav>
+
+      <nav class="footer__col" aria-label="Компания">
+        <div class="footer__col-h">Компания</div>
+        <a href="/docs/" target="_blank" rel="noopener">База знаний</a>
+        <a href="/stati/">Статьи</a>
+        <a href="https://mp.raschetus.ru/info/offer">Оферта</a>
+        <a href="https://mp.raschetus.ru/info/policy">Политика конфиденциальности</a>
+      </nav>
+
+      <div class="footer__req">
+        <div class="footer__req-title">Реквизиты</div>
+        <p>ИП Ким Алина</p>
+        <p>ИНН 504411444638</p>
+        <p>ОГРНИП 326508100471844</p>
+      </div>
+    </div>
+
+    <div class="footer__bottom">
+      <span>© 2026 Расчётус</span>
+      <span>посчитано · сходится · точка</span>
+    </div>
+  </footer>
+
+
+  <script>
+    (function () {
+      var r = document.documentElement, b = document.getElementById('themeToggle');
+      function g() { return r.classList.contains('light') ? '◑' : '◐'; }
+      if (b) {
+        b.textContent = g();
+        b.addEventListener('click', function () {
+          r.classList.toggle('light');
+          try { localStorage.setItem('rsh-theme', r.classList.contains('light') ? 'light' : 'dark'); } catch (e) {}
+          b.textContent = g();
+          var m = document.querySelector('meta[name="theme-color"]');
+          if (m) m.setAttribute('content', r.classList.contains('light') ? '#ffffff' : '#0e1110');
+        });
+      }
+    })();
+  </script>
+
+  <!-- Yandex.Metrika counter -->
+  <script type="text/javascript">
+    (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};m[i].l=1*new Date();for(var j=0;j<document.scripts.length;j++){if(document.scripts[j].src===r){return;}}k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})(window,document,'script','https://mc.yandex.ru/metrika/tag.js','ym');
+    ym(112116470, 'init', {ssr:true, webvisor:true, clickmap:true, ecommerce:"dataLayer", accurateTrackBounce:true, trackLinks:true});
+  </script>
+  <noscript><div><img src="https://mc.yandex.ru/watch/112116470" style="position:absolute; left:-9999px;" alt=""></div></noscript>
+  <!-- /Yandex.Metrika counter -->
+  <script src="/assets/track.js?v=20261120" defer></script>
+</body>
+</html>
