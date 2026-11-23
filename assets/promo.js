@@ -30,8 +30,8 @@
     bar.setAttribute('role', 'region');
     bar.setAttribute('aria-label', 'Акция Чёрная пятница');
     bar.innerHTML = '<div class="bf-bar__in">'
-      + '<span class="bf-bar__long"><b>Чёрная пятница до 30 ноября:</b> оплатите 12 месяцев — подписка работает 24. Сначала 5 дней бесплатно.</span>'
-      + '<span class="bf-bar__short"><b>Чёрная пятница до 30.11:</b> 24 месяца по цене 12</span>'
+      + '<span class="bf-bar__long"><b>Чёрная пятница до 30 ноября:</b> при оплате года — второй год в подарок.</span>'
+      + '<span class="bf-bar__short"><b>Чёрная пятница до 30.11:</b> второй год в подарок</span>'
       + '<a class="bf-bar__cta" data-cta="bf_bar" href="' + HREF + '">Попробовать →</a>'
       + '</div>'
       + '<button class="bf-bar__x" type="button" aria-label="Закрыть">×</button>';
