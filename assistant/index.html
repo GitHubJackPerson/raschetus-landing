@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Голосовой ИИ ассистент селлера Ozon и WB | Расчётус</title>
+  <meta name="description" content="ИИ Ассистент знает ваш бизнес на Ozon и WB, проверяет гипотезы фактом, ставит задачи команде и записывает заметки. Голосом — в кабинете, Telegram и MAX.">
+  <meta name="theme-color" content="#0e1110">
+  <meta name="color-scheme" content="dark light">
+  <meta name="robots" content="noindex, follow">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="/assets/img/badge.svg">
+  <link rel="canonical" href="https://raschetus.ru/assistant/">
+  <link rel="preconnect" href="https://mc.yandex.ru" crossorigin>
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Расчётус">
+  <meta property="og:title" content="Голосовой ИИ ассистент селлера">
+  <meta property="og:description" content="ИИ Ассистент знает ваш бизнес на Ozon и WB, проверяет гипотезы фактом, ставит задачи команде и записывает заметки. Голосом — в кабинете, Telegram и MAX.">
+  <meta property="og:url" content="https://raschetus.ru/assistant/">
+  <meta property="og:locale" content="ru_RU">
+  <meta property="og:image" content="https://raschetus.ru/assets/img/og.png">
+  <script>
+    (function () { try { if ((localStorage.getItem('rsh-theme') || 'dark') === 'light') document.documentElement.classList.add('light'); } catch (e) {} })();
+  </script>
+  <link rel="preload" href="/assets/fonts/geist-cyrillic.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/assets/fonts/geist-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="/assets/styles.css?v=20261123">
+  <link rel="stylesheet" href="/assets/player.css?v=20260913">
+  <style>
+    .lp { max-width: var(--maxw); margin-inline: auto; padding: clamp(24px,4vw,56px) clamp(16px,4vw,52px) clamp(20px,3vw,40px); }
+    .lp__hero { display: grid; grid-template-columns: minmax(0,1fr) minmax(0,1.1fr); gap: clamp(24px,4vw,56px); align-items: center; }
+    .lp__eyebrow { font-size: 12px; letter-spacing: .06em; text-transform: uppercase; color: var(--mut); }
+    .lp__h1 { font-size: clamp(28px,3.6vw,46px); font-weight: 800; letter-spacing: -0.04em; line-height: 1.04; color: var(--tx); margin-top: 10px; }
+    .lp__h1 .hl { color: var(--lime-tx); }
+    .lp__lead { color: var(--tx2); font-size: clamp(15px,1.5vw,18px); line-height: 1.5; margin-top: 16px; max-width: 52ch; }
+    .lp__cta { display: flex; gap: 14px; align-items: center; flex-wrap: wrap; margin-top: 24px; }
+    .lp__note { color: var(--mut); font-size: 13px; line-height: 1.45; margin-top: 10px; }
+    .lp__shot { margin: 0; border: 1px solid var(--hair); border-radius: 14px; overflow: hidden; background: #f4f4f1; box-shadow: 0 18px 50px -24px rgba(0,0,0,.55); }
+    .lp__shot img { display: block; width: 100%; height: auto; }
+    .lp__shot figcaption { font-size: 12px; color: #6b6f68; padding: 8px 12px; border-top: 1px solid #e3e3de; background: #fafaf7; }
+    .lp__sec { margin-top: clamp(36px,5vw,64px); }
+    .lp__h2 { font-size: clamp(22px,2.8vw,32px); font-weight: 800; letter-spacing: -0.03em; line-height: 1.1; color: var(--tx); max-width: 30ch; }
+    .lp__points { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 14px; margin-top: 18px; }
+    .lp__point { border: 1px solid var(--hair); border-radius: 14px; padding: 18px 18px 16px; background: var(--tint); }
+    .lp__point h3 { font-size: 17px; font-weight: 750; letter-spacing: -0.01em; color: var(--tx); line-height: 1.25; }
+    .lp__point p { color: var(--tx2); font-size: 14.5px; line-height: 1.55; margin-top: 8px; }
+    .lp__point strong { color: var(--tx); }
+    .lp__video { margin-top: 18px; max-width: 880px; }
+    .lp__vnote { color: var(--mut); font-size: 13px; margin-top: 8px; }
+    .lp__price { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 14px; margin-top: 18px; }
+    .lp__tariff { border: 1px solid var(--hair); border-radius: 14px; padding: 16px 18px; }
+    .lp__tariff b { display: block; font-size: 24px; font-weight: 800; letter-spacing: -0.02em; color: var(--tx); }
+    .lp__tariff span { display: block; color: var(--tx2); font-size: 14px; line-height: 1.45; margin-top: 4px; }
+    .lp__fine { color: var(--tx2); font-size: 14.5px; line-height: 1.6; margin-top: 14px; max-width: 74ch; }
+    .lp__fine a, .lp__lead a { color: var(--lime-tx); }
+    .lp__end { margin-top: clamp(36px,5vw,64px); border: 1px solid var(--hair); border-radius: 16px; padding: clamp(20px,3vw,32px); background: var(--tint); display: flex; gap: 18px 28px; align-items: center; justify-content: space-between; flex-wrap: wrap; }
+    .lp__end h2 { font-size: clamp(20px,2.4vw,28px); font-weight: 800; letter-spacing: -0.03em; color: var(--tx); line-height: 1.15; max-width: 32ch; }
+    .lp__end p { color: var(--tx2); font-size: 14.5px; margin-top: 6px; }
+    .lp__heromedia .rp { border-radius: 14px; overflow: hidden; box-shadow: 0 18px 50px -24px rgba(0,0,0,.55); }
+    .ax { display: grid; grid-template-columns: minmax(0,1fr) minmax(0,1fr); gap: clamp(20px,4vw,56px); align-items: center; margin-top: clamp(28px,4vw,48px); }
+    .ax--rev .ax__text { order: 2; }
+    .ax__num { font-size: 12px; letter-spacing: .06em; text-transform: uppercase; color: var(--lime-tx); font-weight: 700; }
+    .ax__text h3 { font-size: clamp(20px,2.2vw,26px); font-weight: 800; letter-spacing: -0.02em; line-height: 1.15; color: var(--tx); margin-top: 8px; }
+    .ax__text p:not(.ax__num) { color: var(--tx2); font-size: 15.5px; line-height: 1.6; margin-top: 10px; max-width: 54ch; }
+    .ax__text strong { color: var(--tx); }
+    .ax__img { max-width: 520px; }
+    .chat { background: #f4f4f1; color: #1d201c; border: 1px solid var(--hair); border-radius: 14px; padding: 16px; display: flex; flex-direction: column; gap: 10px; box-shadow: 0 18px 50px -24px rgba(0,0,0,.55); font-size: 14.5px; line-height: 1.5; max-width: 520px; }
+    .chat__ctx { font-size: 12px; color: #5c6158; background: #e9eddf; border-radius: 8px; padding: 6px 10px; }
+    .chat__q { align-self: flex-end; background: #e6e8e1; border-radius: 12px; padding: 9px 13px; max-width: 88%; }
+    .chat__q--voice { display: flex; gap: 8px; align-items: center; }
+    .chat__a { color: #2a2e28; }
+    .chat__a ul { margin: 6px 0 0 18px; }
+    .chat__a b, .card b { color: #111; }
+    .card { background: #fff; border: 1px solid #e0e1da; border-radius: 12px; padding: 12px 14px; }
+    .card__h { font-size: 11px; letter-spacing: .06em; text-transform: uppercase; color: #6b6f68; font-weight: 700; }
+    .card__t { font-weight: 750; margin-top: 4px; }
+    .card__p { color: #3a3e37; margin-top: 4px; }
+    .card__btns { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 10px; }
+    .card .b { font-size: 12px; font-weight: 750; letter-spacing: .04em; text-transform: uppercase; border: 1px solid #cfd2c8; border-radius: 9px; padding: 7px 12px; color: #2a2e28; }
+    .card .b--lime { background: #a9c811; border-color: #a9c811; color: #111; }
+    .chat__verdict { font-size: 13px; color: #4a4f46; display: flex; gap: 8px; align-items: center; }
+    .chat__verdict .dot { width: 8px; height: 8px; border-radius: 50%; background: #a9c811; flex: none; }
+    @media (max-width: 900px) {
+      .ax { grid-template-columns: minmax(0,1fr); }
+      .ax--rev .ax__text { order: 0; }
+      .lp__hero { grid-template-columns: minmax(0,1fr); }
+      .lp__points, .lp__price { grid-template-columns: minmax(0,1fr); }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="day-strip">
+    <div class="day-strip__inner">
+      <a href="/" class="logo" aria-label="Расчётус — на главную">
+        <img class="logo__badge" src="/assets/img/badge.svg" alt="" width="32" height="32">
+        <svg class="logo__word" viewBox="97.46 81.55 401.96 91.46" role="img" aria-label="расчётус">
+          <g fill="currentColor">
+            <path d="M97.46,111.12h13.01l.27,7.19c2.64-5.37,7.73-8.28,14.38-8.28,13.65,0,20.66,11.01,20.66,25.21s-7.01,25.21-20.66,25.21c-6.28,0-11.19-2.82-14.01-8.01v20.57h-13.65v-61.88ZM120.94,150.07c7.37,0,10.74-6.83,10.74-14.83s-3.55-14.83-10.74-14.83-10.74,7.01-10.74,14.83,3.46,14.83,10.74,14.83Z"/>
+            <path d="M172.81,110.03c14.65,0,22.21,7.19,22.21,20.93v15.2c0,3.18,1.27,3.91,3,3.91h1.73v9.28l-2.37.09c-3.19.09-12.56,1-13.83-7.46-2.46,5-7.83,8.46-16.65,8.46-9.83,0-17.29-5.28-17.29-13.83s6.64-12.28,18.29-14.56l13.29-2.73c-.09-7.01-2.73-10.37-8.46-10.37-4.64,0-7.55,2.64-8.65,7.74l-13.65-.64c1.82-10.28,9.74-16.02,22.39-16.02ZM171.17,151.62c5.92-.09,10.19-4.46,10.19-13.2v-.64l-7.92,1.46c-5.73,1.09-9.83,2-9.83,6.92,0,3.09,2.55,5.46,7.55,5.46Z"/>
+            <path d="M226.05,120.49c-6.83,0-10.74,5.37-10.74,14.74s3.91,14.74,10.74,14.74c5.1,0,8.92-3.28,9.74-9.55l14.11.55c-1.27,12.01-11.01,19.47-23.84,19.47-15.02,0-24.75-10.01-24.75-25.21s9.74-25.21,24.75-25.21c12.47,0,22.2,7.19,23.48,18.93l-14.01.64c-.82-5.82-4.64-9.1-9.46-9.1Z"/>
+            <path d="M286.83,159.35v-21.93c-2.91,4.64-8.1,7.55-14.47,7.55-11.56,0-18.84-7.64-18.84-19.75v-14.11h13.65v10.74c0,7.83,3.28,12.38,8.83,12.38,6.83,0,10.83-4.55,10.83-12.38v-10.74h13.74v48.23h-13.74Z"/>
+            <path d="M400.59,121.22h-16.29v38.13h-13.74v-38.13h-16.38v-10.1h46.41v10.1Z"/>
+            <path d="M415.14,111.12l12.01,33.94,11.65-33.94h12.92l-18.93,52.87c-2.28,6.19-6.46,9.01-13.47,9.01h-8.64v-9.92h6.1c2.91,0,4.46-.91,5.37-3.28l1.18-2.91h-3.82l-17.38-45.77h13.01Z"/>
+            <path d="M475.57,120.49c-6.83,0-10.74,5.37-10.74,14.74s3.91,14.74,10.74,14.74c5.1,0,8.92-3.28,9.74-9.55l14.11.55c-1.27,12.01-11.01,19.47-23.84,19.47-15.02,0-24.75-10.01-24.75-25.21s9.74-25.21,24.75-25.21c12.47,0,22.21,7.19,23.48,18.93l-14.01.64c-.82-5.82-4.64-9.1-9.46-9.1Z"/>
+          </g>
+          <g fill="#a9c811">
+            <path d="M329.74,110.03c13.38,0,23.66,9.28,23.57,26.21v2.55h-34.04c.36,7.19,4.28,11.56,10.46,11.56,3.91,0,7.55-2.37,9.1-6.01l13.83.91c-2.91,9.37-11.92,15.2-22.93,15.2-15.02,0-24.75-10.01-24.75-25.21s9.74-25.21,24.75-25.21ZM339.48,130.5c-.73-7.28-4.91-10.37-9.74-10.37-5.82,0-9.65,3.91-10.37,10.37h20.11Z"/>
+            <rect x="309.79" y="94.62" width="38.72" height="9.36"/>
+            <rect x="319" y="81.55" width="38.72" height="9.36"/>
+          </g>
+        </svg>
+      </a>
+
+      <div class="day-strip__spacer" aria-hidden="true"></div>
+
+      <button type="button" class="theme-toggle" id="themeToggle" aria-label="Сменить тему" title="Сменить тему">◐</button>
+      <a href="https://mp.raschetus.ru/register" class="btn btn--sm btn--lime" data-cta="connect">Подключить</a>
+    </div>
+  </header>
+
+
+  <main class="lp">
+    <section class="lp__hero" aria-label="ИИ Ассистент селлера">
+      <div>
+        <p class="lp__eyebrow">ИИ Ассистент для Ozon и Wildberries</p>
+        <h1 class="lp__h1">Голосовой ИИ ассистент селлера. <span class="hl">Вы говорите — он делает</span></h1>
+        <p class="lp__lead">Знает ваш бизнес на Ozon и WB, проверяет гипотезы, ставит задачи и записывает заметки. Голосом — в кабинете, Telegram или MAX.</p>
+        <div class="lp__cta">
+          <a href="https://mp.raschetus.ru/register" class="btn btn--lime btn--lg" data-cta="connect">Подключить магазин бесплатно</a>
+        </div>
+        <p class="lp__note">Ассистент — в оплаченном тарифе. Тест 5 дней, без карты.</p>
+      </div>
+      <div class="lp__heromedia">
+        <div class="rp" data-src="https://raschetus.ru/docs/video/ai-team/ai-1-assistant-20261123.mp4" data-poster="https://raschetus.ru/docs/video/ai-team/ai-1-assistant-20261123.jpg" data-captions="https://raschetus.ru/docs/video/ai-team/ai-1-assistant-20261123.vtt" data-title="ИИ Ассистент в кабинете"></div>
+        <p class="lp__vnote">1,5 минуты, демо-данные.</p>
+      </div>
+    </section>
+
+    <section class="lp__sec" aria-label="Что умеет">
+      <h2 class="lp__h2">Не чат-бот, а помощник</h2>
+
+      <div class="ax">
+        <div class="ax__text">
+          <p class="ax__num">01 · Знает ваш бизнес</p>
+          <h3>Видит весь кабинет, а не один отчёт</h3>
+          <p>Деньги, товары, склад, реклама, возвраты. Спросите — он сведёт цифры и <strong>назовёт причину</strong>.</p>
+        </div>
+        <div class="chat" aria-hidden="true">
+          <div class="chat__ctx">Раздел: Возвраты · Демо-магазин</div>
+          <div class="chat__q">Почему выросли возвраты?</div>
+          <div class="chat__a">Доля выросла <b>с 4,24% до 4,4%</b>. Чаще всего — «товар не подошёл».
+            <ul><li>Кроссовки мужские 36: <b>14,1%</b> против 7,3% обычно</li><li>Набор посуды 24 предмета: <b>12,9%</b> против 4,8%</li></ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="ax ax--rev">
+        <div class="ax__text">
+          <p class="ax__num">02 · Проверяет гипотезы</p>
+          <h3>Подняли цену — сработало?</h3>
+          <p>Запишет прогноз и <strong>через 14 дней сравнит с фактом</strong>.</p>
+        </div>
+        <div class="chat" aria-hidden="true">
+          <div class="chat__q">Что будет с прибылью, если поднять цену на плед на 10%?</div>
+          <div class="card">
+            <div class="card__h">Гипотеза — проверим на фактах</div>
+            <div class="card__t">Цена пледа +10%</div>
+            <div class="card__p">Прибыль с единицы: <b>1 104 → 1 449 ₽</b> при том же числе заказов</div>
+            <div class="card__btns"><span class="b b--lime">Записать гипотезу</span><span class="b">Поставить задачу</span></div>
+          </div>
+          <div class="chat__verdict"><span class="dot"></span>Через 14 дней: итог придёт в колокольчик и мессенджер</div>
+        </div>
+      </div>
+
+      <div class="ax">
+        <div class="ax__text">
+          <p class="ax__num">03 · Ставит задачи</p>
+          <h3>Совет становится задачей</h3>
+          <p>Готовая задача под ответом. <strong>Одна кнопка</strong> — и она у вас или у сотрудника.</p>
+        </div>
+        <figure class="lp__shot ax__img">
+          <img src="/assets/img/lp/assistant-task.png?v=20261124" alt="Карточка «Предлагаю задачу» под ответом ассистента: товар, причина и кнопка «Создать задачу»" width="780" height="386" loading="lazy">
+          <figcaption>Карточка задачи под ответом. Демо-данные</figcaption>
+        </figure>
+      </div>
+
+      <div class="ax ax--rev">
+        <div class="ax__text">
+          <p class="ax__num">04 · Записывает заметки и помнит</p>
+          <h3>Надиктовали — записано</h3>
+          <p>Заметка ляжет в журнал — <strong>видно, что было до и после</strong>. Ваши правила он запомнит с первого раза.</p>
+        </div>
+        <div class="chat" aria-hidden="true">
+          <div class="chat__q chat__q--voice"><span class="mic">🎙</span>Сегодня поменял главное фото у свитера</div>
+          <div class="card">
+            <div class="card__h">Заметка в журнал событий</div>
+            <div class="card__p">Поменял главное фото · Свитер · сегодня</div>
+            <div class="card__btns"><span class="b b--lime">Записать</span></div>
+          </div>
+          <div class="chat__q">Запомни: в акциях Ozon я не участвую</div>
+          <div class="card">
+            <div class="card__h">Запомнить</div>
+            <div class="card__p">Не участвую в акциях Ozon</div>
+            <div class="card__btns"><span class="b b--lime">Запомнить</span></div>
+          </div>
+        </div>
+      </div>
+      <p class="lp__vnote">Примеры на демо-данных.</p>
+    </section>
+
+    <section class="lp__sec" aria-label="Голосом">
+      <h2 class="lp__h2">Голосом — там, где вам удобно</h2>
+      <div class="lp__points">
+        <div class="lp__point">
+          <h3>🎙 В кабинете</h3>
+          <p>На любой странице. Ответ можно <strong>прослушать</strong>.</p>
+        </div>
+        <div class="lp__point">
+          <h3>📱 В Telegram и MAX</h3>
+          <p>Вопрос и заметка — с телефона.</p>
+        </div>
+        <div class="lp__point">
+          <h3>☀️ Утром — без вопроса</h3>
+          <p><strong>Три главные вещи дня</strong> по вашему магазину.</p>
+        </div>
+      </div>
+      <p class="lp__fine">Ничего не меняет сам. <a href="/docs/ai-team/overview/" target="_blank" rel="noopener">Всё об ассистенте →</a></p>
+    </section>
+
+    <section class="lp__sec" aria-label="Цена">
+      <h2 class="lp__h2">Ассистент входит в тариф</h2>
+      <div class="lp__price">
+        <div class="lp__tariff"><b>5 900 ₽/мес</b><span>помесячно</span></div>
+        <div class="lp__tariff"><b>4 900 ₽/мес</b><span>на 6 месяцев, +1 месяц в подарок</span></div>
+        <div class="lp__tariff"><b>4 400 ₽/мес</b><span>на 12 месяцев, +3 месяца в подарок</span></div>
+      </div>
+      <p class="lp__fine">Ассистент — в любом оплаченном тарифе. В тесте — все отчёты и примеры вопросов. <a href="/docs/getting-started/tariffs/" target="_blank" rel="noopener">Условия →</a></p>
+    </section>
+
+    <section class="lp__end" aria-label="Начать">
+      <div>
+        <h2>Подключите магазин — и спросите</h2>
+        <p>5 дней бесплатно.</p>
+      </div>
+      <a href="https://mp.raschetus.ru/register" class="btn btn--lime btn--lg" data-cta="connect">Подключить бесплатно</a>
+    </section>
+  </main>
+
+
+  <footer class="footer">
+    <div class="footer__inner">
+      <div class="footer__brand">
+        <a href="/" class="logo" aria-label="Расчётус">
+          <img class="logo__badge" src="/assets/img/badge.svg" alt="" width="28" height="28">
+          <svg class="logo__word logo__word--sm" viewBox="97.46 81.55 401.96 91.46" role="img" aria-label="расчётус">
+            <g fill="currentColor">
+              <path d="M97.46,111.12h13.01l.27,7.19c2.64-5.37,7.73-8.28,14.38-8.28,13.65,0,20.66,11.01,20.66,25.21s-7.01,25.21-20.66,25.21c-6.28,0-11.19-2.82-14.01-8.01v20.57h-13.65v-61.88ZM120.94,150.07c7.37,0,10.74-6.83,10.74-14.83s-3.55-14.83-10.74-14.83-10.74,7.01-10.74,14.83,3.46,14.83,10.74,14.83Z"/>
+              <path d="M172.81,110.03c14.65,0,22.21,7.19,22.21,20.93v15.2c0,3.18,1.27,3.91,3,3.91h1.73v9.28l-2.37.09c-3.19.09-12.56,1-13.83-7.46-2.46,5-7.83,8.46-16.65,8.46-9.83,0-17.29-5.28-17.29-13.83s6.64-12.28,18.29-14.56l13.29-2.73c-.09-7.01-2.73-10.37-8.46-10.37-4.64,0-7.55,2.64-8.65,7.74l-13.65-.64c1.82-10.28,9.74-16.02,22.39-16.02ZM171.17,151.62c5.92-.09,10.19-4.46,10.19-13.2v-.64l-7.92,1.46c-5.73,1.09-9.83,2-9.83,6.92,0,3.09,2.55,5.46,7.55,5.46Z"/>
+              <path d="M226.05,120.49c-6.83,0-10.74,5.37-10.74,14.74s3.91,14.74,10.74,14.74c5.1,0,8.92-3.28,9.74-9.55l14.11.55c-1.27,12.01-11.01,19.47-23.84,19.47-15.02,0-24.75-10.01-24.75-25.21s9.74-25.21,24.75-25.21c12.47,0,22.2,7.19,23.48,18.93l-14.01.64c-.82-5.82-4.64-9.1-9.46-9.1Z"/>
+              <path d="M286.83,159.35v-21.93c-2.91,4.64-8.1,7.55-14.47,7.55-11.56,0-18.84-7.64-18.84-19.75v-14.11h13.65v10.74c0,7.83,3.28,12.38,8.83,12.38,6.83,0,10.83-4.55,10.83-12.38v-10.74h13.74v48.23h-13.74Z"/>
+              <path d="M400.59,121.22h-16.29v38.13h-13.74v-38.13h-16.38v-10.1h46.41v10.1Z"/>
+              <path d="M415.14,111.12l12.01,33.94,11.65-33.94h12.92l-18.93,52.87c-2.28,6.19-6.46,9.01-13.47,9.01h-8.64v-9.92h6.1c2.91,0,4.46-.91,5.37-3.28l1.18-2.91h-3.82l-17.38-45.77h13.01Z"/>
+              <path d="M475.57,120.49c-6.83,0-10.74,5.37-10.74,14.74s3.91,14.74,10.74,14.74c5.1,0,8.92-3.28,9.74-9.55l14.11.55c-1.27,12.01-11.01,19.47-23.84,19.47-15.02,0-24.75-10.01-24.75-25.21s9.74-25.21,24.75-25.21c12.47,0,22.21,7.19,23.48,18.93l-14.01.64c-.82-5.82-4.64-9.1-9.46-9.1Z"/>
+            </g>
+            <g fill="#a9c811">
+              <path d="M329.74,110.03c13.38,0,23.66,9.28,23.57,26.21v2.55h-34.04c.36,7.19,4.28,11.56,10.46,11.56,3.91,0,7.55-2.37,9.1-6.01l13.83.91c-2.91,9.37-11.92,15.2-22.93,15.2-15.02,0-24.75-10.01-24.75-25.21s9.74-25.21,24.75-25.21ZM339.48,130.5c-.73-7.28-4.91-10.37-9.74-10.37-5.82,0-9.65,3.91-10.37,10.37h20.11Z"/>
+              <rect x="309.79" y="94.62" width="38.72" height="9.36"/>
+              <rect x="319" y="81.55" width="38.72" height="9.36"/>
+            </g>
+          </svg>
+        </a>
+        <p class="footer__tag">Автоматизатор прибыли для продавцов.</p>
+        <div class="footer__social" aria-label="Наши каналы">
+          <a class="footer__social-link" href="https://t.me/+xFvrkNuvMwJlNWJi" target="_blank" rel="noopener" aria-label="Telegram">
+            <img src="/assets/img/telegram.png" alt="" width="26" height="26" loading="lazy">
+          </a>
+          <a class="footer__social-link" href="https://max.ru/join/67xusMM6ZoqiAVRrtHFl0Cbkvway0GDgukFH06FK2XU" target="_blank" rel="noopener" aria-label="MAX">
+            <img src="/assets/img/max.png" alt="" width="26" height="26" loading="lazy">
+          </a>
+        </div>
+      </div>
+
+      <nav class="footer__col" aria-label="Инструменты">
+        <div class="footer__col-h">Инструменты</div>
+        <a href="/calculator/">Калькулятор прибыли</a>
+        <a href="/unit-ekonomika/">Юнит-экономика</a>
+        <a href="/opiu/">Прибыли и убытки</a>
+        <a href="/reklama/">Реклама и ДРР</a>
+        <a href="/akcii/">Акции Ozon</a>
+        <a href="/postavki/">Планирование поставок</a>
+      </nav>
+
+      <nav class="footer__col" aria-label="Компания">
+        <div class="footer__col-h">Компания</div>
+        <a href="/docs/" target="_blank" rel="noopener">База знаний</a>
+        <a href="https://mp.raschetus.ru/info/offer">Оферта</a>
+        <a href="https://mp.raschetus.ru/info/policy">Политика конфиденциальности</a>
+      </nav>
+
+      <div class="footer__req">
+        <div class="footer__req-title">Реквизиты</div>
+        <p>ИП Ким Алина</p>
+        <p>ИНН 504411444638</p>
+        <p>ОГРНИП 326508100471844</p>
+      </div>
+    </div>
+
+    <div class="footer__bottom">
+      <span>© 2026 Расчётус</span>
+      <span>посчитано · сходится · точка</span>
+    </div>
+  </footer>
+
+  <script>
+    (function () {
+      var r = document.documentElement, b = document.getElementById('themeToggle');
+      function g() { return r.classList.contains('light') ? '◑' : '◐'; }
+      if (b) {
+        b.textContent = g();
+        b.addEventListener('click', function () {
+          r.classList.toggle('light');
+          try { localStorage.setItem('rsh-theme', r.classList.contains('light') ? 'light' : 'dark'); } catch (e) {}
+          b.textContent = g();
+          var m = document.querySelector('meta[name="theme-color"]');
+          if (m) m.setAttribute('content', r.classList.contains('light') ? '#ffffff' : '#0e1110');
+        });
+      }
+    })();
+  </script>
+
+  <!-- Yandex.Metrika counter -->
+  <script type="text/javascript">
+    (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};m[i].l=1*new Date();for(var j=0;j<document.scripts.length;j++){if(document.scripts[j].src===r){return;}}k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})(window,document,'script','https://mc.yandex.ru/metrika/tag.js','ym');
+    ym(112116470, 'init', {ssr:true, webvisor:true, clickmap:true, ecommerce:"dataLayer", accurateTrackBounce:true, trackLinks:true});
+  </script>
+  <noscript><div><img src="https://mc.yandex.ru/watch/112116470" style="position:absolute; left:-9999px;" alt=""></div></noscript>
+  <!-- /Yandex.Metrika counter -->
+  <script src="/assets/player.js?v=20260913" defer></script>
+  <script src="/assets/track.js?v=20261120" defer></script>
+  <script src="/assets/promo.js?v=2026112302" defer></script>
+</body>
+</html>

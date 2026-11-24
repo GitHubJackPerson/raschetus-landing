@@ -19,6 +19,7 @@ on:
       - 'stati/**'
       - 'novoe/**'
       - 'komanda/**'
+      - 'assistant/**'
       - 'ozon-wb/**'
       - 'favicon.svg'
       - 'robots.txt'
@@ -47,7 +48,7 @@ jobs:
       - name: Stage site
         run: |
           mkdir -p _site
-          cp -r index.html calculator postavki unit-ekonomika opiu reklama akcii wildberries stati novoe komanda ozon-wb info favicon.svg robots.txt sitemap.xml assets _site/
+          cp -r index.html calculator postavki unit-ekonomika opiu reklama akcii wildberries stati novoe komanda ozon-wb assistant info favicon.svg robots.txt sitemap.xml assets _site/
 
       - name: Deploy (rsync mirror)
         run: |
