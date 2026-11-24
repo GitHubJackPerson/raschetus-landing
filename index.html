@@ -108,58 +108,34 @@
       "mainEntity": [
         {
           "@type": "Question",
-          "name": "Как посчитать чистую прибыль на Ozon?",
+          "name": "Какие отчёты есть, кроме ассистента?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Расчётус подключается к кабинету по API и собирает отчёт о прибылях и убытках (ОПиУ): из выручки вычитаются комиссия, логистика, эквайринг, реклама, хранение, возвраты, налог и себестоимость. Вы видите фактическую прибыль по магазину и по каждому товару, а не выручку из кабинета. Подробнее про ОПиУ."
+            "text": "Прибыли и убытки, движение денег, баланс и платёжный календарь, юнит-экономика каждого товара, реклама и ДРР, акции Ozon, возвраты и покупатели, финансовый план."
           }
         },
         {
           "@type": "Question",
-          "name": "Что такое юнит-экономика товара на Ozon?",
+          "name": "Помогает планировать поставки?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Это расчёт прибыли на одну единицу товара со всеми удержаниями Ozon и рекламой, разнесёнными до штуки: цена минус комиссия категории, логистика, невыкупы и возвраты, реклама, налог и себестоимость. Прикинуть прибыль до закупки можно в бесплатном калькуляторе, а по факту продаж — в отчёте «Юнит-экономика»."
+            "text": "Да. Расчётус считает, сколько и куда везти по кластерам Ozon и складам FBS, учитывая скорость продаж и товар в пути, и собирает сборочный лист."
           }
         },
         {
           "@type": "Question",
-          "name": "Как считать ДРР и оценивать рекламу на Ozon?",
+          "name": "Можно ответить на отзывы с ИИ?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "ДРР — доля рекламных расходов от выручки. Расчётус показывает ДРР и расходы на продвижение по каждому товару, поэтому видно, где реклама съедает маржу, а где её стоит масштабировать. Реклама и ДРР по каждому товару и как устроена аналитика рекламы."
+            "text": "Да. ИИ готовит ответы на отзывы и вопросы покупателей, а правила и шаблоны отвечают сами — без подписки Ozon Premium Pro."
           }
         },
         {
           "@type": "Question",
-          "name": "Что везти на склады Ozon — как считается подсорт?",
+          "name": "Как не пропустить изменения и сроки Ozon и WB?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Расчётус считает подсорт по всем кластерам Ozon и складам FBS: скорость продаж, дни запаса, товар в пути и в черновиках. Формирует сборочный лист и помогает забронировать слот приёмки. Про планирование поставок."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Чем Расчётус отличается от аналитики в кабинете Ozon?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Кабинет Ozon показывает выручку и разрозненные отчёты. Расчётус сводит всё в реальную прибыль: ОПиУ, юнит-экономику по товару, планирование поставок, рекламу и возвраты — в одном кабинете и для всей команды. Это финансовая аналитика для управленческих решений, а не выгрузки данных."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Работает ли Расчётус с Wildberries?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Да, в открытой бете. Магазин WB подключается по токену WB API, и его отчёты появляются в тех же разделах, что у Ozon: ОПиУ, ОДДС, Баланс, Операционка, «Юнитка и Реклама», Соинвест (СПП), остатки и поставки. Планирование поставок, рекламные отчёты, «Отзывы и вопросы» и раздел «Покупатели» пока работают только для Ozon. В тестовом периоде магазин WB подключить нельзя. До 31 декабря 2026 года магазины WB бесплатны для кабинетов с оплаченной подпиской Ozon и не занимают место в тарифе; данные загружаются с 1 января 2026 года. Как подключить Wildberries."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Есть ли бесплатный доступ и сколько стоит?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Есть 5 дней полного доступа ко всем отчётам без привязки карты. Тариф единый для больших и маленьких магазинов, и в каждом тарифе бесплатно до 5 сотрудников. Про тарифы."
+            "text": "Важные изменения Ozon и WB собраны в разделе «Новости площадок», а сроки из сообщений Ozon — подписать УПД, вывезти товар — сами становятся задачами."
           }
         }
       ]
@@ -168,53 +144,116 @@
 }
   </script>
 
-  <!-- Персонажи команды: карточка слева в сетке .moment__grid (на месте .clock).
-       Анимация (app.js) не тронута — работает по .dialog / .msg / .panel. -->
   <style>
-    /* Персонаж — без вертикального разделителя, крупный круглый аватар. */
-    .persona {
-      padding: clamp(24px, 3vw, 50px) 12px clamp(24px, 3vw, 50px) clamp(14px, 2vw, 22px);
-      min-width: 0;
-      display: flex; flex-direction: column; gap: 11px; align-items: flex-start;
+    .hm { max-width: var(--maxw); margin-inline: auto; padding: clamp(28px,4vw,56px) clamp(16px,4vw,52px) 48px; }
+    .hm__hero { text-align: center; }
+    .hm__eyebrow { font-size: 12px; letter-spacing: .08em; text-transform: uppercase; color: var(--mut); font-weight: 600; }
+    .hm__eyebrow .oz { color: #5b8cff; } .hm__eyebrow .wbc { color: var(--wb); }
+    .hm__h1 { font-size: clamp(34px,5.4vw,68px); font-weight: 800; letter-spacing: -0.045em; line-height: 1.02; color: var(--tx); margin-top: 12px; }
+    .hm__h1 .hl { color: var(--lime-tx); }
+    .hm__lead { color: var(--tx2); font-size: clamp(15px,1.5vw,18px); line-height: 1.5; margin: 16px auto 0; max-width: 60ch; }
+    .ic { width: 18px; height: 18px; fill: none; stroke: var(--lime-tx); stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; flex: none; }
+    .ic--mut { stroke: var(--mut); } .ic--sm { width: 13px; height: 13px; }
+
+    .win { max-width: 860px; margin: 32px auto 0; text-align: left; background: var(--gr2); border: 1px solid var(--lime-tx); border-radius: 14px; overflow: hidden; }
+    .win__bar { display: flex; align-items: center; gap: 8px; padding: 10px 14px; font-size: 12.5px; color: var(--mut); background: var(--gr3); border-bottom: 1px solid var(--hair); }
+    .win__dot { width: 8px; height: 8px; border-radius: 50%; background: var(--lime); }
+    .win__demo { margin-left: auto; font-size: 10.5px; text-transform: uppercase; letter-spacing: .06em; }
+    .win__body { padding: 16px; min-height: 330px; display: flex; flex-direction: column; gap: 10px; font-size: 15px; line-height: 1.5; color: var(--tx); }
+    .win__input { display: flex; align-items: center; gap: 10px; margin: 0 12px 12px; padding: 10px 14px; background: var(--gr); border: 1px solid var(--hair2); border-radius: 999px; color: var(--mut); font-size: 14px; }
+    .win__ph.is-typing { color: var(--tx); }
+    .m-q { align-self: flex-end; background: var(--gr3); border-radius: 14px 14px 4px 14px; padding: 9px 13px; max-width: 80%; }
+    .m-q .v { display: flex; align-items: center; gap: 6px; font-size: 11.5px; color: var(--mut); margin-bottom: 2px; }
+    .m-a { max-width: 92%; animation: fin .35s ease both; }
+    .m-a b { color: var(--tx); }
+    .m-t { width: 100%; border-collapse: collapse; font-size: 14px; background: var(--gr); border: 1px solid var(--hair2); border-radius: 10px; overflow: hidden; animation: fin .35s ease both; }
+    .m-t th { text-align: left; font-size: 10.5px; text-transform: uppercase; letter-spacing: .06em; color: var(--mut); font-weight: 600; padding: 8px 10px; background: var(--gr2); }
+    .m-t td { padding: 8px 10px; border-top: 1px solid var(--hair); }
+    .m-t td:last-child, .m-t th:last-child { text-align: right; white-space: nowrap; }
+    .m-t td.neg { color: var(--neg); font-weight: 600; }
+    .m-c { background: var(--gr); border: 1px solid var(--hair2); border-radius: 10px; padding: 11px 13px; font-size: 14px; animation: fin .35s ease both; }
+    .lbl { font-size: 10.5px; letter-spacing: .08em; text-transform: uppercase; color: var(--mut); font-weight: 700; }
+    .lbtn { display: inline-block; margin-top: 10px; font-size: 11px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; background: var(--lime); color: var(--on-lime); border-radius: 8px; padding: 7px 12px; }
+    .lbtn--2 { background: transparent; border: 1px solid var(--hair2); color: var(--tx); margin-left: 6px; }
+    .m-v { font-size: 13px; color: var(--tx2); display: flex; gap: 8px; align-items: center; animation: fin .35s ease both; }
+    .m-v i { font-style: normal; background: var(--tint); color: var(--lime-tx); border-radius: 6px; padding: 2px 8px; font-weight: 700; }
+    @keyframes fin { from { opacity: .2; transform: translateY(6px); } to { opacity: 1; transform: none; } }
+    .dots { display: flex; gap: 8px; justify-content: center; margin-top: 14px; }
+    .dots button { width: 10px; height: 10px; padding: 0; border: 0; border-radius: 999px; background: var(--hair2); cursor: pointer; transition: width .2s, background .2s; position: relative; }
+    .dots button::before { content: ''; position: absolute; inset: -17px -6px; }
+    .dots button.is-on { width: 28px; background: var(--lime); }
+    .hm__cta { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; margin-top: 22px; }
+    .trust { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 12px; max-width: 960px; margin: 56px auto 0; }
+    .tcard { border: 1px solid var(--hair2); border-radius: 12px; padding: 18px; background: var(--gr2); }
+    .tcard b { display: block; font-size: 26px; font-weight: 800; letter-spacing: -0.02em; color: var(--tx); }
+    .tcard span { display: block; color: var(--tx2); font-size: 14px; margin-top: 4px; }
+
+    .hs { margin-top: clamp(64px,8vw,104px); }
+    .hs__eyebrow { font-size: 12px; letter-spacing: .08em; text-transform: uppercase; color: var(--lime-tx); font-weight: 700; }
+    .hs__h2 { font-size: clamp(26px,3.2vw,40px); font-weight: 800; letter-spacing: -0.035em; line-height: 1.06; color: var(--tx); margin-top: 8px; max-width: 24ch; }
+    .hs__p { color: var(--tx2); font-size: clamp(15px,1.4vw,17px); line-height: 1.55; margin-top: 14px; max-width: 52ch; }
+    .split { display: grid; grid-template-columns: minmax(0,1fr) minmax(0,1fr); gap: clamp(24px,4vw,56px); align-items: center; }
+    .split--rev > :first-child { order: 2; }
+    .links { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 18px; }
+    .links a { font-size: 13px; color: var(--tx2); border: 1px solid var(--hair2); border-radius: 999px; padding: 6px 12px; text-decoration: none; }
+    .links a:hover { color: var(--tx); border-color: var(--lime-tx); }
+    .pcard { background: var(--gr2); border: 1px solid var(--hair2); border-radius: 12px; padding: 18px 20px; max-width: 460px; width: 100%; color: var(--tx); }
+    .pcard--end { justify-self: end; } .pcard--start { justify-self: start; }
+    .pcard__t { font-size: 17px; font-weight: 700; margin: 6px 0 8px; }
+    .kv { display: flex; justify-content: space-between; gap: 12px; padding: 8px 0; border-top: 1px solid var(--hair); font-size: 15px; }
+    .kv span:first-child { color: var(--mut); } .kv span:last-child { font-weight: 700; text-align: right; }
+    .kv--sum { border-top: 2px solid var(--tx); } .kv--sum span:first-child { color: var(--tx); font-weight: 800; }
+    .neg { color: var(--neg); } .pos { color: var(--lime-tx); }
+    .hint { margin-top: 12px; font-size: 13.5px; background: var(--gr3); border-radius: 8px; padding: 8px 12px; color: var(--tx2); }
+    .verdict { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; margin-top: 12px; color: var(--mut); font-size: 13px; }
+    .ok { background: var(--tint); color: var(--lime-tx); font-weight: 800; font-size: 15px; border-radius: 6px; padding: 4px 10px; border: 1px solid var(--lime-tx); }
+    .bub { margin-left: auto; width: fit-content; max-width: 90%; background: var(--gr3); border-radius: 12px 12px 4px 12px; padding: 9px 13px; font-size: 15px; }
+    .bub + .acard, .acard + .bub { margin-top: 10px; }
+    .bub__v { display: flex; align-items: center; gap: 6px; font-size: 11.5px; color: var(--mut); margin-bottom: 2px; }
+    .acard { background: var(--gr); border: 1px solid var(--hair2); border-radius: 10px; padding: 11px 13px; font-size: 14px; }
+    .loop { list-style: none; display: grid; grid-template-columns: repeat(4, minmax(0,1fr)); gap: 12px; margin-top: 24px; }
+    .loop li { border: 1px solid var(--hair2); border-radius: 12px; padding: 18px; background: var(--gr2); }
+    .loop__n { display: grid; place-items: center; width: 28px; height: 28px; border-radius: 50%; background: var(--lime); color: var(--on-lime); font-weight: 800; font-size: 14px; }
+    .loop b { display: block; color: var(--tx); font-size: 17px; margin-top: 12px; }
+    .loop p { color: var(--tx2); font-size: 14px; line-height: 1.5; margin-top: 6px; }
+    .loop__hl { border-color: var(--lime-tx) !important; }
+    .offers { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 12px; margin-top: 24px; }
+    .offer { display: flex; flex-direction: column; padding: 24px; border: 1px solid var(--hair2); border-radius: 12px; background: var(--gr2); text-decoration: none; transition: border-color .2s; }
+    .offer:hover { border-color: var(--lime-tx); }
+    .offer .hs__eyebrow { margin-top: 18px; }
+    .offer b { color: var(--tx); font-size: 22px; font-weight: 800; letter-spacing: -0.02em; margin-top: 6px; line-height: 1.15; }
+    .offer p:not(.hs__eyebrow) { color: var(--tx2); font-size: 15px; line-height: 1.5; margin-top: 8px; }
+    .offer .go { margin-top: auto; padding-top: 14px; color: var(--lime-tx); font-weight: 700; font-size: 14px; }
+    .avatars { display: flex; height: 40px; }
+    .avatars img { width: 40px; height: 40px; border-radius: 50%; object-fit: cover; border: 2px solid var(--gr2); margin-right: -10px; }
+    .mps { display: flex; gap: 8px; align-items: center; height: 40px; }
+    .mps img { border-radius: 10px; }
+    .mp { font-size: 11px; font-weight: 700; letter-spacing: .04em; border-radius: 5px; padding: 5px 8px; }
+    .mp--oz { color: #5b8cff; border: 1px solid #5b8cff; } .mp--wb { color: var(--wb); border: 1px solid var(--wb); }
+    .hs__video { margin-top: 20px; max-width: 960px; }
+    .price { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 24px 40px; padding: clamp(24px,3vw,36px) clamp(20px,3vw,40px); border: 1px solid var(--lime-tx); border-radius: 14px; background: var(--gr2); }
+    .price__l { flex: 1 1 420px; }
+    .price__l a { display: inline-block; margin-top: 12px; color: var(--lime-tx); font-size: 15px; }
+    .price__r { display: flex; flex-direction: column; align-items: flex-end; }
+    .price__from { color: var(--mut); font-size: 14px; }
+    .price__sum { font-size: 48px; font-weight: 800; letter-spacing: -0.04em; line-height: 1; color: var(--tx); }
+    .price__sum small { font-size: 20px; color: var(--tx2); font-weight: 600; letter-spacing: 0; }
+    .price__note { color: var(--mut); font-size: 13px; margin-top: 6px; }
+    .hs--faq .faqs { max-width: 860px; }
+    .faq a { color: var(--lime-tx); }
+    .hm__end { text-align: center; } .hm__end .hs__h2 { margin-inline: auto; }
+    .hm__motto { margin-top: 28px; color: var(--mut); font-size: 12px; letter-spacing: .1em; text-transform: uppercase; }
+    @media (max-width: 860px) {
+      .split { grid-template-columns: minmax(0,1fr); }
+      .split--rev > :first-child { order: 0; }
+      .pcard--end, .pcard--start { justify-self: stretch; max-width: none; }
+      .loop { grid-template-columns: minmax(0,1fr) minmax(0,1fr); }
+      .offers, .trust { grid-template-columns: minmax(0,1fr); }
+      .price__r { align-items: flex-start; }
+      .win__body { min-height: 380px; font-size: 14px; }
     }
-    .persona__photo {
-      width: clamp(88px, 12vw, 160px); height: clamp(88px, 12vw, 160px);
-      border-radius: 50%;
-      object-fit: cover; background: var(--gr3);
-      border: 1px solid var(--hair2);
-    }
-    .persona__name {
-      font-weight: 800; font-size: clamp(15px, 1.6vw, 22px);
-      letter-spacing: -0.03em; color: var(--tx); line-height: 1.05;
-    }
-    .persona__role {
-      font-size: 9.5px; letter-spacing: .16em; text-transform: uppercase;
-      color: var(--lime-tx);
-    }
-    /* Шире левая колонка — чтобы аватар был крупным. */
-    .moment__grid { grid-template-columns: clamp(120px, 15vw, 200px) minmax(0, 1fr); }
-    /* Чётные секции (--alt): фото справа, диалог слева — ритм как в макете.
-       Только с планшета: на мобиле колонка персонажа узкая, ролью наезжало бы на ответ. */
-    @media (min-width: 641px) {
-      .moment--alt .moment__grid { grid-template-columns: minmax(0, 1fr) clamp(120px, 15vw, 200px); }
-      .moment--alt .dialog { order: 1; }
-      .moment--alt .persona {
-        order: 2; align-items: flex-end; text-align: right;
-        padding: clamp(24px, 3vw, 50px) clamp(14px, 2vw, 22px) clamp(24px, 3vw, 50px) 12px;
-      }
-    }
-    /* Облако вопроса шире — текст в 1–2 строки. */
-    .bubble--seller { max-width: min(100%, 62ch); }
-    .bubble--seller .question { white-space: normal; font-size: clamp(15px, 1.6vw, 23px); }
-    /* Объединённая панель Кирилла: подсорт + отправления по регионам. */
-    .panel__sub {
-      border-top: 1px solid var(--hair); padding-top: 11px;
-      display: flex; flex-direction: column; gap: 8px;
-    }
-    @media (max-width: 560px) {
-      .moment__grid { grid-template-columns: clamp(96px, 26vw, 132px) minmax(0, 1fr); }
-      .persona__photo { width: clamp(72px, 22vw, 112px); height: clamp(72px, 22vw, 112px); }
-    }
+    @media (max-width: 520px) { .loop { grid-template-columns: minmax(0,1fr); } }
+    @media (prefers-reduced-motion: reduce) { .m-a, .m-t, .m-c, .m-v { animation: none; } }
   </style>
   <!-- Yandex.Metrika counter -->
   <script type="text/javascript">
@@ -232,11 +271,10 @@
 </head>
 <body>
 
-  <!-- ===================== HEADER ===================== -->
   <header class="day-strip">
     <div class="day-strip__inner">
-      <a href="#top" class="logo" aria-label="Расчётус — на главную">
-        <img class="logo__badge" src="assets/img/badge.svg" alt="" width="32" height="32">
+      <a href="/" class="logo" aria-label="Расчётус — на главную">
+        <img class="logo__badge" src="/assets/img/badge.svg" alt="" width="32" height="32">
         <svg class="logo__word" viewBox="97.46 81.55 401.96 91.46" role="img" aria-label="расчётус">
           <g fill="currentColor">
             <path d="M97.46,111.12h13.01l.27,7.19c2.64-5.37,7.73-8.28,14.38-8.28,13.65,0,20.66,11.01,20.66,25.21s-7.01,25.21-20.66,25.21c-6.28,0-11.19-2.82-14.01-8.01v20.57h-13.65v-61.88ZM120.94,150.07c7.37,0,10.74-6.83,10.74-14.83s-3.55-14.83-10.74-14.83-10.74,7.01-10.74,14.83,3.46,14.83,10.74,14.83Z"/>
@@ -255,383 +293,165 @@
         </svg>
       </a>
 
-      <div class="progress" aria-hidden="true">
-        <div class="progress__labels" id="hourLabels">
-          <span>Геннадий</span><span>Алёна</span><span>Ира</span>
-          <span>Антон</span><span>Кирилл</span>
-        </div>
-        <div class="progress__track">
-          <div class="progress__fill" id="progressFill"></div>
-          <div class="progress__dot" id="progressDot"></div>
-        </div>
-      </div>
+      <div class="day-strip__spacer" aria-hidden="true"></div>
 
-      <button type="button" class="theme-toggle" id="themeToggle"
-              aria-label="Сменить тему" title="Сменить тему">◐</button>
-
+      <button type="button" class="theme-toggle" id="themeToggle" aria-label="Сменить тему" title="Сменить тему">◐</button>
       <a href="https://mp.raschetus.ru/register" class="btn btn--sm btn--lime" data-cta="connect">Подключить</a>
     </div>
   </header>
 
-  <main>
-    <!-- ===================== OPENING (hero) ===================== -->
-    <section id="top" class="hero" aria-label="Открытие">
-      <div class="hero__inner">
-        <p class="eyebrow">Финансовая аналитика <span class="ozonus">Ozon</span> и <span class="wbus">Wildberries</span></p>
-        <h1 class="hero__title">Как увеличить прибыль?</h1>
-        <p class="hero__sub"><span class="hl">Расчётус</span> — сервис №1 для командной работы на маркетплейсах</p>
-        <div class="hero__body">
-          <div class="hero__cta">
-            <a href="https://mp.raschetus.ru/register" class="btn btn--lime btn--lg" data-cta="connect">Подключить бесплатно</a>
-            <a href="#obzor" class="hero__link" data-cta="obzor">Смотреть обзор сервиса →</a>
-            <a href="/calculator/" class="hero__link" data-cta="calculator">Калькулятор прибыли Ozon →</a>
+  <main class="hm">
+    <section id="top" class="hm__hero" aria-label="ИИ Ассистент">
+      <p class="hm__eyebrow">Аналитика <span class="oz">Ozon</span> и <span class="wbc">Wildberries</span> с ИИ Ассистентом</p>
+      <h1 class="hm__h1">Не ищите в отчётах.<br><span class="hl">Спросите ИИ Ассистента.</span></h1>
+      <p class="hm__lead">Он знает ваш бизнес на Ozon и WB: найдёт, где уходят деньги, поручит задачу команде и покажет, сработало ли.</p>
+
+      <div class="win" aria-label="Пример диалога с ассистентом на демо-данных">
+        <div class="win__bar"><span class="win__dot"></span>ИИ Ассистент · Демо-магазин Ozon и WB<span class="win__demo">демо-данные</span></div>
+        <div class="win__body" id="winBody" aria-live="polite"></div>
+        <div class="win__input"><svg class="ic ic--mut" viewBox="0 0 24 24" aria-hidden="true"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3"/></svg><span id="winInput" class="win__ph">Спросите голосом или текстом…</span></div>
+      </div>
+      <div class="dots" id="winDots" role="tablist" aria-label="Примеры вопросов"></div>
+
+      <div class="hm__cta">
+        <a href="https://mp.raschetus.ru/register" class="btn btn--lime btn--lg" data-cta="connect">Подключить магазин бесплатно</a>
+      </div>
+
+      <div class="trust">
+        <div class="tcard"><b>11 млрд ₽</b><span>оборот магазинов в месяц</span></div>
+        <div class="tcard"><b>670+ магазинов</b><span>на Ozon и WB уже подключены</span></div>
+        <div class="tcard"><b>100+ команд</b><span>выстраивают свою работу в Расчётусе</span></div>
+      </div>
+    </section>
+
+    <section class="hs" aria-label="Учёт">
+      <div class="split">
+        <div>
+          <p class="hs__eyebrow">Основа</p>
+          <h2 class="hs__h2">Ассистент не гадает. Читает ваш учёт</h2>
+          <p class="hs__p">Под ассистентом полный учёт Ozon и WB: юнит-экономика каждого товара, ОПиУ и движение денег, остатки и поставки, реклама и ДРР.</p>
+          <div class="links">
+            <a href="/opiu/">Прибыли и убытки</a><a href="/unit-ekonomika/">Юнит-экономика</a><a href="/reklama/">Реклама и ДРР</a><a href="/akcii/">Акции Ozon</a><a href="/postavki/">Поставки</a><a href="/calculator/">Калькулятор</a>
           </div>
-          <p class="hero__note" style="margin-top:14px;font-size:14px;line-height:1.45;color:var(--tx2)">Ozon и Wildberries в одном кабинете. <a style="color:var(--lime-tx)" href="/docs/stores/wildberries/" target="_blank" rel="noopener">Что уже работает для WB →</a></p>
+        </div>
+        <div class="pcard pcard--end">
+          <div class="lbl">Разбор одной продажи · демо</div>
+          <div class="kv"><span>Цена продажи</span><span>1 290 ₽</span></div>
+          <div class="kv"><span>Комиссия и логистика</span><span class="neg">−418 ₽</span></div>
+          <div class="kv"><span>Себестоимость</span><span class="neg">−540 ₽</span></div>
+          <div class="kv"><span>Реклама</span><span class="neg">−286 ₽</span></div>
+          <div class="kv kv--sum"><span>Остаётся вам</span><span class="pos">46 ₽ · 3,6%</span></div>
+          <div class="hint">«Почему так мало?» — спросите ассистента</div>
         </div>
       </div>
     </section>
 
-    <!-- ===================== OFFERS ===================== -->
-    <section class="offers" aria-label="Условия">
-      <div class="offers__grid">
-        <div class="offer">
-          <svg class="offer__ic" viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10.5l4 4 8-9" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          <div class="offer__title">Единый тариф</div>
-          <p class="offer__desc">Для больших и маленьких — одинаковая цена при любой выручке.</p>
+    <section class="hs" aria-label="Гипотезы">
+      <div class="split split--rev">
+        <div>
+          <p class="hs__eyebrow">Гипотезы</p>
+          <h2 class="hs__h2">Ассистент разбирает гипотезы</h2>
+          <p class="hs__p">Задумали поднять цену или сделать поставку в новый кластер — ассистент посчитает прогноз по вашим данным, запишет его и потом сравнит с фактом.</p>
         </div>
-        <div class="offer">
-          <svg class="offer__ic" viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10.5l4 4 8-9" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          <div class="offer__title">5 сотрудников</div>
-          <p class="offer__desc">В каждом тарифе бесплатно — вся команда в одном кабинете.</p>
-        </div>
-        <div class="offer">
-          <svg class="offer__ic" viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10.5l4 4 8-9" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          <div class="offer__title">5 дней бесплатно</div>
-          <p class="offer__desc">Полный доступ ко всем отчётам и ботам сразу. Без привязки карты.</p>
+        <div class="pcard pcard--start">
+          <div class="lbl">Гипотеза · демо</div>
+          <div class="pcard__t">Цена пледа +10%</div>
+          <div class="kv"><span>Прогноз прибыли</span><span>+45%</span></div>
+          <div class="kv"><span>Факт</span><span class="pos">+38%</span></div>
+          <div class="kv"><span>Заказы</span><span>−4%, обычные колебания</span></div>
+          <div class="verdict"><span class="ok">Подтвердилась</span><span>следующий шаг — сразу задачей</span></div>
         </div>
       </div>
     </section>
 
-    <!-- ===================== ОБЗОР СЕРВИСА (видео) ===================== -->
-    <section id="obzor" class="video-sec" aria-label="Обзор сервиса">
-      <div class="video-sec__inner">
-        <h2 class="video-sec__title">Обзор сервиса за 3 минуты</h2>
-        <div class="rp" data-src="assets/media/promo.mp4?v=20261123" data-poster="assets/media/promo-poster.jpg?v=20261123" data-title="Обзор сервиса Расчётус"></div>
-      </div>
-    </section>
-
-    <!-- ===================== TEAM (5 персонажей) ===================== -->
-
-    <!-- Геннадий — селлер, руководитель -->
-    <section id="gennadiy" class="moment" data-moment="0" aria-label="Геннадий — селлер, руководитель">
-      <div class="moment__grid">
-        <div class="persona">
-          <img class="persona__photo" src="assets/img/team/gennadiy.jpg" alt="Геннадий, селлер" style="object-position:50% 24%" width="100" height="100" loading="lazy">
-          <span class="persona__name">Геннадий</span>
-          <span class="persona__role">селлер, руководитель</span>
+    <section class="hs" aria-label="Заметки и память">
+      <div class="split">
+        <div>
+          <p class="hs__eyebrow">Заметки и память</p>
+          <h2 class="hs__h2">Ассистент записывает ваши идеи</h2>
+          <p class="hs__p">Надиктуйте, что сделали, — заметка ляжет в журнал, видно, что было до и после. Ваши правила запомнит с первого раза.</p>
         </div>
-        <div class="dialog">
-          <div class="msg msg--seller">
-            <div class="bubble--seller">
-              <div class="bubble__kicker">Геннадий</div>
-              <span class="question">Открыл кабинет Ozon — двадцать отчётов. Сколько реально остаётся с продаж?</span>
-            </div>
-          </div>
-          <div class="msg msg--service">
-            <div class="bubble--service">
-              <div class="bubble__kicker">расчётус</div>
-              <h2 class="answer-title">Пульс — аналитика магазина Ozon за пять секунд</h2>
-              <p class="answer-desc">Один экран вместо двадцати отчётов Ozon: оценка магазина от 0 до 100, реальная прибыль и что тянет её вверх и вниз, топ-5 товаров и главные утечки — по важности, и подсказка, за что взяться первым. <a style="color:var(--lime-tx)" href="/docs/dashboard/overview/" target="_blank" rel="noopener">Как читать «Пульс» →</a></p>
-              <div class="panel">
-                <span class="panel__label">здоровье бизнеса 0–100</span>
-                <div class="pulse">
-                  <svg class="pulse__ring" viewBox="0 0 100 100" aria-hidden="true">
-                    <circle cx="50" cy="50" r="38" fill="none" stroke="var(--hair)" stroke-width="8"></circle>
-                    <circle cx="50" cy="50" r="38" fill="none" stroke="var(--lime-tx)" stroke-width="8"
-                            stroke-linecap="round" stroke-dasharray="176 239"
-                            transform="rotate(-90 50 50)"></circle>
-                    <text x="50" y="56" text-anchor="middle" font-size="25" font-weight="800" fill="var(--lime-tx)">74</text>
-                  </svg>
-                  <div class="pulse__notes">
-                    <span class="c-neg">− реклама выше нормы: 6 SKU</span>
-                    <span class="c-warn">− два кластера в ноль за 3 дня</span>
-                    <span class="c-lime">+ маржа растёт третью неделю</span>
-                    <span class="c-mut">сначала: ставки на 2 артикулах</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <img class="avatar avatar--service" src="assets/img/badge.svg" alt="Расчётус" width="26" height="26">
-          </div>
+        <div class="pcard pcard--end">
+          <div class="bub"><span class="bub__v"><svg class="ic ic--sm ic--mut" viewBox="0 0 24 24" aria-hidden="true"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3"/></svg>голосом</span>Сегодня поменяла главное фото у свитера</div>
+          <div class="acard"><div class="lbl">Заметка в журнал событий</div><div>Новое главное фото · Свитер вязаный 48 · сегодня</div><span class="lbtn">Записать</span></div>
+          <div class="bub">Запомни: в акциях Ozon я не участвую</div>
+          <div class="acard"><div class="lbl">Запомнить</div><div>Не участвую в акциях Ozon</div><span class="lbtn">Запомнить</span></div>
         </div>
       </div>
     </section>
 
-    <!-- Алёна — РОП -->
-    <section id="alena" class="moment moment--alt" data-moment="1" aria-label="Алёна — руководитель отдела продаж">
-      <div class="moment__grid">
-        <div class="persona">
-          <img class="persona__photo" src="assets/img/team/alena.jpg" alt="Алёна, руководитель отдела продаж" style="object-position:50% 18%" width="160" height="160" loading="lazy">
-          <span class="persona__name">Алёна</span>
-          <span class="persona__role">руководитель отдела продаж</span>
+    <section class="hs" aria-label="Путь решения">
+      <p class="hs__eyebrow">Чем отличается</p>
+      <h2 class="hs__h2">Ответ — это только начало. Ассистент доводит решение до результата</h2>
+      <ol class="loop">
+        <li><span class="loop__n">1</span><b>Спросили</b><p>Голосом или текстом: «почему упала прибыль?»</p></li>
+        <li><span class="loop__n">2</span><b>Поручили</b><p>Готовая задача сотруднику — одной кнопкой</p></li>
+        <li><span class="loop__n">3</span><b>Отметили</b><p>«Поменял фото», «поднял цену» — заметка в журнале</p></li>
+        <li class="loop__hl"><span class="loop__n">4</span><b>Проверили фактом</b><p>Сработало или нет — с честным итогом</p></li>
+      </ol>
+    </section>
+
+    <section class="hs" aria-label="Всё в одном кабинете">
+      <p class="hs__eyebrow">Не только ИИ</p>
+      <h2 class="hs__h2">Всё в одном кабинете</h2>
+      <div class="offers">
+        <a class="offer" href="/komanda/">
+          <div class="avatars"><img src="/assets/img/team/gennadiy.jpg" alt="" style="object-position:50% 24%"><img src="/assets/img/team/alena.jpg" alt="" style="object-position:50% 18%"><img src="/assets/img/team/kirill.jpg" alt=""><img src="/assets/img/team/anton.jpg" alt=""><img src="/assets/img/team/ira.jpg" alt="" style="object-position:50% 18%"></div>
+          <p class="hs__eyebrow">Команда</p>
+          <b>5 мест без доплаты</b>
+          <p>Права и роли для каждого, задачи из отчётов и статистика команды.</p>
+          <span class="go">Подробнее →</span>
+        </a>
+        <a class="offer" href="/ozon-wb/">
+          <div class="mps"><span class="mp mp--oz">OZON</span><span class="mp mp--wb">WB</span></div>
+          <p class="hs__eyebrow">Площадки</p>
+          <b>Все магазины в одном отчёте</b>
+          <p>Магазины всех площадок в одном кабинете: общая прибыль, деньги и баланс.</p>
+          <span class="go">Подробнее →</span>
+        </a>
+        <a class="offer" href="/docs/addons/telegram/" target="_blank" rel="noopener">
+          <div class="mps"><img src="/assets/img/telegram.png" alt="Telegram" width="40" height="40"><img src="/assets/img/max.png" alt="MAX" width="40" height="40"></div>
+          <p class="hs__eyebrow">Telegram и MAX</p>
+          <b>Голосовой ассистент в кармане</b>
+          <p>Знает ваш бизнес, разбирает гипотезы, записывает идеи и ставит задачи — голосом, прямо с телефона.</p>
+          <span class="go">Подробнее →</span>
+        </a>
+      </div>
+    </section>
+
+    <section id="obzor" class="hs" aria-label="Обзор сервиса">
+      <h2 class="hs__h2">Весь Расчётус за 3 минуты</h2>
+      <div class="hs__video"><div class="rp" data-src="/assets/media/promo.mp4?v=20261123" data-poster="/assets/media/promo-poster.jpg?v=20261123" data-title="Обзор сервиса Расчётус"></div></div>
+    </section>
+
+    <section class="hs" aria-label="Цена">
+      <div class="price">
+        <div class="price__l">
+          <h2 class="hs__h2" style="margin-top:0">Одна цена при любой выручке и площадке</h2>
+          <a href="/docs/getting-started/tariffs/" target="_blank" rel="noopener">Условия тарифов →</a>
         </div>
-        <div class="dialog">
-          <div class="msg msg--seller">
-            <div class="bubble--seller">
-              <div class="bubble__kicker">Алёна</div>
-              <span class="question">Ozon сам добавил половину каталога в акции. Мы там зарабатываем?</span>
-            </div>
-          </div>
-          <div class="msg msg--service">
-            <div class="bubble--service">
-              <div class="bubble__kicker">расчётус</div>
-              <h2 class="answer-title">Маржинальность каждого товара в акциях Ozon</h2>
-              <p class="answer-desc">Ozon сам добавляет товары в акции и не всегда предупреждает. Расчётус показывает маржинальность каждого артикула под скидкой и учитывает баллы за скидку, а автосценарии сами убирают автодобавленные — без ручной проверки списков каждое утро. <a style="color:var(--lime-tx)" href="/akcii/">Аналитика акций →</a></p>
-              <div class="panel">
-                <span class="panel__label">маржинальность по SKU</span>
-                <div class="chips">
-                  <span class="chip c-lime">в акции <b>9</b></span>
-                  <span class="chip c-warn">добавлены Ozon <b>4</b></span>
-                  <span class="chip c-neg">в минусе <b>3</b></span>
-                </div>
-                <div class="lines">
-                  <div class="line"><span class="line__name">м/чёрный/50</span><span class="line__mid">−12%</span><span class="line__val c-neg">минус</span></div>
-                  <div class="line"><span class="line__name">n/fytbolka/bel/48</span><span class="line__mid">−8%</span><span class="line__val c-warn">на грани</span></div>
-                  <div class="line"><span class="line__name">pled/zelen/220</span><span class="line__mid">−15%</span><span class="line__val c-lime">держит</span></div>
-                </div>
-              </div>
-            </div>
-            <img class="avatar avatar--service" src="assets/img/badge.svg" alt="Расчётус" width="26" height="26">
-          </div>
+        <div class="price__r">
+          <span class="price__from">от</span>
+          <span class="price__sum">4 400 ₽<small>/мес</small></span>
+          <span class="price__note">при оплате за год</span>
         </div>
       </div>
     </section>
 
-    <!-- Ира — менеджер -->
-    <section id="ira" class="moment" data-moment="2" aria-label="Ира — менеджер">
-      <div class="moment__grid">
-        <div class="persona">
-          <img class="persona__photo" src="assets/img/team/ira.jpg" alt="Ира, менеджер" style="object-position:50% 18%" width="100" height="100" loading="lazy">
-          <span class="persona__name">Ира</span>
-          <span class="persona__role">менеджер</span>
-        </div>
-        <div class="dialog">
-          <div class="msg msg--seller">
-            <div class="bubble--seller">
-              <div class="bubble__kicker">Ира</div>
-              <span class="question">Какой товар в минусе — как считать юнит-экономику по SKU?</span>
-            </div>
-          </div>
-          <div class="msg msg--service">
-            <div class="bubble--service">
-              <div class="bubble__kicker">расчётус</div>
-              <h2 class="answer-title">Юнит-экономика товара до копейки на SKU</h2>
-              <p class="answer-desc">Настоящая прибыль по каждому товару — со всеми удержаниями Ozon (комиссия, логистика, реклама, налог) и рекламой, разнесёнными до штуки. Видно, что из 1 290 ₽ остаётся 46 и почему. Прикинуть до закупки — в <a style="color:var(--lime-tx)" href="/calculator/">калькуляторе</a>, по факту — в отчёте <a style="color:var(--lime-tx)" href="/unit-ekonomika/">«Юнит-экономика»</a>.</p>
-              <div class="panel">
-                <span class="panel__label">разбор одной продажи</span>
-                <div class="bars">
-                  <div class="bar">
-                    <div class="bar__head"><span class="bar__label">продажи, 1 шт</span><span class="bar__val">1 290 ₽</span></div>
-                    <div class="bar__track"><div class="bar__fill" style="width:100%;background:var(--tx)"></div></div>
-                  </div>
-                  <div class="bar">
-                    <div class="bar__head"><span class="bar__label">комиссия + логистика</span><span class="bar__val c-neg">−418 ₽</span></div>
-                    <div class="bar__track"><div class="bar__fill" style="width:32%;background:var(--neg)"></div></div>
-                  </div>
-                  <div class="bar">
-                    <div class="bar__head"><span class="bar__label">себестоимость</span><span class="bar__val c-neg">−540 ₽</span></div>
-                    <div class="bar__track"><div class="bar__fill" style="width:42%;background:var(--neg)"></div></div>
-                  </div>
-                  <div class="bar">
-                    <div class="bar__head"><span class="bar__label">реклама CPC + CPO</span><span class="bar__val c-warn">−286 ₽</span></div>
-                    <div class="bar__track"><div class="bar__fill" style="width:22%;background:var(--warn)"></div></div>
-                  </div>
-                  <div class="bars__total"><span>осталось</span><span class="c-neg">46 ₽ · 3,6%</span></div>
-                </div>
-              </div>
-            </div>
-            <img class="avatar avatar--service" src="assets/img/badge.svg" alt="Расчётус" width="26" height="26">
-          </div>
-        </div>
+    <section class="hs hs--faq" aria-label="Частые вопросы">
+      <h2 class="hs__h2">Частые вопросы</h2>
+      <div class="faqs">
+        <details class="faq"><summary>Какие отчёты есть, кроме ассистента?</summary><p>Прибыли и убытки, движение денег, баланс и платёжный календарь, <a href="/unit-ekonomika/">юнит-экономика</a> каждого товара, <a href="/reklama/">реклама и ДРР</a>, <a href="/akcii/">акции Ozon</a>, возвраты и покупатели, финансовый план.</p></details>
+        <details class="faq"><summary>Помогает планировать поставки?</summary><p>Да. Расчётус считает, сколько и куда везти по кластерам Ozon и складам FBS, учитывая скорость продаж и товар в пути, и собирает сборочный лист. <a href="/postavki/">Планирование поставок</a>.</p></details>
+        <details class="faq"><summary>Можно ответить на отзывы с ИИ?</summary><p>Да. ИИ готовит ответы на отзывы и вопросы покупателей, а правила и шаблоны отвечают сами — без подписки Ozon Premium Pro.</p></details>
+        <details class="faq"><summary>Как не пропустить изменения и сроки Ozon и WB?</summary><p>Важные изменения Ozon и WB собраны в разделе «Новости площадок», а сроки из сообщений Ozon — подписать УПД, вывезти товар — сами становятся задачами.</p></details>
       </div>
     </section>
 
-    <!-- Антон — финансист -->
-    <section id="anton" class="moment moment--alt" data-moment="3" aria-label="Антон — финансист">
-      <div class="moment__grid">
-        <div class="persona">
-          <img class="persona__photo" src="assets/img/team/anton.jpg" alt="Антон, финансист" style="object-position:50% 16%" width="100" height="100" loading="lazy">
-          <span class="persona__name">Антон</span>
-          <span class="persona__role">финансист</span>
-        </div>
-        <div class="dialog">
-          <div class="msg msg--seller">
-            <div class="bubble--seller">
-              <div class="bubble__kicker">Антон</div>
-              <span class="question">Выполняем ли план и какой прогноз прибыли на месяц?</span>
-            </div>
-          </div>
-          <div class="msg msg--service">
-            <div class="bubble--service">
-              <div class="bubble__kicker">расчётус</div>
-              <h2 class="answer-title">План продаж и прогноз прибыли на месяц</h2>
-              <p class="answer-desc">Расчётус строит план продаж и прогноз прибыли по вашим данным — на месяц вперёд. Видно, куда идёт бизнес и что заказывать, пока ещё можно повлиять, а не в отчёте задним числом. <a style="color:var(--lime-tx)" href="/docs/finances/planning/" target="_blank" rel="noopener">Финансовое планирование →</a></p>
-              <div class="panel">
-                <span class="panel__label">план и прогноз месяца</span>
-                <div class="day">
-                  <div class="day__row"><span class="k">прогноз выручки</span><span class="v">6 200 000 ₽</span></div>
-                  <div class="day__row"><span class="k">прогноз прибыли</span><span class="v c-lime">+1 340 000 ₽</span></div>
-                  <div class="day__row"><span class="k">план месяца</span><span class="v">68% выполнен</span></div>
-                  <svg class="day__chart" viewBox="0 0 300 70" preserveAspectRatio="none" aria-hidden="true">
-                    <polyline points="0,58 40,52 80,46 120,40 160,34 200,28 200,70 0,70" fill="var(--tint)"></polyline>
-                    <polyline points="0,58 40,52 80,46 120,40 160,34 200,28" fill="none"
-                              stroke="var(--lime-tx)" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"></polyline>
-                    <polyline points="200,28 240,19 280,9" fill="none"
-                              stroke="var(--lime-tx)" stroke-width="2" stroke-dasharray="4 5" stroke-linecap="round" opacity="0.85"></polyline>
-                    <circle cx="200" cy="28" r="3" fill="var(--lime-tx)"></circle>
-                    <circle cx="280" cy="9" r="3.5" fill="none" stroke="var(--lime-tx)" stroke-width="2"></circle>
-                  </svg>
-                </div>
-              </div>
-            </div>
-            <img class="avatar avatar--service" src="assets/img/badge.svg" alt="Расчётус" width="26" height="26">
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Кирилл — логист -->
-    <section id="kirill" class="moment" data-moment="4" aria-label="Кирилл — логист">
-      <div class="moment__grid">
-        <div class="persona">
-          <img class="persona__photo" src="assets/img/team/kirill.jpg" alt="Кирилл, логист" style="object-position:50% 16%" width="100" height="100" loading="lazy">
-          <span class="persona__name">Кирилл</span>
-          <span class="persona__role">логист</span>
-        </div>
-        <div class="dialog">
-          <div class="msg msg--seller">
-            <div class="bubble--seller">
-              <div class="bubble__kicker">Кирилл</div>
-              <span class="question">Что и куда везти — как планировать поставки на Ozon?</span>
-            </div>
-          </div>
-          <div class="msg msg--service">
-            <div class="bubble--service">
-              <div class="bubble__kicker">расчётус</div>
-              <h2 class="answer-title">Планирование поставок по кластерам Ozon и FBS</h2>
-              <p class="answer-desc">Скорость продаж, дни запаса, товар в пути и в черновиках — по всем кластерам Ozon и складам FBS. Расчётус планирует поставки: сколько и куда везти (подсорт), сборочный лист и бронь слотов приёмки. Если Ozon обнулил склад, останется снимок остатка на дату обнуления — с ним запрашивают возмещение. <a style="color:var(--lime-tx)" href="/postavki/">Планирование поставок →</a></p>
-              <div class="panel">
-                <span class="panel__label">дни запаса · все кластеры + FBS</span>
-                <div class="clusters">
-                  <div class="cluster cluster--warn" title="12 дней запаса">12</div>
-                  <div class="cluster cluster--crit" title="6 дней запаса">6</div>
-                  <div class="cluster cluster--cool" title="31 день запаса">31</div>
-                  <div class="cluster cluster--crit" title="3 дня запаса">3</div>
-                  <div class="cluster cluster--ok"   title="18 дней запаса">18</div>
-                  <div class="cluster cluster--warn" title="9 дней запаса">9</div>
-                  <div class="cluster cluster--cool" title="44 дня запаса">44</div>
-                  <div class="cluster cluster--crit" title="7 дней запаса">7</div>
-                  <div class="cluster cluster--ok"   title="22 дня запаса">22</div>
-                  <div class="cluster cluster--crit" title="5 дней запаса">5</div>
-                  <div class="cluster cluster--warn" title="14 дней запаса">14</div>
-                  <div class="cluster cluster--ok"   title="27 дней запаса">27</div>
-                  <div class="cluster cluster--crit" title="2 дня запаса">2</div>
-                  <div class="cluster cluster--cool" title="38 дней запаса">38</div>
-                  <div class="cluster cluster--warn" title="11 дней запаса">11</div>
-                  <div class="cluster cluster--ok"   title="25 дней запаса">25</div>
-                  <div class="cluster cluster--crit" title="4 дня запаса">4</div>
-                  <div class="cluster cluster--ok"   title="19 дней запаса">19</div>
-                </div>
-                <div class="panel__sub">
-                  <span class="panel__label">отправления по регионам</span>
-                  <div class="geo">
-                    <div class="geo__row">
-                      <div class="geo__meta"><span class="geo__name">Центр</span>
-                        <div class="geo__track"><div class="geo__fill" style="width:68%;background:var(--lime-tx)"></div></div></div>
-                      <span class="geo__pct">41%</span>
-                    </div>
-                    <div class="geo__row">
-                      <div class="geo__meta"><span class="geo__name">Урал</span>
-                        <div class="geo__track"><div class="geo__fill" style="width:26%;background:var(--warn)"></div></div></div>
-                      <span class="geo__pct">14%</span>
-                    </div>
-                    <div class="geo__row">
-                      <div class="geo__meta"><span class="geo__name">Дальний Восток</span>
-                        <div class="geo__track"><div class="geo__fill" style="width:11%;background:var(--neg)"></div></div></div>
-                      <span class="geo__pct">6%</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <img class="avatar avatar--service" src="assets/img/badge.svg" alt="Расчётус" width="26" height="26">
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ===================== SEO: capabilities + FAQ ===================== -->
-    <section class="caps" aria-label="Частые вопросы">
-      <div class="caps__inner">
-        <h2 class="caps__faq-h">Частые вопросы</h2>
-        <div class="faqs">
-          <details class="faq">
-            <summary>Как посчитать чистую прибыль на Ozon?</summary>
-            <p>Расчётус подключается к кабинету по API и собирает отчёт о прибылях и убытках (ОПиУ):
-              из выручки вычитаются комиссия, логистика, эквайринг, реклама, хранение, возвраты,
-              налог и себестоимость. Вы видите фактическую прибыль по магазину и по каждому товару,
-              а не выручку из кабинета. <a href="/opiu/">Подробнее про ОПиУ</a>.</p>
-          </details>
-          <details class="faq">
-            <summary>Что такое юнит-экономика товара на Ozon?</summary>
-            <p>Это расчёт прибыли на одну единицу товара со всеми удержаниями Ozon и рекламой,
-              разнесёнными до штуки: цена минус комиссия категории, логистика, невыкупы и возвраты,
-              реклама, налог и себестоимость. Прикинуть прибыль до закупки можно в
-              <a href="/calculator/">бесплатном калькуляторе</a>, а по факту продаж — в
-              <a href="/docs/analytics/unit-economics/" target="_blank" rel="noopener">отчёте «Юнит-экономика»</a>.</p>
-          </details>
-          <details class="faq">
-            <summary>Как считать ДРР и оценивать рекламу на Ozon?</summary>
-            <p>ДРР — доля рекламных расходов от выручки. Расчётус показывает ДРР и расходы на
-              продвижение по каждому товару, поэтому видно, где реклама съедает маржу, а где её
-              стоит масштабировать. <a href="/reklama/">Реклама и ДРР по каждому товару</a> и <a href="/docs/ads/" target="_blank" rel="noopener">как устроена аналитика рекламы</a>.</p>
-          </details>
-          <details class="faq">
-            <summary>Что везти на склады Ozon — как считается подсорт?</summary>
-            <p>Расчётус считает подсорт по всем кластерам Ozon и складам FBS: скорость продаж, дни
-              запаса, товар в пути и в черновиках. Формирует сборочный лист и помогает забронировать
-              слот приёмки. <a href="/docs/supplies/supply-planning/" target="_blank" rel="noopener">Про планирование поставок</a>.</p>
-          </details>
-          <details class="faq">
-            <summary>Чем Расчётус отличается от аналитики в кабинете Ozon?</summary>
-            <p>Кабинет Ozon показывает выручку и разрозненные отчёты. Расчётус сводит всё в реальную
-              прибыль: ОПиУ, юнит-экономику по товару, планирование поставок, рекламу и возвраты — в
-              одном кабинете и для всей команды. Это финансовая аналитика для управленческих решений,
-              а не выгрузки данных.</p>
-          </details>
-          <details class="faq">
-            <summary>Работает ли Расчётус с Wildberries?</summary>
-            <p>Да, в открытой бете. Магазин WB подключается по токену WB API, и его отчёты появляются в тех же разделах, что у Ozon: ОПиУ, ОДДС, Баланс, Операционка, «Юнитка и Реклама», Соинвест (СПП), остатки и поставки. Планирование поставок, рекламные отчёты, «Отзывы и вопросы» и раздел «Покупатели» пока работают только для Ozon. В тестовом периоде магазин WB подключить нельзя. До 31 декабря 2026 года магазины WB бесплатны для кабинетов с оплаченной подпиской Ozon и не занимают место в тарифе; данные загружаются с 1 января 2026 года. <a href="/docs/stores/wildberries/" target="_blank" rel="noopener">Как подключить Wildberries</a>.</p>
-          </details>
-          <details class="faq">
-            <summary>Есть ли бесплатный доступ и сколько стоит?</summary>
-            <p>Есть 5 дней полного доступа ко всем отчётам без привязки карты. Тариф единый для
-              больших и маленьких магазинов, и в каждом тарифе бесплатно до 5 сотрудников.
-              <a href="/docs/getting-started/tariffs/" target="_blank" rel="noopener">Про тарифы</a>.</p>
-          </details>
-        </div>
-      </div>
-    </section>
-
-    <!-- ===================== CLOSING (motto) ===================== -->
-    <section id="end" class="closing" aria-label="Финал">
-      <div class="closing__inner">
-        <p class="closing__eyebrow">расчётус</p>
-        <p class="closing__motto">Посчитано.<br>Сходится.<br>Точка.</p>
-        <div class="closing__cta">
-          <a href="https://mp.raschetus.ru/register" class="btn btn--dark" data-cta="connect">Протестировать бесплатно →</a>
-        </div>
-      </div>
+    <section class="hs hm__end" aria-label="Начать">
+      <h2 class="hs__h2">Подключите ИИ к вашему бизнесу</h2>
+      <div class="hm__cta"><a href="https://mp.raschetus.ru/register" class="btn btn--lime btn--lg" data-cta="connect">Подключить бесплатно</a></div>
+      <p class="hm__motto">Посчитано. Сходится. Точка.</p>
     </section>
   </main>
 
@@ -703,9 +523,94 @@
     </div>
   </footer>
 
-  <script src="assets/app.js?v=20261120b" defer></script>
+  <script>
+    (function () {
+      var r = document.documentElement, b = document.getElementById('themeToggle');
+      function g() { return r.classList.contains('light') ? '◑' : '◐'; }
+      if (b) {
+        b.textContent = g();
+        b.addEventListener('click', function () {
+          r.classList.toggle('light');
+          try { localStorage.setItem('rsh-theme', r.classList.contains('light') ? 'light' : 'dark'); } catch (e) {}
+          b.textContent = g();
+          var m = document.querySelector('meta[name="theme-color"]');
+          if (m) m.setAttribute('content', r.classList.contains('light') ? '#ffffff' : '#0e1110');
+        });
+      }
+    })();
+  </script>
   <script src="assets/player.js?v=20260913" defer></script>
   <script src="/assets/track.js?v=20261120" defer></script>
   <script src="/assets/promo.js?v=2026112302" defer></script>
+  <script>
+  (function () {
+    // Scripted demo dialogues on synthetic data; nothing is sent anywhere.
+    var D = [
+      { q: 'Что вчера пошло не так?', voice: true, steps: [
+        ['a', 'Прибыль за вчера — <b>38 200 ₽, на −21%</b> ниже обычного вторника. Основная потеря — в двух товарах:'],
+        ['t', ['Товар', 'Причина', 'Прибыль'], [['Плед флисовый 220', 'ставка рекламы +40%', '−6 100 ₽'], ['Свитер вязаный 48', 'Ozon добавил в акцию', '−3 900 ₽']]],
+        ['c', 'Предлагаю задачу', 'Вернуть ставку по пледу к 18 ₽ · Алёна', 'Создать задачу']
+      ]},
+      { q: 'Мы зарабатываем в акциях Ozon?', steps: [
+        ['a', 'В акциях 9 товаров, 4 из них Ozon добавил сам. <b>3 товара в минусе</b> под скидкой:'],
+        ['t', ['Товар', 'Скидка', 'Маржа'], [['Футболка белая 48', '−20%', '−8%'], ['Плед зелёный 220', '−25%', '−15%'], ['Худи чёрное 50', '−18%', '−12%']]],
+        ['c', 'Предлагаю задачу', 'Убрать 3 товара из акций до пятницы · Алёна', 'Создать задачу']
+      ]},
+      { q: 'Что закончится в ближайшие две недели?', voice: true, steps: [
+        ['a', 'На 14 дней не хватит <b>5 товаров</b>. Самое срочное — Центр и Урал:'],
+        ['t', ['Товар', 'Кластер', 'Запас'], [['Свитер вязаный 48', 'Центр', '3 дня'], ['Плед флисовый 220', 'Урал', '6 дней'], ['Худи чёрное 50', 'Центр', '9 дней']]],
+        ['c', 'Предлагаю задачу', 'Поставка 340 шт. в Центр и Урал · Кирилл', 'Создать задачу']
+      ]},
+      { q: 'Что будет с прибылью, если поднять цену на плед на 10%?', steps: [
+        ['a', 'При тех же заказах прибыль с пледа вырастет <b>с 412 до 598 ₽</b> за штуку. Часть прибавки заберут комиссия (+64 ₽) и реклама (+21 ₽).'],
+        ['c', 'Гипотеза — проверим на фактах', 'Цена пледа +10% → прибыль +45% за месяц', 'Записать гипотезу', 'Поставить задачу'],
+        ['v', '<i>проверка</i> Ассистент сравнит прогноз с фактом и пришлёт итог']
+      ]},
+      { q: 'Сегодня поменяла главное фото у свитера', voice: true, steps: [
+        ['a', 'Записываю в журнал событий — <b>через неделю будет видно</b>, что изменилось.'],
+        ['c', 'Заметка в журнал событий', 'Новое главное фото · Свитер вязаный 48 · сегодня', 'Записать'],
+        ['v', '<i>до / после</i> конверсия карточки до изменения — 3,1%']
+      ]}
+    ];
+    var MIC = '<svg class="ic ic--sm ic--mut" viewBox="0 0 24 24" aria-hidden="true"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3"/></svg>';
+    var body = document.getElementById('winBody'), inp = document.getElementById('winInput'), dotsBox = document.getElementById('winDots');
+    if (!body || !inp || !dotsBox) return;
+    var reduced = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var timers = [], cur = 0, auto = true;
+    function later(fn, ms) { timers.push(setTimeout(fn, ms)); }
+    function clear() { timers.forEach(clearTimeout); timers = []; }
+    function el(h) { var d = document.createElement('div'); d.innerHTML = h; return d.firstChild; }
+    function step(s) {
+      if (s[0] === 'a') return el('<div class="m-a">' + s[1] + '</div>');
+      if (s[0] === 't') return el('<table class="m-t"><tr>' + s[1].map(function (h) { return '<th>' + h + '</th>'; }).join('') + '</tr>' + s[2].map(function (r) { return '<tr><td>' + r[0] + '</td><td>' + r[1] + '</td><td class="neg">' + r[2] + '</td></tr>'; }).join('') + '</table>');
+      if (s[0] === 'c') return el('<div class="m-c"><div class="lbl">' + s[1] + '</div><div style="margin-top:3px">' + s[2] + '</div><span class="lbtn">' + s[3] + '</span>' + (s[4] ? '<span class="lbtn lbtn--2">' + s[4] + '</span>' : '') + '</div>');
+      return el('<div class="m-v">' + s[1] + '</div>');
+    }
+    var dots = D.map(function (d, k) {
+      var b = document.createElement('button');
+      b.type = 'button'; b.setAttribute('role', 'tab'); b.setAttribute('aria-label', d.q);
+      b.addEventListener('click', function () { auto = false; play(k); });
+      dotsBox.appendChild(b); return b;
+    });
+    function show(d) {
+      inp.classList.remove('is-typing'); inp.textContent = 'Спросите голосом или текстом…';
+      body.appendChild(el('<div class="m-q">' + (d.voice ? '<div class="v">' + MIC + 'голосом</div>' : '') + d.q + '</div>'));
+      d.steps.forEach(function (s, k) { later(function () { body.appendChild(step(s)); }, reduced ? 0 : 600 + k * 800); });
+      if (auto) later(function () { play((cur + 1) % D.length); }, 600 + d.steps.length * 800 + 5000);
+    }
+    function play(i) {
+      clear(); cur = i; body.innerHTML = '';
+      dots.forEach(function (b, k) { b.classList.toggle('is-on', k === i); b.setAttribute('aria-selected', k === i ? 'true' : 'false'); });
+      var d = D[i];
+      if (reduced) { show(d); return; }
+      var n = 0; inp.classList.add('is-typing'); inp.textContent = '';
+      (function type() {
+        if (n <= d.q.length) { inp.textContent = d.q.slice(0, n++); later(type, 26); return; }
+        later(function () { show(d); }, 300);
+      })();
+    }
+    play(0);
+  })();
+  </script>
 </body>
 </html>
