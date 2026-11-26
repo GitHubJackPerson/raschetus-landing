@@ -115,7 +115,7 @@ def head(title, desc, url, og_title, og_desc, image, ld, extra_css, keywords, og
 
   <link rel="preload" href="/assets/fonts/geist-cyrillic.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="/assets/fonts/geist-latin.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="/assets/styles.css?v=20260906">
+  <link rel="stylesheet" href="/assets/styles.css?v=20261123">
 
   <script type="application/ld+json">
 {json.dumps(ld, ensure_ascii=False, indent=2)}
@@ -279,7 +279,7 @@ def build_article(a, arts, header, footer, tail):
     <aside class="try" aria-label="Посчитать на своих данных">
       <div class="try__h">Посчитать на своих данных</div>
       <p>{a['cta_text']}</p>
-      <p>5&nbsp;дней полного доступа без привязки карты: подключите магазин Ozon по ключу Seller API — отчёты соберутся из ваших продаж.</p>
+      <p>Подключите магазин Ozon или Wildberries — 5&nbsp;дней бесплатно.</p>
       <div class="try__cta">
         <a href="{REGISTER}{a['slug']}" class="btn btn--lime btn--lg" data-cta="connect">Попробовать 5 дней бесплатно</a>
         <a href="{land['href']}" class="hero__link" data-cta="landing">{html.escape(land['label'])}&nbsp;→</a>
@@ -369,7 +369,7 @@ def build_list(arts, minutes, header, footer, tail):
     </div>
     <div class="try" aria-label="Посчитать на своих данных">
       <div class="try__h">Посчитать на своих данных</div>
-      <p>Расчётус собирает поставки, акции, рекламу и прибыль по каждому товару из кабинета Ozon. 5&nbsp;дней полного доступа без привязки карты.</p>
+      <p>Расчётус собирает поставки, акции, рекламу и прибыль по каждому товару из кабинета Ozon. 5&nbsp;дней бесплатно.</p>
       <div class="try__cta">
         <a href="{REGISTER}stati" class="btn btn--lime btn--lg" data-cta="connect">Попробовать 5 дней бесплатно</a>
         <a href="/docs/" class="hero__link" target="_blank" rel="noopener">База знаний →</a>
