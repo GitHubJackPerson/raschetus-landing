@@ -25,6 +25,8 @@ MONTHS = ["января", "февраля", "марта", "апреля", "ма�
 def chrome():
     page = (ROOT / "postavki" / "index.html").read_text(encoding="utf-8")
     header = re.search(r'<header class="day-strip">.*?</header>', page, re.S).group(0)
+    # The header button carries the source page's tags; each article page sets its own campaign.
+    header = re.sub(r'utm_campaign=[\w-]+', 'utm_campaign={campaign}', header)
     footer = re.search(r'<footer class="footer">.*?</footer>', page, re.S).group(0)
     tail = page[page.index("</footer>") + len("</footer>"):page.index("</body>")]
     # The section link sits next to the knowledge base in the "Компания" column.
@@ -197,6 +199,7 @@ def faq_block(faq):
 
 
 def build_article(a, arts, header, footer, tail):
+    header = header.replace("{campaign}", a["slug"])
     url = f"{SITE}/stati/{a['slug']}/"
     body, toc = add_ids(a["body"])
     n_words = words(body) + words(a["lead"]) + sum(words(q) + words(x) for q, x in a.get("faq", []))
@@ -316,6 +319,7 @@ LIST = {
 
 
 def build_list(arts, minutes, header, footer, tail):
+    header = header.replace("{campaign}", "stati")
     url = f"{SITE}/stati/"
     ld = {
         "@context": "https://schema.org",

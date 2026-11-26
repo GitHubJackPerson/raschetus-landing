@@ -3,12 +3,12 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Планирование поставок на Ozon по кластерам: расчёт</title>
-  <meta name="description" content="Как планировать поставки на Ozon по кластерам: спрос по региону покупателя, потребность каждого кластера, деление ограниченной партии и пример расчёта.">
+  <title>Как распределить поставку Ozon по кластерам: расчёт</title>
+  <meta name="description" content="Как распределить поставку Ozon по кластерам: спрос по региону покупателя, потребность каждого кластера, деление ограниченной партии и пример расчёта.">
   <meta name="theme-color" content="#0e1110">
   <meta name="color-scheme" content="dark light">
   <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
-  <meta name="keywords" content="планирование поставок Ozon, поставки по кластерам, кластеры Ozon, локальные продажи Ozon, сколько везти в кластер, распределение поставки по складам">
+  <meta name="keywords" content="распределение поставки по кластерам Ozon, поставки по кластерам, кластеры Ozon, локальные продажи Ozon, сколько везти в кластер, распределение поставки по складам">
   <meta name="author" content="Расчётус">
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
   <link rel="apple-touch-icon" href="/assets/img/badge.svg">
@@ -17,16 +17,16 @@
 
   <meta property="og:type" content="article">
   <meta property="og:site_name" content="Расчётус">
-  <meta property="og:title" content="Планирование поставок на Ozon по кластерам: как делить партию">
-  <meta property="og:description" content="Как планировать поставки на Ozon по кластерам: спрос по региону покупателя, потребность каждого кластера, деление ограниченной партии и пример расчёта.">
+  <meta property="og:title" content="Как распределить поставку Ozon по кластерам и делить партию">
+  <meta property="og:description" content="Как распределить поставку Ozon по кластерам: спрос по региону покупателя, потребность каждого кластера, деление ограниченной партии и пример расчёта.">
   <meta property="og:url" content="https://raschetus.ru/stati/planirovanie-postavok-ozon-po-klasteram/">
   <meta property="og:locale" content="ru_RU">
   <meta property="og:image" content="https://raschetus.ru/assets/img/og/postavki.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Планирование поставок на Ozon по кластерам: как делить партию">
-  <meta name="twitter:description" content="Как планировать поставки на Ozon по кластерам: спрос по региону покупателя, потребность каждого кластера, деление ограниченной партии и пример расчёта.">
+  <meta name="twitter:title" content="Как распределить поставку Ozon по кластерам и делить партию">
+  <meta name="twitter:description" content="Как распределить поставку Ozon по кластерам: спрос по региону покупателя, потребность каждого кластера, деление ограниченной партии и пример расчёта.">
   <meta name="twitter:image" content="https://raschetus.ru/assets/img/og/postavki.png">
 
   <script>
@@ -44,17 +44,17 @@
     {
       "@type": "Article",
       "@id": "https://raschetus.ru/stati/planirovanie-postavok-ozon-po-klasteram/#article",
-      "headline": "Планирование поставок на Ozon по кластерам",
-      "description": "Как планировать поставки на Ozon по кластерам: спрос по региону покупателя, потребность каждого кластера, деление ограниченной партии и пример расчёта.",
+      "headline": "Как распределить поставку Ozon по кластерам",
+      "description": "Как распределить поставку Ozon по кластерам: спрос по региону покупателя, потребность каждого кластера, деление ограниченной партии и пример расчёта.",
       "url": "https://raschetus.ru/stati/planirovanie-postavok-ozon-po-klasteram/",
       "mainEntityOfPage": "https://raschetus.ru/stati/planirovanie-postavok-ozon-po-klasteram/",
       "inLanguage": "ru-RU",
       "datePublished": "2026-11-21",
       "dateModified": "2026-11-26",
       "image": "https://raschetus.ru/assets/img/og/postavki.png",
-      "wordCount": 1960,
+      "wordCount": 1971,
       "articleSection": "Статьи",
-      "keywords": "планирование поставок Ozon, поставки по кластерам, кластеры Ozon, локальные продажи Ozon, сколько везти в кластер, распределение поставки по складам",
+      "keywords": "распределение поставки по кластерам Ozon, поставки по кластерам, кластеры Ozon, локальные продажи Ozon, сколько везти в кластер, распределение поставки по складам",
       "author": {
         "@type": "Organization",
         "name": "Расчётус",
@@ -109,10 +109,10 @@
         },
         {
           "@type": "Question",
-          "name": "Стоит ли везти 2–3 штуки в дальний кластер?",
+          "name": "Как делить партию, если товара мало, а кластеров много?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Чаще нет. Мелкая отгрузка в отдельный кластер требует отдельного места в поставке и слота приёмки, а продаются эти штуки долго. Удобнее задать минимум на одну отгрузку: если потребность кластера меньше, товар туда не едет, а заказы из региона закрывает соседний склад."
+            "text": "Не поровну, а по доле кластера в продажах и по тому, где товар закончится раньше. Сначала закрывают кластеры с самым коротким запасом и заметной долей заказов, остаток — в следующие по важности. Мелкие кластеры с долей в пару процентов часто разумнее оставить соседнему складу: отдельная маленькая отгрузка обходится дороже, чем пара дней доставки."
           }
         },
         {
@@ -209,7 +209,7 @@
       <div class="day-strip__spacer" aria-hidden="true"></div>
 
       <button type="button" class="theme-toggle" id="themeToggle" aria-label="Сменить тему" title="Сменить тему">◐</button>
-      <a href="https://mp.raschetus.ru/register" class="btn btn--sm btn--lime" data-cta="connect">Подключить</a>
+      <a href="https://mp.raschetus.ru/register?utm_source=site&amp;utm_medium=header&amp;utm_campaign=planirovanie-postavok-ozon-po-klasteram" class="btn btn--sm btn--lime" data-cta="connect">Подключить</a>
     </div>
   </header>
 
@@ -219,9 +219,9 @@
     </nav>
 
     <article>
-      <h1 class="art__h1">Планирование поставок на Ozon по кластерам</h1>
+      <h1 class="art__h1">Как распределить поставку Ozon по кластерам</h1>
       <p class="art__meta"><time datetime="2026-11-21">21 ноября 2026</time> · 11 мин чтения</p>
-      <p class="art__lead"><strong>Планирование поставок на Ozon по кластерам</strong> — это расчёт, сколько штук каждого товара везти в каждый регион, а не в магазин в целом. Разбираем, почему это важно для денег и скорости доставки, как считать спрос по кластеру, что делать, когда товара не хватает на все регионы, и почему после этой осени держать весь запас в одном месте стало рискованнее.</p>
+      <p class="art__lead"><strong>Распределить поставку Ozon по кластерам</strong> — значит решить, сколько штук каждого товара везти в каждый регион, а не в магазин в целом. Разбираем, почему это важно для денег и скорости доставки, как считать спрос по кластеру, что делать, когда товара не хватает на все регионы, и почему после этой осени держать весь запас в одном месте стало рискованнее.</p>
 
       <nav class="toc" aria-label="Содержание">
         <div class="toc__h">Содержание</div>
@@ -372,8 +372,8 @@
           <p>Сначала — не терять эту потребность из вида: держите её в расчёте отдельной строкой, чтобы, когда ограничение снимут, сразу знать, сколько везти. Пока кластер закрыт, есть три пути: кросс-докинг, если Ozon предлагает его для этого направления, временно больший запас в соседнем кластере или FBS со своего склада для покупателей этого региона.</p>
         </details>
         <details class="faq">
-          <summary>Стоит ли везти 2–3 штуки в дальний кластер?</summary>
-          <p>Чаще нет. Мелкая отгрузка в отдельный кластер требует отдельного места в поставке и слота приёмки, а продаются эти штуки долго. Удобнее задать минимум на одну отгрузку: если потребность кластера меньше, товар туда не едет, а заказы из региона закрывает соседний склад.</p>
+          <summary>Как делить партию, если товара мало, а кластеров много?</summary>
+          <p>Не поровну, а по доле кластера в продажах и по тому, где товар закончится раньше. Сначала закрывают кластеры с самым коротким запасом и заметной долей заказов, остаток — в следующие по важности. Мелкие кластеры с долей в пару процентов часто разумнее оставить соседнему складу: отдельная маленькая отгрузка обходится дороже, чем пара дней доставки.</p>
         </details>
         <details class="faq">
           <summary>Можно ли держать весь запас товара в одном кластере?</summary>
